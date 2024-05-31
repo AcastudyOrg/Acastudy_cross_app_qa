@@ -1,25 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, Text, View } from "react-native";
+
+import { COLORS } from "./src/constants";
+import useFonts from "./src/hooks/useFonts";
+import LoadingComponent from "./src/components/common/LoadingComponent";
 
 export default function App() {
+  const fontsLoaded = useFonts();
+
+  if (!fontsLoaded) {
+    <LoadingComponent />;
+  }
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Acastudy!</Text>
-      <StatusBar style="auto" />
+    <View style={styles.mainAppContainer}>
+      <StatusBar style="light" />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  mainAppContainer: {
     flex: 1,
-    backgroundColor: '#eee',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    color: 'rgb(230, 120, 255)'
+    backgroundColor: COLORS.black,
   },
 });
