@@ -3,14 +3,16 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 //screens
 import {
-  ForgotPasswordScreen,
   OnboardingScreen,
+  PrivacyPolicyScreen,
+  TermsOfUseScreen,
   PasswordScreen,
   SignInScreen,
   SignUpScreen,
   VerifyEmailScreen,
-  WelcomeScreen,
+  ForgotPasswordScreen,
   SetNewForgotPasswordScreen,
+  WelcomeScreen,
 } from "../screens";
 
 const Stack = createNativeStackNavigator();
@@ -28,6 +30,11 @@ const AppMainNavigation = () => {
           component={ForgotPasswordScreen}
         />
         <Stack.Screen name="OnboardingScreen" component={OnboardingScreen} />
+        <Stack.Screen
+          name="PrivacyPolicyScreen"
+          component={PrivacyPolicyScreen}
+        />
+        <Stack.Screen name="TermsOfUseScreen" component={TermsOfUseScreen} />
         <Stack.Screen name="SignInScreen" component={SignInScreen} />
         <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
         <Stack.Screen

@@ -35,7 +35,7 @@ export default function App() {
 
   return (
     <View style={styles.mainAppContainer}>
-      <StatusBar style="light" />
+      <StatusBar style="auto" />
       <AppMainNavigation />
     </View>
   );

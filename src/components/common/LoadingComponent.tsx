@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     paddingHorizontal: 25,
+    backgroundColor: COLORS.black,
   },
   loaderImageItem: {
     width: 200,

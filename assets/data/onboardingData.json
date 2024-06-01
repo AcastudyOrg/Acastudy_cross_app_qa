@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "picture": "https://cdni.iconscout.com/illustration/premium/thumb/boy-doing-online-study-6557365-5443834.png",
+    "title": "Welcome to AcaStudy",
+    "description": "Discover a world of knowledge at your fingertips. With AcaStudy, you can access courses on any topic, anytime, anywhere. Let's embark on a learning journey together!"
+  },
+  {
+    "id": 2,
+    "picture": "https://cdni.iconscout.com/illustration/premium/thumb/online-group-study-4373387-3626456.png?f=webp",
+    "title": "Explore Diverse Courses",
+    "description": "From programming to photography, cooking to marketing, AcaStudy offers a wide range of courses taught by industry experts. Whatever your interest, we've got you covered."
+  },
+  {
+    "id": 3,
+    "picture": "https://lh6.googleusercontent.com/proxy/59yNq4pIePBuiSb4CSsAJ68BdzLfNr_SfiT_ldfkgMwviBq2J3RsCob11M8UDLsR3pGLIdO3dQGdNa7ELgNWzcY1jv0sFWJfeH0CbI8nqKoB0h1zFpW4u4i0J4lzhfbn5jBZpyVdiNMvXNznX-dv7gLarvJbDQ",
+    "title": "Connect with Mentors",
+    "description": "Learn from the best. Connect with mentors who are passionate about teaching and can provide you with the guidance and support you need to succeed in your learning journey."
+  },
+  {
+    "id": 4,
+    "picture": "https://cdni.iconscout.com/illustration/premium/thumb/easy-online-learning-1946855-1648374.png",
+    "title": "Get Started Today",
+    "description": "Ready to start learning? Sign up today and gain unlimited access to all our courses. Your path to knowledge and new skills begins here with AcaStudy."
+  }
+]
