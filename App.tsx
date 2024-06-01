@@ -18,11 +18,11 @@ export default function App() {
     async function prepare() {
       try {
         if (fontsLoaded) {
-          await SplashScreen.hideAsync();
           setAppIsReady(true);
+          await SplashScreen.hideAsync();
         }
       } catch (e) {
-        console.warn(e);
+        console.warn("Error loading fonts: ", e);
       }
     }
 

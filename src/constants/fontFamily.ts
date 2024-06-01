@@ -1,8 +1,7 @@
 import { FontFamilyProps } from "../types/typography";
 
-const  interBold = "Inter_700Bold";
 const interRegular = "Inter_400Regular";
-
+const interBold = "Inter_700Bold";
 
 const fontFamily: FontFamilyProps = {
     interRegular,

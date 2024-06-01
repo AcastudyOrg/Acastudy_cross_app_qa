@@ -1,5 +1,4 @@
 import { Image, StyleSheet, Text, View } from "react-native";
-
 import { COLORS, FONT, IMAGES, SIZE, WEIGHT } from "../../constants";
 
 const LoadingComponent = () => {
