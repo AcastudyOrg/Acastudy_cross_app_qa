@@ -18,7 +18,10 @@ const Stack = createNativeStackNavigator();
 const AppMainNavigation = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="OnboardingScreen">
+      <Stack.Navigator
+        initialRouteName="OnboardingScreen"
+        screenOptions={{ headerShown: false }}
+      >
         {/* Public Route Screens */}
         <Stack.Screen
           name="ForgotPasswordScreen"
@@ -28,7 +31,7 @@ const AppMainNavigation = () => {
         <Stack.Screen name="SignInScreen" component={SignInScreen} />
         <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
         <Stack.Screen
-          name="PasswordScreen"
+          name="SetNewForgotPasswordScreen"
           component={SetNewForgotPasswordScreen}
         />
         <Stack.Screen name="PasswordScreen" component={PasswordScreen} />

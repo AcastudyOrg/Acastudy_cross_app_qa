@@ -1,20 +1,42 @@
+import React, { useState, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import * as SplashScreen from "expo-splash-screen";
 
 import { COLORS } from "./src/constants";
 import useFonts from "./src/hooks/useFonts";
+import AppMainNavigation from "./src/navigation";
 import LoadingComponent from "./src/components/common/LoadingComponent";
 
+SplashScreen.preventAutoHideAsync();
+
 export default function App() {
+  const [appIsReady, setAppIsReady] = useState(false);
   const fontsLoaded = useFonts();
 
-  if (!fontsLoaded) {
-    <LoadingComponent />;
+  useEffect(() => {
+    async function prepare() {
+      try {
+        if (fontsLoaded) {
+          await SplashScreen.hideAsync();
+          setAppIsReady(true);
+        }
+      } catch (e) {
+        console.warn(e);
+      }
+    }
+
+    prepare();
+  }, [fontsLoaded]);
+
+  if (!appIsReady) {
+    return <LoadingComponent />;
   }
 
   return (
     <View style={styles.mainAppContainer}>
       <StatusBar style="light" />
+      <AppMainNavigation />
     </View>
   );
 }
