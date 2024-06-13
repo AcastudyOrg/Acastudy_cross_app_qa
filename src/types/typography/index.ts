@@ -3,19 +3,19 @@ export interface ColorProps {
   white: string;
   black: string;
   gray: string;
+  lightGray: string;
   red: string;
   green: string;
   blue: string;
-  navy: string;
-  maroon: string;
+  darkBlue: string;
+  indigo: string;
   yellow: string;
   olive: string;
   tan: string;
-  ivory: string;
-  beige: string;
-  cyan: string;
+  hotPink: string;
   purple: string;
   orange: string;
+  transparent: string;
 }
 
 export interface SizeProps {

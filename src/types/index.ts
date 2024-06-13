@@ -12,6 +12,22 @@ export interface ButtonProps {
   onPress: () => void;
   icon?: string | JSX.Element;
 }
+export interface SocialAuthButtonProps {
+  text?: string;
+  iconName: string;
+  iconLibrary: "AntDesign" | "Entypo";
+  onPress: () => void;
+  size: number;
+  color: string;
+}
+export interface TextInputProps {
+  type: "password" | "tel" | "text" | "email";
+  onChange: (text: string) => void;
+  value: string;
+  label: string;
+  placeholder?: string;
+  isTextArea?: boolean;
+}
 
 // Define a type for Response Component
 export interface QueryResponse {

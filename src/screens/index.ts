@@ -12,7 +12,7 @@ import ForgotPasswordScreen from "./public/ForgotPasswordScreen";
 import SetNewForgotPasswordScreen from "./public/SetNewForgotPasswordScreen";
 
 {
-  /* Public Route Screens */
+  /* Private Route Screens */
 }
 import WelcomeScreen from "./private/WelcomeScreen";
 

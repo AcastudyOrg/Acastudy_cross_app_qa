@@ -1,6 +1,9 @@
+import { ImageSourcePropType } from "react-native";
+
 export interface ImageProps {
-    success: string;
-    error: string;
-    loader: string;
-  }
+  authBackgroundImage: ImageSourcePropType;
+  success: ImageSourcePropType;
+  error: ImageSourcePropType;
+  loader: ImageSourcePropType;
+}
   

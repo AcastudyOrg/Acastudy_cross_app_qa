@@ -7,7 +7,7 @@ import { Entypo } from "@expo/vector-icons";
 import onboardingData from "../../../assets/data/onboardingData.json";
 import { OnboardingItemProps } from "../../types";
 import { COLORS, SIZE, WEIGHT } from "../../constants";
-import ButtonComponent from "../../components/common/Form/ButtonComponent";
+import { ButtonComponent } from "../../components";
 
 const { width, height } = Dimensions.get("window");
 

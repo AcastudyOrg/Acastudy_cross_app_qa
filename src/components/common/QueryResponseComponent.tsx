@@ -8,7 +8,7 @@ const QueryResponseComponent = ({ title, message, success }: QueryResponse) => {
   return (
     <View style={styles.container}>
       <Image
-        src={success ? IMAGES.success : IMAGES.error}
+        source={success ? IMAGES.success : IMAGES.error}
         style={styles.responseImageItem}
       />
 
