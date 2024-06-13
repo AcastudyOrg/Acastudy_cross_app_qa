@@ -47,7 +47,9 @@ const TextInputComponent = ({
       isValidInput = validateName(inputValue);
       error = isValidInput
         ? ""
-        : "Name must be 2-20 characters long and contain no numbers.";
+        : inputValue.trim().length > 0
+        ? `${label} must be 2-20 characters long and contain no numbers.`
+        : `Oops! This field is required.`;
     } else if (type === "email") {
       isValidInput = validateEmail(inputValue);
       error = isValidInput ? "" : "Please enter a valid email address.";
