@@ -64,6 +64,10 @@ video leasons, and manage their accounts seamlessly.
    ```sh
    npm run web
    ```
+6. Run on all platforms:
+   ```sh
+   npx expo start
+   ```
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
