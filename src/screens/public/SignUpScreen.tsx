@@ -24,12 +24,18 @@ const SignUpScreen = () => {
   const [lastName, setLastName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
 
-  const handleSubmit = (formData: any) => {
+  const handleSubmit = () => {
     const data = {
-      ...formData,
+      firstName,
+      lastName,
+      email,
     };
 
     console.log("Submitted data: ", data);
+
+    setFirstName("");
+    setLastName("");
+    setEmail("");
   };
 
   return (
@@ -50,7 +56,7 @@ const SignUpScreen = () => {
             <View style={styles.signUpComponentContainer}>
               <TextInputComponent
                 value={firstName}
-                onChange={() => setFirstName(firstName)}
+                onChange={(text) => setFirstName(text)}
                 label="First name"
                 type="text"
                 placeholder="John"
@@ -60,7 +66,7 @@ const SignUpScreen = () => {
             <View style={styles.signUpComponentContainer}>
               <TextInputComponent
                 value={lastName}
-                onChange={() => setLastName(lastName)}
+                onChange={(text) => setLastName(text)}
                 label="Last name"
                 type="text"
                 placeholder="Doe"
@@ -70,7 +76,7 @@ const SignUpScreen = () => {
             <View style={styles.signUpComponentContainer}>
               <TextInputComponent
                 value={email}
-                onChange={() => setEmail(email)}
+                onChange={(text) => setEmail(text)}
                 label="Email address"
                 type="email"
                 placeholder="example@company.com"
@@ -81,7 +87,7 @@ const SignUpScreen = () => {
 
         {/* Submit Button Section */}
         <View style={styles.signUpSubmitButtonContainer}>
-          <ButtonComponent onPress={() => handleSubmit} text="Sign up" />
+          <ButtonComponent onPress={handleSubmit} text="Sign up" />
 
           <View style={styles.signUpQuestionContainer}>
             <Text style={styles.signUpQuestionMainText}>

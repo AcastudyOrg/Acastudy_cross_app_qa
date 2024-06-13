@@ -22,12 +22,16 @@ const SignInScreen = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
-  const handleSubmit = (formData: any) => {
+  const handleSubmit = () => {
     const data = {
-      ...formData,
+      email,
+      password,
     };
 
     console.log("Submitted data: ", data);
+
+    setEmail("");
+    setPassword("")
   };
 
   return (
@@ -48,7 +52,7 @@ const SignInScreen = () => {
             <View style={styles.signInComponentContainer}>
               <TextInputComponent
                 value={email}
-                onChange={() => setEmail(email)}
+                onChange={(text) => setEmail(text)}
                 label="Email"
                 type="email"
                 placeholder="example@company.com"
@@ -58,7 +62,7 @@ const SignInScreen = () => {
             <View style={styles.signInComponentContainer}>
               <TextInputComponent
                 value={password}
-                onChange={() => setPassword(password)}
+                onChange={(text) => setPassword(text)}
                 label="Password"
                 type="password"
                 placeholder="*********"
@@ -69,7 +73,7 @@ const SignInScreen = () => {
 
         {/* Submit Button Section */}
         <View style={styles.signInSubmitButtonContainer}>
-          <ButtonComponent onPress={() => handleSubmit} text="Log in" />
+          <ButtonComponent onPress={handleSubmit} text="Log in" />
 
           {/* Navigate Section */}
           <View style={styles.signInQuestionContainer}>

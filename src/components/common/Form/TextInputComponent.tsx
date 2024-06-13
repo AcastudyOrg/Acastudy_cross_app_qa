@@ -102,6 +102,7 @@ const TextInputComponent = ({
               onBlur={handleBlur}
               onChangeText={handleChangeText}
               secureTextEntry={type === "password" && !isPasswordVisible}
+              autoCapitalize={type === "email" ? "none" : "sentences"}
               multiline={isTextArea}
               placeholder={placeholder}
               placeholderTextColor={COLORS.lightGray}
