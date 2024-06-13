@@ -1,25 +1,49 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState, useEffect } from "react";
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, View } from "react-native";
+import * as SplashScreen from "expo-splash-screen";
+
+import { COLORS } from "./src/constants";
+import useFonts from "./src/hooks/useFonts";
+import AppMainNavigation from "./src/navigation";
+import { LoadingComponent } from "./src/components/";
+
+SplashScreen.preventAutoHideAsync();
 
 export default function App() {
+  const [appIsReady, setAppIsReady] = useState(false);
+  const fontsLoaded = useFonts();
+
+  useEffect(() => {
+    async function prepare() {
+      try {
+        if (fontsLoaded) {
+          setAppIsReady(true);
+          await SplashScreen.hideAsync();
+        }
+      } catch (e) {
+        console.warn("Error loading fonts: ", e);
+      }
+    }
+
+    prepare();
+  }, [fontsLoaded]);
+
+  if (!appIsReady) {
+    return <LoadingComponent />;
+  }
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Acastudy!</Text>
-      <StatusBar style="auto" />
+    <View style={styles.mainAppContainer}>
+      <StatusBar style="light" />
+      <AppMainNavigation />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  mainAppContainer: {
     flex: 1,
-    backgroundColor: '#eee',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    color: 'rgb(230, 120, 255)'
+    backgroundColor: COLORS.black,
   },
 });
