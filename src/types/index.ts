@@ -28,8 +28,13 @@ export interface TextInputProps {
   placeholder?: string;
   isTextArea?: boolean;
 }
-
-// Define a type for Response Component
+export interface ImagePickerComponentProps {
+  onImagePicked: (uri: string) => void;
+}
+export interface TopNavigationProps {
+  companyLogo?: boolean;
+  authenticatedUser?: boolean;
+}
 export interface QueryResponse {
   title: string;
   message: string;
