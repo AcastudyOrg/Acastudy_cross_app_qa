@@ -128,9 +128,16 @@ const TextInputComponent = ({
                 color={COLORS.red}
               />
             )}
-            {isValid && !isFocused && inputValue.trim().length > 0 && (
-              <FontAwesome name="check-circle" size={18} color={COLORS.green} />
-            )}
+            {isValid &&
+              !isFocused &&
+              inputValue.trim().length > 0 &&
+              type !== "password" && (
+                <FontAwesome
+                  name="check-circle"
+                  size={18}
+                  color={COLORS.green}
+                />
+              )}
           </View>
         </View>
         {!isValid && <Text style={styles.errorText}>{errorMessage}</Text>}
@@ -162,7 +169,7 @@ const styles = StyleSheet.create({
   },
   focusedBorder: {
     borderWidth: 2,
-    borderColor: COLORS.purple,
+    borderColor: COLORS.darkBlue,
   },
   normalBorder: {
     borderWidth: 2,

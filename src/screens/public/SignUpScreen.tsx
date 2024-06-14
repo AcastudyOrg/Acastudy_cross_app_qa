@@ -12,7 +12,9 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
+import { RootStackParamList } from "../../types/router/navigation";
 import { COLORS, FONT, IMAGES, SIZE } from "../../constants";
 import {
   TextInputComponent,
@@ -20,8 +22,13 @@ import {
   ButtonComponent,
 } from "../../components/";
 
+type SignUpScreenNavigationProp = NativeStackNavigationProp<
+  RootStackParamList,
+  "PasswordScreen"
+>;
+
 const SignUpScreen = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<SignUpScreenNavigationProp>();
 
   const [firstName, setFirstName] = useState<string>("");
   const [lastName, setLastName] = useState<string>("");
@@ -46,7 +53,7 @@ const SignUpScreen = () => {
       email,
     };
 
-    console.log("Submitted data: ", data);
+    navigation.navigate("PasswordScreen", { data });
 
     setFirstName("");
     setLastName("");
@@ -74,7 +81,7 @@ const SignUpScreen = () => {
               onChange={(text) => setFirstName(text)}
               label="First name"
               type="text"
-              placeholder="John"
+              placeholder="Example"
             />
             {!!firstNameError && (
               <Text style={styles.signUpErrorTextMessage}>
@@ -89,7 +96,7 @@ const SignUpScreen = () => {
               onChange={(text) => setLastName(text)}
               label="Last name"
               type="text"
-              placeholder="Doe"
+              placeholder="Example"
             />
             {!!lastNameError && (
               <Text style={styles.signUpErrorTextMessage}>{lastNameError}</Text>
@@ -116,7 +123,7 @@ const SignUpScreen = () => {
   function renderSubmitButtonSection() {
     return (
       <View style={styles.signUpSubmitButtonContainer}>
-        <ButtonComponent onPress={handleSubmit} text="Sign up" />
+        <ButtonComponent onPress={handleSubmit} text="Continue" />
 
         <View style={styles.signUpQuestionContainer}>
           <Text style={styles.signUpQuestionMainText}>

@@ -95,7 +95,7 @@ const SignInScreen = () => {
               }}
               label="Password"
               type="password"
-              placeholder="*********"
+              placeholder="••••••••"
             />
             {!!passwordError && (
               <Text style={styles.signInErrorTextMessage}>{passwordError}</Text>
@@ -219,6 +219,7 @@ const styles = StyleSheet.create({
   },
   signInScrollingContainer: {
     flexGrow: 1,
+    justifyContent: "center",
   },
   signInContainer: {
     padding: Platform.OS === "ios" ? 30 : 15,
@@ -227,11 +228,13 @@ const styles = StyleSheet.create({
     width: "100%",
     height: Platform.OS === "ios" ? 70 : 50,
     flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
   },
   signInTitleItem: {
     color: COLORS.white,
     fontFamily: FONT.interBold,
-    fontSize: SIZE.xxxl,
+    fontSize: SIZE.l,
   },
 
   //form input section
