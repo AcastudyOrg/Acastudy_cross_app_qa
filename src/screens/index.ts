@@ -9,6 +9,7 @@ import SignUpScreen from "./public/SignUpScreen";
 import PasswordScreen from "./public/PasswordScreen";
 import VerifyEmailScreen from "./public/VerifyEmailScreen";
 import ForgotPasswordScreen from "./public/ForgotPasswordScreen";
+import VerifyForgotEmailScreen from "./public/VerifyEmailScreen";
 import SetNewForgotPasswordScreen from "./public/SetNewForgotPasswordScreen";
 
 {
@@ -25,6 +26,7 @@ export {
   PasswordScreen,
   VerifyEmailScreen,
   ForgotPasswordScreen,
+  VerifyForgotEmailScreen,
   SetNewForgotPasswordScreen,
   WelcomeScreen,
 };
