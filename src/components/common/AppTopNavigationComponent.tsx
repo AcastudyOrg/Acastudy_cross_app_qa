@@ -7,6 +7,7 @@ import { TopNavigationProps } from "../../types";
 import { COLORS, IMAGES } from "../../constants";
 
 const AppTopNavigationComponent = ({
+  backNavigation,
   authenticatedUser,
   companyLogo,
 }: TopNavigationProps) => {
@@ -16,12 +17,14 @@ const AppTopNavigationComponent = ({
     <View style={styles.appNavigationMainContainer}>
       {/*Router section*/}
       <View style={styles.appNavigatorRouterContainer}>
-        <TouchableOpacity
-          onPress={() => navigation.goBack()}
-          style={styles.appNavigatorRouterContent}
-        >
-          <Ionicons name="arrow-back-circle" size={28} color={COLORS.white} />
-        </TouchableOpacity>
+        {backNavigation && (
+          <TouchableOpacity
+            onPress={() => navigation.goBack()}
+            style={styles.appNavigatorRouterContent}
+          >
+            <Ionicons name="arrow-back-circle" size={28} color={COLORS.white} />
+          </TouchableOpacity>
+        )}
       </View>
 
       {/*App Logo section*/}
@@ -59,7 +62,7 @@ const styles = StyleSheet.create({
   appNavigatorRouterContent: {
     width: "100%",
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "flex-start",
     borderRadius: 10,
     overflow: "hidden",
   },

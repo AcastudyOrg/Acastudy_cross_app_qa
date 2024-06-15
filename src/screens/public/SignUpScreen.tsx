@@ -24,7 +24,7 @@ import {
 
 type SignUpScreenNavigationProp = NativeStackNavigationProp<
   RootStackParamList,
-  "PasswordScreen"
+  "VerifyEmailScreen"
 >;
 
 const SignUpScreen = () => {
@@ -53,7 +53,7 @@ const SignUpScreen = () => {
       email,
     };
 
-    navigation.navigate("PasswordScreen", { data });
+    navigation.navigate("VerifyEmailScreen", { data });
 
     setFirstName("");
     setLastName("");
