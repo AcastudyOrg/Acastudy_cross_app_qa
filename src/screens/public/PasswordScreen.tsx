@@ -11,7 +11,8 @@ import {
   TouchableWithoutFeedback,
   View,
 } from "react-native";
-import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 import {
   RootStackParamList,
@@ -25,8 +26,13 @@ import {
   ImagePickerComponent,
 } from "../../components/";
 
+type PasswordScreenNavigationProp = NativeStackNavigationProp<
+  RootStackParamList,
+  "WelcomeScreen"
+>;
+
 const PasswordScreen = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<PasswordScreenNavigationProp>();
 
   const route = useRoute<PasswordScreenRouteProp>();
   const prevData = route.params.data;
@@ -66,15 +72,14 @@ const PasswordScreen = () => {
 
     const data = {
       ...prevData,
-      selectedImage: selectedImage || IMAGES.userPlaceholder,
+      selectedImage: selectedImage || IMAGES.userPlaceholder.toString(),
       username,
       password,
-      confirmPassword,
     };
 
-    console.log("previous data", { data });
+    navigation.navigate("WelcomeScreen", { data });
 
-    setSelectedImage("");
+    setSelectedImage(null);
     setUsername("");
     setPassword("");
     setConfirmPassword("");
@@ -83,7 +88,11 @@ const PasswordScreen = () => {
   function renderNavigationSection() {
     return (
       <View style={styles.passwordNavigatorContainer}>
-        <AppTopNavigationComponent authenticatedUser={false} />
+        <AppTopNavigationComponent
+          backNavigation={true}
+          authenticatedUser={false}
+          companyLogo={true}
+        />
       </View>
     );
   }

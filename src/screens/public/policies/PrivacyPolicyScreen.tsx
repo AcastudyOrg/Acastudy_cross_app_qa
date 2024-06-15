@@ -43,7 +43,7 @@ const PrivacyPolicyScreen = () => {
   function renderScreenTopSection() {
     return (
       <View style={styles.privacyNavigatorContainer}>
-        <AppTopNavigationComponent companyLogo={true} />
+        <AppTopNavigationComponent backNavigation={true} companyLogo={true} />
       </View>
     );
   }
