@@ -19,18 +19,18 @@ import { COLORS, FONT, IMAGES, SIZE } from "../../constants";
 import { ButtonComponent, AppTopNavigationComponent } from "../../components/";
 import {
   RootStackParamList,
-  VerifyEmailScreenRouteProp,
+  VerifyForgotEmailScreenRouteProp,
 } from "../../types/router/navigation";
 
-type VerifyEmailScreenNavigationProp = NativeStackNavigationProp<
+type VerifyForgotEmailScreenNavigationProp = NativeStackNavigationProp<
   RootStackParamList,
-  "PasswordScreen"
+  "SetNewForgotPasswordScreen"
 >;
 
-const VerifyEmailScreen = () => {
-  const navigation = useNavigation<VerifyEmailScreenNavigationProp>();
+const VerifyForgotEmailScreen = () => {
+  const navigation = useNavigation<VerifyForgotEmailScreenNavigationProp>();
 
-  const route = useRoute<VerifyEmailScreenRouteProp>();
+  const route = useRoute<VerifyForgotEmailScreenRouteProp>();
   const prevData = route.params.data;
 
   const [otpCode, setOtpCode] = useState<string[]>(["", "", "", "", ""]);
@@ -96,8 +96,8 @@ const VerifyEmailScreen = () => {
       setIsVerifying(false);
       const code = otpCode.join("");
 
-      if (code === "12345") {
-        navigation.navigate("PasswordScreen", {
+      if (code === code) {
+        navigation.navigate("SetNewForgotPasswordScreen", {
           data: { ...prevData, otpCode: code },
         });
       } else {
@@ -124,7 +124,7 @@ const VerifyEmailScreen = () => {
   };
 
   const renderNavigationSection = () => (
-    <View style={styles.verifyNavigatorContainer}>
+    <View style={styles.verifyForgotNavigatorContainer}>
       <AppTopNavigationComponent
         backNavigation={true}
         authenticatedUser={false}
@@ -134,9 +134,9 @@ const VerifyEmailScreen = () => {
   );
 
   const renderTopTitleSection = () => (
-    <View style={styles.verifyTitleContainer}>
-      <Text style={styles.verifyTitleItem}>Code Verification</Text>
-      <Text style={styles.verifyInfoTextItem}>
+    <View style={styles.verifyForgotTitleContainer}>
+      <Text style={styles.verifyForgotTitleItem}>Code Verification</Text>
+      <Text style={styles.verifyForgotInfoTextItem}>
         Enter the code we've sent to{" "}
         <Text style={{ fontFamily: FONT.interBold }}>{prevData.email}</Text>
       </Text>
@@ -144,12 +144,12 @@ const VerifyEmailScreen = () => {
   );
 
   const renderOtpInputSection = () => (
-    <View style={styles.otpInputContainer}>
+    <View style={styles.otpForgotInputContainer}>
       {otpCode.map((digit, index) => (
         <TextInput
           key={index}
           ref={(ref) => (inputs.current[index] = ref)}
-          style={styles.otpInput}
+          style={styles.otpForgotInput}
           value={digit ? "*" : ""}
           onChangeText={(text) => handleChange(text, index)}
           keyboardType="number-pad"
@@ -160,7 +160,7 @@ const VerifyEmailScreen = () => {
   );
 
   const renderSubmitButtonSection = () => (
-    <View style={styles.submitButtonContainer}>
+    <View style={styles.submitForgotButtonContainer}>
       {secondsRemaining === 0 ? (
         <ButtonComponent onPress={handleCodeResend} text="Resend code" />
       ) : (
@@ -170,11 +170,11 @@ const VerifyEmailScreen = () => {
         />
       )}
       {otpCodeError ? (
-        <Text style={styles.errorText}>{otpCodeError}</Text>
+        <Text style={styles.errorForgotText}>{otpCodeError}</Text>
       ) : null}
-      <Text style={styles.expiryText}>{expiryMessage}</Text>
+      <Text style={styles.expiryForgotText}>{expiryMessage}</Text>
       {secondsRemaining > 0 && (
-        <Text style={styles.timerText}>
+        <Text style={styles.timerForgotText}>
           Resend code in: {formatTime(resendCoolDown)}
         </Text>
       )}
@@ -185,15 +185,17 @@ const VerifyEmailScreen = () => {
     <ImageBackground
       blurRadius={4}
       source={IMAGES.authBackgroundImage}
-      style={styles.verifyContentContainer}
+      style={styles.verifyForgotContentContainer}
     >
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
-        style={styles.verifyKeyboardContainer}
+        style={styles.verifyForgotKeyboardContainer}
       >
-        <ScrollView contentContainerStyle={styles.verifyScrollingContainer}>
+        <ScrollView
+          contentContainerStyle={styles.verifyForgotScrollingContainer}
+        >
           <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-            <SafeAreaView style={styles.verifyContainer}>
+            <SafeAreaView style={styles.verifyForgotContainer}>
               {renderNavigationSection()}
               {renderTopTitleSection()}
               {renderOtpInputSection()}
@@ -207,37 +209,37 @@ const VerifyEmailScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  verifyContentContainer: {
+  verifyForgotContentContainer: {
     flex: 1,
     backgroundColor: COLORS.black,
   },
-  verifyKeyboardContainer: {
+  verifyForgotKeyboardContainer: {
     flex: 1,
   },
-  verifyScrollingContainer: {
+  verifyForgotScrollingContainer: {
     flexGrow: 1,
     paddingHorizontal: 20,
   },
-  verifyContainer: {
+  verifyForgotContainer: {
     padding: Platform.OS === "ios" ? 30 : 15,
   },
-  verifyNavigatorContainer: {
+  verifyForgotNavigatorContainer: {
     width: "100%",
     flexDirection: "column",
   },
   // Title section
-  verifyTitleContainer: {
+  verifyForgotTitleContainer: {
     marginTop: 120,
     width: "100%",
     flexDirection: "column",
     alignItems: "center",
   },
-  verifyTitleItem: {
+  verifyForgotTitleItem: {
     color: COLORS.white,
     fontSize: SIZE.xxxl,
     fontFamily: FONT.interBold,
   },
-  verifyInfoTextItem: {
+  verifyForgotInfoTextItem: {
     marginTop: 15,
     color: COLORS.white,
     fontSize: SIZE.m,
@@ -246,12 +248,12 @@ const styles = StyleSheet.create({
   },
 
   // OTP input section
-  otpInputContainer: {
+  otpForgotInputContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     marginVertical: 40,
   },
-  otpInput: {
+  otpForgotInput: {
     width: 50,
     height: 50,
     borderColor: COLORS.white,
@@ -262,18 +264,18 @@ const styles = StyleSheet.create({
     fontSize: SIZE.l,
     fontFamily: FONT.interRegular,
   },
-  errorText: {
+  errorForgotText: {
     color: COLORS.red,
     marginTop: 10,
     textAlign: "center",
   },
-  expiryText: {
+  expiryForgotText: {
     marginTop: 20,
     color: COLORS.white,
     textAlign: "center",
     fontSize: SIZE.s,
   },
-  timerText: {
+  timerForgotText: {
     marginTop: 30,
     color: COLORS.white,
     textAlign: "center",
@@ -281,9 +283,9 @@ const styles = StyleSheet.create({
   },
 
   // Submit button section
-  submitButtonContainer: {
+  submitForgotButtonContainer: {
     marginTop: 20,
   },
 });
 
-export default VerifyEmailScreen;
+export default VerifyForgotEmailScreen;

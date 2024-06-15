@@ -3,6 +3,8 @@ import { ImageProps } from "../types/media";
 //app important images
 const authBackgroundImage = require("../../assets/images/appImages/authBackgroundImage.jpg");
 const appLogo = require("../../assets/images/appImages/logo/logo.png");
+const forgotPassword = require("../../assets/images/appImages/forgotPassword.png");
+const sentEmail = require("../../assets/images/appImages/sentEmail.png");
 
 //response images
 const success = require("../../assets/images/general/response/success.png");
@@ -17,6 +19,8 @@ const userPlaceholder = require("../../assets/images/general/dummy/userPlacehold
 const images: ImageProps = {
   authBackgroundImage,
   appLogo,
+  forgotPassword,
+  sentEmail,
   success,
   error,
   loader,

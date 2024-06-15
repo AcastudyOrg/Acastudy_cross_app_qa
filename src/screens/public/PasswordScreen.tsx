@@ -225,6 +225,7 @@ const PasswordScreen = () => {
 const styles = StyleSheet.create({
   passwordContentContainer: {
     flex: 1,
+    backgroundColor: COLORS.black,
   },
   passwordKeyboardContainer: {
     flex: 1,

@@ -11,6 +11,7 @@ import {
   SignUpScreen,
   VerifyEmailScreen,
   ForgotPasswordScreen,
+  VerifyForgotEmailScreen,
   SetNewForgotPasswordScreen,
   WelcomeScreen,
 } from "../screens";
@@ -43,6 +44,10 @@ const AppMainNavigation = () => {
         />
         <Stack.Screen name="PasswordScreen" component={PasswordScreen} />
         <Stack.Screen name="VerifyEmailScreen" component={VerifyEmailScreen} />
+        <Stack.Screen
+          name="VerifyForgotEmailScreen"
+          component={VerifyForgotEmailScreen}
+        />
 
         {/* Private Route Screens */}
         <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />

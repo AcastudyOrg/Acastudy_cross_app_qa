@@ -3,6 +3,12 @@ import { RouteProp } from "@react-navigation/native";
 
 export type RootStackParamList = {
   SignUpScreen: undefined;
+  SignInScreen: {
+    data?: {
+      email: string;
+      password: string;
+    };
+  };
   VerifyEmailScreen: {
     data: {
       firstName: string;
@@ -10,10 +16,21 @@ export type RootStackParamList = {
       email: string;
     };
   };
+  VerifyForgotEmailScreen: {
+    data: {
+      email: string;
+    };
+  };
   PasswordScreen: {
     data: {
       firstName: string;
       lastName: string;
+      email: string;
+      otpCode?: string;
+    };
+  };
+  SetNewForgotPasswordScreen: {
+    data: {
       email: string;
       otpCode?: string;
     };
@@ -49,6 +66,22 @@ export type VerifyEmailScreenNavigationProp = NativeStackNavigationProp<
 export type VerifyEmailScreenRouteProp = RouteProp<
   RootStackParamList,
   "VerifyEmailScreen"
+>;
+
+export type SetNewForgotPasswordScreenNavigationProp =
+  NativeStackNavigationProp<RootStackParamList, "SetNewForgotPasswordScreen">;
+export type SetNewForgotPasswordScreenRouteProp = RouteProp<
+  RootStackParamList,
+  "SetNewForgotPasswordScreen"
+>;
+
+export type VerifyForgotEmailScreenNavigationProp = NativeStackNavigationProp<
+  RootStackParamList,
+  "VerifyForgotEmailScreen"
+>;
+export type VerifyForgotEmailScreenRouteProp = RouteProp<
+  RootStackParamList,
+  "VerifyForgotEmailScreen"
 >;
 
 export type WelcomeScreenNavigationProp = NativeStackNavigationProp<

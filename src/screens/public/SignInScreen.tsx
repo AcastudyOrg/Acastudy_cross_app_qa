@@ -118,7 +118,7 @@ const SignInScreen = () => {
           </Pressable>
 
           <View style={styles.signInForgotPasswordContent}>
-            <Text style={styles.signInForgotPasswordTextItem}>
+            <Text onPress={() => navigation.navigate("ForgotPasswordScreen" as never)} style={styles.signInForgotPasswordTextItem}>
               Forgot password?
             </Text>
           </View>
@@ -213,6 +213,7 @@ const SignInScreen = () => {
 const styles = StyleSheet.create({
   signInContentContainer: {
     flex: 1,
+        backgroundColor: COLORS.black,
   },
   signInKeyboardContainer: {
     flex: 1,
