@@ -19,7 +19,7 @@ const TermsOfUseScreen = () => {
   function renderScreenTopSection() {
     return (
       <View style={styles.termsNavigatorContainer}>
-        <AppTopNavigationComponent companyLogo={true} />
+        <AppTopNavigationComponent backNavigation={true} companyLogo={true} />
       </View>
     );
   }

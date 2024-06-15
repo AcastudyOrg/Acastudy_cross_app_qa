@@ -32,6 +32,7 @@ export interface ImagePickerComponentProps {
   onImagePicked: (uri: string) => void;
 }
 export interface TopNavigationProps {
+  backNavigation: boolean;
   companyLogo?: boolean;
   authenticatedUser?: boolean;
 }
