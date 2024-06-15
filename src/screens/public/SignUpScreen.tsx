@@ -202,6 +202,7 @@ const SignUpScreen = () => {
 const styles = StyleSheet.create({
   signUpContentContainer: {
     flex: 1,
+    backgroundColor: COLORS.black,
   },
   signUpKeyboardContainer: {
     flex: 1,
