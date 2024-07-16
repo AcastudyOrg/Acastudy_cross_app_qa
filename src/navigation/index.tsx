@@ -14,6 +14,7 @@ import {
   VerifyForgotEmailScreen,
   SetNewForgotPasswordScreen,
   WelcomeScreen,
+  HomeScreen,
 } from "../screens";
 
 const Stack = createNativeStackNavigator();
@@ -22,10 +23,11 @@ const AppMainNavigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="SignUpScreen"
+        initialRouteName="HomeScreen"
         screenOptions={{ headerShown: false }}
       >
         {/* Public Route Screens */}
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen
           name="ForgotPasswordScreen"
           component={ForgotPasswordScreen}

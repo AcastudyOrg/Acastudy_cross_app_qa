@@ -7,6 +7,7 @@ import { COLORS } from "./src/constants";
 import useFonts from "./src/hooks/useFonts";
 import AppMainNavigation from "./src/navigation";
 import { LoadingComponent } from "./src/components/";
+import Sidebar from "./src/navigation/SideBar";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -36,6 +37,7 @@ export default function App() {
   return (
     <View style={styles.mainAppContainer}>
       <StatusBar style="light" />
+      <Sidebar />
       <AppMainNavigation />
     </View>
   );
