@@ -3,7 +3,7 @@ import { View, StyleSheet } from "react-native";
 
 import PrivateScreenLayout from "../../components/layout/PrivateScreenLayout";
 
-const HomeScreen = () => {
+const ChatScreen = () => {
   return (
     <PrivateScreenLayout>
       <View style={styles.homeMainContainer}>
@@ -19,4 +19,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen;
+export default ChatScreen;

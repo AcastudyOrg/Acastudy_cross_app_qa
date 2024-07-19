@@ -1,75 +1,85 @@
-import React from "react";
-import {
-  View,
-  Text,
-  TextInput,
-  Image,
-  StyleSheet,
-  ImageSourcePropType,
-} from "react-native";
+import React, { useEffect } from "react";
+import { View, Text, TextInput, Image, StyleSheet } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 
-import ScreenSize from "../../utils/ScreenSize";
+import { getImageSource, screenSize } from "../../utils/config";
 import { COLORS, FONT, IMAGES, SIZE } from "../constants";
 
 const TopNav = () => {
   const [searchQuery, setSearchQuery] = React.useState("");
-  const size = ScreenSize();
+  const [currentTime, setCurrentTime] = React.useState("");
+  const [date, setDate] = React.useState("");
 
   const onChangeSearch = (query: string) => setSearchQuery(query);
 
-  const getImageSource = (image: string | ImageSourcePropType) => {
-    if (typeof image === "string") {
-      return { uri: image };
-    }
-    return image;
-  };
-  const time = new Date().getTime();
-  const currentTime = new Date(time).toLocaleTimeString();
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const now = new Date();
+      setCurrentTime(
+        now.toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        })
+      );
+      setDate(formatDate(now));
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
-  const today = new Date();
-  const month = today.toLocaleString("default", { month: "long" });
-  const day = today.toLocaleString("default", { day: "numeric" });
-  const year = today.getFullYear();
-  const date = `${day} ${month} ${year}`;
+  const formatDate = (date: any) => {
+    const day = date.toLocaleString("default", { day: "numeric" });
+    const month = date.toLocaleString("default", { month: "long" });
+    const year = date.getFullYear();
+    return `${day} ${month} ${year}`;
+  };
 
   return (
     <View style={styles.container}>
-      <TextInput
-        style={styles.searchInput}
-        placeholder="Search"
-        value={searchQuery}
-        onChangeText={onChangeSearch}
-      />
+      <View style={styles.contentContainer}>
+        <TextInput
+          style={styles.searchInput}
+          placeholder="Search"
+          value={searchQuery}
+          onChangeText={onChangeSearch}
+        />
 
-      <View style={styles.currentTimeContainer}>
-        <Text style={styles.currentTimeItem}>{currentTime}</Text>
-        <Text style={styles.currentDateItem}>{date}</Text>
-      </View>
+        <View style={styles.currentTimeContainer}>
+          <Text style={styles.currentTimeItem}>{currentTime}</Text>
+          <Text style={styles.currentDateItem}>{date}</Text>
+        </View>
 
-      <View style={styles.profile}>
-        <Text style={styles.profileName}>John Doe</Text>
-        <View style={styles.profileImageContainer}>
-          <Entypo
-            name="dot-single"
-            size={28}
-            color={COLORS.green}
-            style={styles.activeDot}
-          />
-          <Image style={styles.avatar} source={getImageSource(IMAGES.user)} />
+        <View style={styles.profile}>
+          <Text style={styles.profileName}>John Doe</Text>
+          <View style={styles.profileImageContainer}>
+            <Entypo
+              name="dot-single"
+              size={28}
+              color={COLORS.green}
+              style={styles.activeDot}
+            />
+            <Image style={styles.avatar} source={getImageSource(IMAGES.user)} />
+          </View>
         </View>
       </View>
+
+      <View style={styles.lineDivider} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    gap: 10,
+    flexDirection: "column",
+    padding: 10,
+  },
+  contentContainer: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    backgroundColor: COLORS.blue,
-    padding: 10,
+    paddingVertical: 10,
+    paddingHorizontal:
+      screenSize() === "desktop" || screenSize() === "tablet" ? 20 : 0,
   },
   menuButton: {
     padding: 5,
@@ -81,7 +91,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 5,
     width:
-      ScreenSize() === "desktop" || ScreenSize() === "tablet" ? "30%" : "30%",
+      screenSize() === "desktop" || screenSize() === "tablet" ? "30%" : "30%",
   },
   currentTimeContainer: {
     flexDirection: "row",
@@ -91,27 +101,22 @@ const styles = StyleSheet.create({
   currentTimeItem: {
     color: COLORS.white,
     fontSize:
-      ScreenSize() === "desktop" || ScreenSize() === "tablet"
+      screenSize() === "desktop" || screenSize() === "tablet"
         ? SIZE.xl
         : SIZE.m,
     fontFamily: FONT.interRegular,
   },
   currentDateItem: {
-    paddingTop: ScreenSize() === "desktop" || ScreenSize() === "tablet" ? 3 : 5,
+    paddingTop: screenSize() === "desktop" || screenSize() === "tablet" ? 5 : 0,
     color: COLORS.white,
     fontSize:
-      ScreenSize() === "desktop" || ScreenSize() === "tablet" ? SIZE.s : SIZE.s,
+      screenSize() === "desktop" || screenSize() === "tablet" ? SIZE.s : SIZE.s,
     fontFamily: FONT.interRegular,
   },
   profile: {
     gap: 6,
     flexDirection: "row",
     alignItems: "center",
-  },
-  avatar: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
   },
   profileName: {
     color: COLORS.white,
@@ -120,11 +125,22 @@ const styles = StyleSheet.create({
   profileImageContainer: {
     flexDirection: "row",
   },
+  avatar: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+  },
   activeDot: {
     position: "absolute",
     top: 20,
     right: 20,
     zIndex: 1,
+  },
+  lineDivider: {
+    width: "100%",
+    alignSelf: "center",
+    borderBottomColor: COLORS.lightGray,
+    borderBottomWidth: 1,
   },
 });
 

@@ -11,12 +11,16 @@ import VerifyEmailScreen from "./public/VerifyEmailScreen";
 import ForgotPasswordScreen from "./public/ForgotPasswordScreen";
 import VerifyForgotEmailScreen from "./public/VerifyEmailScreen";
 import SetNewForgotPasswordScreen from "./public/SetNewForgotPasswordScreen";
-import HomeScreen from "./private/HomeScreen";
 
 {
   /* Private Route Screens */
 }
 import WelcomeScreen from "./private/WelcomeScreen";
+import ChatScreen from "./private/ChatScreen";
+import CallScreen from "./private/CallScreen";
+import HomeScreen from "./private/HomeScreen";
+import ProfileScreen from "./private/ProfileScreen";
+import StudyScreen from "./private/StudyScreen";
 
 export {
   OnboardingScreen,
@@ -30,5 +34,9 @@ export {
   VerifyForgotEmailScreen,
   SetNewForgotPasswordScreen,
   WelcomeScreen,
+  ChatScreen,
+  CallScreen,
   HomeScreen,
+  ProfileScreen,
+  StudyScreen,
 };

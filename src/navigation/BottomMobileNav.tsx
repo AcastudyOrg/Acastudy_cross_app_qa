@@ -1,14 +1,14 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-const BottomTabsNavigation = () => {
+const BottomMobileNavigation = () => {
   return (
     <View>
-      <Text>BottomTabsNavigation</Text>
+      <Text>BottomMobileNavigation</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({});
 
-export default BottomTabsNavigation;
+export default BottomMobileNavigation;

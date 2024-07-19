@@ -5,22 +5,21 @@ import {
   TouchableOpacity,
   StyleSheet,
   Image,
-  Dimensions,
+  Pressable,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-
-import ScreenSize from "../../utils/ScreenSize"; 
+import { LinearGradient } from "expo-linear-gradient";
 
 import { FONT, SIZE, COLORS, ICONS } from "../constants";
 
 const SidebarNavComponent = () => {
   const navigation = useNavigation();
-  const size = ScreenSize();
+
   const links = [
     { name: "Home", link: "HomeScreen", icon: ICONS.homeIcon },
     { name: "Study", link: "StudyScreen", icon: ICONS.studyIcon },
-    { name: "Calls", link: "CallsScreen", icon: ICONS.callsIcon },
-    { name: "Chats", link: "ChatsScreen", icon: ICONS.chatsIcon },
+    { name: "Calls", link: "CallScreen", icon: ICONS.callsIcon },
+    { name: "Chats", link: "ChatScreen", icon: ICONS.chatsIcon },
     { name: "Profile", link: "ProfileScreen", icon: ICONS.profileIcon },
   ];
 
@@ -30,6 +29,7 @@ const SidebarNavComponent = () => {
         <View style={styles.sidebarMediaContainer}>
           <Text style={styles.sidebarMediaItem}>ACASTUDY</Text>
         </View>
+
         <View style={styles.sidebarLinksContainer}>
           {links.map((item, i) => (
             <TouchableOpacity
@@ -43,11 +43,18 @@ const SidebarNavComponent = () => {
           ))}
         </View>
       </View>
-      <View style={styles.sidebarBottomContainer}>
-        <TouchableOpacity style={styles.sidebarBottomItemContainer}>
+
+      <Pressable
+        onPress={() => console.log("request tutor")}
+        style={styles.sidebarBottomContainer}
+      >
+        <LinearGradient
+          colors={["#4c669f", "#3b5998", "#192f6a"]}
+          style={styles.sidebarBottomItemContainer}
+        >
           <Text style={styles.sidebarBottomItem}>Request tutor</Text>
-        </TouchableOpacity>
-      </View>
+        </LinearGradient>
+      </Pressable>
     </View>
   );
 };
@@ -58,13 +65,13 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     paddingVertical: 20,
     paddingHorizontal: 10,
-    backgroundColor: COLORS.red,
+    backgroundColor: `rgba(0,0,0,0.2)`,
   },
   sidebarTopContainer: {
     width: "100%",
   },
   sidebarMediaContainer: {
-    height: 25,
+    height: 35,
     justifyContent: "center",
     alignItems: "center",
   },
@@ -75,14 +82,14 @@ const styles = StyleSheet.create({
   },
   sidebarLinksContainer: {
     flex: 1,
-    paddingTop: 40,
+    paddingTop: 25,
     paddingHorizontal: 20,
     flexDirection: "column",
   },
   sidebarLinksItemsContainer: {
-    paddingVertical: 15,
+    paddingVertical: 20,
     flexDirection: "row",
-    gap: 20,
+    gap: 15,
   },
   sidebarLinksIconItem: {
     width: 20,
@@ -95,17 +102,15 @@ const styles = StyleSheet.create({
     fontSize: SIZE.m,
   },
   sidebarBottomContainer: {
-    justifyContent: "center",
-    alignItems: "center",
-    paddingHorizontal: 20,
     position: "absolute",
-    bottom: 10,
-    width: "100%",
+    bottom: 30,
+    left: 20,
+    zIndex: 1,
   },
   sidebarBottomItemContainer: {
     justifyContent: "center",
     alignItems: "center",
-    paddingVertical: 10,
+    paddingVertical: 20,
     paddingHorizontal: 20,
     overflow: "hidden",
     borderRadius: 10,

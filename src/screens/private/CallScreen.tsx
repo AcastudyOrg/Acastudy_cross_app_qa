@@ -1,13 +1,13 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 
 import PrivateScreenLayout from "../../components/layout/PrivateScreenLayout";
 
-const HomeScreen = () => {
+const CallScreen = () => {
   return (
     <PrivateScreenLayout>
       <View style={styles.homeMainContainer}>
-
+        <Text>Ho</Text>
       </View>
     </PrivateScreenLayout>
   );
@@ -15,8 +15,8 @@ const HomeScreen = () => {
 
 const styles = StyleSheet.create({
   homeMainContainer: {
-    flex:1,
+    flex: 1,
   },
 });
 
-export default HomeScreen;
+export default CallScreen;
