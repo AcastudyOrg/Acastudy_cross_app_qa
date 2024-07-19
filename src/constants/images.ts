@@ -16,6 +16,7 @@ const loader =
 const user =
   "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 const userPlaceholder = require("../../assets/images/general/dummy/userPlaceholder.png");
+const comingSoon = "https://static.vecteezy.com/system/resources/previews/026/972/633/original/traffic-cone-under-construction-free-png.png";
 
 const images: ImageProps = {
   authBackgroundImage,
@@ -27,6 +28,7 @@ const images: ImageProps = {
   loader,
   user,
   userPlaceholder,
+  comingSoon,
 };
 
 export default images;
