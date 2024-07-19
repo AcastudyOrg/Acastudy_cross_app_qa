@@ -16,8 +16,6 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   homeContent: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
   },
   welcomeText: {
     fontSize: 24,

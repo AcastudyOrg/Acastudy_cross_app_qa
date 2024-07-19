@@ -8,11 +8,14 @@ import {
   Dimensions,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+
+import ScreenSize from "../../utils/ScreenSize"; 
+
 import { FONT, SIZE, COLORS, ICONS } from "../constants";
 
 const SidebarNavComponent = () => {
   const navigation = useNavigation();
-  const { width } = Dimensions.get("window");
+  const size = ScreenSize();
   const links = [
     { name: "Home", link: "HomeScreen", icon: ICONS.homeIcon },
     { name: "Study", link: "StudyScreen", icon: ICONS.studyIcon },

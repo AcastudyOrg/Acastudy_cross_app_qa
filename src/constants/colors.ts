@@ -3,7 +3,7 @@ import { ColorProps } from "../types/typography";
 const white = "#fff";
 const black = "#000";
 const gray = "#202020";
-const lightGray = "#808080";
+const lightGray = "#D9D9D9";
 const red = "#DC3545";
 const green = "#28A745";
 const blue = "#4361ee";
