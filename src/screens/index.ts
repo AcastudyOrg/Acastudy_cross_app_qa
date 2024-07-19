@@ -11,7 +11,7 @@ import VerifyEmailScreen from "./public/VerifyEmailScreen";
 import ForgotPasswordScreen from "./public/ForgotPasswordScreen";
 import VerifyForgotEmailScreen from "./public/VerifyEmailScreen";
 import SetNewForgotPasswordScreen from "./public/SetNewForgotPasswordScreen";
-import HomeScreen from "./public/HomeScreen";
+import HomeScreen from "./private/HomeScreen";
 
 {
   /* Private Route Screens */

@@ -11,3 +11,13 @@ export interface ImageProps {
   user: ImageSourcePropType;
   userPlaceholder: ImageSourcePropType;
 }
+
+export interface IconProps {
+  homeIcon: ImageSourcePropType;
+    homeIconActive:ImageSourcePropType;
+    callsIcon:ImageSourcePropType;
+    chatsIcon:ImageSourcePropType;
+    profileIcon:ImageSourcePropType;
+    profileIconActive:ImageSourcePropType;
+    studyIcon:ImageSourcePropType;
+}

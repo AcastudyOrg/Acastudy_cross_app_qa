@@ -1,26 +1,51 @@
-import React from 'react';
-import { View, Text, TextInput, Image, StyleSheet } from 'react-native';
+import React from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  Dimensions,
+} from "react-native";
+import { AntDesign } from "@expo/vector-icons";
+import { COLORS } from "../constants";
 
-const TopNav = () => {
-  const [searchQuery, setSearchQuery] = React.useState('');
+const TopNav = ({
+  toggleSidebar,
+  isSidebarOpen,
+}: {
+  toggleSidebar: () => void;
+  isSidebarOpen: boolean;
+}) => {
+  const [searchQuery, setSearchQuery] = React.useState("");
+  const { width } = Dimensions.get("window");
 
-  const onChangeSearch = (query: React.SetStateAction<string>) => setSearchQuery(query);
+  const onChangeSearch = (query: string) => setSearchQuery(query);
 
   return (
     <View style={styles.container}>
+      {width < 768 && (
+        <TouchableOpacity onPress={toggleSidebar} style={styles.menuButton}>
+          <AntDesign
+            name={isSidebarOpen ? "menufold" : "menuunfold"}
+            size={24}
+            color={COLORS.white}
+          />
+        </TouchableOpacity>
+      )}
       <TextInput
         style={styles.searchInput}
         placeholder="Search"
         value={searchQuery}
         onChangeText={onChangeSearch}
       />
-      <Text style={styles.date}>{new Date().toLocaleString()}</Text>
       <View style={styles.profile}>
+        <Text style={styles.profileName}>John Doe</Text>
         <Image
           style={styles.avatar}
-          source={{ uri: 'https://via.placeholder.com/150' }}
+          source={{ uri: "https://via.placeholder.com/150" }}
         />
-        <Text style={styles.profileName}>John Doe</Text>
       </View>
     </View>
   );
@@ -28,25 +53,25 @@ const TopNav = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: '#6200ea',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    backgroundColor: COLORS.purple,
     padding: 10,
   },
+  menuButton: {
+    padding: 5,
+  },
   searchInput: {
-    backgroundColor: 'white',
+    backgroundColor: COLORS.white,
     borderRadius: 5,
     padding: 5,
-    width: '30%',
-  },
-  date: {
-    color: 'white',
-    fontSize: 16,
+    width: "30%",
   },
   profile: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    gap: 4,
+    flexDirection: "row",
+    alignItems: "center",
   },
   avatar: {
     width: 40,
@@ -54,7 +79,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   profileName: {
-    color: 'white',
+    color: COLORS.white,
     marginLeft: 10,
   },
 });
