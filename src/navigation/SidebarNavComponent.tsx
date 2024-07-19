@@ -10,18 +10,11 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
 
-import { FONT, SIZE, COLORS, ICONS } from "../constants";
+import { links } from "../../assets/data/navigationLinks";
+import { FONT, SIZE, COLORS } from "../constants";
 
 const SidebarNavComponent = () => {
   const navigation = useNavigation();
-
-  const links = [
-    { name: "Home", link: "HomeScreen", icon: ICONS.homeIcon },
-    { name: "Study", link: "StudyScreen", icon: ICONS.studyIcon },
-    { name: "Calls", link: "CallScreen", icon: ICONS.callsIcon },
-    { name: "Chats", link: "ChatScreen", icon: ICONS.chatsIcon },
-    { name: "Profile", link: "ProfileScreen", icon: ICONS.profileIcon },
-  ];
 
   return (
     <View style={styles.sidebarMainContainer}>
@@ -49,7 +42,7 @@ const SidebarNavComponent = () => {
         style={styles.sidebarBottomContainer}
       >
         <LinearGradient
-          colors={["#4c669f", "#3b5998", "#192f6a"]}
+          colors={[COLORS.darkGray, COLORS.lightGray, COLORS.darkGray]}
           style={styles.sidebarBottomItemContainer}
         >
           <Text style={styles.sidebarBottomItem}>Request tutor</Text>

@@ -6,16 +6,14 @@ import PrivateScreenLayout from "../../components/layout/PrivateScreenLayout";
 const HomeScreen = () => {
   return (
     <PrivateScreenLayout>
-      <View style={styles.homeMainContainer}>
-
-      </View>
+      <View style={styles.homeMainContainer}></View>
     </PrivateScreenLayout>
   );
 };
 
 const styles = StyleSheet.create({
   homeMainContainer: {
-    flex:1,
+    flex: 1,
   },
 });
 

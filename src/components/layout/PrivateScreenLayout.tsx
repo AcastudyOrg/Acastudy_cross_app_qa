@@ -1,11 +1,13 @@
 import * as React from "react";
-import { View, StyleSheet, SafeAreaView } from "react-native";
+import { View, StyleSheet, SafeAreaView, Text } from "react-native";
 
 import { screenSize } from "../../../utils/config";
 
 import TopNav from "../../navigation/TopNav";
 import Sidebar from "../../navigation/SidebarNavComponent";
 import colors from "../../constants/colors";
+import BottomMobileNavigation from "../../navigation/BottomMobileNav";
+import { COLORS, FONT, SIZE } from "../../constants";
 
 const PrivateScreenLayout = ({ children }: { children: React.ReactNode }) => {
   const size = screenSize();
@@ -14,6 +16,9 @@ const PrivateScreenLayout = ({ children }: { children: React.ReactNode }) => {
     <SafeAreaView style={styles.layoutContainer}>
       {size === "mobile" ? (
         <View style={styles.topNavMobileContainer}>
+          <View style={styles.sidebarMediaContainer}>
+            <Text style={styles.sidebarMediaItem}>ACASTUDY</Text>
+          </View>
           <TopNav />
         </View>
       ) : (
@@ -33,7 +38,10 @@ const PrivateScreenLayout = ({ children }: { children: React.ReactNode }) => {
             <View style={styles.mainContent}>{children}</View>
           </View>
         ) : (
-          <View style={styles.mainContent}>{children}</View>
+          <View style={styles.mainContent}>
+            {children}
+            <BottomMobileNavigation />
+          </View>
         )}
       </View>
     </SafeAreaView>
@@ -72,6 +80,15 @@ const styles = StyleSheet.create({
     flex: 1,
     height: "100%",
     paddingHorizontal: 10,
+  },
+  sidebarMediaContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  sidebarMediaItem: {
+    color: COLORS.white,
+    fontFamily: FONT.interBold,
+    fontSize: SIZE.xxl,
   },
 });
 
