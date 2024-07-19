@@ -36,30 +36,57 @@ const TopNav = () => {
   return (
     <View style={styles.container}>
       <View style={styles.contentContainer}>
-        <TextInput
-          style={styles.searchInput}
-          placeholder="Search"
-          value={searchQuery}
-          onChangeText={onChangeSearch}
-        />
+        {screenSize() === "desktop" ||
+          (screenSize() === "tablet" && (
+            <>
+              <TextInput
+                style={styles.searchInput}
+                placeholder="Search"
+                value={searchQuery}
+                onChangeText={onChangeSearch}
+              />
 
-        <View style={styles.currentTimeContainer}>
-          <Text style={styles.currentTimeItem}>{currentTime}</Text>
-          <Text style={styles.currentDateItem}>{date}</Text>
-        </View>
+              <View style={styles.currentTimeContainer}>
+                <Text style={styles.currentTimeItem}>{currentTime}</Text>
+                <Text style={styles.currentDateItem}>{date}</Text>
+              </View>
+            </>
+          ))}
 
-        <View style={styles.profile}>
-          <Text style={styles.profileName}>John Doe</Text>
-          <View style={styles.profileImageContainer}>
-            <Entypo
-              name="dot-single"
-              size={28}
-              color={COLORS.green}
-              style={styles.activeDot}
-            />
-            <Image style={styles.avatar} source={getImageSource(IMAGES.user)} />
+        {screenSize() === "desktop" || screenSize() === "tablet" ? (
+          <View style={styles.profile}>
+            <Text style={styles.profileName}>John Doe</Text>
+            <View style={styles.profileImageContainer}>
+              <Entypo
+                name="dot-single"
+                size={28}
+                color={COLORS.green}
+                style={styles.activeDot}
+              />
+              <Image
+                style={styles.avatar}
+                source={getImageSource(IMAGES.user)}
+              />
+            </View>
           </View>
-        </View>
+        ) : (
+          <View style={styles.profile}>
+            <View style={styles.profileImageContainer}>
+              <Entypo
+                name="dot-single"
+                size={28}
+                color={COLORS.green}
+                style={styles.activeDot}
+              />
+              <Image
+                style={styles.avatar}
+                source={getImageSource(IMAGES.user)}
+              />
+            </View>
+            <Text style={styles.profileMobBigName}>Good Evening,</Text>
+            <Text style={styles.profileMobName}>John Doe</Text>
+          </View>
+        )}
       </View>
 
       <View style={styles.lineDivider} />
@@ -121,6 +148,15 @@ const styles = StyleSheet.create({
   profileName: {
     color: COLORS.white,
     marginLeft: 10,
+  },
+  profileMobBigName: {
+    color: COLORS.white,
+    fontSize: SIZE.xxl,
+    marginLeft: 5,
+  },
+  profileMobName: {
+    color: COLORS.white,
+    paddingTop: 6,
   },
   profileImageContainer: {
     flexDirection: "row",
