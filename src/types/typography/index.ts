@@ -4,6 +4,7 @@ export interface ColorProps {
   black: string;
   gray: string;
   lightGray: string;
+  darkGray: string;
   red: string;
   green: string;
   blue: string;

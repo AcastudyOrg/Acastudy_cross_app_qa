@@ -1,6 +1,9 @@
 import * as Font from "expo-font";
 import { useEffect, useState } from "react";
-import { Inter_400Regular, Inter_700Bold } from "@expo-google-fonts/inter";
+import {
+  PlusJakartaSans_400Regular,
+  PlusJakartaSans_700Bold,
+} from "@expo-google-fonts/plus-jakarta-sans";
 
 const useFonts = () => {
   const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -9,8 +12,8 @@ const useFonts = () => {
     async function loadFonts() {
       try {
         await Font.loadAsync({
-          "Inter_400Regular": Inter_400Regular,
-          "Inter_700Bold": Inter_700Bold,
+          PlusJakartaSans_400Regular: PlusJakartaSans_400Regular,
+          PlusJakartaSans_700Bold: PlusJakartaSans_700Bold,
         });
         setFontsLoaded(true);
       } catch (error) {

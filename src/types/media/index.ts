@@ -8,6 +8,17 @@ export interface ImageProps {
   success: ImageSourcePropType;
   error: ImageSourcePropType;
   loader: ImageSourcePropType | string;
-  user: ImageSourcePropType;
+  user: ImageSourcePropType | string;
   userPlaceholder: ImageSourcePropType;
+  comingSoon: ImageSourcePropType| string;
+}
+
+export interface IconProps {
+  homeIcon: ImageSourcePropType;
+  homeIconActive: ImageSourcePropType;
+  callsIcon: ImageSourcePropType;
+  chatsIcon: ImageSourcePropType;
+  profileIcon: ImageSourcePropType;
+  profileIconActive: ImageSourcePropType;
+  studyIcon: ImageSourcePropType;
 }

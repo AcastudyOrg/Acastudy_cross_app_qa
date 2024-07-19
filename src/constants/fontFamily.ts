@@ -1,11 +1,11 @@
 import { FontFamilyProps } from "../types/typography";
 
-const interRegular = "Inter_400Regular";
-const interBold = "Inter_700Bold";
+const interRegular = "PlusJakartaSans_400Regular";
+const interBold = "PlusJakartaSans_700Bold";
 
 const fontFamily: FontFamilyProps = {
-    interRegular,
-    interBold,
+  interRegular,
+  interBold,
 };
 
 export default fontFamily;
