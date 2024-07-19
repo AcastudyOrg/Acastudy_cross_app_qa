@@ -1,13 +1,13 @@
 import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet } from "react-native";
 
-import PrivateScreenLayout from "../../components/layout/PrivateScreenLayout";
+import {ComingSoonComponent, PrivateScreenLayout} from "../../components";
 
 const CallScreen = () => {
   return (
     <PrivateScreenLayout>
       <View style={styles.homeMainContainer}>
-        <Text>Ho</Text>
+            <ComingSoonComponent/>
       </View>
     </PrivateScreenLayout>
   );

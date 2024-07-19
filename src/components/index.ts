@@ -9,6 +9,11 @@ import ImagePickerComponent from "./common/Form/ImagePickerComponent";
 import TextInputComponent from "./common/Form/TextInputComponent";
 import SocialAuthButtonComponent from "./common/Form/SocialAuthButtonComponent";
 
+//layouts
+import PrivateScreenLayout from "./layout/PrivateScreenLayout";
+
+import ComingSoonComponent from "./common/ComingSoonComponent";
+
 export {
   LoadingComponent,
   QueryResponseComponent,
@@ -17,4 +22,6 @@ export {
   ImagePickerComponent,
   TextInputComponent,
   SocialAuthButtonComponent,
+  PrivateScreenLayout,
+  ComingSoonComponent,
 };

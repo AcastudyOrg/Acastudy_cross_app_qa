@@ -10,6 +10,7 @@ export interface ImageProps {
   loader: ImageSourcePropType | string;
   user: ImageSourcePropType | string;
   userPlaceholder: ImageSourcePropType;
+  comingSoon: ImageSourcePropType| string;
 }
 
 export interface IconProps {

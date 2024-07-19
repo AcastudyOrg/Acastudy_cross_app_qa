@@ -1,27 +1,14 @@
 import React from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  Image,
-  Pressable,
-} from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
 
-import { FONT, SIZE, COLORS, ICONS } from "../constants";
+import { links } from "../../assets/data/navigationLinks";
+import { FONT, SIZE, COLORS } from "../constants";
 
 const SidebarNavComponent = () => {
   const navigation = useNavigation();
-
-  const links = [
-    { name: "Home", link: "HomeScreen", icon: ICONS.homeIcon },
-    { name: "Study", link: "StudyScreen", icon: ICONS.studyIcon },
-    { name: "Calls", link: "CallScreen", icon: ICONS.callsIcon },
-    { name: "Chats", link: "ChatScreen", icon: ICONS.chatsIcon },
-    { name: "Profile", link: "ProfileScreen", icon: ICONS.profileIcon },
-  ];
+  const route = useRoute();
 
   return (
     <View style={styles.sidebarMainContainer}>
@@ -29,32 +16,38 @@ const SidebarNavComponent = () => {
         <View style={styles.sidebarMediaContainer}>
           <Text style={styles.sidebarMediaItem}>ACASTUDY</Text>
         </View>
-
         <View style={styles.sidebarLinksContainer}>
-          {links.map((item, i) => (
-            <TouchableOpacity
-              key={i}
-              style={styles.sidebarLinksItemsContainer}
-              onPress={() => navigation.navigate(item.link as never)}
-            >
-              <Image source={item.icon} style={styles.sidebarLinksIconItem} />
-              <Text style={styles.sidebarLinksItems}>{item.name}</Text>
-            </TouchableOpacity>
-          ))}
+          {links.map((item, i) => {
+            const isActive = route.name === item.link;
+            return (
+              <TouchableOpacity
+                key={i}
+                onPress={() => navigation.navigate(item.link as never)}
+                style={styles.sidebarLinksItemsContainer}
+              >
+                <Image source={item.icon} style={styles.sidebarLinksIconItem} />
+                <Text
+                  style={[
+                    styles.sidebarLinksItems,
+                    { color: isActive ? COLORS.purple : COLORS.white },
+                  ]}
+                >
+                  {item.name}
+                </Text>
+              </TouchableOpacity>
+            );
+          })}
         </View>
       </View>
 
-      <Pressable
-        onPress={() => console.log("request tutor")}
-        style={styles.sidebarBottomContainer}
-      >
+      <View style={styles.sidebarBottomContainer}>
         <LinearGradient
-          colors={["#4c669f", "#3b5998", "#192f6a"]}
+          colors={[COLORS.darkGray, COLORS.lightGray, COLORS.darkGray]}
           style={styles.sidebarBottomItemContainer}
         >
           <Text style={styles.sidebarBottomItem}>Request tutor</Text>
         </LinearGradient>
-      </Pressable>
+      </View>
     </View>
   );
 };
@@ -87,7 +80,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
   },
   sidebarLinksItemsContainer: {
-    paddingVertical: 20,
+    paddingVertical: 15,
     flexDirection: "row",
     gap: 15,
   },

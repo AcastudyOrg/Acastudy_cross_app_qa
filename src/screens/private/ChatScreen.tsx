@@ -1,13 +1,13 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 
-import PrivateScreenLayout from "../../components/layout/PrivateScreenLayout";
+import {ComingSoonComponent, PrivateScreenLayout} from "../../components";
 
 const ChatScreen = () => {
   return (
     <PrivateScreenLayout>
       <View style={styles.homeMainContainer}>
-
+     <ComingSoonComponent/>
       </View>
     </PrivateScreenLayout>
   );

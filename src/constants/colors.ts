@@ -4,6 +4,7 @@ const white = "#fff";
 const black = "#000";
 const gray = "#202020";
 const lightGray = "#D9D9D9";
+const darkGray = "#555555";
 const red = "#DC3545";
 const green = "#28A745";
 const blue = "#4361ee";
@@ -22,6 +23,7 @@ const colors: ColorProps = {
   black,
   gray,
   lightGray,
+  darkGray,
   red,
   green,
   blue,
