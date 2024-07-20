@@ -1,0 +1,472 @@
+[
+  {
+    "id": "1",
+    "userId": "367654",
+    "firstName": "Rebecca",
+    "lastName": "Naidoo",
+    "avatar": "https://images.unsplash.com/photo-1609436132311-e4b0c9370469?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "title": "Mathematics - Primary School",
+    "description": "An introduction to basic arithmetic, including addition, subtraction, multiplication, and division. This subject builds a solid foundation for future math concepts.",
+    "mediaFile": "https://videos.pexels.com/video-files/5734826/5734826-hd_1920_1080_30fps.mp4",
+    "mediaType": "video",
+    "likes": [
+      {
+        "id": "101",
+        "userId": "23",
+        "avatar": "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "firstName": "Megan",
+        "lastName": "Long"
+      }
+    ],
+    "comments": [
+      {
+        "id": "201",
+        "userId": "23",
+        "message": "Great video for beginners! My child found it very helpful.",
+        "attachment": "",
+        "avatar": "https://images.pexels.com/photos/3922294/pexels-photo-3922294.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "firstName": "Kim",
+        "lastName": "Smith",
+        "createdAt": "2024-07-01T10:00:00Z"
+      }
+    ],
+    "reviews": [
+      {
+        "id": "301",
+        "userId": "23",
+        "title": "Helpful Resource",
+        "description": "The content is well-structured and easy to follow. Perfect for young learners.",
+        "avatar": "https://images.pexels.com/photos/1962844/pexels-photo-1962844.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "firstName": "Pretty",
+        "lastName": "Mazibuko",
+        "rating": 4,
+        "createdAt": "2024-07-02T12:00:00Z"
+      }
+    ],
+    "overallRating": 4,
+    "createdAt": "2024-07-01T09:00:00Z"
+  },
+  {
+    "id": "2",
+    "userId": "367654",
+    "firstName": "Mfundo",
+    "lastName": "Tshabalala",
+    "avatar": "https://images.unsplash.com/photo-1595211877493-41a4e5f236b3?q=80&w=715&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "title": "Science - Secondary School",
+    "description": "Exploring the fundamentals of biology, chemistry, and physics. This course provides a comprehensive overview of scientific principles and experiments.",
+    "mediaFile": "https://images.pexels.com/photos/3771074/pexels-photo-3771074.jpeg",
+    "mediaType": "image",
+    "likes": [
+      {
+        "id": "102",
+        "userId": "24",
+        "avatar": "https://images.pexels.com/photos/1853101/pexels-photo-1853101.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "firstName": "Jackie",
+        "lastName": "Simoes"
+      }
+    ],
+    "comments": [
+      {
+        "id": "202",
+        "userId": "24",
+        "message": "Informative and engaging content. My teen loves it!",
+        "attachment": "",
+        "avatar": "https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "firstName": "Gary",
+        "lastName": "Smith",
+        "createdAt": "2024-07-02T11:00:00Z"
+      }
+    ],
+    "reviews": [
+      {
+        "id": "302",
+        "userId": "24",
+        "title": "Very Engaging",
+        "description": "The experiments demonstrated are very engaging and easy to replicate at home.",
+        "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "firstName": "Elliot",
+        "lastName": "Brown",
+        "rating": 5,
+        "createdAt": "2024-07-03T14:00:00Z"
+      }
+    ],
+    "overallRating": 5,
+    "createdAt": "2024-07-02T10:00:00Z"
+  },
+  {
+    "id": "3",
+    "userId": "367654",
+    "firstName": "Elliot",
+    "lastName": "Brown",
+    "avatar": "",
+    "title": "History - High School",
+    "description": "Covering significant events from ancient civilizations to modern history. This course emphasizes critical thinking and understanding historical contexts.",
+    "mediaFile": "https://videos.pexels.com/video-files/5912469/5912469-hd_1920_1080_30fps.mp4",
+    "mediaType": "video",
+    "likes": [
+      {
+        "id": "103",
+        "userId": "25",
+        "avatar": "https://images.pexels.com/photos/1962844/pexels-photo-1962844.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "firstName": "Pretty",
+        "lastName": "Mazibuko"
+      }
+    ],
+    "comments": [
+      {
+        "id": "203",
+        "userId": "25",
+        "message": "Very detailed and insightful. Great for history buffs!",
+        "attachment": "",
+        "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "firstName": "Elliot",
+        "lastName": "Brown",
+        "createdAt": "2024-07-03T09:00:00Z"
+      }
+    ],
+    "reviews": [
+      {
+        "id": "303",
+        "userId": "25",
+        "title": "Insightful",
+        "description": "The course provides deep insights into historical events and their impacts.",
+        "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "firstName": "Elliot",
+        "lastName": "Brown",
+        "rating": 4,
+        "createdAt": "2024-07-04T16:00:00Z"
+      }
+    ],
+    "overallRating": 4,
+    "createdAt": "2024-07-03T08:00:00Z"
+  },
+  {
+    "id": "4",
+    "userId": "367654",
+    "firstName": "Clay",
+    "lastName": "Smith",
+    "avatar": "https://images.unsplash.com/photo-1627161683077-e34782c24d81?q=80&w=806&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "title": "English Literature - Secondary School",
+    "description": "An exploration of classic and modern literature. Students analyze texts, discuss themes, and improve their critical thinking and writing skills.",
+    "mediaFile": "https://images.pexels.com/photos/5427868/pexels-photo-5427868.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "mediaType": "image",
+    "likes": [
+      {
+        "id": "104",
+        "userId": "26",
+        "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "firstName": "Elliot",
+        "lastName": "Brown"
+      }
+    ],
+    "comments": [
+      {
+        "id": "204",
+        "userId": "26",
+        "message": "Wonderful selection of texts. My child is very engaged.",
+        "attachment": "",
+        "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "firstName": "Elliot",
+        "lastName": "Brown",
+        "createdAt": "2024-07-04T08:00:00Z"
+      }
+    ],
+    "reviews": [
+      {
+        "id": "304",
+        "userId": "26",
+        "title": "Engaging",
+        "description": "The literature selections are excellent and stimulate great discussions.",
+        "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "firstName": "Elliot",
+        "lastName": "Brown",
+        "rating": 5,
+        "createdAt": "2024-07-05T17:00:00Z"
+      }
+    ],
+    "overallRating": 5,
+    "createdAt": "2024-07-04T07:00:00Z"
+  },
+  {
+    "id": "5",
+    "userId": "367654",
+    "firstName": "Jeffery",
+    "lastName": "Springer",
+    "avatar": "https://images.unsplash.com/photo-1562788869-4ed32648eb72?q=80&w=872&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "title": "Geography - Primary School",
+    "description": "Introducing young learners to the basics of geography, including continents, oceans, and different types of landforms and climates.",
+    "mediaFile": "https://videos.pexels.com/video-files/5428312/5428312-uhd_2560_1440_25fps.mp4",
+    "mediaType": "video",
+    "likes": [
+      {
+        "id": "105",
+        "userId": "27",
+        "avatar": "https://images.pexels.com/photos/1962844/pexels-photo-1962844.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "firstName": "Pretty",
+        "lastName": "Mazibuko"
+      }
+    ],
+    "comments": [
+      {
+        "id": "205",
+        "userId": "27",
+        "message": "My child now loves learning about different countries!",
+        "attachment": "",
+        "avatar": "https://images.pexels.com/photos/1962844/pexels-photo-1962844.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "firstName": "Pretty",
+        "lastName": "Mazibuko",
+        "createdAt": "2024-07-05T07:00:00Z"
+      }
+    ],
+    "reviews": [
+      {
+        "id": "305",
+        "userId": "27",
+        "title": "Educational",
+        "description": "Great introduction to geography for young students. Very educational.",
+        "avatar": "https://images.pexels.com/photos/1962844/pexels-photo-1962844.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "firstName": "Pretty",
+        "lastName": "Mazibuko",
+        "rating": 4,
+        "createdAt": "2024-07-06T18:00:00Z"
+      }
+    ],
+    "overallRating": 4,
+    "createdAt": "2024-07-05T06:00:00Z"
+  },
+  {
+    "id": "6",
+    "userId": "367654",
+    "firstName": "Leona",
+    "lastName": "Evans",
+    "avatar": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "title": "Physics - High School",
+    "description": "Covering fundamental physics concepts such as motion, forces, energy, and waves. This course prepares students for advanced studies in science.",
+    "mediaFile": "https://images.pexels.com/photos/5212320/pexels-photo-5212320.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "mediaType": "image",
+    "likes": [
+      {
+        "id": "106",
+        "userId": "28",
+        "avatar": "https://images.pexels.com/photos/1962844/pexels-photo-1962844.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "firstName": "Pretty",
+        "lastName": "Mazibuko"
+      }
+    ],
+    "comments": [
+      {
+        "id": "206",
+        "userId": "28",
+        "message": "Complex topics made simple and easy to understand.",
+        "attachment": "",
+        "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "firstName": "Elliot",
+        "lastName": "Brown",
+        "createdAt": "2024-07-06T06:00:00Z"
+      }
+    ],
+    "reviews": [
+      {
+        "id": "306",
+        "userId": "28",
+        "title": "Simplified",
+        "description": "The explanations are clear, making tough concepts easier to grasp.",
+        "avatar": "https://images.pexels.com/photos/1962844/pexels-photo-1962844.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "firstName": "Pretty",
+        "lastName": "Mazibuko",
+        "rating": 5,
+        "createdAt": "2024-07-07T19:00:00Z"
+      }
+    ],
+    "overallRating": 5,
+    "createdAt": "2024-07-06T05:00:00Z"
+  },
+  {
+    "id": "7",
+    "userId": "367654",
+    "firstName": "Michale",
+    "lastName": "Franklin",
+    "avatar": "https://images.unsplash.com/photo-1558222218-b7b54eede3f3?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "title": "Chemistry - Secondary School",
+    "description": "This course dives into chemical reactions, the periodic table, and the properties of matter. Students engage in hands-on experiments to reinforce concepts.",
+    "mediaFile": "https://videos.pexels.com/video-files/5427607/5427607-uhd_2560_1440_25fps.mp4",
+    "mediaType": "video",
+    "likes": [
+      {
+        "id": "107",
+        "userId": "29",
+        "avatar": "https://images.pexels.com/photos/1962844/pexels-photo-1962844.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "firstName": "Pretty",
+        "lastName": "Mazibuko"
+      }
+    ],
+    "comments": [
+      {
+        "id": "207",
+        "userId": "29",
+        "message": "The experiments are so cool! My child loves them.",
+        "attachment": "",
+        "avatar": "https://images.pexels.com/photos/1962844/pexels-photo-1962844.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "firstName": "Pretty",
+        "lastName": "Mazibuko",
+        "createdAt": "2024-07-07T05:00:00Z"
+      }
+    ],
+    "reviews": [
+      {
+        "id": "307",
+        "userId": "29",
+        "title": "Exciting Experiments",
+        "description": "The course includes fun experiments that keep students engaged.",
+        "avatar": "https://images.pexels.com/photos/1962844/pexels-photo-1962844.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "firstName": "Pretty",
+        "lastName": "Mazibuko",
+        "rating": 4,
+        "createdAt": "2024-07-08T20:00:00Z"
+      }
+    ],
+    "overallRating": 4,
+    "createdAt": "2024-07-07T04:00:00Z"
+  },
+  {
+    "id": "8",
+    "userId": "367654",
+    "firstName": "Maya",
+    "lastName": "Lee",
+    "avatar": "https://images.unsplash.com/photo-1529232356377-57971f020a94?q=80&w=776&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "title": "Biology - High School",
+    "description": "A detailed look at living organisms, from cells to ecosystems. This course covers genetics, evolution, and human biology.",
+    "mediaFile": "https://images.pexels.com/photos/10483573/pexels-photo-10483573.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "mediaType": "image",
+    "likes": [
+      {
+        "id": "108",
+        "userId": "30",
+        "avatar": "user30_avatar.png",
+        "firstName": "",
+        "lastName": ""
+      }
+    ],
+    "comments": [
+      {
+        "id": "208",
+        "userId": "30",
+        "message": "Very comprehensive and well-organized. My child enjoys it.",
+        "attachment": "",
+        "avatar": "https://images.pexels.com/photos/3922294/pexels-photo-3922294.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "firstName": "Kim",
+        "lastName": "Smith",
+        "createdAt": "2024-07-08T04:00:00Z"
+      }
+    ],
+    "reviews": [
+      {
+        "id": "308",
+        "userId": "30",
+        "title": "Well-Organized",
+        "description": "The course is structured in a way that makes complex topics easy to understand.",
+        "avatar": "https://images.unsplash.com/photo-1560253717-c9ece454f7d1?q=80&w=776&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "firstName": "Romance",
+        "lastName": "Wong",
+        "rating": 5,
+        "createdAt": "2024-07-09T21:00:00Z"
+      }
+    ],
+    "overallRating": 5,
+    "createdAt": "2024-07-08T03:00:00Z"
+  },
+  {
+    "id": "9",
+    "userId": "367654",
+    "firstName": "Christina",
+    "lastName": "Van Der Merwe",
+    "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=776&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "title": "Computer Science - Secondary School",
+    "description": "Introduction to programming, algorithms, and data structures. Students learn to code in various languages and develop problem-solving skills.",
+    "mediaFile": "https://videos.pexels.com/video-files/5183272/5183272-hd_1920_1080_30fps.mp4",
+    "mediaType": "video",
+    "likes": [
+      {
+        "id": "109",
+        "userId": "31",
+        "avatar": "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "firstName": "Megan",
+        "lastName": "Long"
+      }
+    ],
+    "comments": [
+      {
+        "id": "209",
+        "userId": "31",
+        "message": "Great way to start learning programming. Very engaging.",
+        "attachment": "",
+        "avatar": "https://images.pexels.com/photos/3922294/pexels-photo-3922294.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "firstName": "Kim",
+        "lastName": "Smith",
+        "createdAt": "2024-07-09T03:00:00Z"
+      }
+    ],
+    "reviews": [
+      {
+        "id": "309",
+        "userId": "31",
+        "title": "Engaging",
+        "description": "The course introduces programming concepts in a fun and engaging way.",
+        "avatar": "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "firstName": "Megan",
+        "lastName": "Long",
+        "rating": 5,
+        "createdAt": "2024-07-10T22:00:00Z"
+      }
+    ],
+    "overallRating": 5,
+    "createdAt": "2024-07-09T02:00:00Z"
+  },
+  {
+    "id": "10",
+    "userId": "367654",
+    "firstName": "Khanyi",
+    "lastName": "Zulu",
+    "avatar": "https://images.unsplash.com/photo-1573497491765-dccce02b29df?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "title": "Economics - Tertiary School",
+    "description": "Understanding the principles of economics, including supply and demand, market structures, and economic policies. This course prepares students for advanced studies in economics.",
+    "mediaFile": "",
+    "mediaType": "text",
+    "likes": [
+      {
+        "id": "110",
+        "userId": "32",
+        "avatar": "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "firstName": "Megan",
+        "lastName": "Long"
+      }
+    ],
+    "comments": [
+      {
+        "id": "210",
+        "userId": "32",
+        "message": "Very informative and well-explained. Good for beginners.",
+        "attachment": "",
+        "avatar": "https://images.pexels.com/photos/3922294/pexels-photo-3922294.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "firstName": "Kim",
+        "lastName": "Smith",
+        "createdAt": "2024-07-10T02:00:00Z"
+      }
+    ],
+    "reviews": [
+      {
+        "id": "310",
+        "userId": "32",
+        "title": "Informative",
+        "description": "Covers all the basic principles of economics clearly and thoroughly.",
+        "avatar": "https://images.pexels.com/photos/1962844/pexels-photo-1962844.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "firstName": "Pretty",
+        "lastName": "Mazibuko",
+        "rating": 4,
+        "createdAt": "2024-07-11T23:00:00Z"
+      }
+    ],
+    "overallRating": 4,
+    "createdAt": "2024-07-10T01:00:00Z"
+  }
+]
