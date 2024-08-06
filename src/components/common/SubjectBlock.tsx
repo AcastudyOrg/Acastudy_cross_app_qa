@@ -16,14 +16,14 @@ const styles = StyleSheet.create({
   blockContainer: {
     //flexBasis: '20%',
     alignItems: 'center',
-    margin: 10,
+    margin: 15,
     padding: 10,
     borderRadius: 10,
     backgroundColor: 'rgba(255,255,255, 0.2)',
   },
   image: {
-    width: 150,
-    height: 150,
+    width: 220,
+    height: 220,
     margin: 10,
     borderRadius: 10,
   },

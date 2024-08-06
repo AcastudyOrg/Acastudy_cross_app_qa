@@ -12,6 +12,9 @@ import SocialAuthButtonComponent from "./common/Form/SocialAuthButtonComponent";
 //layouts
 import PrivateScreenLayout from "./layout/PrivateScreenLayout";
 
+//sections
+import HomeDataListComponent from "./sections/HomeDataListComponent";
+
 import ComingSoonComponent from "./common/ComingSoonComponent";
 
 export {
@@ -23,5 +26,6 @@ export {
   TextInputComponent,
   SocialAuthButtonComponent,
   PrivateScreenLayout,
+  HomeDataListComponent,
   ComingSoonComponent,
 };

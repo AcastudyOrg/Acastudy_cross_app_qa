@@ -1,5 +1,6 @@
 import React from "react";
-import { View, StyleSheet, ScrollView  } from "react-native";
+import { View, StyleSheet, ScrollView } from "react-native";
+import homeDataSubject from "../../../assets/data/homeDataSubject.json";
 import  SubjectBlock  from "../../components/common/SubjectBlock";
 import TutorBlock from '../../components/common/TutorBlock';
 import {PrivateScreenLayout} from "../../components";
@@ -31,6 +32,10 @@ const tutors: Tutor[] = [
 ];
 
 const HomeScreen = () => {
+  const subjectData = Array.isArray(homeDataSubject)
+    ? homeDataSubject
+    : [homeDataSubject];
+
   return (
     <PrivateScreenLayout>
       <ScrollView contentContainerStyle={styles.container}>
@@ -64,6 +69,7 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   homeMainContainer: {
     flex: 1,
+    paddingVertical: 15,
   },
   container: {
     flexGrow: 1,
