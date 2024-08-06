@@ -14,6 +14,11 @@ import {
   VerifyForgotEmailScreen,
   SetNewForgotPasswordScreen,
   WelcomeScreen,
+  CallScreen,
+  ChatScreen,
+  HomeScreen,
+  ProfileScreen,
+  StudyScreen,
 } from "../screens";
 
 const Stack = createNativeStackNavigator();
@@ -22,7 +27,7 @@ const AppMainNavigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="SignUpScreen"
+        initialRouteName="HomeScreen"
         screenOptions={{ headerShown: false }}
       >
         {/* Public Route Screens */}
@@ -51,6 +56,11 @@ const AppMainNavigation = () => {
 
         {/* Private Route Screens */}
         <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
+        <Stack.Screen name="CallScreen" component={CallScreen} />
+        <Stack.Screen name="ChatScreen" component={ChatScreen} />
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+        <Stack.Screen name="StudyScreen" component={StudyScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
