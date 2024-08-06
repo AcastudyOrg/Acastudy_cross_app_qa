@@ -27,10 +27,7 @@ const HomeDataListComponent = ({
           onPlaybackStatusUpdate={(status) => setStatus(() => status)}
         />
       ) : item.mediaType === "image" ? (
-        <Image
-          source={{ uri: item?.mediaFile }}
-          style={styles.itemImage}
-        />
+        <Image source={{ uri: item?.mediaFile }} style={styles.itemImage} />
       ) : null}
 
       <Text style={styles.itemTitle}>{item.title}</Text>
@@ -47,6 +44,7 @@ const HomeDataListComponent = ({
       </View>
 
       <FlatList
+        horizontal
         data={data}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
@@ -89,7 +87,7 @@ const styles = StyleSheet.create({
     gap: 10,
     borderRadius: 20,
     overflow: "hidden",
-    backgroundColor: COLORS.lightGray,
+    backgroundColor: COLORS.darkGray,
   },
   itemVideo: {
     width: "100%",
@@ -99,11 +97,11 @@ const styles = StyleSheet.create({
     width: 80,
     height: 80,
     resizeMode: "cover",
-    },
-    itemTitle: {
-        color: COLORS.white,
-        fontSize: SIZE.m,
-        fontFamily: FONT.interRegular,
+  },
+  itemTitle: {
+    color: COLORS.white,
+    fontSize: SIZE.m,
+    fontFamily: FONT.interRegular,
   },
 });
 
