@@ -22,7 +22,7 @@ const TutorBlock: React.FC<TutorBlockProps> = ({ imageSrc, tutorName, subject, r
 const styles = StyleSheet.create({
   blockContainer: {
     alignItems: 'center',
-    margin: 10,
+    margin: 15,
     padding: 10,
     borderRadius: 10,
     backgroundColor: 'rgba(255,255,255, 0.2)',
@@ -39,8 +39,8 @@ const styles = StyleSheet.create({
     // elevation: 2,
   },
   image: {
-    width: 120,
-    height: 120,
+    width: 220,
+    height: 220,
     margin: 10,
     borderRadius: 10,
   },
