@@ -38,15 +38,6 @@ const HomeScreen = () => {
 
   return (
     <PrivateScreenLayout>
-<<<<<<< HEAD
-      <View style={styles.homeMainContainer}>
-        <HomeDataListComponent
-          dataTitle="Subjects"
-          data={subjectData}
-          viewAllLink={() => console.log("open new screen with all content")}
-        />
-      </View>
-=======
       <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.grid}>
         {subjects.map((subject, index) => (
@@ -71,7 +62,6 @@ const HomeScreen = () => {
         ))}
       </View>
     </ScrollView>
->>>>>>> f69be251ba3b6cff83306bed5040bd1f1ded77c4
     </PrivateScreenLayout>
   );
 };
