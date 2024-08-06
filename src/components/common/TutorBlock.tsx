@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: 'rgba(255,255,255, 0.2)',
     // width: '45%', 
-    // alignItems: 'center',
+    // alignItems: 'center', 
     // margin: 10,
     // padding: 10,
     // backgroundColor: 'rgba(255,255,255, 0.2)',
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     // shadowOffset: { width: 0, height: 2 },
     // shadowOpacity: 0.2,
     // shadowRadius: 2,
-    // elevation: 2,
+    // elevation: 2, 
   },
   image: {
     width: 220,
