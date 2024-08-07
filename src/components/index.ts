@@ -14,6 +14,7 @@ import PrivateScreenLayout from "./layout/PrivateScreenLayout";
 
 //sections
 import HomeDataListComponent from "./sections/HomeDataListComponent";
+import UpcomingEventsComponent from "./sections/UpcomingEventsComponent";
 
 import ComingSoonComponent from "./common/ComingSoonComponent";
 
@@ -27,5 +28,6 @@ export {
   SocialAuthButtonComponent,
   PrivateScreenLayout,
   HomeDataListComponent,
+  UpcomingEventsComponent,
   ComingSoonComponent,
 };

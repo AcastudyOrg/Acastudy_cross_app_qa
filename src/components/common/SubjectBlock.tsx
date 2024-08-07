@@ -14,7 +14,6 @@ const SubjectBlock:React.FC<blockProps>  = ({ imageSrc, subjectName}) => {
 
 const styles = StyleSheet.create({
   blockContainer: {
-    //flexBasis: '20%',
     alignItems: 'center',
     margin: 15,
     padding: 10,
