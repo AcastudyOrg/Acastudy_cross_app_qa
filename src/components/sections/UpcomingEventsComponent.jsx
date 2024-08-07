@@ -29,7 +29,7 @@ const UpcomingEventsComponent = () => {
                         key={i}
                         start={{ x: 0.2, y: 0 }}
                         end={{ x: 0, y: 1 }}
-                        colors={[COLORS.darkGray, COLORS.transparent, COLORS.darkBlue]}
+                        colors={["#737373", COLORS.transparent, COLORS.darkBlue]}
                         style={styles.upcomingEventsContentContainer}
                     >
                         <View style={styles.upcomingImageContainer}>

@@ -3,7 +3,11 @@ import { StyleSheet } from "react-native";
 import homeDataSubject from "../../../assets/data/home/homeDataSubject.json";
 import SubjectBlock from "../../components/common/SubjectBlock";
 import TutorBlock from "../../components/common/TutorBlock";
-import { PrivateScreenLayout, UpcomingEventsComponent } from "../../components";
+import {
+  PrivateScreenLayout,
+  SubjectComponent,
+  UpcomingEventsComponent,
+} from "../../components";
 
 interface Subject {
   name: string;
@@ -62,6 +66,7 @@ const HomeScreen = () => {
   return (
     <PrivateScreenLayout>
       <UpcomingEventsComponent />
+      <SubjectComponent />
     </PrivateScreenLayout>
   );
 };
