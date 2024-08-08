@@ -39,10 +39,16 @@ jobs:
         git config --global user.email "vincentsebothoma945@gmail.com"
         git config --global user.name "fankholor-sudo"
         
+    # - name: Deploy to GitHub Pages
+    #   if: github.ref == 'refs/heads/QA_Test'
+    #   run: |
+    #     yarn add --dev gh-pages
+    #     npm run deploy
     - name: Deploy to GitHub Pages
-      if: github.ref == 'refs/heads/QA_Test'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        yarn add --dev gh-pages
+        git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}
         npm run deploy
 
     - name: Cache Node.js modules
