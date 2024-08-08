@@ -8,14 +8,14 @@ import {PrivateScreenLayout} from "../../components";
 interface Subject {
   name: string;
   image: string;
-}
+};
 
 interface Tutor {
   name: string;
   image: string;
   subject: string;
   rating: number;
-}
+};
 
 const subjects: Subject[] = [
   { name: 'Mathematics', image: '../../../assets/images/appImages/maths.svg' },
