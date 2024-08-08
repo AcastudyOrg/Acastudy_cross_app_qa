@@ -23,8 +23,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
+    - name: Install Yarn
+      run: npm install -g yarn
+    
     - name: Install dependencies
-      run: npm install
+      run: yarn install --ignore-engines
 
     - name: Build Expo web app
       run: |
