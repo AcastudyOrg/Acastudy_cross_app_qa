@@ -3,7 +3,7 @@
     "name": "acastudy_ts_app",
     "slug": "acastudy_ts_app",
     "version": "1.0.0",
-    "platform": ["ios", "android"],
+    "platform": ["ios", "android", "web"],
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -23,7 +23,8 @@
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "publicPath": "/Acastudy_cross_app/"
     },
     "plugins": [
       "expo-font",
