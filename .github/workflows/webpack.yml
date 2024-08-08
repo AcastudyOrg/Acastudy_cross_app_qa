@@ -31,7 +31,7 @@ jobs:
 
     - name: Build Expo web app
       run: |
-        npm install --save-dev @expo/webpack-config
+        yarn add @expo/webpack-config --dev
         npm run build
 
     - name: Deploy to GitHub Pages
