@@ -33,11 +33,16 @@ jobs:
       run: |
         yarn add @expo/webpack-config --dev
         npm run build
-
+        
+    - name: Configure Git Identity
+      run: |
+        git config --global user.email "vincentsebothoma945@gmail.com"
+        git config --global user.name "fankholor-sudo"
+        
     - name: Deploy to GitHub Pages
       if: github.ref == 'refs/heads/QA_Test'
       run: |
-        npm install -g gh-pages
+        yarn add --dev gh-pages
         npm run deploy
 
     - name: Cache Node.js modules
