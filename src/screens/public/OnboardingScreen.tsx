@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { View, Text, StyleSheet, Image, Dimensions } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Swiper from "react-native-swiper";
+// import Swiper from "react-native-swiper";
 import { Entypo } from "@expo/vector-icons";
 
 import onboardingData from "../../../assets/data/onboardingData.json";
@@ -15,7 +15,7 @@ const OnboardingScreen = () => {
   const [data, setData] = useState<OnboardingItemProps[]>([]);
   const [showButton, setShowButton] = useState(false);
 
-  const swiperRef = useRef<Swiper>(null);
+  // const swiperRef = useRef<Swiper>(null);
 
   useEffect(() => {
     setData(onboardingData);
@@ -50,7 +50,7 @@ const OnboardingScreen = () => {
         )}
       </View>
 
-      <Swiper
+      {/* <Swiper
         ref={swiperRef}
         showsButtons={true}
         loop={false}
@@ -70,7 +70,7 @@ const OnboardingScreen = () => {
             </Text>
           </View>
         ))}
-      </Swiper>
+      </Swiper> */}
     </SafeAreaView>
   );
 };
