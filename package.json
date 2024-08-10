@@ -22,8 +22,10 @@
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/native-stack": "^6.9.26",
     "@types/material-ui": "^0.21.17",
+    "crypto-browserify": "^3.12.0",
     "expo": "~51.0.8",
     "expo-app-loading": "^2.1.1",
+    "expo-av": "~14.0.6",
     "expo-font": "~12.0.6",
     "expo-image-picker": "~15.0.5",
     "expo-linear-gradient": "~13.0.2",
@@ -41,7 +43,7 @@
     "react-native-swiper": "^1.6.0",
     "react-native-web": "~0.19.10",
     "react-router-dom": "^6.24.1",
-    "expo-av": "~14.0.6"
+    "stream-browserify": "^3.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
