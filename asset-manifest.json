@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/Acastudy_cross_app/static/js/main.243db46c.js",
-    "static/js/683.7214d86c.js": "/Acastudy_cross_app/static/js/683.7214d86c.js",
+    "main.js": "/Acastudy_cross_app/static/js/main.f564289a.js",
+    "static/js/239.702c5071.js": "/Acastudy_cross_app/static/js/239.702c5071.js",
     "static/media/authBackgroundImage.jpg": "/Acastudy_cross_app/static/media/authBackgroundImage.56139cd7d5ebaa353dcc.jpg",
     "static/media/MaterialCommunityIcons.ttf": "/Acastudy_cross_app/static/media/MaterialCommunityIcons.5d42b4e60858731e7b65.ttf",
     "static/media/Ionicons.ttf": "/Acastudy_cross_app/static/media/Ionicons.9b6b1954a5eb6efeaf11.ttf",
@@ -35,11 +35,11 @@
     "favicon-16.png": "/Acastudy_cross_app/favicon-16.png",
     "manifest.json": "/Acastudy_cross_app/manifest.json",
     "serve.json": "/Acastudy_cross_app/serve.json",
-    "main.243db46c.js.map": "/Acastudy_cross_app/static/js/main.243db46c.js.map",
-    "683.7214d86c.js.map": "/Acastudy_cross_app/static/js/683.7214d86c.js.map"
+    "main.f564289a.js.map": "/Acastudy_cross_app/static/js/main.f564289a.js.map",
+    "239.702c5071.js.map": "/Acastudy_cross_app/static/js/239.702c5071.js.map"
   },
   "entrypoints": [
-    "static/js/683.7214d86c.js",
-    "static/js/main.243db46c.js"
+    "static/js/239.702c5071.js",
+    "static/js/main.f564289a.js"
   ]
 }
