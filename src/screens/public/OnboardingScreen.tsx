@@ -15,7 +15,7 @@ const OnboardingScreen = () => {
   const [data, setData] = useState<OnboardingItemProps[]>([]);
   const [showButton, setShowButton] = useState(false);
 
-  // const swiperRef = useRef<Swiper>(null);
+  const swiperRef = useRef<Swiper>(null);
 
   useEffect(() => {
     setData(onboardingData);
@@ -50,7 +50,7 @@ const OnboardingScreen = () => {
         )}
       </View>
 
-      {/* <Swiper
+      <Swiper
         ref={swiperRef}
         showsButtons={true}
         loop={false}
@@ -70,7 +70,7 @@ const OnboardingScreen = () => {
             </Text>
           </View>
         ))}
-      </Swiper> */}
+      </Swiper>
     </SafeAreaView>
   );
 };
