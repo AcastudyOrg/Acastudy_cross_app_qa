@@ -1,29 +1,35 @@
 import * as React from "react";
-import { View, StyleSheet, SafeAreaView, Text } from "react-native";
+import { View, StyleSheet, SafeAreaView, Text, ScrollView } from "react-native";
 
-import { screenSize } from "../../../utils/config";
+import { getImageSource, screenSize } from "../../../utils/config";
 
-import TopNav from "../../navigation/TopNav";
 import Sidebar from "../../navigation/SidebarNavComponent";
-import colors from "../../constants/colors";
+import colors, { AppColor } from "../../constants/colors";
 import BottomMobileNavigation from "../../navigation/BottomMobileNav";
-import { COLORS, FONT, SIZE } from "../../constants";
+import { COLORS, FONT, IMAGES, SIZE } from "../../constants";
+import TopBarComponent from "../common/TopBar/TopBarComponent";
+import { User } from "../../types/User/Student";
+import { LoginMockUser } from "../../../mockData/LoginUser";
+import { DEVICE_TYPE, STRING } from "../../constants/strings";
+
 
 const PrivateScreenLayout = ({ children }: { children: React.ReactNode }) => {
-  const size = screenSize();
 
+	//  we should listen to the changes of th size of the screen layout as we do with the topbar for responsiveness
+  const size = screenSize();
+  const user: User = LoginMockUser // TODO(Phillip): to pull data from the backend to assign to the user var
   return (
     <SafeAreaView style={styles.layoutContainer}>
-      {size === "mobile" ? (
+      {size === DEVICE_TYPE.mobile ? (
         <View style={styles.topNavMobileContainer}>
           <View style={styles.sidebarMediaContainer}>
-            <Text style={styles.sidebarMediaItem}>ACASTUDY</Text>
+            <Text style={styles.sidebarMediaItem}> {STRING.appName} </Text>
           </View>
-          <TopNav />
+          <TopBarComponent renderRightSection={false} user={user} />
         </View>
       ) : (
         <>
-          {size === "desktop" || "tablet" ? (
+          {size === DEVICE_TYPE.desktop || DEVICE_TYPE.tablet ? (
             <View style={styles.sidebarContainer}>
               <Sidebar />
             </View>
@@ -32,9 +38,9 @@ const PrivateScreenLayout = ({ children }: { children: React.ReactNode }) => {
       )}
 
       <View style={styles.contentContainer}>
-        {size === "desktop" || ("tablet" && size !== "mobile") ? (
+        {size === DEVICE_TYPE.desktop || (DEVICE_TYPE.tablet && size !== DEVICE_TYPE.mobile) ? (
           <View style={styles.topNavContainer}>
-            <TopNav />
+            <TopBarComponent user={user} />
             <View style={styles.mainContent}>{children}</View>
           </View>
         ) : (
@@ -51,7 +57,7 @@ const PrivateScreenLayout = ({ children }: { children: React.ReactNode }) => {
 const styles = StyleSheet.create({
   layoutContainer: {
     flex: 1,
-    backgroundColor: colors.darkBlue,
+    backgroundColor: AppColor.darkBlue,
   },
   topNavContainer: {
     position: "absolute",
@@ -74,7 +80,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     position: "absolute",
     zIndex: 10,
-    backgroundColor: colors.darkBlue,
+    backgroundColor: AppColor.darkBlue,
   },
   mainContent: {
     flex: 1,
@@ -86,7 +92,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   sidebarMediaItem: {
-    color: COLORS.white,
+    color: AppColor.white,
     fontFamily: FONT.interBold,
     fontSize: SIZE.xxl,
   },
