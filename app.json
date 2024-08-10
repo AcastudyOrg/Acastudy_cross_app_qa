@@ -24,7 +24,7 @@
     },
     "web": {
       "favicon": "./assets/favicon.png",
-      "publicPath": "/Acastudy_cross_app_qa/"
+      "publicPath": "/Acastudy_cross_app_qa/" 
     },
     "plugins": [
       "expo-font",
