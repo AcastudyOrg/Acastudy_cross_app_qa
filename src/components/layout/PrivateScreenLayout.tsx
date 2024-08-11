@@ -3,7 +3,6 @@ import { View, StyleSheet, SafeAreaView, Text, ScrollView } from "react-native";
 
 import { getImageSource, screenSize } from "../../../utils/config";
 
-import Sidebar from "../../navigation/SidebarNavComponent";
 import colors, { AppColor } from "../../constants/colors";
 import BottomMobileNavigation from "../../navigation/BottomMobileNav";
 import { COLORS, FONT, IMAGES, SIZE } from "../../constants";
@@ -11,6 +10,7 @@ import TopBarComponent from "../common/TopBar/TopBarComponent";
 import { User } from "../../types/User/Student";
 import { LoginMockUser } from "../../../mockData/LoginUser";
 import { DEVICE_TYPE, STRING } from "../../constants/strings";
+import SidebarNavComponent from "../common/SideBar/SidebarNavComponent";
 
 
 const PrivateScreenLayout = ({ children }: { children: React.ReactNode }) => {
@@ -31,7 +31,7 @@ const PrivateScreenLayout = ({ children }: { children: React.ReactNode }) => {
         <>
           {size === DEVICE_TYPE.desktop || DEVICE_TYPE.tablet ? (
             <View style={styles.sidebarContainer}>
-              <Sidebar />
+              <SidebarNavComponent/>
             </View>
           ) : null}
         </>
