@@ -1,12 +1,12 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, ImageSourcePropType } from 'react-native';
 
-interface blockProps {imageSrc: string, subjectName: string };
+interface blockProps {imageSrc: ImageSourcePropType, subjectName: string };
 
 const SubjectBlock:React.FC<blockProps>  = ({ imageSrc, subjectName}) => {
   return (
     <View style={styles.blockContainer}>
-      <Image source={{ uri: imageSrc }} style={styles.image} />
+      <Image source={imageSrc} style={styles.image} />
       <Text style={styles.subjectName}>{subjectName}</Text>
     </View>
   );
