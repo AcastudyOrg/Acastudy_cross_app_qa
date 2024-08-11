@@ -11,6 +11,15 @@ export interface ImageProps {
   user: ImageSourcePropType | string;
   userPlaceholder: ImageSourcePropType;
   comingSoon: ImageSourcePropType| string;
+
+  mathImg: ImageSourcePropType;
+  physicsImg: ImageSourcePropType;
+  literatureImg: ImageSourcePropType;
+  biologyImg: ImageSourcePropType;
+  johnImg: ImageSourcePropType;
+  janeImg: ImageSourcePropType;
+  agmedImg: ImageSourcePropType;
+  druboImg: ImageSourcePropType;
 }
 
 export interface IconProps {

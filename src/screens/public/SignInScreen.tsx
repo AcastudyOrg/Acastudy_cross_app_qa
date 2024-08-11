@@ -38,7 +38,7 @@ const SignInScreen = () => {
       setPasswordError(!password.trim() ? "Password is required." : "");
       setIsLoading(false);
       return;
-    }
+    };
 
     setIsLoading(true);
 
@@ -64,7 +64,7 @@ const SignInScreen = () => {
         <Text style={styles.signInTitleItem}>Log in</Text>
       </View>
     );
-  }
+  };
 
   function renderInputSection() {
     return (

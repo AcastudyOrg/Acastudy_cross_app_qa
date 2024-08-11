@@ -15,7 +15,7 @@ const RightSection: React.FC<RightSectionProps> = ({ screenWidth, user, navigati
 		{screenWidth >= 1074 && (
 			<View style={styles.rightSectionbuttons}>
 				<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.HomeScreen)}> {/* Todo(Phillip): Put correct screen name*/}
-					<Text style={styles.linkText}> {STRING.becomeATutor} </Text> 
+					<Text style={styles.linkText}> {STRING.becomeATutor} </Text>
 				</TouchableOpacity>
 				<Text style={styles.linkText}>|</Text>
 				<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.HomeScreen)}>  {/* Todo(Phillip): Put correct screen name*/}
@@ -28,7 +28,7 @@ const RightSection: React.FC<RightSectionProps> = ({ screenWidth, user, navigati
 				<Text style={styles.profileName}>{user.name} {user.surname}</Text>
 				<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.ProfileScreen)}>
 					<Image
-						source={{ uri: user.profilePictureUrl }}
+						source={user.profilePictureUrl}
 						style={styles.profilePicture}
 					/>
 				</TouchableOpacity>
