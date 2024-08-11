@@ -3,15 +3,19 @@ import { View, StyleSheet } from "react-native";
 import SidebarHeader from "./SidebarHeader";
 import SidebarLinks from "./SidebarLinks";
 import SidebarFooter from "./SidebarFooter";
+import useScreenWidth from "../../../hooks/useScreenWidth";
+import { useNavigation } from "@react-navigation/native";
 
 const SidebarNavComponent = () => {
+    const screenWidth = useScreenWidth();
+    const navigation = useNavigation<any>();
 	return (
 		<View style={styles.sidebarMainContainer}>
 			<View style={styles.sidebarTopContainer}>
-				<SidebarHeader />
-				<SidebarLinks />
+				<SidebarHeader screenWidth={screenWidth} navigation={navigation}/>
+				<SidebarLinks screenWidth={screenWidth}/>
 			</View>
-			<SidebarFooter />
+			<SidebarFooter screenWidth={screenWidth} navigation={navigation}/>
 		</View>
 	);
 };

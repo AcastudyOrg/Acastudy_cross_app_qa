@@ -1,13 +1,21 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { FONT, SIZE } from "../../../constants";
 import { AppColor } from "../../../constants/colors";
+import { NAV_SCREEN_NAME, STRING } from "../../../constants/strings";
 
-const SidebarHeader = () => {
+type SidebarHeaderProps = {
+	screenWidth: number;
+	navigation: any;
+};
+
+const SidebarHeader:  React.FC<SidebarHeaderProps> = ({screenWidth, navigation}) => {
 	return (
-		<View style={styles.sidebarMediaContainer}>
-			<Text style={styles.sidebarMediaItem}>ACASTUDY</Text>
-		</View>
+		<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.HomeScreen)} style={styles.sidebarMediaContainer}>
+            {screenWidth >= 972 && (
+                <Text style={styles.sidebarMediaItem}> {STRING.appName} </Text>
+            )}
+		</TouchableOpacity>
 	);
 };
 

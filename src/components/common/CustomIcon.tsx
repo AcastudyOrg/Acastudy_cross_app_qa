@@ -2,11 +2,11 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import {
     Ionicons, FontAwesome, Feather, Octicons, Fontisto,
-    MaterialIcons, AntDesign, Entypo, EvilIcons, MaterialCommunityIcons
+    MaterialIcons, AntDesign, Entypo, EvilIcons, MaterialCommunityIcons, FontAwesome5
 } from "@expo/vector-icons";
 import { AppColor } from '../../constants/colors';
 
-type IconSetName = keyof typeof iconMap;
+export type IconSetName = keyof typeof iconMap;
 
 type IconProps = {
     set: IconSetName;
@@ -26,9 +26,13 @@ const iconMap = {
     Entypo,
     EvilIcons,
     MaterialCommunityIcons,
+    FontAwesome5, 
 };
 
-const CustomIcon: React.FC<IconProps> = ({ set, name, size = 24, color = AppColor.white }) => {
+/* For the documentation of the icons look at https://icons.expo.fyi/Index 😎
+*/
+
+const CustomIcon: React.FC<IconProps> = ({ set, name, size = 18, color = AppColor.white }) => {
     const Icon = iconMap[set];
     return (
         <View style={styles.iconContainer}>

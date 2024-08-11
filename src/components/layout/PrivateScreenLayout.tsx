@@ -11,6 +11,7 @@ import { User } from "../../types/User/Student";
 import { LoginMockUser } from "../../../mockData/LoginUser";
 import { DEVICE_TYPE, STRING } from "../../constants/strings";
 import SidebarNavComponent from "../common/SideBar/SidebarNavComponent";
+import BottomBarComponent from "../common/BottomBar/BottomBarComponent";
 
 
 const PrivateScreenLayout = ({ children }: { children: React.ReactNode }) => {
@@ -46,7 +47,7 @@ const PrivateScreenLayout = ({ children }: { children: React.ReactNode }) => {
         ) : (
           <View style={styles.mainContent}>
             {children}
-            <BottomMobileNavigation />
+            <BottomBarComponent/>
           </View>
         )}
       </View>

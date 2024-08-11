@@ -1,16 +1,24 @@
 import React from "react";
-import { View, Text, TouchableOpacity, Image, StyleSheet } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import { links } from "../../../../assets/data/navigationLinks";
 import { COLORS, FONT, SIZE } from "../../../constants";
+import CustomIcon from "../CustomIcon";
+import { navTabs } from "../../../navigation/navLinks";
+import { AppColor } from "../../../constants/colors";
 
-const SidebarLinks = () => {
+
+
+type SidebarLinksProps = {
+    screenWidth: number;
+};
+
+const SidebarLinks: React.FC<SidebarLinksProps> = ({ screenWidth }) => {
     const navigation = useNavigation();
     const route = useRoute();
 
     return (
         <View style={styles.sidebarLinksContainer}>
-            {links.map((item, i) => {
+            {navTabs.map((item, i) => {
                 const isActive = route.name === item.link;
                 return (
                     <TouchableOpacity
@@ -18,15 +26,19 @@ const SidebarLinks = () => {
                         onPress={() => navigation.navigate(item.link as never)}
                         style={styles.sidebarLinksItemsContainer}
                     >
-                        <Image source={item.icon} style={styles.sidebarLinksIconItem} />
-                        <Text
-                            style={[
-                                styles.sidebarLinksItems,
-                                { color: isActive ? COLORS.purple : COLORS.white },
-                            ]}
-                        >
-                            {item.name}
-                        </Text>
+                        <View style={styles.sidebarLinksIconItem}>
+                            <CustomIcon
+                                set={item.icon.set}
+                                name={item.icon.name}
+                                color={isActive ? AppColor.purple : AppColor.white}
+                            />
+                        </View>
+                        {screenWidth >= 650 && (
+                            <Text style={[styles.sidebarLinksItems, { color: isActive ? AppColor.purple : AppColor.white },]} >
+                                {item.name}
+                            </Text>
+                        )}
+
                     </TouchableOpacity>
                 );
             })}
@@ -52,7 +64,7 @@ const styles = StyleSheet.create({
         resizeMode: "contain",
     },
     sidebarLinksItems: {
-        color: COLORS.white,
+        color: AppColor.white,
         fontFamily: FONT.interRegular,
         fontSize: SIZE.m,
     },
