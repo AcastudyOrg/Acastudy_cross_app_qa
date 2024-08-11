@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, ImageSourcePropType } from 'react-native';
 
 interface TutorBlockProps {
-  imageSrc: string;
+  imageSrc: ImageSourcePropType;
   tutorName: string;
   subject: string;
   rating: number;
@@ -11,7 +11,7 @@ interface TutorBlockProps {
 const TutorBlock: React.FC<TutorBlockProps> = ({ imageSrc, tutorName, subject, rating }) => {
   return (
     <View style={styles.blockContainer}>
-      <Image source={{ uri: imageSrc }} style={styles.image} />
+      <Image source={imageSrc} style={styles.image} />
       <Text style={styles.tutorName}>{tutorName}</Text>
       <Text style={styles.subject}>{subject}</Text>
       <Text style={styles.rating}>Rating: {rating}/5</Text>
