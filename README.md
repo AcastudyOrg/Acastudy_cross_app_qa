@@ -3,6 +3,8 @@
 #### Created: 2024
 #### Tech Stack: React-native-expo and TypeScript
 
+QA_env_Link: https://acastudyorg.github.io/Acastudy_cross_app_qa/
+
 <!-- TABLE OF CONTENTS -->
 ### Table of Contents
 <ol>
