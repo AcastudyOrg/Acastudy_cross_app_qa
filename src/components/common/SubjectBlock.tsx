@@ -1,9 +1,11 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, ImageSourcePropType } from 'react-native';
+import { View, Text, Image, StyleSheet, ImageSourcePropType, Dimensions } from 'react-native';
 
-interface blockProps {imageSrc: ImageSourcePropType, subjectName: string };
 
-const SubjectBlock:React.FC<blockProps>  = ({ imageSrc, subjectName}) => {
+let { width, height } = Dimensions.get('window');
+interface blockProps { imageSrc: ImageSourcePropType, subjectName: string };
+
+const SubjectBlock: React.FC<blockProps> = ({ imageSrc, subjectName }) => {
   return (
     <View style={styles.blockContainer}>
       <Image source={imageSrc} style={styles.image} />
@@ -14,16 +16,17 @@ const SubjectBlock:React.FC<blockProps>  = ({ imageSrc, subjectName}) => {
 
 const styles = StyleSheet.create({
   blockContainer: {
-    //flexBasis: '20%',
+    width: width * .17,
+    height: height * .3,
     alignItems: 'center',
-    margin: 15,
+    margin: 8,
     padding: 10,
     borderRadius: 10,
     backgroundColor: 'rgba(255,255,255, 0.2)',
   },
   image: {
-    width: 220,
-    height: 220,
+    width: "85%",
+    height: "85%",
     margin: 10,
     borderRadius: 10,
   },

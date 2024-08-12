@@ -1,5 +1,7 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, ImageSourcePropType } from 'react-native';
+import { View, Text, Image, StyleSheet, ImageSourcePropType, Dimensions } from 'react-native';
+
+let { width, height } = Dimensions.get('window');
 
 interface TutorBlockProps {
   imageSrc: ImageSourcePropType;
@@ -19,28 +21,21 @@ const TutorBlock: React.FC<TutorBlockProps> = ({ imageSrc, tutorName, subject, r
   );
 };
 
+const containerWidth = width * .17;
+const containerHeight = height * .3;
 const styles = StyleSheet.create({
   blockContainer: {
+    width: containerWidth,
+    height: containerHeight,
     alignItems: 'center',
-    margin: 15,
+    margin: 8,
     padding: 10,
     borderRadius: 10,
     backgroundColor: 'rgba(255,255,255, 0.2)',
-    // width: '45%', 
-    // alignItems: 'center', 
-    // margin: 10,
-    // padding: 10,
-    // backgroundColor: 'rgba(255,255,255, 0.2)',
-    // borderRadius: 10,
-    // shadowColor: '#000',
-    // shadowOffset: { width: 0, height: 2 },
-    // shadowOpacity: 0.2,
-    // shadowRadius: 2,
-    // elevation: 2, 
   },
   image: {
-    width: 220,
-    height: 220,
+    width: containerWidth * .41,
+    height: containerWidth * .4,
     margin: 10,
     borderRadius: 10,
   },
