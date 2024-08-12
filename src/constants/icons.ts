@@ -19,4 +19,11 @@ const images: IconProps = {
   studyIcon,
 };
 
+export type IconProp = {
+  set: string,
+  name: string,
+  size: number,
+  color: string,
+}
+
 export default images;

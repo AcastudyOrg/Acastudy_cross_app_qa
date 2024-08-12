@@ -3,6 +3,12 @@ export const STRING = {
     becomeATutor: 'Become A Tutor',
     logout: 'logout',
     appName: 'ACASTUDY',
+    home: 'Home',
+    call: 'Call',
+    chat: 'Chat',
+    study: 'Study',
+    profile: 'Profile',
+    requestTutor: 'Request tutor'
 };
 
 export const NAV_SCREEN_NAME = {

@@ -12,7 +12,7 @@ type RightSectionProps = {
 
 const RightSection: React.FC<RightSectionProps> = ({ screenWidth, user, navigation }) => (
 	<View style={styles.rightSection}>
-		{screenWidth >= 1074 && (
+		{screenWidth >= 1086 && (
 			<View style={styles.rightSectionbuttons}>
 				<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.HomeScreen)}> {/* Todo(Phillip): Put correct screen name*/}
 					<Text style={styles.linkText}> {STRING.becomeATutor} </Text>
