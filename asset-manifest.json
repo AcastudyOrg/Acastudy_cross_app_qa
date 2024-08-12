@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/Acastudy_cross_app/static/js/main.006619a9.js",
-    "static/js/239.702c5071.js": "/Acastudy_cross_app/static/js/239.702c5071.js",
+    "main.js": "/Acastudy_cross_app/static/js/main.fd4faef3.js",
+    "static/js/434.eae118a7.js": "/Acastudy_cross_app/static/js/434.eae118a7.js",
     "static/media/user.svg": "/Acastudy_cross_app/static/media/user.11396190c299a31e4c2e.svg",
     "static/media/user2.svg": "/Acastudy_cross_app/static/media/user2.82c9bfe564cde24d3e5d.svg",
     "static/media/authBackgroundImage.jpg": "/Acastudy_cross_app/static/media/authBackgroundImage.56139cd7d5ebaa353dcc.jpg",
@@ -11,10 +11,14 @@
     "static/media/biology.svg": "/Acastudy_cross_app/static/media/biology.c70a5f92814813af11e5.svg",
     "static/media/Ionicons.ttf": "/Acastudy_cross_app/static/media/Ionicons.9b6b1954a5eb6efeaf11.ttf",
     "static/media/lifeskills.svg": "/Acastudy_cross_app/static/media/lifeskills.67330aa5ff8f2d7d3dbd.svg",
+    "static/media/MaterialIcons.ttf": "/Acastudy_cross_app/static/media/MaterialIcons.f20305dee9d396fea5c7.ttf",
+    "static/media/Fontisto.ttf": "/Acastudy_cross_app/static/media/Fontisto.c0edd68811e0237502fe.ttf",
     "static/media/physics.svg": "/Acastudy_cross_app/static/media/physics.ca6eed1338ad472516fd.svg",
     "static/media/maths.svg": "/Acastudy_cross_app/static/media/maths.4b0b30f7098c9a6c449a.svg",
+    "static/media/FontAwesome5_Solid.ttf": "/Acastudy_cross_app/static/media/FontAwesome5_Solid.07c3313b24f7b1ca85ee.ttf",
     "static/media/FontAwesome.ttf": "/Acastudy_cross_app/static/media/FontAwesome.1e59d2330b4c6deb84b3.ttf",
     "static/media/success.png": "/Acastudy_cross_app/static/media/success.7fe60d51292a1102c3a9.png",
+    "static/media/FontAwesome5_Brands.ttf": "/Acastudy_cross_app/static/media/FontAwesome5_Brands.9e138496e8f1719c6ebf.ttf",
     "static/media/PlusJakartaSans_200ExtraLight_Italic.ttf": "/Acastudy_cross_app/static/media/PlusJakartaSans_200ExtraLight_Italic.0da6b1562bebbe62ad51.ttf",
     "static/media/PlusJakartaSans_300Light_Italic.ttf": "/Acastudy_cross_app/static/media/PlusJakartaSans_300Light_Italic.d67dd50e511bc479a266.ttf",
     "static/media/PlusJakartaSans_500Medium_Italic.ttf": "/Acastudy_cross_app/static/media/PlusJakartaSans_500Medium_Italic.be9dbf300a371f9e3307.ttf",
@@ -32,10 +36,14 @@
     "static/media/AntDesign.ttf": "/Acastudy_cross_app/static/media/AntDesign.163adab9dbd7cb1ed12a.ttf",
     "static/media/Entypo.ttf": "/Acastudy_cross_app/static/media/Entypo.fc6169344c041cffcdae.ttf",
     "static/media/error.png": "/Acastudy_cross_app/static/media/error.3500251728cc02f6bd9d.png",
+    "static/media/Feather.ttf": "/Acastudy_cross_app/static/media/Feather.0f5d9cede2e831f3fc80.ttf",
+    "static/media/Octicons.ttf": "/Acastudy_cross_app/static/media/Octicons.6b742a230954dc640ba2.ttf",
     "static/media/userPlaceholder.png": "/Acastudy_cross_app/static/media/userPlaceholder.a37ce062d049c120cc4a.png",
     "static/media/sentEmail.png": "/Acastudy_cross_app/static/media/sentEmail.cfbd30cfa769b2d76e05.png",
     "static/media/forgotPassword.png": "/Acastudy_cross_app/static/media/forgotPassword.95c3042ad2b67af7b379.png",
+    "static/media/FontAwesome5_Regular.ttf": "/Acastudy_cross_app/static/media/FontAwesome5_Regular.1017bce89c72f95bcf8e.ttf",
     "favicon.ico": "/Acastudy_cross_app/favicon.ico",
+    "static/media/EvilIcons.ttf": "/Acastudy_cross_app/static/media/EvilIcons.699664b33ac2837d5bee.ttf",
     "index.html": "/Acastudy_cross_app/index.html",
     "static/media/logo.png": "/Acastudy_cross_app/static/media/logo.e5109a10e3cc099fd169.png",
     "favicon-32.png": "/Acastudy_cross_app/favicon-32.png",
@@ -43,11 +51,11 @@
     "favicon-16.png": "/Acastudy_cross_app/favicon-16.png",
     "manifest.json": "/Acastudy_cross_app/manifest.json",
     "serve.json": "/Acastudy_cross_app/serve.json",
-    "main.006619a9.js.map": "/Acastudy_cross_app/static/js/main.006619a9.js.map",
-    "239.702c5071.js.map": "/Acastudy_cross_app/static/js/239.702c5071.js.map"
+    "main.fd4faef3.js.map": "/Acastudy_cross_app/static/js/main.fd4faef3.js.map",
+    "434.eae118a7.js.map": "/Acastudy_cross_app/static/js/434.eae118a7.js.map"
   },
   "entrypoints": [
-    "static/js/239.702c5071.js",
-    "static/js/main.006619a9.js"
+    "static/js/434.eae118a7.js",
+    "static/js/main.fd4faef3.js"
   ]
 }
