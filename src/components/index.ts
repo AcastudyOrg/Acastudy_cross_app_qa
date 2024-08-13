@@ -14,8 +14,9 @@ import PrivateScreenLayout from "./layout/PrivateScreenLayout";
 
 //sections
 import HomeDataListComponent from "./sections/HomeDataListComponent";
-import SubjectComponent from './sections/SubjectComponent';
-import UpcomingEventsComponent from "./sections/UpcomingEventsComponent";
+import SubjectComponent from "./sections/home/SubjectComponent";
+import TutorComponent from "./sections/home/TutorComponent";
+import UpcomingEventsComponent from "./sections/home/UpcomingEventsComponent";
 
 import ComingSoonComponent from "./common/ComingSoonComponent";
 
@@ -30,6 +31,7 @@ export {
   PrivateScreenLayout,
   HomeDataListComponent,
   SubjectComponent,
+  TutorComponent,
   UpcomingEventsComponent,
   ComingSoonComponent,
 };

@@ -2,9 +2,9 @@ import React from 'react'
 import { Image, Platform, ScrollView, StyleSheet, Text, View } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 
-import { COLORS, FONT, SIZE } from '../../constants'
-import upcomingEventsData from '../../../assets/data/home/upcomingEventsData.json'
-import { formatDateTime } from '../../../utils/config'
+import { COLORS, FONT, SIZE } from '../../../constants'
+import upcomingEventsData from '../../../../assets/data/home/upcomingEventsData.json'
+import { formatDateTime } from '../../../../utils/config'
 
 const UpcomingEventsComponent = () => {
     const handleViewMore = () => {

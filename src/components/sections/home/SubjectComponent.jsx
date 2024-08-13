@@ -1,8 +1,8 @@
 import React from 'react'
 import { Image, Platform, ScrollView, StyleSheet, Text, View } from 'react-native'
 
-import subjectData from '../../../assets/data/home/subjectData.json'
-import { COLORS, FONT, SIZE } from '../../constants'
+import subjectData from '../../../../assets/data/home/subjectData.json'
+import { COLORS, FONT, SIZE } from '../../../constants'
 
 const SubjectComponent = () => {
     const handleViewMore = () => {
