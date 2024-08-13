@@ -6,6 +6,7 @@ const gray = "#202020";
 const lightGray = "#D9D9D9";
 const lightCardGray = "#D9DEF6";
 const darkGray = "#555555";
+const darkGrayOpacity = "rgba(255, 255, 255, 0.2)";
 const red = "#DC3545";
 const green = "#28A745";
 const blue = "#4361ee";
@@ -26,6 +27,7 @@ const colors: ColorProps = {
   lightGray,
   lightCardGray,
   darkGray,
+  darkGrayOpacity,
   red,
   green,
   blue,

@@ -6,6 +6,7 @@ export interface ColorProps {
   lightGray: string;
   lightCardGray: string;
   darkGray: string;
+  darkGrayOpacity: string;
   red: string;
   green: string;
   blue: string;

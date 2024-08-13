@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   lineDivider: {
-    width: "100%",
+    width: "93%",
     alignSelf: "center",
     borderBottomColor: COLORS.lightGray,
     borderBottomWidth: 1,
