@@ -25,11 +25,18 @@ const TutorComponent: React.FC<TutorProps> = ({ item }) => {
                     source={{ uri: item.avatar }}
                     style={tutorComponentStyles.tutorImageItem}
                 />
-                {item.online && (
+                {item.online ? (
                     <Octicons
                         name="dot-fill"
-                        size={20}
+                        size={15}
                         color={COLORS.lightGreen}
+                        style={tutorComponentStyles.tutorOnline}
+                    />
+                ) : (
+                    <Octicons
+                        name="dot-fill"
+                        size={15}
+                        color={COLORS.darkGray}
                         style={tutorComponentStyles.tutorOnline}
                     />
                 )}
