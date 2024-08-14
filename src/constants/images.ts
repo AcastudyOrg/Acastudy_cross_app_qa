@@ -18,6 +18,18 @@ const user =
 const userPlaceholder = require("../../assets/images/general/dummy/userPlaceholder.png");
 const comingSoon = "https://static.vecteezy.com/system/resources/previews/026/972/633/original/traffic-cone-under-construction-free-png.png";
 
+
+//Homescreen Tiles images
+const mathImg = require('../../assets/images/appImages/maths.svg');
+const physicsImg = require('../../assets/images/appImages/physics.svg');
+const literatureImg = require('../../assets/images/appImages/lifeskills.svg');
+const biologyImg = require('../../assets/images/appImages/biology.svg');
+const johnImg = require('../../assets/images/general/dummy/user.svg');
+const janeImg = require('../../assets/images/general/dummy/user2.svg');
+const agmedImg = require('../../assets/images/general/dummy/user3.svg');
+const druboImg = require('../../assets/images/general/dummy/user4.svg');
+
+
 const images: ImageProps = {
   authBackgroundImage,
   appLogo,
@@ -29,6 +41,15 @@ const images: ImageProps = {
   user,
   userPlaceholder,
   comingSoon,
+
+  mathImg,
+  physicsImg,
+  literatureImg,
+  biologyImg,
+  johnImg,
+  janeImg,
+  agmedImg,
+  druboImg,
 };
 
 export default images;

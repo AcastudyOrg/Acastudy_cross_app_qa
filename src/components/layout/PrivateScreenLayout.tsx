@@ -1,95 +1,61 @@
 import * as React from "react";
-import { View, StyleSheet, SafeAreaView, Text } from "react-native";
+import { View, SafeAreaView, Text, ScrollView } from "react-native";
 
 import { screenSize } from "../../../utils/config";
+import TopBarComponent from "../common/TopBar/TopBarComponent";
+import { User } from "../../types/User/Student";
+import { LoginMockUser } from "../../../mockData/LoginUser";
+import { DEVICE_TYPE, STRING } from "../../constants/strings";
+import SidebarNavComponent from "../common/SideBar/SidebarNavComponent";
+import BottomBarComponent from "../common/BottomBar/BottomBarComponent";
+import { privateScreenLayoutStyles } from "../../styles/componentsStyle/layoutStyle/privateScreenLayoutStyle";
 
-import TopNav from "../../navigation/TopNav";
-import Sidebar from "../../navigation/SidebarNavComponent";
-import colors from "../../constants/colors";
-import BottomMobileNavigation from "../../navigation/BottomMobileNav";
-import { COLORS, FONT, SIZE } from "../../constants";
 
 const PrivateScreenLayout = ({ children }: { children: React.ReactNode }) => {
   const size = screenSize();
-
+  const user: User = LoginMockUser;
   return (
-    <SafeAreaView style={styles.layoutContainer}>
-      {size === "mobile" ? (
-        <View style={styles.topNavMobileContainer}>
-          <View style={styles.sidebarMediaContainer}>
-            <Text style={styles.sidebarMediaItem}>ACASTUDY</Text>
+    <SafeAreaView style={privateScreenLayoutStyles.layoutContainer}>
+      {size === DEVICE_TYPE.mobile ? (
+        <View style={privateScreenLayoutStyles.topNavMobileContainer}>
+          <View style={privateScreenLayoutStyles.sidebarMediaContainer}>
+            <Text style={privateScreenLayoutStyles.sidebarMediaItem}> {STRING.appName} </Text>
           </View>
-          <TopNav />
+          <TopBarComponent renderRightSection={false} user={user} />
         </View>
       ) : (
         <>
-          {size === "desktop" || "tablet" ? (
-            <View style={styles.sidebarContainer}>
-              <Sidebar />
+          {size === DEVICE_TYPE.desktop || DEVICE_TYPE.tablet ? (
+            <View style={privateScreenLayoutStyles.sidebarContainer}>
+              <SidebarNavComponent />
             </View>
           ) : null}
         </>
       )}
 
-      <View style={styles.contentContainer}>
-        {size === "desktop" || ("tablet" && size !== "mobile") ? (
-          <View style={styles.topNavContainer}>
-            <TopNav />
-            <View style={styles.mainContent}>{children}</View>
+      <View style={privateScreenLayoutStyles.contentContainer}>
+        {size === DEVICE_TYPE.desktop || (DEVICE_TYPE.tablet && size !== DEVICE_TYPE.mobile) ? (
+          <View style={privateScreenLayoutStyles.topNavContainer}>
+            <TopBarComponent user={user} />
+            <ScrollView
+              style={privateScreenLayoutStyles.childrenScrollView}
+              showsVerticalScrollIndicator={false}>
+              <View style={privateScreenLayoutStyles.mainContent}>{children}</View>
+            </ScrollView>
           </View>
         ) : (
-          <View style={styles.mainContent}>
-            {children}
-            <BottomMobileNavigation />
+          <View style={privateScreenLayoutStyles.mobileScrollViewContainer}>
+            <ScrollView showsVerticalScrollIndicator={false}>
+              <View style={privateScreenLayoutStyles.mainContent}>
+                {children}
+              </View>
+            </ScrollView>
+            <BottomBarComponent />
           </View>
         )}
       </View>
-    </SafeAreaView>
+    </SafeAreaView >
   );
 };
-
-const styles = StyleSheet.create({
-  layoutContainer: {
-    flex: 1,
-    backgroundColor: colors.darkBlue,
-  },
-  topNavContainer: {
-    position: "absolute",
-    top: 0,
-    right: 0,
-    width: "82%",
-  },
-  topNavMobileContainer: {
-    width: "100%",
-  },
-  contentContainer: {
-    flex: 1,
-    flexDirection: "column",
-    position: "relative",
-  },
-  sidebarContainer: {
-    width:
-      screenSize() === "desktop" || screenSize() === "tablet" ? "18%" : "0%",
-    height: "100%",
-    overflow: "hidden",
-    position: "absolute",
-    zIndex: 10,
-    backgroundColor: colors.darkBlue,
-  },
-  mainContent: {
-    flex: 1,
-    height: "100%",
-    paddingHorizontal: 10,
-  },
-  sidebarMediaContainer: {
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  sidebarMediaItem: {
-    color: COLORS.white,
-    fontFamily: FONT.interBold,
-    fontSize: SIZE.xxl,
-  },
-});
 
 export default PrivateScreenLayout;

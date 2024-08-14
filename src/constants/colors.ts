@@ -6,8 +6,12 @@ const gray = "#202020";
 const lightGray = "#D9D9D9";
 const lightCardGray = "#D9DEF6";
 const darkGray = "#555555";
+const darkGrayOpacity = "rgba(255, 255, 255, 0.2)";
+const lightGrayOpacity = "rgba(175, 175, 175, 0.1)";
+const midGrayOpacity = "rgba(175, 175, 175, 0.2)";
 const red = "#DC3545";
 const green = "#28A745";
+const lightGreen = "#00DD00";
 const blue = "#4361ee";
 const darkBlue = "#1A1E36";
 const indigo = "#6b778d";
@@ -26,8 +30,12 @@ const colors: ColorProps = {
   lightGray,
   lightCardGray,
   darkGray,
+  darkGrayOpacity,
+  lightGrayOpacity,
+  midGrayOpacity,
   red,
   green,
+  lightGreen,
   blue,
   darkBlue,
   indigo,
@@ -39,5 +47,29 @@ const colors: ColorProps = {
   orange,
   transparent,
 };
+
+// lets do it this way instead (this goes to all constants)
+export const AppColor = {
+  white: "#fff",
+  black: "#000",
+  gray: "#202020",
+  lightGray: "#D9D9D9",
+  lightCardGray: "#D9DEF6",
+  darkGray: "#555555",
+  red: "#DC3545",
+  green: "#28A745",
+  blue: "#4361ee",
+  darkBlue: "#1A1E36",
+  indigo: "#6b778d",
+  yellow: "#FFC107",
+  olive: "#808000",
+  tan: "#D2B48C",
+  purple: "#65318F",
+  darkPurple: "#391D50",
+  hotPink: "#ff88d2",
+  orange: "#FD7E14",
+  transparent: "transparent",
+  transparentWhite: "#aaa",
+}
 
 export default colors;
