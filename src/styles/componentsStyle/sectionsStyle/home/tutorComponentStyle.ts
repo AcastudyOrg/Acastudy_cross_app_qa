@@ -21,6 +21,7 @@ export const tutorComponentStyles = StyleSheet.create({
     },
     tutorImageContainer: {
         flexDirection: 'column',
+        position: 'relative',
     },
     tutorImageItem: {
         width: containerWidth * .3,
@@ -30,9 +31,9 @@ export const tutorComponentStyles = StyleSheet.create({
     },
     tutorOnline: {
         zIndex: 1,
+        top: "100%",
         position: "absolute",
-        bottom: 5,
-        left: 4,
+        alignSelf: 'center',
     },
     tutorNameContainer: {
         width: '100%',
