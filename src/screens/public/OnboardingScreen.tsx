@@ -1,15 +1,15 @@
-import React, { useState, useEffect, useRef } from "react";
-import { View, Text, StyleSheet, Image, Dimensions } from "react-native";
+import React, { useState, useEffect } from "react";
+import { View} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 // import Swiper from "react-native-swiper";
 import { Entypo } from "@expo/vector-icons";
 
 import onboardingData from "../../../assets/data/onboardingData.json";
+import { onboardingScreenStyles } from "../../styles/screensStyle/publicStyle/onboardingScreenStyle";
 import { OnboardingItemProps } from "../../types";
-import { COLORS, SIZE, WEIGHT } from "../../constants";
+import { COLORS } from "../../constants";
 import { ButtonComponent } from "../../components";
 
-const { width, height } = Dimensions.get("window");
 
 const OnboardingScreen = () => {
   const [data, setData] = useState<OnboardingItemProps[]>([]);
@@ -31,10 +31,10 @@ const OnboardingScreen = () => {
   };
 
   return (
-    <SafeAreaView style={styles.onboardingContainer}>
-      <View style={styles.buttonSubContainer}>
+    <SafeAreaView style={onboardingScreenStyles.onboardingContainer}>
+      <View style={onboardingScreenStyles.buttonSubContainer}>
         {showButton && (
-          <View style={styles.buttonSubContent}>
+          <View style={onboardingScreenStyles.buttonSubContent}>
             <ButtonComponent
               text="Get Started"
               onPress={() => {}}
@@ -59,13 +59,13 @@ const OnboardingScreen = () => {
         onMomentumScrollEnd={handleMomentumScrollEnd}
       >
         {data.map((item) => (
-          <View key={item.id} style={styles.onboardingSliderContainer}>
+          <View key={item.id} style={onboardingScreenStyles.onboardingSliderContainer}>
             <Image
               source={{ uri: item.picture }}
-              style={styles.onboardingSliderImage}
+              style={onboardingScreenStyles.onboardingSliderImage}
             />
-            <Text style={styles.onboardingSliderTitle}>{item.title}</Text>
-            <Text style={styles.onboardingSliderDescription}>
+            <Text style={onboardingScreenStyles.onboardingSliderTitle}>{item.title}</Text>
+            <Text style={onboardingScreenStyles.onboardingSliderDescription}>
               {item.description}
             </Text>
           </View>
@@ -74,46 +74,5 @@ const OnboardingScreen = () => {
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  onboardingContainer: {
-    flex: 1,
-    backgroundColor: COLORS.black,
-  },
-  buttonSubContainer: {
-    width: "100%",
-    paddingTop: 20,
-    paddingLeft: "63%",
-    marginRight: 5,
-  },
-  buttonSubContent: {
-    justifyContent: "flex-end",
-    alignItems: "flex-end",
-  },
-  onboardingSliderContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 20,
-  },
-  onboardingSliderImage: {
-    width: width * 0.8,
-    height: height * 0.5,
-    resizeMode: "contain",
-    marginBottom: 20,
-  },
-  onboardingSliderTitle: {
-    fontSize: SIZE.xxxl,
-    fontWeight: WEIGHT.bold,
-    color: COLORS.white,
-    textAlign: "center",
-    marginBottom: 10,
-  },
-  onboardingSliderDescription: {
-    fontSize: 16,
-    color: COLORS.gray,
-    textAlign: "center",
-  },
-});
 
 export default OnboardingScreen;
