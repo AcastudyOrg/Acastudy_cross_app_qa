@@ -6,8 +6,12 @@ const gray = "#202020";
 const lightGray = "#D9D9D9";
 const lightCardGray = "#D9DEF6";
 const darkGray = "#555555";
+const darkGrayOpacity = "rgba(255, 255, 255, 0.2)";
+const lightGrayOpacity = "rgba(175, 175, 175, 0.1)";
+const midGrayOpacity = "rgba(175, 175, 175, 0.2)";
 const red = "#DC3545";
 const green = "#28A745";
+const lightGreen = "#00FF00";
 const blue = "#4361ee";
 const darkBlue = "#1A1E36";
 const indigo = "#6b778d";
@@ -26,8 +30,12 @@ const colors: ColorProps = {
   lightGray,
   lightCardGray,
   darkGray,
+  darkGrayOpacity,
+  lightGrayOpacity,
+  midGrayOpacity,
   red,
   green,
+  lightGreen,
   blue,
   darkBlue,
   indigo,

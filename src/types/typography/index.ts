@@ -6,8 +6,12 @@ export interface ColorProps {
   lightGray: string;
   lightCardGray: string;
   darkGray: string;
+  darkGrayOpacity: string;
+  lightGrayOpacity: string;
+  midGrayOpacity: string;
   red: string;
   green: string;
+  lightGreen: string;
   blue: string;
   darkBlue: string;
   indigo: string;
@@ -32,6 +36,9 @@ export interface SizeProps {
 }
 
 export interface FontFamilyProps {
-  interRegular: string;
-  interBold: string;
+  plusJakartaExtraLight: string;
+  plusJakartaRegular: string;
+  plusJakartaMedium: string;
+  plusJakartaBold: string;
+  plusJakartaExtraBold: string;
 }
