@@ -1,17 +1,17 @@
 import * as React from "react";
-import { View, StyleSheet, SafeAreaView, Text, ScrollView } from "react-native";
+import { View, StyleSheet, SafeAreaView, Text } from "react-native";
 
-import { getImageSource, screenSize } from "../../../utils/config";
+import { screenSize } from "../../../utils/config";
 
-import colors, { AppColor } from "../../constants/colors";
-import BottomMobileNavigation from "../../navigation/BottomMobileNav";
-import { COLORS, FONT, IMAGES, SIZE } from "../../constants";
+import { AppColor } from "../../constants/colors";
+import { FONT, SIZE } from "../../constants";
 import TopBarComponent from "../common/TopBar/TopBarComponent";
 import { User } from "../../types/User/Student";
 import { LoginMockUser } from "../../../mockData/LoginUser";
 import { DEVICE_TYPE, STRING } from "../../constants/strings";
 import SidebarNavComponent from "../common/SideBar/SidebarNavComponent";
 import BottomBarComponent from "../common/BottomBar/BottomBarComponent";
+import { privateScreenLayoutStyles } from "../../styles/componentsStyle/layoutStyle/privateScreenLayoutStyle";
 
 
 const PrivateScreenLayout = ({ children }: { children: React.ReactNode }) => {
@@ -20,32 +20,32 @@ const PrivateScreenLayout = ({ children }: { children: React.ReactNode }) => {
   const size = screenSize();
   const user: User = LoginMockUser // TODO(Phillip): to pull data from the backend to assign to the user var
   return (
-    <SafeAreaView style={styles.layoutContainer}>
+    <SafeAreaView style={privateScreenLayoutStyles.layoutContainer}>
       {size === DEVICE_TYPE.mobile ? (
-        <View style={styles.topNavMobileContainer}>
-          <View style={styles.sidebarMediaContainer}>
-            <Text style={styles.sidebarMediaItem}> {STRING.appName} </Text>
+        <View style={privateScreenLayoutStyles.topNavMobileContainer}>
+          <View style={privateScreenLayoutStyles.sidebarMediaContainer}>
+            <Text style={privateScreenLayoutStyles.sidebarMediaItem}> {STRING.appName} </Text>
           </View>
           <TopBarComponent renderRightSection={false} user={user} />
         </View>
       ) : (
         <>
           {size === DEVICE_TYPE.desktop || DEVICE_TYPE.tablet ? (
-            <View style={styles.sidebarContainer}>
+            <View style={privateScreenLayoutStyles.sidebarContainer}>
               <SidebarNavComponent/>
             </View>
           ) : null}
         </>
       )}
 
-      <View style={styles.contentContainer}>
+      <View style={privateScreenLayoutStyles.contentContainer}>
         {size === DEVICE_TYPE.desktop || (DEVICE_TYPE.tablet && size !== DEVICE_TYPE.mobile) ? (
-          <View style={styles.topNavContainer}>
+          <View style={privateScreenLayoutStyles.topNavContainer}>
             <TopBarComponent user={user} />
-            <View style={styles.mainContent}>{children}</View>
+            <View style={privateScreenLayoutStyles.mainContent}>{children}</View>
           </View>
         ) : (
-          <View style={styles.mainContent}>
+          <View style={privateScreenLayoutStyles.mainContent}>
             {children}
             <BottomBarComponent/>
           </View>
@@ -54,49 +54,5 @@ const PrivateScreenLayout = ({ children }: { children: React.ReactNode }) => {
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  layoutContainer: {
-    flex: 1,
-    backgroundColor: AppColor.darkBlue,
-  },
-  topNavContainer: {
-    position: "absolute",
-    top: 0,
-    right: 0,
-    width: "82%",
-  },
-  topNavMobileContainer: {
-    width: "100%",
-  },
-  contentContainer: {
-    flex: 1,
-    flexDirection: "column",
-    position: "relative",
-  },
-  sidebarContainer: {
-    width:
-      screenSize() === "desktop" || screenSize() === "tablet" ? "18%" : "0%",
-    height: "100%",
-    overflow: "hidden",
-    position: "absolute",
-    zIndex: 10,
-    backgroundColor: AppColor.darkBlue,
-  },
-  mainContent: {
-    flex: 1,
-    height: "100%",
-    paddingHorizontal: 10,
-  },
-  sidebarMediaContainer: {
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  sidebarMediaItem: {
-    color: AppColor.white,
-    fontFamily: FONT.plusJakartaBold,
-    fontSize: SIZE.xxl,
-  },
-});
 
 export default PrivateScreenLayout;

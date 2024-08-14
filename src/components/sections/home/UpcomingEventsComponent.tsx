@@ -1,11 +1,10 @@
 import React from 'react'
-import { Image, StyleSheet, Text, View, Dimensions } from 'react-native'
+import { Image, Text, View } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 
-import { COLORS, FONT, SIZE } from '../../../constants'
+import { COLORS } from '../../../constants'
 import { formatDateTime } from '../../../../utils/config'
-
-const { width } = Dimensions.get('window');
+import { upcomingEventsComponentStyles } from '../../../styles/componentsStyle/sectionsStyle/home/upcomingEventsComponentStyle'
 
 type EventsProps = {
     item: {
@@ -20,41 +19,41 @@ type EventsProps = {
 
 const UpcomingEventsComponent: React.FC<EventsProps> = ({ item }) => {
     return (
-        <View style={styles.container}>
+        <View style={upcomingEventsComponentStyles.container}>
             <LinearGradient
                 start={{ x: 0.2, y: 0 }}
                 end={{ x: 0, y: 1 }}
                 colors={[COLORS.darkGrayOpacity, COLORS.transparent, COLORS.lightGrayOpacity]}
-                style={styles.upcomingEventsContentContainer}>
-                <View style={styles.upcomingImageContainer}>
+                style={upcomingEventsComponentStyles.upcomingEventsContentContainer}>
+                <View style={upcomingEventsComponentStyles.upcomingImageContainer}>
                     <Image
                         source={{ uri: item.thumbnail }}
-                        style={styles.upcomingImageItem}
+                        style={upcomingEventsComponentStyles.upcomingImageItem}
                         resizeMode="cover"
                     />
                 </View>
 
-                <View style={styles.upcomingTextCardContainer}>
+                <View style={upcomingEventsComponentStyles.upcomingTextCardContainer}>
                     <Text
-                        style={styles.upcomingTextCardTitle}
+                        style={upcomingEventsComponentStyles.upcomingTextCardTitle}
                         numberOfLines={1}
                         ellipsizeMode="tail"
                     >
                         {item.title + " " + "lets see"}
                     </Text>
-                    <Text style={styles.upcomingTextCardNormal}
+                    <Text style={upcomingEventsComponentStyles.upcomingTextCardNormal}
                         numberOfLines={1}
                         ellipsizeMode="tail"
                     >
                         {item.tutor}
                     </Text>
-                    <Text style={styles.upcomingTextCard}
+                    <Text style={upcomingEventsComponentStyles.upcomingTextCard}
                         numberOfLines={1}
                         ellipsizeMode="tail"
                     >
                         {formatDateTime(item.datetime)}
                     </Text>
-                    <Text style={styles.upcomingTextCard}
+                    <Text style={upcomingEventsComponentStyles.upcomingTextCard}
                         numberOfLines={1}
                         ellipsizeMode="tail"
                     >
@@ -65,51 +64,5 @@ const UpcomingEventsComponent: React.FC<EventsProps> = ({ item }) => {
         </View>
     )
 }
-
-const containerWidth = width * .18;
-const styles = StyleSheet.create({
-    container: {
-        width: containerWidth,
-        marginRight: 15,
-    },
-    upcomingEventsContentContainer: {
-        flexDirection: 'row',
-        paddingVertical: 8,
-        paddingRight: 8,
-        paddingLeft: 14,
-        borderRadius: 5,
-        gap: 7,
-    },
-    upcomingImageContainer: {
-        flexDirection: 'column',
-    },
-    upcomingImageItem: {
-        width: containerWidth * .22,
-        height: 55,
-        borderRadius: 5
-    },
-    upcomingTextCardContainer: {
-        flexDirection: 'column',
-        flex: 1,
-        gap: 2,
-    },
-    upcomingTextCardTitle: {
-        color: COLORS.white,
-        fontSize: SIZE.sm,
-        fontFamily: FONT.plusJakartaBold,
-    },
-    upcomingTextCardNormal: {
-        color: COLORS.white,
-        fontSize: SIZE.s,
-        fontFamily: FONT.plusJakartaExtraLight,
-        opacity: 0.8
-    },
-    upcomingTextCard: {
-        color: COLORS.white,
-        fontSize: SIZE.xs,
-        fontFamily: FONT.plusJakartaExtraLight,
-        opacity: 0.5
-    },
-});
 
 export default UpcomingEventsComponent;
