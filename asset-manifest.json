@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/Acastudy_cross_app/static/js/main.80e76483.js",
-    "static/js/434.eae118a7.js": "/Acastudy_cross_app/static/js/434.eae118a7.js",
+    "main.js": "/Acastudy_cross_app/static/js/main.99abe390.js",
+    "static/js/434.8afca551.js": "/Acastudy_cross_app/static/js/434.8afca551.js",
     "static/media/user.svg": "/Acastudy_cross_app/static/media/user.11396190c299a31e4c2e.svg",
     "static/media/user2.svg": "/Acastudy_cross_app/static/media/user2.82c9bfe564cde24d3e5d.svg",
     "static/media/authBackgroundImage.jpg": "/Acastudy_cross_app/static/media/authBackgroundImage.56139cd7d5ebaa353dcc.jpg",
@@ -51,11 +51,11 @@
     "favicon-16.png": "/Acastudy_cross_app/favicon-16.png",
     "manifest.json": "/Acastudy_cross_app/manifest.json",
     "serve.json": "/Acastudy_cross_app/serve.json",
-    "main.80e76483.js.map": "/Acastudy_cross_app/static/js/main.80e76483.js.map",
-    "434.eae118a7.js.map": "/Acastudy_cross_app/static/js/434.eae118a7.js.map"
+    "main.99abe390.js.map": "/Acastudy_cross_app/static/js/main.99abe390.js.map",
+    "434.8afca551.js.map": "/Acastudy_cross_app/static/js/434.8afca551.js.map"
   },
   "entrypoints": [
-    "static/js/434.eae118a7.js",
-    "static/js/main.80e76483.js"
+    "static/js/434.8afca551.js",
+    "static/js/main.99abe390.js"
   ]
 }
