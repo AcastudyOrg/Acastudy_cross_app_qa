@@ -69,6 +69,6 @@ const styles = StyleSheet.create({
     marginRight: 10,
     color: COLORS.white,
     fontSize: SIZE.m,
-    fontFamily: FONT.interRegular,
+    fontFamily: FONT.plusJakartaRegular,
   },
 });

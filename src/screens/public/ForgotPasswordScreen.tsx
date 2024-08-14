@@ -267,13 +267,13 @@ const styles = StyleSheet.create({
   },
   forgotTopTitleTextItem: {
     color: COLORS.white,
-    fontFamily: FONT.interBold,
+    fontFamily: FONT.plusJakartaBold,
     fontSize: SIZE.xxxl,
     marginBottom: 10,
   },
   forgotTopTextItem: {
     color: COLORS.white,
-    fontFamily: FONT.interRegular,
+    fontFamily: FONT.plusJakartaRegular,
     fontSize: SIZE.l,
   },
 
@@ -307,13 +307,13 @@ const styles = StyleSheet.create({
   forgotRedirectTextItem: {
     color: COLORS.white,
     fontSize: SIZE.m,
-    fontFamily: FONT.interRegular,
+    fontFamily: FONT.plusJakartaRegular,
   },
   forgotRedirectLinkTextItem: {
     marginLeft: 5,
     color: COLORS.darkBlue,
     fontSize: SIZE.m,
-    fontFamily: FONT.interBold,
+    fontFamily: FONT.plusJakartaBold,
   },
 
   // Modal styles
@@ -353,17 +353,17 @@ const styles = StyleSheet.create({
   forgotModalTextItem: {
     color: COLORS.white,
     fontSize: SIZE.xxxl,
-    fontFamily: FONT.interBold,
+    fontFamily: FONT.plusJakartaBold,
     marginBottom: 20,
   },
   forgotModalInfoTextItem: {
     color: COLORS.white,
     fontSize: SIZE.m,
-    fontFamily: FONT.interRegular,
+    fontFamily: FONT.plusJakartaRegular,
     textAlign: "center",
   },
   forgotModalInfoTextBold: {
-    fontFamily: FONT.interBold,
+    fontFamily: FONT.plusJakartaBold,
   },
   forgotModalButtonContainer: {
     width: "100%",
@@ -378,7 +378,7 @@ const styles = StyleSheet.create({
   forgotModalResendCodeTextItem: {
     color: COLORS.white,
     fontSize: SIZE.m,
-    fontFamily: FONT.interRegular,
+    fontFamily: FONT.plusJakartaRegular,
   },
 });
 

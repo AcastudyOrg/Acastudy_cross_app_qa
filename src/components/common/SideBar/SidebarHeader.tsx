@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
 	},
 	sidebarMediaItem: {
 		color: AppColor.white,
-		fontFamily: FONT.interBold,
+		fontFamily: FONT.plusJakartaBold,
 		fontSize: SIZE.xxl,
 	},
 });

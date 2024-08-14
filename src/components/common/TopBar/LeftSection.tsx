@@ -2,6 +2,7 @@ import React from 'react';
 import { View, TextInput, StyleSheet } from 'react-native';
 import { AppColor } from '../../../constants/colors';
 import { STRING } from '../../../constants/strings';
+import { FONT } from '../../../constants';
 
 const LeftSection: React.FC = () => (
 	<View style={styles.leftSection}>
@@ -24,6 +25,7 @@ const styles = StyleSheet.create({
 		borderRadius: 10,
 		paddingHorizontal: 15,
 		color: AppColor.white,
+		fontFamily: FONT.plusJakartaRegular,
 		height: 40,
 		maxWidth: '100%',
 		minWidth: '10%',

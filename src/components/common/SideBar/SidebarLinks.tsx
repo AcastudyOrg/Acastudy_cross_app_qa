@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     },
     sidebarLinksItems: {
         color: AppColor.white,
-        fontFamily: FONT.interRegular,
+        fontFamily: FONT.plusJakartaRegular,
         fontSize: SIZE.m,
     },
 });

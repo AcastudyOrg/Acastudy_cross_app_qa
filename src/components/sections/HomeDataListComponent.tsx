@@ -70,12 +70,12 @@ const styles = StyleSheet.create({
   homeDataTitleItem: {
     color: COLORS.white,
     fontSize: SIZE.xl,
-    fontFamily: FONT.interBold,
+    fontFamily: FONT.plusJakartaBold,
   },
   homeDataActionItem: {
     color: COLORS.white,
     fontSize: SIZE.s,
-    fontFamily: FONT.interRegular,
+    fontFamily: FONT.plusJakartaRegular,
   },
 
   //data item
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
   itemTitle: {
     color: COLORS.white,
     fontSize: SIZE.m,
-    fontFamily: FONT.interRegular,
+    fontFamily: FONT.plusJakartaRegular,
   },
 });
 

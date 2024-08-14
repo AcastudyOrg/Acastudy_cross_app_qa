@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import { User } from '../../../types/User/Student';
 import { NAV_SCREEN_NAME, STRING } from '../../../constants/strings';
 import { AppColor } from '../../../constants/colors';
+import { FONT } from '../../../constants';
 
 type RightSectionProps = {
 	screenWidth: number;
@@ -53,7 +54,7 @@ const styles = StyleSheet.create({
 	linkText: {
 		paddingBottom: 2,
 		color: AppColor.white,
-		fontWeight: 'bold',
+		fontFamily: FONT.plusJakartaBold,
 		marginHorizontal: 10,
 	},
 	profile: {
@@ -62,6 +63,7 @@ const styles = StyleSheet.create({
 	},
 	profileName: {
 		color: AppColor.white,
+		fontFamily: FONT.plusJakartaRegular,
 		marginRight: 10,
 	},
 	profilePicture: {

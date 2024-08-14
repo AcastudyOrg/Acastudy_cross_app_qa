@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     },
     sidebarBottomItem: {
         color: AppColor.white,
-        fontFamily: FONT.interRegular,
+        fontFamily: FONT.plusJakartaRegular,
         fontSize: SIZE.sm,
     },
 });

@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
   bottomTabItem: {
     paddingTop: 5,
     fontSize: SIZE.s,
-    fontFamily: FONT.interRegular,
+    fontFamily: FONT.plusJakartaRegular,
   },
 });
 

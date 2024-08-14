@@ -220,7 +220,7 @@ const styles = StyleSheet.create({
   },
   signUpTitleItem: {
     color: COLORS.white,
-    fontFamily: FONT.interBold,
+    fontFamily: FONT.plusJakartaBold,
     fontSize: SIZE.xxxl,
   },
 
@@ -256,12 +256,12 @@ const styles = StyleSheet.create({
   },
   signUpQuestionMainText: {
     color: COLORS.white,
-    fontFamily: FONT.interRegular,
+    fontFamily: FONT.plusJakartaRegular,
     fontSize: SIZE.m,
   },
   signUpQuestionMainTextLink: {
     color: COLORS.blue,
-    fontFamily: FONT.interBold,
+    fontFamily: FONT.plusJakartaBold,
     fontSize: SIZE.m,
   },
 

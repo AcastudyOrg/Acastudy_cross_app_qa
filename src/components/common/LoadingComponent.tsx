@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     marginVertical: 20,
     color: COLORS.white,
     fontSize: SIZE.xxxl,
-    fontFamily: FONT.interBold,
+    fontFamily: FONT.plusJakartaBold,
   },
   loaderMessageText: {
     color: COLORS.white,

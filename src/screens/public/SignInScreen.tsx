@@ -234,7 +234,7 @@ const styles = StyleSheet.create({
   },
   signInTitleItem: {
     color: COLORS.white,
-    fontFamily: FONT.interBold,
+    fontFamily: FONT.plusJakartaBold,
     fontSize: SIZE.l,
   },
 
@@ -271,12 +271,12 @@ const styles = StyleSheet.create({
   signInForgotPasswordText: {
     marginLeft: 10,
     color: COLORS.white,
-    fontFamily: FONT.interBold,
+    fontFamily: FONT.plusJakartaBold,
     fontSize: SIZE.m,
   },
   signInForgotPasswordTextItem: {
     color: COLORS.blue,
-    fontFamily: FONT.interBold,
+    fontFamily: FONT.plusJakartaBold,
     fontSize: SIZE.m,
   },
 
@@ -295,12 +295,12 @@ const styles = StyleSheet.create({
   },
   signInQuestionMainText: {
     color: COLORS.white,
-    fontFamily: FONT.interRegular,
+    fontFamily: FONT.plusJakartaRegular,
     fontSize: SIZE.m,
   },
   signInQuestionMainTextLink: {
     color: COLORS.blue,
-    fontFamily: FONT.interBold,
+    fontFamily: FONT.plusJakartaBold,
     fontSize: SIZE.m,
   },
 

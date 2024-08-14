@@ -138,7 +138,7 @@ const VerifyForgotEmailScreen = () => {
       <Text style={styles.verifyForgotTitleItem}>Code Verification</Text>
       <Text style={styles.verifyForgotInfoTextItem}>
         Enter the code we've sent to{" "}
-        <Text style={{ fontFamily: FONT.interBold }}>{prevData.email}</Text>
+        <Text style={{ fontFamily: FONT.plusJakartaBold }}>{prevData.email}</Text>
       </Text>
     </View>
   );
@@ -237,13 +237,13 @@ const styles = StyleSheet.create({
   verifyForgotTitleItem: {
     color: COLORS.white,
     fontSize: SIZE.xxxl,
-    fontFamily: FONT.interBold,
+    fontFamily: FONT.plusJakartaBold,
   },
   verifyForgotInfoTextItem: {
     marginTop: 15,
     color: COLORS.white,
     fontSize: SIZE.m,
-    fontFamily: FONT.interRegular,
+    fontFamily: FONT.plusJakartaRegular,
     textAlign: "center",
   },
 
@@ -262,7 +262,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: COLORS.white,
     fontSize: SIZE.l,
-    fontFamily: FONT.interRegular,
+    fontFamily: FONT.plusJakartaRegular,
   },
   errorForgotText: {
     color: COLORS.red,

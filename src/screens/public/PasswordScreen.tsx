@@ -280,13 +280,13 @@ const styles = StyleSheet.create({
   },
   passwordQuestionMainText: {
     color: COLORS.white,
-    fontFamily: FONT.interRegular,
+    fontFamily: FONT.plusJakartaRegular,
     fontSize: SIZE.m,
     textAlign: "center",
   },
   passwordQuestionMainTextLink: {
     color: COLORS.blue,
-    fontFamily: FONT.interBold,
+    fontFamily: FONT.plusJakartaBold,
     fontSize: SIZE.m,
   },
 });

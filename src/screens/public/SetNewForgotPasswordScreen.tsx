@@ -204,14 +204,14 @@ const styles = StyleSheet.create({
   passwordNewTitleItem: {
     color: COLORS.white,
     fontSize: SIZE.xxxl,
-    fontFamily: FONT.interBold,
+    fontFamily: FONT.plusJakartaBold,
     marginBottom: 10,
   },
   passwordNewTitle: {
     paddingHorizontal: 10,
     color: COLORS.white,
     fontSize: SIZE.m,
-    fontFamily: FONT.interRegular,
+    fontFamily: FONT.plusJakartaRegular,
     textAlign: "center",
   },
 

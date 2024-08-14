@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
   textInputLabelTextItem: {
     color: COLORS.white,
     fontSize: SIZE.l,
-    fontFamily: FONT.interBold,
+    fontFamily: FONT.plusJakartaBold,
     marginBottom: 10,
   },
   textInputItemContentContainer: {
@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
   textInputItem: {
     color: COLORS.white,
     fontSize: SIZE.l,
-    fontFamily: FONT.interRegular,
+    fontFamily: FONT.plusJakartaRegular,
   },
   textInputIconContainer: {
     width: "10%",

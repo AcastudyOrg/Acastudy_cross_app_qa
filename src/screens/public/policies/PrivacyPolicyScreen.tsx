@@ -883,7 +883,7 @@ const styles = StyleSheet.create({
   },
   privacyTitleItem: {
     color: COLORS.darkBlue,
-    fontFamily: FONT.interBold,
+    fontFamily: FONT.plusJakartaBold,
     fontSize: SIZE.xxxl,
     marginBottom: 20,
   },
@@ -894,19 +894,19 @@ const styles = StyleSheet.create({
   },
   privacyLastUpdateTextItem: {
     color: COLORS.white,
-    fontFamily: FONT.interRegular,
+    fontFamily: FONT.plusJakartaRegular,
     fontSize: SIZE.sm,
     marginBottom: 20,
   },
   privacySubtitleItem: {
     color: COLORS.darkBlue,
-    fontFamily: FONT.interBold,
+    fontFamily: FONT.plusJakartaBold,
     fontSize: SIZE.xl,
     marginBottom: 10,
   },
   privacySubtitleItems: {
     color: COLORS.darkBlue,
-    fontFamily: FONT.interBold,
+    fontFamily: FONT.plusJakartaBold,
     fontSize: SIZE.l,
     marginBottom: 10,
   },
@@ -919,13 +919,13 @@ const styles = StyleSheet.create({
   },
   privacyMainSubtitleTextItem: {
     color: COLORS.darkBlue,
-    fontFamily: FONT.interBold,
+    fontFamily: FONT.plusJakartaBold,
     fontSize: SIZE.xxl,
     marginBottom: 10,
   },
   privacyInfoTextItem: {
     color: COLORS.white,
-    fontFamily: FONT.interRegular,
+    fontFamily: FONT.plusJakartaRegular,
     fontSize: SIZE.sm,
     marginBottom: 10,
   },

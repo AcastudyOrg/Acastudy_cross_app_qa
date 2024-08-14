@@ -6,6 +6,7 @@ import LeftSection from './LeftSection';
 import RightSection from './RightSection';
 import { User } from '../../../types/User/Student';
 import { AppColor } from '../../../constants/colors';
+import { COLORS } from '../../../constants';
 
 type TopBarProps = {
 	renderLeftSection?: boolean;
@@ -45,11 +46,12 @@ const styles = StyleSheet.create({
 		backgroundColor: AppColor.transparent,
 	},
 	divider: {
-		width: "93%",
+		width: "92%",
 		height: 0.5,
+		backgroundColor: COLORS.white,
 		alignSelf: "center",
-		backgroundColor: 'gray',
 		marginTop: 5,
+		opacity: 0.2,
 	},
 });
 

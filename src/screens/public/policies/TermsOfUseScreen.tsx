@@ -563,7 +563,7 @@ const styles = StyleSheet.create({
   },
   termsMainTitleItem: {
     color: COLORS.darkBlue,
-    fontFamily: FONT.interBold,
+    fontFamily: FONT.plusJakartaBold,
     fontSize: SIZE.xxxl,
     marginBottom: 10,
   },
@@ -574,13 +574,13 @@ const styles = StyleSheet.create({
   },
   termsLastUpdateTextItem: {
     color: COLORS.white,
-    fontFamily: FONT.interRegular,
+    fontFamily: FONT.plusJakartaRegular,
     fontSize: SIZE.sm,
     marginBottom: 20,
   },
   termsSubtitleItem: {
     color: COLORS.white,
-    fontFamily: FONT.interBold,
+    fontFamily: FONT.plusJakartaBold,
     fontSize: SIZE.xl,
     marginBottom: 20,
   },
@@ -593,13 +593,13 @@ const styles = StyleSheet.create({
   },
   termsMainSubtitleTextItem: {
     color: COLORS.darkBlue,
-    fontFamily: FONT.interBold,
+    fontFamily: FONT.plusJakartaBold,
     fontSize: SIZE.xxl,
     marginBottom: 10,
   },
   termsInfoTextItem: {
     color: COLORS.white,
-    fontFamily: FONT.interRegular,
+    fontFamily: FONT.plusJakartaRegular,
     fontSize: SIZE.sm,
     marginBottom: 10,
   },
