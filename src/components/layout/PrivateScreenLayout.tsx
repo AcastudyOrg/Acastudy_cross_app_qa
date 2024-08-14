@@ -1,5 +1,5 @@
 import * as React from "react";
-import { View, SafeAreaView, Text } from "react-native";
+import { View, SafeAreaView, Text, ScrollView } from "react-native";
 
 import { screenSize } from "../../../utils/config";
 import TopBarComponent from "../common/TopBar/TopBarComponent";
@@ -12,10 +12,8 @@ import { privateScreenLayoutStyles } from "../../styles/componentsStyle/layoutSt
 
 
 const PrivateScreenLayout = ({ children }: { children: React.ReactNode }) => {
-
-	//  we should listen to the changes of th size of the screen layout as we do with the topbar for responsiveness
   const size = screenSize();
-  const user: User = LoginMockUser // TODO(Phillip): to pull data from the backend to assign to the user var
+  const user: User = LoginMockUser;
   return (
     <SafeAreaView style={privateScreenLayoutStyles.layoutContainer}>
       {size === DEVICE_TYPE.mobile ? (
@@ -29,7 +27,7 @@ const PrivateScreenLayout = ({ children }: { children: React.ReactNode }) => {
         <>
           {size === DEVICE_TYPE.desktop || DEVICE_TYPE.tablet ? (
             <View style={privateScreenLayoutStyles.sidebarContainer}>
-              <SidebarNavComponent/>
+              <SidebarNavComponent />
             </View>
           ) : null}
         </>
@@ -39,16 +37,24 @@ const PrivateScreenLayout = ({ children }: { children: React.ReactNode }) => {
         {size === DEVICE_TYPE.desktop || (DEVICE_TYPE.tablet && size !== DEVICE_TYPE.mobile) ? (
           <View style={privateScreenLayoutStyles.topNavContainer}>
             <TopBarComponent user={user} />
-            <View style={privateScreenLayoutStyles.mainContent}>{children}</View>
+            <ScrollView
+              style={privateScreenLayoutStyles.childrenScrollView}
+              showsVerticalScrollIndicator={false}>
+              <View style={privateScreenLayoutStyles.mainContent}>{children}</View>
+            </ScrollView>
           </View>
         ) : (
-          <View style={privateScreenLayoutStyles.mainContent}>
-            {children}
-            <BottomBarComponent/>
+          <View style={privateScreenLayoutStyles.mobileScrollViewContainer}>
+            <ScrollView showsVerticalScrollIndicator={false}>
+              <View style={privateScreenLayoutStyles.mainContent}>
+                {children}
+              </View>
+            </ScrollView>
+            <BottomBarComponent />
           </View>
         )}
       </View>
-    </SafeAreaView>
+    </SafeAreaView >
   );
 };
 

@@ -162,9 +162,7 @@ const SetNewForgotPasswordScreen = () => {
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={setNewForgotPasswordScreenStyles.passwordNewKeyboardContainer}
       >
-        <ScrollView
-          contentContainerStyle={setNewForgotPasswordScreenStyles.passwordNewScrollingContainer}
-        >
+        <ScrollView contentContainerStyle={setNewForgotPasswordScreenStyles.passwordNewScrollingContainer}>
           <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
             <SafeAreaView style={setNewForgotPasswordScreenStyles.passwordNewContainer}>
               {renderScreenContentList()}

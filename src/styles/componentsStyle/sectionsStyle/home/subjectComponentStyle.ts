@@ -3,9 +3,10 @@ import { COLORS, FONT, SIZE } from "../../../../constants";
 
 const { width } = Dimensions.get('window');
 
-const containerWidth = width * .18;
+const containerWidth = width > 900 ? width * .18 : 160;
 export const subjectComponentStyles = StyleSheet.create({
     container: {
+        flex: 1,
         width: containerWidth,
         padding: 10,
         marginRight: 15,

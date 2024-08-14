@@ -3,14 +3,14 @@ import { FONT, SIZE } from "../../../../constants";
 
 export const bottomBarComponentStyles = StyleSheet.create({
 	bottomTabMainContainer: {
+		position: "absolute",
+		bottom: 0,
+		height: 60,
+		width: "100%",
 		flexDirection: "row",
 		justifyContent: "center",
 		alignItems: "center",
-		paddingHorizontal: 60,
-		height: 80,
-		backgroundColor: `rgba(0,0,0,0.2)`,
-		position: "absolute",
-		bottom: -30,
+		backgroundColor: `rgba(0,0,0,0.5)`,
 	},
 	sidebarLinksIconItem: {
 		width: 20,
@@ -20,7 +20,7 @@ export const bottomBarComponentStyles = StyleSheet.create({
 	},
 	bottomTabContentContainer: {
 		flexDirection: "column",
-		paddingRight: 60,
+		paddingHorizontal: 30,
 	},
 	bottomTabItem: {
 		paddingTop: 5,

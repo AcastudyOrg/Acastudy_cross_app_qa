@@ -4,18 +4,18 @@ import { COLORS, FONT, SIZE } from "../../../../constants";
 const { width } = Dimensions.get('window');
 
 
-const containerWidth = width * .18;
+const containerWidth = width > 900 ? width * .18 : 160;
 export const tutorComponentStyles = StyleSheet.create({
     tutorContentContainer: {
+        flex: 1,
         width: containerWidth,
-        // padding: 10,
-        paddingHorizontal: 10,
+        paddingHorizontal: containerWidth * .1,
         paddingVertical: 20,
         marginRight: 15,
         borderRadius: 8,
         flexDirection: 'column',
-        justifyContent: 'center',
         alignItems: 'center',
+        justifyContent: 'space-between',
         backgroundColor: COLORS.lightGrayOpacity,
         gap: 15,
     },
@@ -35,6 +35,7 @@ export const tutorComponentStyles = StyleSheet.create({
         left: 4,
     },
     tutorNameContainer: {
+        width: '100%',
         flexDirection: 'column',
         gap: 5,
     },
@@ -55,12 +56,15 @@ export const tutorComponentStyles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
+        width: '100%',
+        flexWrap: 'nowrap',
+        paddingHorizontal: 10,
     },
 
     sessions: {
         flexDirection: 'column',
-        paddingHorizontal: 15,
         alignItems: 'center',
+        flexShrink: 1,
     },
     sessionText: {
         color: COLORS.white,
@@ -76,8 +80,8 @@ export const tutorComponentStyles = StyleSheet.create({
 
     rating: {
         flexDirection: 'column',
-        paddingHorizontal: 15,
         alignItems: 'center',
+        flexShrink: 1,
     },
     ratingText: {
         color: COLORS.white,

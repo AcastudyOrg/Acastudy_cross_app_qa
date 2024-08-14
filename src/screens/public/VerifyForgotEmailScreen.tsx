@@ -192,9 +192,7 @@ const VerifyForgotEmailScreen = () => {
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={verifyForgotEmailScreenStyles.verifyForgotKeyboardContainer}
       >
-        <ScrollView
-          contentContainerStyle={verifyForgotEmailScreenStyles.verifyForgotScrollingContainer}
-        >
+        <ScrollView contentContainerStyle={verifyForgotEmailScreenStyles.verifyForgotScrollingContainer}>
           <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
             <SafeAreaView style={verifyForgotEmailScreenStyles.verifyForgotContainer}>
               {renderNavigationSection()}

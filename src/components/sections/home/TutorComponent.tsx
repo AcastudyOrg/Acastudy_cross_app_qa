@@ -36,7 +36,11 @@ const TutorComponent: React.FC<TutorProps> = ({ item }) => {
             </View>
 
             <View style={tutorComponentStyles.tutorNameContainer}>
-                <Text style={tutorComponentStyles.tutorNameItem}>{item.firstName} {item.lastName}</Text>
+                <Text style={tutorComponentStyles.tutorNameItem}
+                    numberOfLines={1}
+                    ellipsizeMode="tail">
+                    {item.firstName} {item.lastName}
+                </Text>
                 <Text style={tutorComponentStyles.tutorSubjectItem}>{item.subject}</Text>
             </View>
 

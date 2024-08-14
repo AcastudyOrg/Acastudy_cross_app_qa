@@ -17,7 +17,9 @@ const SubjectComponent: React.FC<SubjectsProps> = ({ item }) => {
                 style={subjectComponentStyles.subjectImageItem}
                 resizeMode="cover"
             />
-            <Text style={subjectComponentStyles.subjectTextCardTitle}>
+            <Text style={subjectComponentStyles.subjectTextCardTitle}
+                numberOfLines={1}
+                ellipsizeMode="tail">
                 {item.title}
             </Text>
         </View>

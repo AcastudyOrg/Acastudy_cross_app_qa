@@ -28,7 +28,6 @@ const TutorSection: React.FC<tutorSectionProps> = ({ tutorData }) => {
                 <Text onPress={handleViewMore} style={tutorSectionStyles.tutorActionText}>View more</Text>
             </View>
 
-            {/* tutor data */}
             <ScrollView
                 horizontal
                 showsHorizontalScrollIndicator={false}
