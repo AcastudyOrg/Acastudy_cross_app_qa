@@ -6,7 +6,6 @@ import {
   Platform,
   Pressable,
   ScrollView,
-  StyleSheet,
   Text,
   TouchableWithoutFeedback,
   View,
@@ -15,7 +14,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
 
-import { COLORS, FONT, IMAGES, SIZE } from "../../constants";
+import { COLORS, IMAGES } from "../../constants";
+import { signInScreenStyles } from "../../styles/screensStyle/publicStyle/signInScreenStyle";
 import {
   TextInputComponent,
   SocialAuthButtonComponent,
@@ -38,7 +38,7 @@ const SignInScreen = () => {
       setPasswordError(!password.trim() ? "Password is required." : "");
       setIsLoading(false);
       return;
-    }
+    };
 
     setIsLoading(true);
 
@@ -60,17 +60,17 @@ const SignInScreen = () => {
 
   function renderTitleSection() {
     return (
-      <View style={styles.signInTitleContainer}>
-        <Text style={styles.signInTitleItem}>Log in</Text>
+      <View style={signInScreenStyles.signInTitleContainer}>
+        <Text style={signInScreenStyles.signInTitleItem}>Log in</Text>
       </View>
     );
-  }
+  };
 
   function renderInputSection() {
     return (
-      <View style={styles.signInFormInputContainer}>
-        <View style={styles.signInFormComponentContainer}>
-          <View style={styles.signInComponentContainer}>
+      <View style={signInScreenStyles.signInFormInputContainer}>
+        <View style={signInScreenStyles.signInFormComponentContainer}>
+          <View style={signInScreenStyles.signInComponentContainer}>
             <TextInputComponent
               value={email}
               onChange={(text) => {
@@ -82,11 +82,11 @@ const SignInScreen = () => {
               placeholder="example@company.com"
             />
             {!!emailError && (
-              <Text style={styles.signInErrorTextMessage}>{emailError}</Text>
+              <Text style={signInScreenStyles.signInErrorTextMessage}>{emailError}</Text>
             )}
           </View>
 
-          <View style={styles.signInComponentContainer}>
+          <View style={signInScreenStyles.signInComponentContainer}>
             <TextInputComponent
               value={password}
               onChange={(text) => {
@@ -98,27 +98,27 @@ const SignInScreen = () => {
               placeholder="••••••••"
             />
             {!!passwordError && (
-              <Text style={styles.signInErrorTextMessage}>{passwordError}</Text>
+              <Text style={signInScreenStyles.signInErrorTextMessage}>{passwordError}</Text>
             )}
           </View>
         </View>
 
         {/*remember and forgot password section*/}
-        <View style={styles.signInForgotPasswordContainer}>
+        <View style={signInScreenStyles.signInForgotPasswordContainer}>
           <Pressable
             onPress={() => setRememberMe(!rememberMe)}
-            style={styles.signInForgotPasswordContent}
+            style={signInScreenStyles.signInForgotPasswordContent}
           >
             <AntDesign
               name={rememberMe ? "checkcircle" : "checkcircleo"}
               size={18}
               color={rememberMe ? COLORS.green : COLORS.white}
             />
-            <Text style={styles.signInForgotPasswordText}>Remember me</Text>
+            <Text style={signInScreenStyles.signInForgotPasswordText}>Remember me</Text>
           </Pressable>
 
-          <View style={styles.signInForgotPasswordContent}>
-            <Text onPress={() => navigation.navigate("ForgotPasswordScreen" as never)} style={styles.signInForgotPasswordTextItem}>
+          <View style={signInScreenStyles.signInForgotPasswordContent}>
+            <Text onPress={() => navigation.navigate("ForgotPasswordScreen" as never)} style={signInScreenStyles.signInForgotPasswordTextItem}>
               Forgot password?
             </Text>
           </View>
@@ -129,19 +129,19 @@ const SignInScreen = () => {
 
   function renderSubmitButtonSection() {
     return (
-      <View style={styles.signInSubmitButtonContainer}>
+      <View style={signInScreenStyles.signInSubmitButtonContainer}>
         <ButtonComponent
           onPress={handleSubmit}
           text={isLoading ? "Loading..." : "Log in"}
         />
 
         {/* Navigate Section */}
-        <View style={styles.signInQuestionContainer}>
-          <Text style={styles.signInQuestionMainText}>
+        <View style={signInScreenStyles.signInQuestionContainer}>
+          <Text style={signInScreenStyles.signInQuestionMainText}>
             Don't have an account?{" "}
             <Text
               onPress={() => navigation.navigate("SignUpScreen" as never)}
-              style={styles.signInQuestionMainTextLink}
+              style={signInScreenStyles.signInQuestionMainTextLink}
             >
               Sign up
             </Text>
@@ -153,8 +153,8 @@ const SignInScreen = () => {
 
   function renderSocialOptionSection() {
     return (
-      <View style={styles.thirdPartiesContainer}>
-        <View style={styles.thirdPartiesOptionContainer}>
+      <View style={signInScreenStyles.thirdPartiesContainer}>
+        <View style={signInScreenStyles.thirdPartiesOptionContainer}>
           <SocialAuthButtonComponent
             text="Log in with"
             iconLibrary="AntDesign"
@@ -192,15 +192,15 @@ const SignInScreen = () => {
     <ImageBackground
       blurRadius={4}
       source={IMAGES.authBackgroundImage}
-      style={styles.signInContentContainer}
+      style={signInScreenStyles.signInContentContainer}
     >
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
-        style={styles.signInKeyboardContainer}
+        style={signInScreenStyles.signInKeyboardContainer}
       >
-        <ScrollView contentContainerStyle={styles.signInScrollingContainer}>
+        <ScrollView contentContainerStyle={signInScreenStyles.signInScrollingContainer}>
           <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-            <SafeAreaView style={styles.signInContainer}>
+            <SafeAreaView style={signInScreenStyles.signInContainer}>
               {renderScreenContentList()}
             </SafeAreaView>
           </TouchableWithoutFeedback>
@@ -209,112 +209,5 @@ const SignInScreen = () => {
     </ImageBackground>
   );
 };
-
-const styles = StyleSheet.create({
-  signInContentContainer: {
-    flex: 1,
-        backgroundColor: COLORS.black,
-  },
-  signInKeyboardContainer: {
-    flex: 1,
-  },
-  signInScrollingContainer: {
-    flexGrow: 1,
-    justifyContent: "center",
-  },
-  signInContainer: {
-    padding: Platform.OS === "ios" ? 30 : 15,
-  },
-  signInTitleContainer: {
-    width: "100%",
-    height: Platform.OS === "ios" ? 70 : 50,
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  signInTitleItem: {
-    color: COLORS.white,
-    fontFamily: FONT.interBold,
-    fontSize: SIZE.l,
-  },
-
-  //form input section
-  signInFormInputContainer: {
-    width: "100%",
-    flexDirection: "column",
-    marginBottom: Platform.OS === "ios" ? 50 : 10,
-  },
-  signInFormComponentContainer: {
-    marginBottom: 10,
-  },
-  signInComponentContainer: {
-    marginBottom: 20,
-  },
-  signInErrorTextMessage: {
-    color: COLORS.red,
-    fontSize: SIZE.s,
-    marginTop: 5,
-  },
-
-  //forgot password section
-  signInForgotPasswordContainer: {
-    width: "100%",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginBottom: 20,
-  },
-  signInForgotPasswordContent: {
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    alignItems: "center",
-  },
-  signInForgotPasswordText: {
-    marginLeft: 10,
-    color: COLORS.white,
-    fontFamily: FONT.interBold,
-    fontSize: SIZE.m,
-  },
-  signInForgotPasswordTextItem: {
-    color: COLORS.blue,
-    fontFamily: FONT.interBold,
-    fontSize: SIZE.m,
-  },
-
-  //submit section
-  signInSubmitButtonContainer: {
-    width: "100%",
-    flexDirection: "column",
-    marginBottom: 20,
-  },
-  signInQuestionContainer: {
-    width: "100%",
-    marginTop: 20,
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  signInQuestionMainText: {
-    color: COLORS.white,
-    fontFamily: FONT.interRegular,
-    fontSize: SIZE.m,
-  },
-  signInQuestionMainTextLink: {
-    color: COLORS.blue,
-    fontFamily: FONT.interBold,
-    fontSize: SIZE.m,
-  },
-
-  //third party section
-  thirdPartiesContainer: {
-    marginTop: 50,
-    flexDirection: "column",
-  },
-  thirdPartiesOptionContainer: {
-    width: "100%",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginBottom: 20,
-  },
-});
 
 export default SignInScreen;

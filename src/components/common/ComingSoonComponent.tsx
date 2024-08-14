@@ -1,30 +1,19 @@
-import { Image, StyleSheet, View } from "react-native";
+import { Image, View } from "react-native";
+
 import { IMAGES } from "../../constants";
 import { getImageSource } from "../../../utils/config";
+import { comingSoonComponentStyle } from "../../styles/componentsStyle/commonStyle/comingSoonComponentStyle";
 
 const ComingSoonComponent = () => {
   return (
-    <View style={styles.imageContainer}>
+    <View style={comingSoonComponentStyle.imageContainer}>
       <Image
         source={getImageSource(IMAGES.comingSoon)}
         alt="coming-soon-image"
-        style={styles.imageItem}
+        style={comingSoonComponentStyle.imageItem}
       />
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  imageContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  imageItem: {
-    width: 400,
-    height: 400,
-    resizeMode: "contain",
-  },
-});
 
 export default ComingSoonComponent;

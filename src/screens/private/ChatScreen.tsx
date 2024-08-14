@@ -1,22 +1,17 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View } from "react-native";
 
 import {ComingSoonComponent, PrivateScreenLayout} from "../../components";
+import { chatScreenStyles } from "../../styles/screensStyle/privateStyle/chatScreenStyle";
 
 const ChatScreen = () => {
   return (
     <PrivateScreenLayout>
-      <View style={styles.homeMainContainer}>
+      <View style={chatScreenStyles.homeMainContainer}>
      <ComingSoonComponent/>
       </View>
     </PrivateScreenLayout>
   );
 };
-
-const styles = StyleSheet.create({
-  homeMainContainer: {
-    flex:1,
-  },
-});
 
 export default ChatScreen;

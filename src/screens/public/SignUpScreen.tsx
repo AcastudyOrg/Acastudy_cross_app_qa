@@ -15,7 +15,8 @@ import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 import { RootStackParamList } from "../../types/router/navigation";
-import { COLORS, FONT, IMAGES, SIZE } from "../../constants";
+import { COLORS, IMAGES } from "../../constants";
+import { signUpScreenStyles } from "../../styles/screensStyle/publicStyle/signUpScreenStyle";
 import {
   TextInputComponent,
   SocialAuthButtonComponent,
@@ -65,17 +66,17 @@ const SignUpScreen = () => {
 
   function renderTitleSection() {
     return (
-      <View style={styles.signUpTitleContainer}>
-        <Text style={styles.signUpTitleItem}>Sign up</Text>
+      <View style={signUpScreenStyles.signUpTitleContainer}>
+        <Text style={signUpScreenStyles.signUpTitleItem}>Sign up</Text>
       </View>
     );
   }
 
   function renderFormInputSection() {
     return (
-      <View style={styles.signUpFormInputContainer}>
-        <View style={styles.signUpFormComponentContainer}>
-          <View style={styles.signUpComponentContainer}>
+      <View style={signUpScreenStyles.signUpFormInputContainer}>
+        <View style={signUpScreenStyles.signUpFormComponentContainer}>
+          <View style={signUpScreenStyles.signUpComponentContainer}>
             <TextInputComponent
               value={firstName}
               onChange={(text) => setFirstName(text)}
@@ -84,13 +85,13 @@ const SignUpScreen = () => {
               placeholder="Example"
             />
             {!!firstNameError && (
-              <Text style={styles.signUpErrorTextMessage}>
+              <Text style={signUpScreenStyles.signUpErrorTextMessage}>
                 {firstNameError}
               </Text>
             )}
           </View>
 
-          <View style={styles.signUpComponentContainer}>
+          <View style={signUpScreenStyles.signUpComponentContainer}>
             <TextInputComponent
               value={lastName}
               onChange={(text) => setLastName(text)}
@@ -99,11 +100,11 @@ const SignUpScreen = () => {
               placeholder="Example"
             />
             {!!lastNameError && (
-              <Text style={styles.signUpErrorTextMessage}>{lastNameError}</Text>
+              <Text style={signUpScreenStyles.signUpErrorTextMessage}>{lastNameError}</Text>
             )}
           </View>
 
-          <View style={styles.signUpComponentContainer}>
+          <View style={signUpScreenStyles.signUpComponentContainer}>
             <TextInputComponent
               value={email}
               onChange={(text) => setEmail(text)}
@@ -112,7 +113,7 @@ const SignUpScreen = () => {
               placeholder="example@company.com"
             />
             {!!emailError && (
-              <Text style={styles.signUpErrorTextMessage}>{emailError}</Text>
+              <Text style={signUpScreenStyles.signUpErrorTextMessage}>{emailError}</Text>
             )}
           </View>
         </View>
@@ -122,15 +123,15 @@ const SignUpScreen = () => {
 
   function renderSubmitButtonSection() {
     return (
-      <View style={styles.signUpSubmitButtonContainer}>
+      <View style={signUpScreenStyles.signUpSubmitButtonContainer}>
         <ButtonComponent onPress={handleSubmit} text="Continue" />
 
-        <View style={styles.signUpQuestionContainer}>
-          <Text style={styles.signUpQuestionMainText}>
+        <View style={signUpScreenStyles.signUpQuestionContainer}>
+          <Text style={signUpScreenStyles.signUpQuestionMainText}>
             Already have an account?{" "}
             <Text
               onPress={() => navigation.navigate("SignInScreen" as never)}
-              style={styles.signUpQuestionMainTextLink}
+              style={signUpScreenStyles.signUpQuestionMainTextLink}
             >
               Sign in
             </Text>
@@ -142,8 +143,8 @@ const SignUpScreen = () => {
 
   function renderSocialLoginSection() {
     return (
-      <View style={styles.thirdPartyContainer}>
-        <View style={styles.thirdPartyOptionContainer}>
+      <View style={signUpScreenStyles.thirdPartyContainer}>
+        <View style={signUpScreenStyles.thirdPartyOptionContainer}>
           <SocialAuthButtonComponent
             text="Sign up with"
             iconLibrary="AntDesign"
@@ -181,15 +182,15 @@ const SignUpScreen = () => {
     <ImageBackground
       blurRadius={4}
       source={IMAGES.authBackgroundImage}
-      style={styles.signUpContentContainer}
+      style={signUpScreenStyles.signUpContentContainer}
     >
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
-        style={styles.signUpKeyboardContainer}
+        style={signUpScreenStyles.signUpKeyboardContainer}
       >
-        <ScrollView contentContainerStyle={styles.signUpScrollingContainer}>
+        <ScrollView contentContainerStyle={signUpScreenStyles.signUpScrollingContainer}>
           <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-            <SafeAreaView style={styles.signUpContainer}>
+            <SafeAreaView style={signUpScreenStyles.signUpContainer}>
               {renderScreenCOntentList()}
             </SafeAreaView>
           </TouchableWithoutFeedback>
@@ -198,84 +199,5 @@ const SignUpScreen = () => {
     </ImageBackground>
   );
 };
-
-const styles = StyleSheet.create({
-  signUpContentContainer: {
-    flex: 1,
-    backgroundColor: COLORS.black,
-  },
-  signUpKeyboardContainer: {
-    flex: 1,
-  },
-  signUpScrollingContainer: {
-    flexGrow: 1,
-  },
-  signUpContainer: {
-    padding: Platform.OS === "ios" ? 30 : 15,
-  },
-  signUpTitleContainer: {
-    width: "100%",
-    height: Platform.OS === "ios" ? 70 : 50,
-    flexDirection: "column",
-  },
-  signUpTitleItem: {
-    color: COLORS.white,
-    fontFamily: FONT.interBold,
-    fontSize: SIZE.xxxl,
-  },
-
-  //form input section
-  signUpFormInputContainer: {
-    width: "100%",
-    flexDirection: "column",
-    marginBottom: Platform.OS === "ios" ? 50 : 10,
-  },
-  signUpFormComponentContainer: {
-    marginBottom: 10,
-  },
-  signUpComponentContainer: {
-    marginBottom: 20,
-  },
-  signUpErrorTextMessage: {
-    color: COLORS.red,
-    fontSize: SIZE.s,
-    marginTop: 5,
-  },
-
-  //submit section
-  signUpSubmitButtonContainer: {
-    width: "100%",
-    flexDirection: "column",
-  },
-  signUpQuestionContainer: {
-    width: "100%",
-    marginTop: 20,
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  signUpQuestionMainText: {
-    color: COLORS.white,
-    fontFamily: FONT.interRegular,
-    fontSize: SIZE.m,
-  },
-  signUpQuestionMainTextLink: {
-    color: COLORS.blue,
-    fontFamily: FONT.interBold,
-    fontSize: SIZE.m,
-  },
-
-  //third party section
-  thirdPartyContainer: {
-    marginTop: 50,
-    flexDirection: "column",
-  },
-  thirdPartyOptionContainer: {
-    width: "100%",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginBottom: 20,
-  },
-});
 
 export default SignUpScreen;
