@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-  StyleSheet,
   Text,
   TextInput,
   View,
@@ -11,7 +10,8 @@ import {
 import { FontAwesome } from "@expo/vector-icons";
 
 import { TextInputProps } from "../../../types";
-import { COLORS, FONT, SIZE } from "../../../constants";
+import { textInputComponentStyles } from "../../../styles/componentsStyle/commonStyle/formStyle/textInputComponentStyle";
+import { COLORS } from "../../../constants";
 
 // Validation functions
 const validateName = (name: string) => /^[a-zA-Z]{2,20}$/.test(name);
@@ -80,24 +80,24 @@ const TextInputComponent = ({
 
   const getBorderStyle = () => {
     if (isFocused) {
-      return styles.focusedBorder;
+      return textInputComponentStyles.focusedBorder;
     }
     if (!isFocused && !isValid) {
-      return styles.errorBorder;
+      return textInputComponentStyles.errorBorder;
     }
     if (!isFocused && inputValue.trim().length > 0 && isValid) {
-      return styles.normalBorder;
+      return textInputComponentStyles.normalBorder;
     }
-    return styles.transparentBorder;
+    return textInputComponentStyles.transparentBorder;
   };
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <View style={styles.textInputContainer}>
-        <Text style={styles.textInputLabelTextItem}>{label}</Text>
+      <View style={textInputComponentStyles.textInputContainer}>
+        <Text style={textInputComponentStyles.textInputLabelTextItem}>{label}</Text>
 
-        <View style={[styles.textInputItemContentContainer, getBorderStyle()]}>
-          <View style={styles.textInputItemContainer}>
+        <View style={[textInputComponentStyles.textInputItemContentContainer, getBorderStyle()]}>
+          <View style={textInputComponentStyles.textInputItemContainer}>
             <TextInput
               value={inputValue}
               onFocus={handleFocus}
@@ -108,10 +108,10 @@ const TextInputComponent = ({
               multiline={isTextArea}
               placeholder={placeholder}
               placeholderTextColor={COLORS.lightGray}
-              style={styles.textInputItem}
+              style={textInputComponentStyles.textInputItem}
             />
           </View>
-          <View style={styles.textInputIconContainer}>
+          <View style={textInputComponentStyles.textInputIconContainer}>
             {type === "password" && (
               <TouchableOpacity onPress={togglePasswordVisibility}>
                 <FontAwesome
@@ -140,68 +140,10 @@ const TextInputComponent = ({
               )}
           </View>
         </View>
-        {!isValid && <Text style={styles.errorText}>{errorMessage}</Text>}
+        {!isValid && <Text style={textInputComponentStyles.errorText}>{errorMessage}</Text>}
       </View>
     </TouchableWithoutFeedback>
   );
 };
-
-const styles = StyleSheet.create({
-  textInputContainer: {
-    width: "100%",
-    flexDirection: "column",
-  },
-  textInputLabelTextItem: {
-    color: COLORS.white,
-    fontSize: SIZE.l,
-    fontFamily: FONT.plusJakartaBold,
-    marginBottom: 10,
-  },
-  textInputItemContentContainer: {
-    width: "100%",
-    height: 50,
-    paddingHorizontal: 15,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    overflow: "hidden",
-    borderRadius: 10,
-    backgroundColor: COLORS.gray,
-  },
-  focusedBorder: {
-    borderWidth: 2,
-    borderColor: COLORS.darkBlue,
-  },
-  normalBorder: {
-    borderWidth: 2,
-    borderColor: COLORS.green,
-  },
-  transparentBorder: {
-    borderWidth: 2,
-    borderColor: COLORS.transparent,
-  },
-  errorBorder: {
-    borderWidth: 2,
-    borderColor: COLORS.red,
-  },
-  textInputItemContainer: {
-    width: "90%",
-    justifyContent: "center",
-  },
-  textInputItem: {
-    color: COLORS.white,
-    fontSize: SIZE.l,
-    fontFamily: FONT.plusJakartaRegular,
-  },
-  textInputIconContainer: {
-    width: "10%",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  errorText: {
-    color: COLORS.red,
-    fontSize: SIZE.s,
-    marginTop: 5,
-  },
-});
 
 export default TextInputComponent;

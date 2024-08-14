@@ -1,10 +1,12 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import {
     Ionicons, FontAwesome, Feather, Octicons, Fontisto,
     MaterialIcons, AntDesign, Entypo, EvilIcons, MaterialCommunityIcons, FontAwesome5
 } from "@expo/vector-icons";
+
 import { AppColor } from '../../constants/colors';
+import { customIconStyle } from '../../styles/componentsStyle/commonStyle/customIconStyle';
 
 export type IconSetName = keyof typeof iconMap;
 
@@ -35,17 +37,10 @@ const iconMap = {
 const CustomIcon: React.FC<IconProps> = ({ set, name, size = 18, color = AppColor.white }) => {
     const Icon = iconMap[set];
     return (
-        <View style={styles.iconContainer}>
+        <View style={customIconStyle.iconContainer}>
             <Icon name={name as keyof typeof Icon.glyphMap} size={size} color={color} />
         </View>
     );
 };
-
-const styles = StyleSheet.create({
-    iconContainer: {
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-});
 
 export default CustomIcon;

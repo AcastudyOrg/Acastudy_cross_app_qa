@@ -1,10 +1,7 @@
 import * as React from "react";
-import { View, StyleSheet, SafeAreaView, Text } from "react-native";
+import { View, SafeAreaView, Text } from "react-native";
 
 import { screenSize } from "../../../utils/config";
-
-import { AppColor } from "../../constants/colors";
-import { FONT, SIZE } from "../../constants";
 import TopBarComponent from "../common/TopBar/TopBarComponent";
 import { User } from "../../types/User/Student";
 import { LoginMockUser } from "../../../mockData/LoginUser";

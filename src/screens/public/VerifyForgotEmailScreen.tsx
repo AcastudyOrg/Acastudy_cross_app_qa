@@ -15,8 +15,9 @@ import {
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
-import { COLORS, FONT, IMAGES, SIZE } from "../../constants";
+import { FONT, IMAGES } from "../../constants";
 import { ButtonComponent, AppTopNavigationComponent } from "../../components/";
+import { verifyForgotEmailScreenStyles } from "../../styles/screensStyle/publicStyle/verifyForgotEmailScreenStyle";
 import {
   RootStackParamList,
   VerifyForgotEmailScreenRouteProp,
@@ -124,7 +125,7 @@ const VerifyForgotEmailScreen = () => {
   };
 
   const renderNavigationSection = () => (
-    <View style={styles.verifyForgotNavigatorContainer}>
+    <View style={verifyForgotEmailScreenStyles.verifyForgotNavigatorContainer}>
       <AppTopNavigationComponent
         backNavigation={true}
         authenticatedUser={false}
@@ -134,9 +135,9 @@ const VerifyForgotEmailScreen = () => {
   );
 
   const renderTopTitleSection = () => (
-    <View style={styles.verifyForgotTitleContainer}>
-      <Text style={styles.verifyForgotTitleItem}>Code Verification</Text>
-      <Text style={styles.verifyForgotInfoTextItem}>
+    <View style={verifyForgotEmailScreenStyles.verifyForgotTitleContainer}>
+      <Text style={verifyForgotEmailScreenStyles.verifyForgotTitleItem}>Code Verification</Text>
+      <Text style={verifyForgotEmailScreenStyles.verifyForgotInfoTextItem}>
         Enter the code we've sent to{" "}
         <Text style={{ fontFamily: FONT.plusJakartaBold }}>{prevData.email}</Text>
       </Text>
@@ -144,12 +145,12 @@ const VerifyForgotEmailScreen = () => {
   );
 
   const renderOtpInputSection = () => (
-    <View style={styles.otpForgotInputContainer}>
+    <View style={verifyForgotEmailScreenStyles.otpForgotInputContainer}>
       {otpCode.map((digit, index) => (
         <TextInput
           key={index}
           ref={(ref) => (inputs.current[index] = ref)}
-          style={styles.otpForgotInput}
+          style={verifyForgotEmailScreenStyles.otpForgotInput}
           value={digit ? "*" : ""}
           onChangeText={(text) => handleChange(text, index)}
           keyboardType="number-pad"
@@ -160,7 +161,7 @@ const VerifyForgotEmailScreen = () => {
   );
 
   const renderSubmitButtonSection = () => (
-    <View style={styles.submitForgotButtonContainer}>
+    <View style={verifyForgotEmailScreenStyles.submitForgotButtonContainer}>
       {secondsRemaining === 0 ? (
         <ButtonComponent onPress={handleCodeResend} text="Resend code" />
       ) : (
@@ -170,11 +171,11 @@ const VerifyForgotEmailScreen = () => {
         />
       )}
       {otpCodeError ? (
-        <Text style={styles.errorForgotText}>{otpCodeError}</Text>
+        <Text style={verifyForgotEmailScreenStyles.errorForgotText}>{otpCodeError}</Text>
       ) : null}
-      <Text style={styles.expiryForgotText}>{expiryMessage}</Text>
+      <Text style={verifyForgotEmailScreenStyles.expiryForgotText}>{expiryMessage}</Text>
       {secondsRemaining > 0 && (
-        <Text style={styles.timerForgotText}>
+        <Text style={verifyForgotEmailScreenStyles.timerForgotText}>
           Resend code in: {formatTime(resendCoolDown)}
         </Text>
       )}
@@ -185,17 +186,17 @@ const VerifyForgotEmailScreen = () => {
     <ImageBackground
       blurRadius={4}
       source={IMAGES.authBackgroundImage}
-      style={styles.verifyForgotContentContainer}
+      style={verifyForgotEmailScreenStyles.verifyForgotContentContainer}
     >
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
-        style={styles.verifyForgotKeyboardContainer}
+        style={verifyForgotEmailScreenStyles.verifyForgotKeyboardContainer}
       >
         <ScrollView
-          contentContainerStyle={styles.verifyForgotScrollingContainer}
+          contentContainerStyle={verifyForgotEmailScreenStyles.verifyForgotScrollingContainer}
         >
           <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-            <SafeAreaView style={styles.verifyForgotContainer}>
+            <SafeAreaView style={verifyForgotEmailScreenStyles.verifyForgotContainer}>
               {renderNavigationSection()}
               {renderTopTitleSection()}
               {renderOtpInputSection()}
@@ -207,85 +208,5 @@ const VerifyForgotEmailScreen = () => {
     </ImageBackground>
   );
 };
-
-const styles = StyleSheet.create({
-  verifyForgotContentContainer: {
-    flex: 1,
-    backgroundColor: COLORS.black,
-  },
-  verifyForgotKeyboardContainer: {
-    flex: 1,
-  },
-  verifyForgotScrollingContainer: {
-    flexGrow: 1,
-    paddingHorizontal: 20,
-  },
-  verifyForgotContainer: {
-    padding: Platform.OS === "ios" ? 30 : 15,
-  },
-  verifyForgotNavigatorContainer: {
-    width: "100%",
-    flexDirection: "column",
-  },
-  // Title section
-  verifyForgotTitleContainer: {
-    marginTop: 120,
-    width: "100%",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  verifyForgotTitleItem: {
-    color: COLORS.white,
-    fontSize: SIZE.xxxl,
-    fontFamily: FONT.plusJakartaBold,
-  },
-  verifyForgotInfoTextItem: {
-    marginTop: 15,
-    color: COLORS.white,
-    fontSize: SIZE.m,
-    fontFamily: FONT.plusJakartaRegular,
-    textAlign: "center",
-  },
-
-  // OTP input section
-  otpForgotInputContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginVertical: 40,
-  },
-  otpForgotInput: {
-    width: 50,
-    height: 50,
-    borderColor: COLORS.white,
-    borderWidth: 1,
-    borderRadius: 10,
-    textAlign: "center",
-    color: COLORS.white,
-    fontSize: SIZE.l,
-    fontFamily: FONT.plusJakartaRegular,
-  },
-  errorForgotText: {
-    color: COLORS.red,
-    marginTop: 10,
-    textAlign: "center",
-  },
-  expiryForgotText: {
-    marginTop: 20,
-    color: COLORS.white,
-    textAlign: "center",
-    fontSize: SIZE.s,
-  },
-  timerForgotText: {
-    marginTop: 30,
-    color: COLORS.white,
-    textAlign: "center",
-    fontSize: SIZE.m,
-  },
-
-  // Submit button section
-  submitForgotButtonContainer: {
-    marginTop: 20,
-  },
-});
 
 export default VerifyForgotEmailScreen;

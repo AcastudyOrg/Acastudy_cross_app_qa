@@ -1,9 +1,10 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, Image } from 'react-native';
+
 import { User } from '../../../types/User/Student';
 import { NAV_SCREEN_NAME, STRING } from '../../../constants/strings';
-import { AppColor } from '../../../constants/colors';
-import { FONT } from '../../../constants';
+import { rightSectionStyles } from '../../../styles/componentsStyle/commonStyle/topBarStyle/rightSectionStyle';
+
 
 type RightSectionProps = {
 	screenWidth: number;
@@ -12,65 +13,30 @@ type RightSectionProps = {
 };
 
 const RightSection: React.FC<RightSectionProps> = ({ screenWidth, user, navigation }) => (
-	<View style={styles.rightSection}>
+	<View style={rightSectionStyles.rightSection}>
 		{screenWidth >= 1086 && (
-			<View style={styles.rightSectionbuttons}>
+			<View style={rightSectionStyles.rightSectionbuttons}>
 				<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.HomeScreen)}> {/* Todo(Phillip): Put correct screen name*/}
-					<Text style={styles.linkText}> {STRING.becomeATutor} </Text>
+					<Text style={rightSectionStyles.linkText}> {STRING.becomeATutor} </Text>
 				</TouchableOpacity>
-				<Text style={styles.linkText}>|</Text>
+				<Text style={rightSectionStyles.linkText}>|</Text>
 				<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.HomeScreen)}>  {/* Todo(Phillip): Put correct screen name*/}
-					<Text style={styles.linkText}> {STRING.logout} </Text>
+					<Text style={rightSectionStyles.linkText}> {STRING.logout} </Text>
 				</TouchableOpacity>
 			</View>
 		)}
 		{user && (
-			<View style={styles.profile}>
-				<Text style={styles.profileName}>{user.name} {user.surname}</Text>
+			<View style={rightSectionStyles.profile}>
+				<Text style={rightSectionStyles.profileName}>{user.name} {user.surname}</Text>
 				<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.ProfileScreen)}>
 					<Image
 						source={user.profilePictureUrl}
-						style={styles.profilePicture}
+						style={rightSectionStyles.profilePicture}
 					/>
 				</TouchableOpacity>
 			</View>
 		)}
 	</View>
 );
-
-const styles = StyleSheet.create({
-	rightSection: {
-		flex: 1,
-		flexDirection: 'row',
-		alignItems: 'center',
-		justifyContent: 'flex-end',
-		flexShrink: 1,
-		flexWrap: 'wrap'
-	},
-	rightSectionbuttons: {
-		flexDirection: 'row',
-		marginRight: 40,
-	},
-	linkText: {
-		paddingBottom: 2,
-		color: AppColor.white,
-		fontFamily: FONT.plusJakartaBold,
-		marginHorizontal: 10,
-	},
-	profile: {
-		flexDirection: 'row',
-		alignItems: 'center',
-	},
-	profileName: {
-		color: AppColor.white,
-		fontFamily: FONT.plusJakartaRegular,
-		marginRight: 10,
-	},
-	profilePicture: {
-		width: 30,
-		height: 30,
-		borderRadius: 15,
-	},
-});
 
 export default RightSection;

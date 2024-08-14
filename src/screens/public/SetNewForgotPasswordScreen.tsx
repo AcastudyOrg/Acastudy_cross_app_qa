@@ -18,7 +18,8 @@ import {
   RootStackParamList,
   VerifyForgotEmailScreenRouteProp,
 } from "../../types/router/navigation";
-import { COLORS, FONT, IMAGES, SIZE } from "../../constants";
+import { IMAGES } from "../../constants";
+import { setNewForgotPasswordScreenStyles } from "../../styles/screensStyle/publicStyle/setNewForgotPasswordScreenStyle";
 import {
   TextInputComponent,
   ButtonComponent,
@@ -72,7 +73,7 @@ const SetNewForgotPasswordScreen = () => {
 
   function renderNavigationSection() {
     return (
-      <View style={styles.passwordNewNavigatorContainer}>
+      <View style={setNewForgotPasswordScreenStyles.passwordNewNavigatorContainer}>
         <AppTopNavigationComponent
           backNavigation={true}
           authenticatedUser={false}
@@ -84,9 +85,9 @@ const SetNewForgotPasswordScreen = () => {
 
   function renderInformationSection() {
     return (
-      <View style={styles.passwordNewTitleContainer}>
-        <Text style={styles.passwordNewTitleItem}>Create a new password</Text>
-        <Text style={styles.passwordNewTitle}>
+      <View style={setNewForgotPasswordScreenStyles.passwordNewTitleContainer}>
+        <Text style={setNewForgotPasswordScreenStyles.passwordNewTitleItem}>Create a new password</Text>
+        <Text style={setNewForgotPasswordScreenStyles.passwordNewTitle}>
           Please note that this new password will be used to access you account
           next.
         </Text>
@@ -96,9 +97,9 @@ const SetNewForgotPasswordScreen = () => {
 
   function renderFormInputSection() {
     return (
-      <View style={styles.passwordNewFormContainer}>
-        <View style={styles.passwordNewFormComponentContainer}>
-          <View style={styles.passwordNewComponentContainer}>
+      <View style={setNewForgotPasswordScreenStyles.passwordNewFormContainer}>
+        <View style={setNewForgotPasswordScreenStyles.passwordNewFormComponentContainer}>
+          <View style={setNewForgotPasswordScreenStyles.passwordNewComponentContainer}>
             <TextInputComponent
               value={password}
               onChange={(text) => setPassword(text)}
@@ -107,13 +108,13 @@ const SetNewForgotPasswordScreen = () => {
               placeholder="••••••••"
             />
             {!!passwordError && (
-              <Text style={styles.passwordNewErrorTextMessage}>
+              <Text style={setNewForgotPasswordScreenStyles.passwordNewErrorTextMessage}>
                 {passwordError}
               </Text>
             )}
           </View>
 
-          <View style={styles.passwordNewComponentContainer}>
+          <View style={setNewForgotPasswordScreenStyles.passwordNewComponentContainer}>
             <TextInputComponent
               value={confirmPassword}
               onChange={(text) => setConfirmPassword(text)}
@@ -122,7 +123,7 @@ const SetNewForgotPasswordScreen = () => {
               placeholder="••••••••"
             />
             {!!confirmPasswordError && (
-              <Text style={styles.passwordNewErrorTextMessage}>
+              <Text style={setNewForgotPasswordScreenStyles.passwordNewErrorTextMessage}>
                 {confirmPasswordError}
               </Text>
             )}
@@ -134,7 +135,7 @@ const SetNewForgotPasswordScreen = () => {
 
   function renderSubmitButtonSection() {
     return (
-      <View style={styles.passwordNewSubmitButtonContainer}>
+      <View style={setNewForgotPasswordScreenStyles.passwordNewSubmitButtonContainer}>
         <ButtonComponent onPress={handleSubmit} text="Reset password" />
       </View>
     );
@@ -155,17 +156,17 @@ const SetNewForgotPasswordScreen = () => {
     <ImageBackground
       blurRadius={4}
       source={IMAGES.authBackgroundImage}
-      style={styles.passwordNewContentContainer}
+      style={setNewForgotPasswordScreenStyles.passwordNewContentContainer}
     >
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
-        style={styles.passwordNewKeyboardContainer}
+        style={setNewForgotPasswordScreenStyles.passwordNewKeyboardContainer}
       >
         <ScrollView
-          contentContainerStyle={styles.passwordNewScrollingContainer}
+          contentContainerStyle={setNewForgotPasswordScreenStyles.passwordNewScrollingContainer}
         >
           <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-            <SafeAreaView style={styles.passwordNewContainer}>
+            <SafeAreaView style={setNewForgotPasswordScreenStyles.passwordNewContainer}>
               {renderScreenContentList()}
             </SafeAreaView>
           </TouchableWithoutFeedback>
@@ -174,72 +175,5 @@ const SetNewForgotPasswordScreen = () => {
     </ImageBackground>
   );
 };
-
-const styles = StyleSheet.create({
-  passwordNewContentContainer: {
-    flex: 1,
-    backgroundColor: COLORS.black,
-  },
-  passwordNewKeyboardContainer: {
-    flex: 1,
-  },
-  passwordNewScrollingContainer: {
-    flexGrow: 1,
-    paddingHorizontal: 20,
-  },
-  passwordNewContainer: {
-    padding: Platform.OS === "ios" ? 30 : 15,
-  },
-  passwordNewNavigatorContainer: {
-    width: "100%",
-    flexDirection: "column",
-  },
-  passwordNewTitleContainer: {
-    marginTop: 120,
-    marginBottom: 30,
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "column",
-  },
-  passwordNewTitleItem: {
-    color: COLORS.white,
-    fontSize: SIZE.xxxl,
-    fontFamily: FONT.plusJakartaBold,
-    marginBottom: 10,
-  },
-  passwordNewTitle: {
-    paddingHorizontal: 10,
-    color: COLORS.white,
-    fontSize: SIZE.m,
-    fontFamily: FONT.plusJakartaRegular,
-    textAlign: "center",
-  },
-
-  //form section
-  passwordNewFormContainer: {
-    marginVertical: 30,
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "column",
-  },
-  passwordNewFormComponentContainer: {
-    marginBottom: 10,
-  },
-  passwordNewComponentContainer: {
-    marginBottom: 20,
-  },
-  passwordNewErrorTextMessage: {
-    color: COLORS.red,
-    fontSize: SIZE.s,
-    marginTop: 5,
-  },
-
-  //submit section
-  passwordNewSubmitButtonContainer: {
-    width: "100%",
-    flexDirection: "column",
-    marginBottom: 20,
-  },
-});
 
 export default SetNewForgotPasswordScreen;

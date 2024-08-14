@@ -1,9 +1,9 @@
 import React, { useRef, useState } from "react";
-import { View, Text, FlatList, StyleSheet, Image } from "react-native";
+import { View, Text, FlatList, Image } from "react-native";
 import { ResizeMode, Video } from "expo-av";
 
 import { HomeDataProps, HomeDataItemProps } from "../../types";
-import { COLORS, FONT, SIZE } from "../../constants";
+import { homeDataListComponentStyles } from "../../styles/componentsStyle/sectionsStyle/homeDataListComponentStyle";
 
 const HomeDataListComponent = ({
   dataTitle,
@@ -14,11 +14,11 @@ const HomeDataListComponent = ({
   const [status, setStatus] = useState({});
 
   const renderItem = ({ item }: { item: HomeDataItemProps }) => (
-    <View style={styles.itemContainer}>
+    <View style={homeDataListComponentStyles.itemContainer}>
       {item.mediaType === "video" ? (
         <Video
           ref={video}
-          style={styles.itemVideo}
+          style={homeDataListComponentStyles.itemVideo}
           source={{
             uri: "https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
           }}
@@ -27,18 +27,18 @@ const HomeDataListComponent = ({
           onPlaybackStatusUpdate={(status) => setStatus(() => status)}
         />
       ) : item.mediaType === "image" ? (
-        <Image source={{ uri: item?.mediaFile }} style={styles.itemImage} />
+        <Image source={{ uri: item?.mediaFile }} style={homeDataListComponentStyles.itemImage} />
       ) : null}
 
-      <Text style={styles.itemTitle}>{item.title}</Text>
+      <Text style={homeDataListComponentStyles.itemTitle}>{item.title}</Text>
     </View>
   );
 
   return (
-    <View style={styles.homeDataMainContainer}>
-      <View style={styles.homeDataTopContainer}>
-        <Text style={styles.homeDataTitleItem}>{dataTitle}</Text>
-        <Text onPress={viewAllLink} style={styles.homeDataActionItem}>
+    <View style={homeDataListComponentStyles.homeDataMainContainer}>
+      <View style={homeDataListComponentStyles.homeDataTopContainer}>
+        <Text style={homeDataListComponentStyles.homeDataTitleItem}>{dataTitle}</Text>
+        <Text onPress={viewAllLink} style={homeDataListComponentStyles.homeDataActionItem}>
           View All
         </Text>
       </View>
@@ -54,55 +54,5 @@ const HomeDataListComponent = ({
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  homeDataMainContainer: {
-    flex: 1,
-    width: "100%",
-    flexDirection: "column",
-  },
-  homeDataTopContainer: {
-    paddingBottom: 10,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  homeDataTitleItem: {
-    color: COLORS.white,
-    fontSize: SIZE.xl,
-    fontFamily: FONT.plusJakartaBold,
-  },
-  homeDataActionItem: {
-    color: COLORS.white,
-    fontSize: SIZE.s,
-    fontFamily: FONT.plusJakartaRegular,
-  },
-
-  //data item
-  itemContainer: {
-    padding: 10,
-    flex: 1,
-    flexWrap: "wrap",
-    flexDirection: "column",
-    gap: 10,
-    borderRadius: 20,
-    overflow: "hidden",
-    backgroundColor: COLORS.darkGray,
-  },
-  itemVideo: {
-    width: "100%",
-    height: 100,
-  },
-  itemImage: {
-    width: 80,
-    height: 80,
-    resizeMode: "cover",
-  },
-  itemTitle: {
-    color: COLORS.white,
-    fontSize: SIZE.m,
-    fontFamily: FONT.plusJakartaRegular,
-  },
-});
 
 export default HomeDataListComponent;

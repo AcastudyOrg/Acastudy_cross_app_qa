@@ -6,7 +6,6 @@ import {
   Platform,
   SafeAreaView,
   ScrollView,
-  StyleSheet,
   Text,
   TouchableWithoutFeedback,
   View,
@@ -15,8 +14,9 @@ import {
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
-import { COLORS, FONT, IMAGES, SIZE } from "../../constants";
+import { FONT, IMAGES } from "../../constants";
 import { ButtonComponent, AppTopNavigationComponent } from "../../components/";
+import { verifyEmailScreenStyles } from "../../styles/screensStyle/publicStyle/verifyEmailScreenStyle";
 import {
   RootStackParamList,
   VerifyEmailScreenRouteProp,
@@ -124,7 +124,7 @@ const VerifyEmailScreen = () => {
   };
 
   const renderNavigationSection = () => (
-    <View style={styles.verifyNavigatorContainer}>
+    <View style={verifyEmailScreenStyles.verifyNavigatorContainer}>
       <AppTopNavigationComponent
         backNavigation={true}
         authenticatedUser={false}
@@ -134,9 +134,9 @@ const VerifyEmailScreen = () => {
   );
 
   const renderTopTitleSection = () => (
-    <View style={styles.verifyTitleContainer}>
-      <Text style={styles.verifyTitleItem}>Code Verification</Text>
-      <Text style={styles.verifyInfoTextItem}>
+    <View style={verifyEmailScreenStyles.verifyTitleContainer}>
+      <Text style={verifyEmailScreenStyles.verifyTitleItem}>Code Verification</Text>
+      <Text style={verifyEmailScreenStyles.verifyInfoTextItem}>
         Enter the code we've sent to{" "}
         <Text style={{ fontFamily: FONT.plusJakartaBold }}>{prevData.email}</Text>
       </Text>
@@ -144,12 +144,12 @@ const VerifyEmailScreen = () => {
   );
 
   const renderOtpInputSection = () => (
-    <View style={styles.otpInputContainer}>
+    <View style={verifyEmailScreenStyles.otpInputContainer}>
       {otpCode.map((digit, index) => (
         <TextInput
           key={index}
           ref={(ref) => (inputs.current[index] = ref)}
-          style={styles.otpInput}
+          style={verifyEmailScreenStyles.otpInput}
           value={digit ? "*" : ""}
           onChangeText={(text) => handleChange(text, index)}
           keyboardType="number-pad"
@@ -160,7 +160,7 @@ const VerifyEmailScreen = () => {
   );
 
   const renderSubmitButtonSection = () => (
-    <View style={styles.submitButtonContainer}>
+    <View style={verifyEmailScreenStyles.submitButtonContainer}>
       {secondsRemaining === 0 ? (
         <ButtonComponent onPress={handleCodeResend} text="Resend code" />
       ) : (
@@ -170,11 +170,11 @@ const VerifyEmailScreen = () => {
         />
       )}
       {otpCodeError ? (
-        <Text style={styles.errorText}>{otpCodeError}</Text>
+        <Text style={verifyEmailScreenStyles.errorText}>{otpCodeError}</Text>
       ) : null}
-      <Text style={styles.expiryText}>{expiryMessage}</Text>
+      <Text style={verifyEmailScreenStyles.expiryText}>{expiryMessage}</Text>
       {secondsRemaining > 0 && (
-        <Text style={styles.timerText}>
+        <Text style={verifyEmailScreenStyles.timerText}>
           Resend code in: {formatTime(resendCoolDown)}
         </Text>
       )}
@@ -185,15 +185,15 @@ const VerifyEmailScreen = () => {
     <ImageBackground
       blurRadius={4}
       source={IMAGES.authBackgroundImage}
-      style={styles.verifyContentContainer}
+      style={verifyEmailScreenStyles.verifyContentContainer}
     >
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
-        style={styles.verifyKeyboardContainer}
+        style={verifyEmailScreenStyles.verifyKeyboardContainer}
       >
-        <ScrollView contentContainerStyle={styles.verifyScrollingContainer}>
+        <ScrollView contentContainerStyle={verifyEmailScreenStyles.verifyScrollingContainer}>
           <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-            <SafeAreaView style={styles.verifyContainer}>
+            <SafeAreaView style={verifyEmailScreenStyles.verifyContainer}>
               {renderNavigationSection()}
               {renderTopTitleSection()}
               {renderOtpInputSection()}
@@ -205,85 +205,5 @@ const VerifyEmailScreen = () => {
     </ImageBackground>
   );
 };
-
-const styles = StyleSheet.create({
-  verifyContentContainer: {
-    flex: 1,
-    backgroundColor: COLORS.black,
-  },
-  verifyKeyboardContainer: {
-    flex: 1,
-  },
-  verifyScrollingContainer: {
-    flexGrow: 1,
-    paddingHorizontal: 20,
-  },
-  verifyContainer: {
-    padding: Platform.OS === "ios" ? 30 : 15,
-  },
-  verifyNavigatorContainer: {
-    width: "100%",
-    flexDirection: "column",
-  },
-  // Title section
-  verifyTitleContainer: {
-    marginTop: 120,
-    width: "100%",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  verifyTitleItem: {
-    color: COLORS.white,
-    fontSize: SIZE.xxxl,
-    fontFamily: FONT.plusJakartaBold,
-  },
-  verifyInfoTextItem: {
-    marginTop: 15,
-    color: COLORS.white,
-    fontSize: SIZE.m,
-    fontFamily: FONT.plusJakartaRegular,
-    textAlign: "center",
-  },
-
-  // OTP input section
-  otpInputContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginVertical: 40,
-  },
-  otpInput: {
-    width: 50,
-    height: 50,
-    borderColor: COLORS.white,
-    borderWidth: 1,
-    borderRadius: 10,
-    textAlign: "center",
-    color: COLORS.white,
-    fontSize: SIZE.l,
-    fontFamily: FONT.plusJakartaRegular,
-  },
-  errorText: {
-    color: COLORS.red,
-    marginTop: 10,
-    textAlign: "center",
-  },
-  expiryText: {
-    marginTop: 20,
-    color: COLORS.white,
-    textAlign: "center",
-    fontSize: SIZE.s,
-  },
-  timerText: {
-    marginTop: 30,
-    color: COLORS.white,
-    textAlign: "center",
-    fontSize: SIZE.m,
-  },
-
-  // Submit button section
-  submitButtonContainer: {
-    marginTop: 20,
-  },
-});
 
 export default VerifyEmailScreen;

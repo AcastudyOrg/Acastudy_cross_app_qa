@@ -18,7 +18,8 @@ import {
   RootStackParamList,
   PasswordScreenRouteProp,
 } from "../../types/router/navigation";
-import { COLORS, FONT, IMAGES, SIZE } from "../../constants";
+import { IMAGES } from "../../constants";
+import { passwordScreenStyles } from "../../styles/screensStyle/publicStyle/passwordScreenStyle";
 import {
   TextInputComponent,
   ButtonComponent,
@@ -87,7 +88,7 @@ const PasswordScreen = () => {
 
   function renderNavigationSection() {
     return (
-      <View style={styles.passwordNavigatorContainer}>
+      <View style={passwordScreenStyles.passwordNavigatorContainer}>
         <AppTopNavigationComponent
           backNavigation={true}
           authenticatedUser={false}
@@ -99,7 +100,7 @@ const PasswordScreen = () => {
 
   function renderImagePickerSection() {
     return (
-      <View style={styles.passwordImagePickerContainer}>
+      <View style={passwordScreenStyles.passwordImagePickerContainer}>
         <ImagePickerComponent onImagePicked={handleImagePicked} />
       </View>
     );
@@ -107,9 +108,9 @@ const PasswordScreen = () => {
 
   function renderFormInputSection() {
     return (
-      <View style={styles.passwordFormContainer}>
-        <View style={styles.passwordFormComponentContainer}>
-          <View style={styles.passwordComponentContainer}>
+      <View style={passwordScreenStyles.passwordFormContainer}>
+        <View style={passwordScreenStyles.passwordFormComponentContainer}>
+          <View style={passwordScreenStyles.passwordComponentContainer}>
             <TextInputComponent
               value={username}
               onChange={(text) => setUsername(text)}
@@ -118,13 +119,13 @@ const PasswordScreen = () => {
               placeholder="Example"
             />
             {!!usernameError && (
-              <Text style={styles.passwordErrorTextMessage}>
+              <Text style={passwordScreenStyles.passwordErrorTextMessage}>
                 {usernameError}
               </Text>
             )}
           </View>
 
-          <View style={styles.passwordComponentContainer}>
+          <View style={passwordScreenStyles.passwordComponentContainer}>
             <TextInputComponent
               value={password}
               onChange={(text) => setPassword(text)}
@@ -133,13 +134,13 @@ const PasswordScreen = () => {
               placeholder="••••••••"
             />
             {!!passwordError && (
-              <Text style={styles.passwordErrorTextMessage}>
+              <Text style={passwordScreenStyles.passwordErrorTextMessage}>
                 {passwordError}
               </Text>
             )}
           </View>
 
-          <View style={styles.passwordComponentContainer}>
+          <View style={passwordScreenStyles.passwordComponentContainer}>
             <TextInputComponent
               value={confirmPassword}
               onChange={(text) => setConfirmPassword(text)}
@@ -148,7 +149,7 @@ const PasswordScreen = () => {
               placeholder="••••••••"
             />
             {!!confirmPasswordError && (
-              <Text style={styles.passwordErrorTextMessage}>
+              <Text style={passwordScreenStyles.passwordErrorTextMessage}>
                 {confirmPasswordError}
               </Text>
             )}
@@ -160,16 +161,16 @@ const PasswordScreen = () => {
 
   function renderSubmitButtonSection() {
     return (
-      <View style={styles.passwordSubmitButtonContainer}>
+      <View style={passwordScreenStyles.passwordSubmitButtonContainer}>
         <ButtonComponent onPress={handleSubmit} text="Continue" />
 
         {/* Navigate Section */}
-        <View style={styles.passwordQuestionContainer}>
-          <Text style={styles.passwordQuestionMainText}>
+        <View style={passwordScreenStyles.passwordQuestionContainer}>
+          <Text style={passwordScreenStyles.passwordQuestionMainText}>
             By continuing you are agreeing to our{" "}
             <Text
               onPress={() => navigation.navigate("TermsOfUseScreen" as never)}
-              style={styles.passwordQuestionMainTextLink}
+              style={passwordScreenStyles.passwordQuestionMainTextLink}
             >
               terms of use{" "}
             </Text>
@@ -178,7 +179,7 @@ const PasswordScreen = () => {
               onPress={() =>
                 navigation.navigate("PrivacyPolicyScreen" as never)
               }
-              style={styles.passwordQuestionMainTextLink}
+              style={passwordScreenStyles.passwordQuestionMainTextLink}
             >
               privacy policy
             </Text>
@@ -204,15 +205,15 @@ const PasswordScreen = () => {
     <ImageBackground
       blurRadius={4}
       source={IMAGES.authBackgroundImage}
-      style={styles.passwordContentContainer}
+      style={passwordScreenStyles.passwordContentContainer}
     >
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
-        style={styles.passwordKeyboardContainer}
+        style={passwordScreenStyles.passwordKeyboardContainer}
       >
-        <ScrollView contentContainerStyle={styles.passwordScrollingContainer}>
+        <ScrollView contentContainerStyle={passwordScreenStyles.passwordScrollingContainer}>
           <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-            <SafeAreaView style={styles.passwordContainer}>
+            <SafeAreaView style={passwordScreenStyles.passwordContainer}>
               {renderScreenContentList()}
             </SafeAreaView>
           </TouchableWithoutFeedback>
@@ -221,74 +222,5 @@ const PasswordScreen = () => {
     </ImageBackground>
   );
 };
-
-const styles = StyleSheet.create({
-  passwordContentContainer: {
-    flex: 1,
-    backgroundColor: COLORS.black,
-  },
-  passwordKeyboardContainer: {
-    flex: 1,
-  },
-  passwordScrollingContainer: {
-    flexGrow: 1,
-    paddingHorizontal: 20,
-  },
-  passwordContainer: {
-    padding: Platform.OS === "ios" ? 30 : 15,
-  },
-  passwordNavigatorContainer: {
-    width: "100%",
-    flexDirection: "column",
-  },
-  passwordImagePickerContainer: {
-    height: 140,
-    marginVertical: 20,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-
-  //form section
-  passwordFormContainer: {
-    marginVertical: 30,
-    flexDirection: "column",
-  },
-  passwordFormComponentContainer: {
-    marginBottom: 10,
-  },
-  passwordComponentContainer: {
-    marginBottom: 20,
-  },
-  passwordErrorTextMessage: {
-    color: COLORS.red,
-    fontSize: SIZE.s,
-    marginTop: 5,
-  },
-
-  //submit section
-  passwordSubmitButtonContainer: {
-    width: "100%",
-    flexDirection: "column",
-    marginBottom: 20,
-  },
-  passwordQuestionContainer: {
-    width: "100%",
-    marginTop: 20,
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  passwordQuestionMainText: {
-    color: COLORS.white,
-    fontFamily: FONT.plusJakartaRegular,
-    fontSize: SIZE.m,
-    textAlign: "center",
-  },
-  passwordQuestionMainTextLink: {
-    color: COLORS.blue,
-    fontFamily: FONT.plusJakartaBold,
-    fontSize: SIZE.m,
-  },
-});
 
 export default PasswordScreen;
