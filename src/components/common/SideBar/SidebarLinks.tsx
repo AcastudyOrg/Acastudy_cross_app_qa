@@ -1,9 +1,10 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import { COLORS, FONT, SIZE } from "../../../constants";
+
 import CustomIcon from "../CustomIcon";
 import { navTabs } from "../../../navigation/navLinks";
+import { sidebarLinksStyles } from "../../../styles/componentsStyle/commonStyle/sideBarStyle/sidebarLinksStyle";
 import { AppColor } from "../../../constants/colors";
 
 
@@ -17,16 +18,16 @@ const SidebarLinks: React.FC<SidebarLinksProps> = ({ screenWidth }) => {
     const route = useRoute();
 
     return (
-        <View style={styles.sidebarLinksContainer}>
+        <View style={sidebarLinksStyles.sidebarLinksContainer}>
             {navTabs.map((item, i) => {
                 const isActive = route.name === item.link;
                 return (
                     <TouchableOpacity
                         key={i}
                         onPress={() => navigation.navigate(item.link as never)}
-                        style={styles.sidebarLinksItemsContainer}
+                        style={sidebarLinksStyles.sidebarLinksItemsContainer}
                     >
-                        <View style={styles.sidebarLinksIconItem}>
+                        <View style={sidebarLinksStyles.sidebarLinksIconItem}>
                             <CustomIcon
                                 set={item.icon.set}
                                 name={item.icon.name}
@@ -34,7 +35,7 @@ const SidebarLinks: React.FC<SidebarLinksProps> = ({ screenWidth }) => {
                             />
                         </View>
                         {screenWidth >= 650 && (
-                            <Text style={[styles.sidebarLinksItems, { color: isActive ? AppColor.purple : AppColor.white },]} >
+                            <Text style={[sidebarLinksStyles.sidebarLinksItems, { color: isActive ? AppColor.purple : AppColor.white },]} >
                                 {item.name}
                             </Text>
                         )}
@@ -45,29 +46,5 @@ const SidebarLinks: React.FC<SidebarLinksProps> = ({ screenWidth }) => {
         </View>
     );
 };
-
-const styles = StyleSheet.create({
-    sidebarLinksContainer: {
-        flex: 1,
-        paddingTop: 25,
-        paddingHorizontal: 20,
-        flexDirection: "column",
-    },
-    sidebarLinksItemsContainer: {
-        paddingVertical: 15,
-        flexDirection: "row",
-        gap: 15,
-    },
-    sidebarLinksIconItem: {
-        width: 20,
-        height: 20,
-        resizeMode: "contain",
-    },
-    sidebarLinksItems: {
-        color: AppColor.white,
-        fontFamily: FONT.interRegular,
-        fontSize: SIZE.m,
-    },
-});
 
 export default SidebarLinks;
