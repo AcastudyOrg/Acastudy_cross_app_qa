@@ -10,12 +10,16 @@ import { topBarComponentStyles } from '../../../styles/componentsStyle/commonSty
 
 type TopBarProps = {
 	renderLeftSection?: boolean;
+	showSearchBar?: boolean;
+	showAppName?: boolean;
 	renderRightSection?: boolean;
 	user?: User;
 };
 
 const TopBarComponent: React.FC<TopBarProps> = ({
 	renderLeftSection = true,
+	showAppName = true,
+	showSearchBar = true,
 	renderRightSection = true,
 	user = null,
 }) => {
@@ -25,7 +29,9 @@ const TopBarComponent: React.FC<TopBarProps> = ({
 	return (
 		<View>
 			<View style={topBarComponentStyles.topBar}>
-				{renderLeftSection && <LeftSection />}
+				{renderLeftSection && 
+				<LeftSection  showAppName={showAppName} showSearchBar={showSearchBar}/>
+				}
 				{renderRightSection && user && (
 					<RightSection screenWidth={screenWidth} user={user} navigation={navigation} />
 				)}
