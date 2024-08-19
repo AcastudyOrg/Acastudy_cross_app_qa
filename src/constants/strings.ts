@@ -8,7 +8,9 @@ export const STRING = {
     chat: 'Chat',
     study: 'Study',
     profile: 'Profile',
-    requestTutor: 'Request tutor'
+    requestTutor: 'Request tutor',
+    signIn: 'SignIn',
+    signUp: 'SignUp',
 };
 
 export const NAV_SCREEN_NAME = {

@@ -9,14 +9,27 @@ import { User } from '../../../types/User/Student';
 import { topBarComponentStyles } from '../../../styles/componentsStyle/commonStyle/topBarStyle/topBarComponentStyle';
 
 type TopBarProps = {
-	renderLeftSection?: boolean;
+	showSearchBar?: boolean;
+	showAppName?: boolean;
 	renderRightSection?: boolean;
+	isLSignedIn?: boolean;
+	showBecomeATutorOnly?: boolean;
 	user?: User;
 };
+/*
+TopBarComponent
+	param: renderLeftSection: boolean -> renders the left side of the top bar, (showAppName: boolean and/or showSearchBar: boolean)
+		   renderRightSection: boolean -> renders the right side of the top bar, ( isLSignedIn: boolean, showBecomeATutorOnly: boolean)
+										if showBecomeATutorOnly then dont render sign in and signup button
+		   
 
+*/
 const TopBarComponent: React.FC<TopBarProps> = ({
-	renderLeftSection = true,
+	showAppName = false,
+	showSearchBar = true,
 	renderRightSection = true,
+	isLSignedIn = true,
+	showBecomeATutorOnly = true,
 	user = null,
 }) => {
 	const navigation = useNavigation<any>();
@@ -25,9 +38,15 @@ const TopBarComponent: React.FC<TopBarProps> = ({
 	return (
 		<View>
 			<View style={topBarComponentStyles.topBar}>
-				{renderLeftSection && <LeftSection />}
+				<LeftSection showAppName={showAppName} showSearchBar={showSearchBar} />
 				{renderRightSection && user && (
-					<RightSection screenWidth={screenWidth} user={user} navigation={navigation} />
+					<RightSection
+						screenWidth={screenWidth}
+						user={user}
+						navigation={navigation}
+						isLSignedIn={isLSignedIn}
+						showBecomeATutorOnly={showBecomeATutorOnly}
+					/>
 				)}
 			</View>
 			<View style={topBarComponentStyles.divider} />
