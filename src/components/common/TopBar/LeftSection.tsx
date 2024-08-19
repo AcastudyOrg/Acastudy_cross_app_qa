@@ -12,7 +12,7 @@ type LeftSectionProps = {
 };
 
 
-const LeftSection: React.FC<LeftSectionProps> = ({ showAppName = false, showSearchBar = false }) => (
+const LeftSection: React.FC<LeftSectionProps> = ({ showAppName, showSearchBar }) => (
 	
 	<View style={leftSectionStyles.leftSection}>
 		{showAppName && (

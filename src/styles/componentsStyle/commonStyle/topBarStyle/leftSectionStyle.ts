@@ -6,7 +6,6 @@ export const leftSectionStyles = StyleSheet.create({
 		flex: 1,
 		maxWidth: '100%',
 		flexShrink: 1,
-		flexDirection: 'row'
 	},
 	appName : {
 		height: 40,
