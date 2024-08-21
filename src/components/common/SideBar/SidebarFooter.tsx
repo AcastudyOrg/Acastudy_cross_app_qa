@@ -1,32 +1,24 @@
 import React from "react";
-import { Text, TouchableOpacity } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
+import { View } from "react-native";
 
-import { AppColor } from "../../../constants/colors";
-import CustomIcon from "../CustomIcon";
 import { sidebarFooterStyles } from "../../../styles/componentsStyle/commonStyle/sideBarStyle/sidebarFooterStyle";
 import { NAV_SCREEN_NAME, STRING } from "../../../constants/strings";
+import ButtonComponent from "../Form/ButtonComponent";
+import { Entypo } from "@expo/vector-icons";
+import { COLORS } from "../../../constants";
 
 type SidebarFooterProps = {
-    screenWidth: number;
-    navigation: any
+    navigation: any,
 }
 
-const SidebarFooter: React.FC<SidebarFooterProps> = ({ screenWidth, navigation }) => {
-    const isNarrowScreen = screenWidth <= 780;
+const SidebarFooter: React.FC<SidebarFooterProps> = ({ navigation }) => {
     return (
-        <TouchableOpacity style={sidebarFooterStyles.sidebarBottomContainer} onPress={() => navigation.navigate(NAV_SCREEN_NAME.HomeScreen)}>
-            <LinearGradient
-                colors={[AppColor.darkPurple, AppColor.purple, AppColor.darkPurple]}
-                style={sidebarFooterStyles.sidebarBottomItemContainer}
-            >
-                {isNarrowScreen ? (
-                    <CustomIcon set="FontAwesome5" name="hands-helping" />
-                ) : (
-                    <Text style={sidebarFooterStyles.sidebarBottomItem}> { STRING.requestTutor }</Text>
-                )}
-            </LinearGradient>
-        </TouchableOpacity>
+        <View style={sidebarFooterStyles.sidebarBottomContainer}>
+            <ButtonComponent
+                text={STRING.requestTutor}
+                onPress={() => navigation.navigate(NAV_SCREEN_NAME.HomeScreen)}
+            />
+        </View>
     );
 };
 

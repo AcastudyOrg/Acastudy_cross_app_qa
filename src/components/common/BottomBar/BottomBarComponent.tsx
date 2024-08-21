@@ -2,10 +2,10 @@ import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
-import { AppColor } from "../../../constants/colors";
 import { navTabs } from "../../../navigation/navLinks";
 import { bottomBarComponentStyles } from "../../../styles/componentsStyle/commonStyle/bottomBarStyle/bottomBarComponentStyle";
 import CustomIcon from "../CustomIcon";
+import { COLORS } from "../../../constants";
 
 const BottomBarComponent = () => {
 	const navigation = useNavigation();
@@ -24,13 +24,13 @@ const BottomBarComponent = () => {
 						<CustomIcon
 							set={item.icon.set}
 							name={item.icon.name}
-							color={isActive ? AppColor.purple : AppColor.white}
+							color={isActive ? COLORS.purple : COLORS.white}
 						/>
 
 						<Text
 							style={[
 								bottomBarComponentStyles.bottomTabItem,
-								{ color: isActive ? AppColor.purple : AppColor.white },
+								{ color: isActive ? COLORS.purple : COLORS.white },
 							]}
 						>
 							{item.name}
