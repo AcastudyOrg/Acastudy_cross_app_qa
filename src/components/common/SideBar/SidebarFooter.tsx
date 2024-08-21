@@ -4,8 +4,6 @@ import { View } from "react-native";
 import { sidebarFooterStyles } from "../../../styles/componentsStyle/commonStyle/sideBarStyle/sidebarFooterStyle";
 import { NAV_SCREEN_NAME, STRING } from "../../../constants/strings";
 import ButtonComponent from "../Form/ButtonComponent";
-import { Entypo } from "@expo/vector-icons";
-import { COLORS } from "../../../constants";
 
 type SidebarFooterProps = {
     navigation: any,
