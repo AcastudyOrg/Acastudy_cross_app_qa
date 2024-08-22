@@ -10,7 +10,7 @@ export const eventsSectionStyles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        paddingHorizontal: Platform.OS === 'ios' || Platform.OS === 'android' ? 17 : 29,
+        paddingHorizontal: "2.2%",
     },
     upcomingTitleText: {
         color: COLORS.white,
@@ -26,7 +26,7 @@ export const eventsSectionStyles = StyleSheet.create({
     eventsMainDataContainer: {
         flexDirection: 'row',
         marginTop: 5,
-        paddingHorizontal: Platform.OS === 'ios' || Platform.OS === 'android' ? 15 : 27,
+        paddingHorizontal: "2%",
     },
     eventsContainer: {
         flexDirection: 'row',

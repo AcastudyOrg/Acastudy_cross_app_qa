@@ -2,7 +2,6 @@ export const STRING = {
     searchPlaceholder: 'Search...',
     becomeATutor: 'Become A Tutor',
     logout: 'logout',
-    appName: 'ACASTUDY',
     home: 'Home',
     call: 'Call',
     chat: 'Chat',

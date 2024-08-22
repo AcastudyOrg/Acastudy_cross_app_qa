@@ -11,7 +11,7 @@ export const tutorSectionStyles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        paddingHorizontal: Platform.OS === 'ios' || Platform.OS === 'android' ? 17 : 29,
+        paddingHorizontal: "2.2%",
     },
     tutorTitleText: {
         color: COLORS.white,
@@ -28,6 +28,6 @@ export const tutorSectionStyles = StyleSheet.create({
         width: '100%',
         flexDirection: 'row',
         marginTop: 10,
-        paddingHorizontal: Platform.OS === 'ios' || Platform.OS === 'android' ? 15 : 27,
+        paddingHorizontal: "2%",
     },
 });

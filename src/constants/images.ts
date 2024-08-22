@@ -2,7 +2,7 @@ import { ImageProps } from "../types/media";
 
 //app important images
 const authBackgroundImage = require("../../assets/images/appImages/authBackgroundImage.jpg");
-const appLogo = require("../../assets/images/appImages/logo/logo.png");
+const appLogo = require("../../assets/images/appImages/logo/logo_white_no_bg.png");
 const forgotPassword = require("../../assets/images/appImages/forgotPassword.png");
 const sentEmail = require("../../assets/images/appImages/sentEmail.png");
 

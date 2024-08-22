@@ -15,7 +15,7 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 import { FONT, IMAGES } from "../../constants";
-import { ButtonComponent, AppTopNavigationComponent } from "../../components/";
+import { GradientButtonComponent, AppTopNavigationComponent } from "../../components/";
 import { verifyEmailScreenStyles } from "../../styles/screensStyle/publicStyle/verifyEmailScreenStyle";
 import {
   RootStackParamList,
@@ -162,9 +162,9 @@ const VerifyEmailScreen = () => {
   const renderSubmitButtonSection = () => (
     <View style={verifyEmailScreenStyles.submitButtonContainer}>
       {secondsRemaining === 0 ? (
-        <ButtonComponent onPress={handleCodeResend} text="Resend code" />
+        <GradientButtonComponent onPress={handleCodeResend} text="Resend code" />
       ) : (
-        <ButtonComponent
+        <GradientButtonComponent
           onPress={handleSubmit}
           text={isVerifying ? "Verifying code..." : "Verify"}
         />

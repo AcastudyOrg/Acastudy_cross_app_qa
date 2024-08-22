@@ -22,7 +22,7 @@ import { COLORS, IMAGES } from "../../constants";
 import { forgotPasswordScreenStyles } from "../../styles/screensStyle/publicStyle/forgotPasswordScreenStyle";
 import {
   AppTopNavigationComponent,
-  ButtonComponent,
+  GradientButtonComponent,
   TextInputComponent,
 } from "../../components";
 
@@ -110,7 +110,7 @@ const ForgotPasswordScreen = () => {
   function renderButtonSection() {
     return (
       <View style={forgotPasswordScreenStyles.forgotButtonContainer}>
-        <ButtonComponent
+        <GradientButtonComponent
           onPress={handleSubmit}
           text={isLoading ? "Verify email..." : "Send"}
         />
@@ -171,7 +171,7 @@ const ForgotPasswordScreen = () => {
 
           {/*Button section*/}
           <View style={forgotPasswordScreenStyles.forgotModalButtonContainer}>
-            <ButtonComponent onPress={handleModalClose} text="Continue" />
+            <GradientButtonComponent onPress={handleModalClose} text="Continue" />
           </View>
 
           {/*Resend section*/}

@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, TextInput, Text, TouchableOpacity } from 'react-native';
+import { View, TextInput, Image, Text } from 'react-native';
 
-import { AppColor } from '../../../constants/colors';
+import { COLORS, IMAGES } from '../../../constants';
 import { STRING } from '../../../constants/strings';
 import { leftSectionStyles } from '../../../styles/componentsStyle/commonStyle/topBarStyle/leftSectionStyle';
 
@@ -13,15 +13,14 @@ type LeftSectionProps = {
 
 
 const LeftSection: React.FC<LeftSectionProps> = ({ showAppName, showSearchBar }) => (
-	
 	<View style={leftSectionStyles.leftSection}>
 		{showAppName && (
-				<Text style={leftSectionStyles.appName}> {STRING.appName} </Text>
+			<Image source={IMAGES.appLogo} style={leftSectionStyles.logoItem} />
 		)}
 		{showSearchBar && (
 			<TextInput
 				placeholder={STRING.searchPlaceholder}
-				placeholderTextColor={AppColor.transparentWhite}
+				placeholderTextColor={COLORS.transparentWhite}
 				style={leftSectionStyles.searchInput}
 			/>
 		)}

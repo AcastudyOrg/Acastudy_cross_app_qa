@@ -67,6 +67,8 @@ export interface ButtonProps {
   text: string;
   onPress: () => void;
   icon?: string | JSX.Element;
+  majorColor?: string;
+  middleColor?: string;
 }
 export interface SocialAuthButtonProps {
   text?: string;
