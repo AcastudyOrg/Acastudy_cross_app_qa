@@ -12,10 +12,10 @@ import { COLORS } from "../../../constants";
 
 type SidebarFooterProps = {
     navigation: any,
+    screenWidth: number,
 }
 
-const SidebarFooter: React.FC<SidebarFooterProps> = ({ navigation }) => {
-    const screenWidth = useScreenWidth();
+const SidebarFooter: React.FC<SidebarFooterProps> = ({ navigation, screenWidth }) => {
     const isNarrowScreen = screenWidth <= 780;
     return (
         <View style={sidebarFooterStyles.sidebarBottomContainer}>
