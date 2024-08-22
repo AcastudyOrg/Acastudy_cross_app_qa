@@ -19,7 +19,7 @@ import { signInScreenStyles } from "../../styles/screensStyle/publicStyle/signIn
 import {
   TextInputComponent,
   SocialAuthButtonComponent,
-  ButtonComponent,
+  GradientButtonComponent,
 } from "../../components/";
 
 const SignInScreen = () => {
@@ -130,7 +130,7 @@ const SignInScreen = () => {
   function renderSubmitButtonSection() {
     return (
       <View style={signInScreenStyles.signInSubmitButtonContainer}>
-        <ButtonComponent
+        <GradientButtonComponent
           onPress={handleSubmit}
           text={isLoading ? "Loading..." : "Log in"}
         />

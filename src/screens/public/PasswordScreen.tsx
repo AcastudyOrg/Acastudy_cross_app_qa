@@ -22,7 +22,7 @@ import { IMAGES } from "../../constants";
 import { passwordScreenStyles } from "../../styles/screensStyle/publicStyle/passwordScreenStyle";
 import {
   TextInputComponent,
-  ButtonComponent,
+  GradientButtonComponent,
   AppTopNavigationComponent,
   ImagePickerComponent,
 } from "../../components/";
@@ -162,7 +162,7 @@ const PasswordScreen = () => {
   function renderSubmitButtonSection() {
     return (
       <View style={passwordScreenStyles.passwordSubmitButtonContainer}>
-        <ButtonComponent onPress={handleSubmit} text="Continue" />
+        <GradientButtonComponent onPress={handleSubmit} text="Continue" />
 
         {/* Navigate Section */}
         <View style={passwordScreenStyles.passwordQuestionContainer}>

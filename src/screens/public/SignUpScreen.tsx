@@ -20,7 +20,7 @@ import { signUpScreenStyles } from "../../styles/screensStyle/publicStyle/signUp
 import {
   TextInputComponent,
   SocialAuthButtonComponent,
-  ButtonComponent,
+  GradientButtonComponent,
 } from "../../components/";
 
 type SignUpScreenNavigationProp = NativeStackNavigationProp<
@@ -124,7 +124,7 @@ const SignUpScreen = () => {
   function renderSubmitButtonSection() {
     return (
       <View style={signUpScreenStyles.signUpSubmitButtonContainer}>
-        <ButtonComponent onPress={handleSubmit} text="Continue" />
+        <GradientButtonComponent onPress={handleSubmit} text="Continue" />
 
         <View style={signUpScreenStyles.signUpQuestionContainer}>
           <Text style={signUpScreenStyles.signUpQuestionMainText}>

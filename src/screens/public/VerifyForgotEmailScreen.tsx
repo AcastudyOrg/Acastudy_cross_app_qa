@@ -16,7 +16,7 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 import { FONT, IMAGES } from "../../constants";
-import { ButtonComponent, AppTopNavigationComponent } from "../../components/";
+import { GradientButtonComponent, AppTopNavigationComponent } from "../../components/";
 import { verifyForgotEmailScreenStyles } from "../../styles/screensStyle/publicStyle/verifyForgotEmailScreenStyle";
 import {
   RootStackParamList,
@@ -163,9 +163,9 @@ const VerifyForgotEmailScreen = () => {
   const renderSubmitButtonSection = () => (
     <View style={verifyForgotEmailScreenStyles.submitForgotButtonContainer}>
       {secondsRemaining === 0 ? (
-        <ButtonComponent onPress={handleCodeResend} text="Resend code" />
+        <GradientButtonComponent onPress={handleCodeResend} text="Resend code" />
       ) : (
-        <ButtonComponent
+        <GradientButtonComponent
           onPress={handleSubmit}
           text={isVerifying ? "Verifying code..." : "Verify"}
         />
