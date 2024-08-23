@@ -2,10 +2,13 @@ import { StyleSheet } from "react-native";
 import { COLORS, FONT, SIZE, WEIGHT } from "../../../../constants";
 
 export const buttonComponentStyles = StyleSheet.create({
+  touchableView: {
+    width: '100%',
+  },
   buttonContainer: {
     justifyContent: "center",
     alignItems: "center",
-    paddingVertical: 20,
+    paddingVertical: 15,
     paddingHorizontal: 20,
     overflow: "hidden",
     borderRadius: 10,

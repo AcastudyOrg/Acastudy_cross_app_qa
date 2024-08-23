@@ -9,7 +9,7 @@ export const leftSectionStyles = StyleSheet.create({
 	},
 	logoItem: {
 		width: 150,
-		height: 65,
+		height: 55,
 		resizeMode: "contain",
 	  },
 	searchInput: {
