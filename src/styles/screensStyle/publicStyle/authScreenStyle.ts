@@ -55,5 +55,21 @@ export const authScreenStyle = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     paddingTop: 20
+  },
+  codeInput: {
+    width: 40,
+    height: 40,
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 5,
+    textAlign: 'center',
+    fontSize: 18,
+    marginHorizontal: 5
+  },
+  codeInputRepper: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginVertical: 5,
+    width: '100%'
   }
 });
