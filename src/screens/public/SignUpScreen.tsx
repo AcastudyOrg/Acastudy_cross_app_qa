@@ -1,202 +1,68 @@
 import React, { useState } from "react";
-import {
-  ImageBackground,
-  Keyboard,
-  KeyboardAvoidingView,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableWithoutFeedback,
-  View,
-} from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { useNavigation } from "@react-navigation/native";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { Text, TouchableOpacity, View } from "react-native";
 
-import { RootStackParamList } from "../../types/router/navigation";
-import { COLORS, IMAGES } from "../../constants";
-import { signUpScreenStyles } from "../../styles/screensStyle/publicStyle/signUpScreenStyle";
-import {
-  TextInputComponent,
-  SocialAuthButtonComponent,
-  GradientButtonComponent,
-} from "../../components/";
+import { GradientButtonComponent } from "../../components/";
+import { authScreenStyle } from "../../styles/screensStyle/publicStyle/authScreenStyle";
+import TopBarComponent from "../../components/common/TopBar/TopBarComponent";
+import GoogleButton from "../../components/common/GoogleButton";
+import CustomDivider from "../../components/common/Form/CustomDivider";
+import AuthTextField from "../../components/common/Form/AuthTextField";
+import { User } from "../../types/User/Student";
 
-type SignUpScreenNavigationProp = NativeStackNavigationProp<
-  RootStackParamList,
-  "VerifyEmailScreen"
->;
-
+ // Note the code does not handle error messages
 const SignUpScreen = () => {
-  const navigation = useNavigation<SignUpScreenNavigationProp>();
+  const title: string = "Create your account";
+	const subtitle: string = "To Continue to Acastudy";
+	const forgotPassword: string = "Forgot Password";
 
-  const [firstName, setFirstName] = useState<string>("");
-  const [lastName, setLastName] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
-  const [firstNameError, setFirstNameError] = useState<string>("");
-  const [lastNameError, setLastNameError] = useState<string>("");
-  const [emailError, setEmailError] = useState<string>("");
+	const [email, setEmail] = useState<string>("");
+	const [username, setUsername] = useState<string>("");
 
-  const handleSubmit = () => {
-    if (!firstName.trim() || !lastName.trim() || !email.trim()) {
-      setFirstNameError(
-        !firstNameError.trim() ? "First name is required." : ""
-      );
-      setLastNameError(!lastNameError.trim() ? "Last name is required." : "");
-      setEmailError(!emailError.trim() ? "Email address is required." : "");
-      return;
-    }
-
-    const data = {
-      firstName,
-      lastName,
-      email,
-    };
-
-    navigation.navigate("VerifyEmailScreen", { data });
-
-    setFirstName("");
-    setLastName("");
-    setEmail("");
-    setFirstNameError("");
-    setLastNameError("");
-    setEmailError("");
-  };
-
-  function renderTitleSection() {
-    return (
-      <View style={signUpScreenStyles.signUpTitleContainer}>
-        <Text style={signUpScreenStyles.signUpTitleItem}>Sign up</Text>
-      </View>
-    );
-  }
-
-  function renderFormInputSection() {
-    return (
-      <View style={signUpScreenStyles.signUpFormInputContainer}>
-        <View style={signUpScreenStyles.signUpFormComponentContainer}>
-          <View style={signUpScreenStyles.signUpComponentContainer}>
-            <TextInputComponent
-              value={firstName}
-              onChange={(text) => setFirstName(text)}
-              label="First name"
-              type="text"
-              placeholder="Example"
-            />
-            {!!firstNameError && (
-              <Text style={signUpScreenStyles.signUpErrorTextMessage}>
-                {firstNameError}
-              </Text>
-            )}
-          </View>
-
-          <View style={signUpScreenStyles.signUpComponentContainer}>
-            <TextInputComponent
-              value={lastName}
-              onChange={(text) => setLastName(text)}
-              label="Last name"
-              type="text"
-              placeholder="Example"
-            />
-            {!!lastNameError && (
-              <Text style={signUpScreenStyles.signUpErrorTextMessage}>{lastNameError}</Text>
-            )}
-          </View>
-
-          <View style={signUpScreenStyles.signUpComponentContainer}>
-            <TextInputComponent
-              value={email}
-              onChange={(text) => setEmail(text)}
-              label="Email address"
-              type="email"
-              placeholder="example@company.com"
-            />
-            {!!emailError && (
-              <Text style={signUpScreenStyles.signUpErrorTextMessage}>{emailError}</Text>
-            )}
-          </View>
-        </View>
-      </View>
-    );
-  }
-
-  function renderSubmitButtonSection() {
-    return (
-      <View style={signUpScreenStyles.signUpSubmitButtonContainer}>
-        <GradientButtonComponent onPress={handleSubmit} text="Continue" />
-
-        <View style={signUpScreenStyles.signUpQuestionContainer}>
-          <Text style={signUpScreenStyles.signUpQuestionMainText}>
-            Already have an account?{" "}
-            <Text
-              onPress={() => navigation.navigate("SignInScreen" as never)}
-              style={signUpScreenStyles.signUpQuestionMainTextLink}
-            >
-              Sign in
-            </Text>
-          </Text>
-        </View>
-      </View>
-    );
-  }
-
-  function renderSocialLoginSection() {
-    return (
-      <View style={signUpScreenStyles.thirdPartyContainer}>
-        <View style={signUpScreenStyles.thirdPartyOptionContainer}>
-          <SocialAuthButtonComponent
-            text="Sign up with"
-            iconLibrary="AntDesign"
-            onPress={() => console.log("Sign in with Google Auth")}
-            iconName="google"
-            size={30}
-            color={COLORS.white}
-          />
-
-          <SocialAuthButtonComponent
-            text="Sign up with"
-            iconLibrary="AntDesign"
-            onPress={() => console.log("Sign in with Apple ID")}
-            iconName="apple1"
-            size={30}
-            color={COLORS.white}
-          />
-        </View>
-      </View>
-    );
-  }
-
-  function renderScreenCOntentList() {
-    return (
-      <>
-        {renderTitleSection()}
-        {renderFormInputSection()}
-        {renderSubmitButtonSection()}
-        {renderSocialLoginSection()}
-      </>
-    );
-  }
+	const user: User = {
+		name: "",
+		surname: "",
+		profilePictureUrl: 0
+	};
+	const handleSubmit = () => {
+		// Todo(Tekstaq): handle onSubmit here
+		console.log("Creds: " + email, username)
+	};
 
   return (
-    <ImageBackground
-      blurRadius={4}
-      source={IMAGES.authBackgroundImage}
-      style={signUpScreenStyles.signUpContentContainer}
-    >
-      <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
-        style={signUpScreenStyles.signUpKeyboardContainer}
-      >
-        <ScrollView contentContainerStyle={signUpScreenStyles.signUpScrollingContainer}>
-          <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-            <SafeAreaView style={signUpScreenStyles.signUpContainer}>
-              {renderScreenCOntentList()}
-            </SafeAreaView>
-          </TouchableWithoutFeedback>
-        </ScrollView>
-      </KeyboardAvoidingView>
-    </ImageBackground>
+    <View style={authScreenStyle.signInContentContainer}>
+      <TopBarComponent showAppName={true} renderRightSection={true} showSearchBar={false} isLSignedIn={false} user={user} showBecomeATutorOnly={true} />
+
+      <View style={authScreenStyle.content}>
+        <View style={authScreenStyle.container}>
+          <Text style={authScreenStyle.title}>{title}</Text>
+          <Text style={authScreenStyle.subtitle}>{subtitle}</Text>
+
+          <GoogleButton title="Continue with Google" onPress={() => { console.log("Google") }} />
+
+          <View style={authScreenStyle.divider}>
+            <CustomDivider />
+            <Text style={authScreenStyle.dividerText}> or </Text>
+            <CustomDivider />
+          </View>
+
+          <TouchableOpacity style={authScreenStyle.forgotPassword} onPress={() => { }}> {/*TODO: navigate to the correct screen*/}
+            <Text style={authScreenStyle.clickerbleText}>{forgotPassword}</Text>
+          </TouchableOpacity>
+
+          <AuthTextField label={"Email Address"} value={email} onChangeText={setEmail} />
+          <AuthTextField label={"Username"} value={username} onChangeText={setUsername} />
+          
+          <GradientButtonComponent text="CONTINUE" onPress={handleSubmit} />
+
+          <View style={authScreenStyle.alternative} >
+            <Text>Have an account? </Text>
+            <TouchableOpacity onPress={() => { }}> {/*TODO: navigate to the correct screen*/}
+              <Text style={authScreenStyle.clickerbleText}>Sign in.</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </View>
+    </View>
   );
 };
 

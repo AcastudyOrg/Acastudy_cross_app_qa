@@ -3,12 +3,10 @@ import { View, Text, TouchableOpacity } from "react-native";
 
 import TopBarComponent from "../../components/common/TopBar/TopBarComponent";
 import { User } from "../../types/User/Student";
-// import { authScreenStyle } from "../../styles/screensStyle/publicStyle/signInScreenStyle";
 import CustomDivider from "../../components/common/Form/CustomDivider";
 import GradientButtonComponent from "../../components/common/Form/GradientButtonComponent";
 import AuthTextField from "../../components/common/Form/AuthTextField";
 import GoogleButton from "../../components/common/GoogleButton";
-import { COLORS } from "../../constants";
 import { authScreenStyle } from "../../styles/screensStyle/publicStyle/authScreenStyle";
 
 // Note the code does not handle error messages
@@ -53,7 +51,7 @@ const SignInScreen = () => {
 
 					<AuthTextField label={"Email Address"} value={email} onChangeText={setEmail} />
 					<AuthTextField label={"Password"} value={password} onChangeText={setPassword} isPassword={true} />
-					<Text>{email}</Text>
+					
 					<GradientButtonComponent text="CONTINUE" onPress={handleSubmit} />
 
 					<View style={authScreenStyle.alternative} >
