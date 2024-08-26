@@ -27,6 +27,8 @@ export const NAV_SCREEN_NAME = {
     OnboardingScreen: 'OnboardingScreen',
     VerifyEmailScreen: 'VerifyEmailScreen',
 
+    SubjectTopicsScreen: 'SubjectTopicsScreen',
+
 };
 
 export const DEVICE_TYPE = {

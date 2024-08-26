@@ -21,6 +21,7 @@ import CallScreen from "./private/CallScreen";
 import HomeScreen from "./private/HomeScreen";
 import ProfileScreen from "./private/ProfileScreen";
 import StudyScreen from "./private/StudyScreen";
+import SubjectTopicsScreen from "./private/subjects/SubjectTopicsScreen";
 
 export {
   OnboardingScreen,
@@ -39,4 +40,5 @@ export {
   HomeScreen,
   ProfileScreen,
   StudyScreen,
+  SubjectTopicsScreen,
 };
