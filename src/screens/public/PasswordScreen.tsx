@@ -47,7 +47,7 @@ const PasswordScreen = () => {
 			setPasswordError("Passwords do not match")
 		}
 
-		navigation.navigate(NAV_SCREEN_NAME.HomeScreen)
+		navigation.navigate(NAV_SCREEN_NAME.VerifyEmailScreen)
 
 	};
 
