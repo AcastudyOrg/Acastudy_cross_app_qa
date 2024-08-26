@@ -6,27 +6,31 @@ import { authScreenStyle } from "../../styles/screensStyle/publicStyle/authScree
 import AuthTextField from "../../components/common/Form/AuthTextField";
 import GradientButtonComponent from "../../components/common/Form/GradientButtonComponent";
 import { User } from "../../types/User/Student";
+import { useNavigation } from "@react-navigation/native";
+import { NAV_SCREEN_NAME } from "../../constants/strings";
 
 const user: User = {
-  name: "",
-  surname: "",
-  profilePictureUrl: 0
+	name: "",
+	surname: "",
+	profilePictureUrl: 0
 };
 
 const ForgotPasswordScreen = () => {
 
-  const title: string = "Forgot password";
+	const title: string = "Forgot password";
 	const subtitle: string = "To reset your password, please provide your email address in the field below.";
 	const forgotPassword: string = "Forgot Password";
 
-  const [email, setEmail] = useState<string>("");
+	const navigation = useNavigation<any>()
+	const [email, setEmail] = useState<string>("");
 
-  const handleSubmit = () => {
+	const handleSubmit = () => {
 		// Todo(Tekstaq): handle onSubmit here
 		console.log("Creds: " + email)
+		navigation.navigate(NAV_SCREEN_NAME.VerifyEmailScreen)
 	};
 
-  return (
+	return (
 		<View style={authScreenStyle.signInContentContainer}>
 			<TopBarComponent showAppName={true} renderRightSection={true} showSearchBar={false} isLSignedIn={false} user={user} showBecomeATutorOnly={true} />
 
@@ -36,7 +40,7 @@ const ForgotPasswordScreen = () => {
 					<Text style={authScreenStyle.subtitle}>{subtitle}</Text>
 
 					<AuthTextField label={"Email Address"} value={email} onChangeText={setEmail} />
-					
+
 					<GradientButtonComponent text="CONTINUE" onPress={handleSubmit} />
 				</View>
 			</View>

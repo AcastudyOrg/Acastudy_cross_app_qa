@@ -8,6 +8,8 @@ import GradientButtonComponent from "../../components/common/Form/GradientButton
 import AuthTextField from "../../components/common/Form/AuthTextField";
 import GoogleButton from "../../components/common/GoogleButton";
 import { authScreenStyle } from "../../styles/screensStyle/publicStyle/authScreenStyle";
+import { useNavigation } from "@react-navigation/native";
+import { NAV_SCREEN_NAME } from "../../constants/strings";
 
 // Note the code does not handle error messages
 const SignInScreen = () => {
@@ -15,6 +17,7 @@ const SignInScreen = () => {
 	const subtitle: string = "To Continue to Acastudy";
 	const forgotPassword: string = "Forgot Password";
 
+	const navigation = useNavigation<any>()
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
@@ -26,6 +29,7 @@ const SignInScreen = () => {
 	const handleSubmit = () => {
 		// Todo(Tekstaq): handle onSubmit here
 		console.log("Creds: " + email, password)
+		navigation.navigate(NAV_SCREEN_NAME.HomeScreen)
 	};
 
 	return (
@@ -45,7 +49,7 @@ const SignInScreen = () => {
 						<CustomDivider />
 					</View>
 
-					<TouchableOpacity style={authScreenStyle.forgotPassword} onPress={() => { }}> {/*TODO: navigate to the correct screen*/}
+					<TouchableOpacity style={authScreenStyle.forgotPassword} onPress={() => { navigation.navigate(NAV_SCREEN_NAME.ForgotPasswordScreen) }}> {/*TODO: navigate to the correct screen*/}
 						<Text style={authScreenStyle.clickerbleText}>{forgotPassword}</Text>
 					</TouchableOpacity>
 
@@ -56,7 +60,7 @@ const SignInScreen = () => {
 
 					<View style={authScreenStyle.alternative} >
 						<Text>No account? </Text>
-						<TouchableOpacity onPress={() => { }}> {/*TODO: navigate to the correct screen*/}
+						<TouchableOpacity onPress={() => { navigation.navigate(NAV_SCREEN_NAME.SignUpScreen) }}> {/*TODO: navigate to the correct screen*/}
 							<Text style={authScreenStyle.clickerbleText}>Create account.</Text>
 						</TouchableOpacity>
 					</View>

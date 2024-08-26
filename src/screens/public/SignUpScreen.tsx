@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import { GradientButtonComponent } from "../../components/";
 import { authScreenStyle } from "../../styles/screensStyle/publicStyle/authScreenStyle";
@@ -8,6 +9,7 @@ import GoogleButton from "../../components/common/GoogleButton";
 import CustomDivider from "../../components/common/Form/CustomDivider";
 import AuthTextField from "../../components/common/Form/AuthTextField";
 import { User } from "../../types/User/Student";
+import { NAV_SCREEN_NAME } from "../../constants/strings";
 
  // Note the code does not handle error messages
 const SignUpScreen = () => {
@@ -15,6 +17,7 @@ const SignUpScreen = () => {
 	const subtitle: string = "To Continue to Acastudy";
 	const forgotPassword: string = "Forgot Password";
 
+  const navigation = useNavigation<any>()
 	const [email, setEmail] = useState<string>("");
 	const [username, setUsername] = useState<string>("");
 
@@ -26,6 +29,7 @@ const SignUpScreen = () => {
 	const handleSubmit = () => {
 		// Todo(Tekstaq): handle onSubmit here
 		console.log("Creds: " + email, username)
+    navigation.navigate(NAV_SCREEN_NAME.PasswordScreen)
 	};
 
   return (
@@ -45,10 +49,6 @@ const SignUpScreen = () => {
             <CustomDivider />
           </View>
 
-          <TouchableOpacity style={authScreenStyle.forgotPassword} onPress={() => { }}> {/*TODO: navigate to the correct screen*/}
-            <Text style={authScreenStyle.clickerbleText}>{forgotPassword}</Text>
-          </TouchableOpacity>
-
           <AuthTextField label={"Email Address"} value={email} onChangeText={setEmail} />
           <AuthTextField label={"Username"} value={username} onChangeText={setUsername} />
           
@@ -56,7 +56,7 @@ const SignUpScreen = () => {
 
           <View style={authScreenStyle.alternative} >
             <Text>Have an account? </Text>
-            <TouchableOpacity onPress={() => { }}> {/*TODO: navigate to the correct screen*/}
+            <TouchableOpacity onPress={() => { navigation.navigate(NAV_SCREEN_NAME.SignInScreen)}}> {/*TODO: navigate to the correct screen*/}
               <Text style={authScreenStyle.clickerbleText}>Sign in.</Text>
             </TouchableOpacity>
           </View>

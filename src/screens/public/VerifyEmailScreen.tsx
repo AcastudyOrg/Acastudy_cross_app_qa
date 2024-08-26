@@ -5,12 +5,15 @@ import { GradientButtonComponent } from "../../components/";
 import { authScreenStyle } from "../../styles/screensStyle/publicStyle/authScreenStyle";
 import TopBarComponent from "../../components/common/TopBar/TopBarComponent";
 import { User } from "../../types/User/Student";
+import { useNavigation } from "@react-navigation/native";
+import { NAV_SCREEN_NAME } from "../../constants/strings";
 
 const VerifyEmailScreen = () => {
 
   const title: string = "Confirm email address";
   const subtitle: string = "Please enter the verification code sent to `{}` to complete your signup process.";
 
+  const navigation = useNavigation<any>();
   const [code, setCode] = useState(['', '', '', '', '']);
 
   const handleInputChange = (value: string, index: number) => {
@@ -21,6 +24,7 @@ const VerifyEmailScreen = () => {
 
   const handleOnSubmit = () => {
     console.log(code.join(''));
+    navigation.navigate(NAV_SCREEN_NAME.HomeScreen)
   };
 
   const user: User = {

@@ -7,19 +7,13 @@ import {
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
-import {
-	RootStackParamList,
-	PasswordScreenRouteProp,
-} from "../../types/router/navigation";
-import {
-	GradientButtonComponent,
-} from "../../components/";
+import { RootStackParamList, PasswordScreenRouteProp } from "../../types/router/navigation";
+import { GradientButtonComponent } from "../../components/";
 import TopBarComponent from "../../components/common/TopBar/TopBarComponent";
 import { authScreenStyle } from "../../styles/screensStyle/publicStyle/authScreenStyle";
-import GoogleButton from "../../components/common/GoogleButton";
-import CustomDivider from "../../components/common/Form/CustomDivider";
 import AuthTextField from "../../components/common/Form/AuthTextField";
 import { User } from "../../types/User/Student";
+import { NAV_SCREEN_NAME } from "../../constants/strings";
 
 type PasswordScreenNavigationProp = NativeStackNavigationProp<
 	RootStackParamList,
@@ -36,7 +30,7 @@ const PasswordScreen = () => {
 		profilePictureUrl: 0
 	};
 
-	const navigation = useNavigation<PasswordScreenNavigationProp>();
+	const navigation = useNavigation<any>();
 
 	const route = useRoute<PasswordScreenRouteProp>();
 
@@ -52,6 +46,8 @@ const PasswordScreen = () => {
 		} else if (password.trim() !== confirmPassword.trim()) {
 			setPasswordError("Passwords do not match")
 		}
+
+		navigation.navigate(NAV_SCREEN_NAME.HomeScreen)
 
 	};
 
