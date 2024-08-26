@@ -1,226 +1,74 @@
 import React, { useState } from "react";
 import {
-  ImageBackground,
-  Keyboard,
-  KeyboardAvoidingView,
-  Platform,
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableWithoutFeedback,
-  View,
+	Text,
+	TouchableOpacity,
+	View,
 } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
-import {
-  RootStackParamList,
-  PasswordScreenRouteProp,
-} from "../../types/router/navigation";
-import { IMAGES } from "../../constants";
-import { passwordScreenStyles } from "../../styles/screensStyle/publicStyle/passwordScreenStyle";
-import {
-  TextInputComponent,
-  GradientButtonComponent,
-  AppTopNavigationComponent,
-  ImagePickerComponent,
-} from "../../components/";
+import { RootStackParamList, PasswordScreenRouteProp } from "../../types/router/navigation";
+import { GradientButtonComponent } from "../../components/";
+import TopBarComponent from "../../components/common/TopBar/TopBarComponent";
+import { authScreenStyle } from "../../styles/screensStyle/publicStyle/authScreenStyle";
+import AuthTextField from "../../components/common/Form/AuthTextField";
+import { User } from "../../types/User/Student";
+import { NAV_SCREEN_NAME } from "../../constants/strings";
 
 type PasswordScreenNavigationProp = NativeStackNavigationProp<
-  RootStackParamList,
-  "WelcomeScreen"
+	RootStackParamList,
+	"WelcomeScreen"
 >;
 
 const PasswordScreen = () => {
-  const navigation = useNavigation<PasswordScreenNavigationProp>();
+	const title: string = "Create password";
+	const subtitle: string = "Your password should be at least 8 characters long!";
 
-  const route = useRoute<PasswordScreenRouteProp>();
-  const prevData = route.params.data;
+	const user: User = {
+		name: "",
+		surname: "",
+		profilePictureUrl: 0
+	};
 
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const [username, setUsername] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [confirmPassword, setConfirmPassword] = useState<string>("");
-  const [usernameError, setUsernameError] = useState<string>("");
-  const [passwordError, setPasswordError] = useState<string>("");
-  const [confirmPasswordError, setConfirmPasswordError] = useState<string>("");
+	const navigation = useNavigation<any>();
 
-  const handleImagePicked = (imageUri: string) => {
-    const fileName = imageUri.split("/").pop() || null;
-    setSelectedImage(fileName);
-  };
+	const route = useRoute<PasswordScreenRouteProp>();
 
-  const handleSubmit = () => {
-    if (!username.trim() || !password.trim() || !confirmPassword.trim()) {
-      setUsernameError(!username.trim() ? "Username is required." : "");
-      setPasswordError(!password.trim() ? "Password is required." : "");
-      setConfirmPasswordError(
-        !confirmPassword.trim() ? "Confirm password is required." : ""
-      );
-      return;
-    }
+	const [password, setPassword] = useState<string>("");
+	const [confirmPassword, setConfirmPassword] = useState<string>("");
+	const [passwordError, setPasswordError] = useState<string>("")
 
-    if (password !== confirmPassword) {
-      setPasswordError("Passwords do not match.");
-      setConfirmPasswordError("Passwords do not match.");
-      return;
-    }
+	const handleSubmit = () => {
+		// Todo(Tekstaq): handle onSubmit here
+		console.log("Creds: " + password)
+		if (password.trim().length < 7) {
+			setPasswordError("The password must me 8 character or longer")
+		} else if (password.trim() !== confirmPassword.trim()) {
+			setPasswordError("Passwords do not match")
+		}
 
-    setUsernameError("");
-    setPasswordError("");
-    setConfirmPasswordError("");
+		navigation.navigate(NAV_SCREEN_NAME.HomeScreen)
 
-    const data = {
-      ...prevData,
-      selectedImage: selectedImage || IMAGES.userPlaceholder.toString(),
-      username,
-      password,
-    };
+	};
 
-    navigation.navigate("WelcomeScreen", { data });
+	return (
+		<View style={authScreenStyle.signInContentContainer}>
+			<TopBarComponent showAppName={true} renderRightSection={true} showSearchBar={false} isLSignedIn={false} user={user} showBecomeATutorOnly={true} />
 
-    setSelectedImage(null);
-    setUsername("");
-    setPassword("");
-    setConfirmPassword("");
-  };
+			<View style={authScreenStyle.content}>
+				<View style={authScreenStyle.container}>
+					<Text style={authScreenStyle.title}>{title}</Text>
+					<Text style={authScreenStyle.subtitle}>{subtitle}</Text>
 
-  function renderNavigationSection() {
-    return (
-      <View style={passwordScreenStyles.passwordNavigatorContainer}>
-        <AppTopNavigationComponent
-          backNavigation={true}
-          authenticatedUser={false}
-          companyLogo={true}
-        />
-      </View>
-    );
-  }
+					<AuthTextField label={"Password"} value={password} onChangeText={setPassword} isPassword={true} />
+					<AuthTextField label={"Confirm Password"} value={confirmPassword} onChangeText={setConfirmPassword} isPassword={true} />
 
-  function renderImagePickerSection() {
-    return (
-      <View style={passwordScreenStyles.passwordImagePickerContainer}>
-        <ImagePickerComponent onImagePicked={handleImagePicked} />
-      </View>
-    );
-  }
+					<GradientButtonComponent text="CONTINUE" onPress={handleSubmit} />
 
-  function renderFormInputSection() {
-    return (
-      <View style={passwordScreenStyles.passwordFormContainer}>
-        <View style={passwordScreenStyles.passwordFormComponentContainer}>
-          <View style={passwordScreenStyles.passwordComponentContainer}>
-            <TextInputComponent
-              value={username}
-              onChange={(text) => setUsername(text)}
-              label="Username"
-              type="text"
-              placeholder="Example"
-            />
-            {!!usernameError && (
-              <Text style={passwordScreenStyles.passwordErrorTextMessage}>
-                {usernameError}
-              </Text>
-            )}
-          </View>
-
-          <View style={passwordScreenStyles.passwordComponentContainer}>
-            <TextInputComponent
-              value={password}
-              onChange={(text) => setPassword(text)}
-              label="Password"
-              type="password"
-              placeholder="••••••••"
-            />
-            {!!passwordError && (
-              <Text style={passwordScreenStyles.passwordErrorTextMessage}>
-                {passwordError}
-              </Text>
-            )}
-          </View>
-
-          <View style={passwordScreenStyles.passwordComponentContainer}>
-            <TextInputComponent
-              value={confirmPassword}
-              onChange={(text) => setConfirmPassword(text)}
-              label="Confirm password"
-              type="password"
-              placeholder="••••••••"
-            />
-            {!!confirmPasswordError && (
-              <Text style={passwordScreenStyles.passwordErrorTextMessage}>
-                {confirmPasswordError}
-              </Text>
-            )}
-          </View>
-        </View>
-      </View>
-    );
-  }
-
-  function renderSubmitButtonSection() {
-    return (
-      <View style={passwordScreenStyles.passwordSubmitButtonContainer}>
-        <GradientButtonComponent onPress={handleSubmit} text="Continue" />
-
-        {/* Navigate Section */}
-        <View style={passwordScreenStyles.passwordQuestionContainer}>
-          <Text style={passwordScreenStyles.passwordQuestionMainText}>
-            By continuing you are agreeing to our{" "}
-            <Text
-              onPress={() => navigation.navigate("TermsOfUseScreen" as never)}
-              style={passwordScreenStyles.passwordQuestionMainTextLink}
-            >
-              terms of use{" "}
-            </Text>
-            and{" "}
-            <Text
-              onPress={() =>
-                navigation.navigate("PrivacyPolicyScreen" as never)
-              }
-              style={passwordScreenStyles.passwordQuestionMainTextLink}
-            >
-              privacy policy
-            </Text>
-            .
-          </Text>
-        </View>
-      </View>
-    );
-  }
-
-  function renderScreenContentList() {
-    return (
-      <>
-        {renderNavigationSection()}
-        {renderImagePickerSection()}
-        {renderFormInputSection()}
-        {renderSubmitButtonSection()}
-      </>
-    );
-  }
-
-  return (
-    <ImageBackground
-      blurRadius={4}
-      source={IMAGES.authBackgroundImage}
-      style={passwordScreenStyles.passwordContentContainer}
-    >
-      <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
-        style={passwordScreenStyles.passwordKeyboardContainer}
-      >
-        <ScrollView contentContainerStyle={passwordScreenStyles.passwordScrollingContainer}>
-          <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-            <SafeAreaView style={passwordScreenStyles.passwordContainer}>
-              {renderScreenContentList()}
-            </SafeAreaView>
-          </TouchableWithoutFeedback>
-        </ScrollView>
-      </KeyboardAvoidingView>
-    </ImageBackground>
-  );
+				</View>
+			</View>
+		</View>
+	);
 };
 
 export default PasswordScreen;

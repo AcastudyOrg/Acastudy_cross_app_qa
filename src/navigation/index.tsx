@@ -27,7 +27,7 @@ const AppMainNavigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="HomeScreen"
+        initialRouteName="SignUpScreen"
         screenOptions={{ headerShown: false }}
       >
         {/* Public Route Screens */}

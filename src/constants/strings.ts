@@ -23,6 +23,9 @@ export const NAV_SCREEN_NAME = {
     SignInScreen: 'SignInScreen',
     SignUpScreen: 'SignUpScreen',
     PasswordScreen: 'PasswordScreen',
+    ForgotPasswordScreen: 'ForgotPasswordScreen',
+    OnboardingScreen: 'OnboardingScreen',
+    VerifyEmailScreen: 'VerifyEmailScreen',
 
 };
 

@@ -1,229 +1,51 @@
-import React, { useState } from "react";
-import {
-  Image,
-  ImageBackground,
-  Keyboard,
-  KeyboardAvoidingView,
-  Modal,
-  Platform,
-  Pressable,
-  ScrollView,
-  Text,
-  TouchableWithoutFeedback,
-  View,
-} from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { useState } from "react";
+import { View, Text } from "react-native";
+
+import TopBarComponent from "../../components/common/TopBar/TopBarComponent";
+import { authScreenStyle } from "../../styles/screensStyle/publicStyle/authScreenStyle";
+import AuthTextField from "../../components/common/Form/AuthTextField";
+import GradientButtonComponent from "../../components/common/Form/GradientButtonComponent";
+import { User } from "../../types/User/Student";
 import { useNavigation } from "@react-navigation/native";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { AntDesign } from "@expo/vector-icons";
+import { NAV_SCREEN_NAME } from "../../constants/strings";
 
-import { RootStackParamList } from "../../types/router/navigation";
-import { COLORS, IMAGES } from "../../constants";
-import { forgotPasswordScreenStyles } from "../../styles/screensStyle/publicStyle/forgotPasswordScreenStyle";
-import {
-  AppTopNavigationComponent,
-  GradientButtonComponent,
-  TextInputComponent,
-} from "../../components";
-
-
-type ForgotPasswordScreenNavigationProp = NativeStackNavigationProp<
-  RootStackParamList,
-  "VerifyForgotEmailScreen"
->;
+const user: User = {
+	name: "",
+	surname: "",
+	profilePictureUrl: 0
+};
 
 const ForgotPasswordScreen = () => {
-  const navigation = useNavigation<ForgotPasswordScreenNavigationProp>();
 
-  const [email, setEmail] = useState<string>("");
-  const [emailError, setEmailError] = useState<string>("");
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [showSuccessModal, setShowSuccessModal] = useState<boolean>(false);
+	const title: string = "Forgot password";
+	const subtitle: string = "To reset your password, please provide your email address in the field below.";
+	const forgotPassword: string = "Forgot Password";
 
-  const handleSubmit = () => {
-    if (!email.trim()) {
-      setEmailError(!emailError.trim() ? "Email address is required." : "");
-      return;
-    }
+	const navigation = useNavigation<any>()
+	const [email, setEmail] = useState<string>("");
 
-    setIsLoading(true);
+	const handleSubmit = () => {
+		// Todo(Tekstaq): handle onSubmit here
+		console.log("Creds: " + email)
+		navigation.navigate(NAV_SCREEN_NAME.VerifyEmailScreen)
+	};
 
-    setTimeout(() => {
-      setIsLoading(false);
-      setShowSuccessModal(true);
-    }, 5000);
-  };
+	return (
+		<View style={authScreenStyle.signInContentContainer}>
+			<TopBarComponent showAppName={true} renderRightSection={true} showSearchBar={false} isLSignedIn={false} user={user} showBecomeATutorOnly={true} />
 
-  const handleModalClose = () => {
-    setShowSuccessModal(false);
-    navigation.navigate("SetNewForgotPasswordScreen", { data: { email } });
-  };
+			<View style={authScreenStyle.content}>
+				<View style={authScreenStyle.container}>
+					<Text style={authScreenStyle.title}>{title}</Text>
+					<Text style={authScreenStyle.subtitle}>{subtitle}</Text>
 
-  function renderNavigationSection() {
-    return (
-      <View style={forgotPasswordScreenStyles.forgotNavigatorContainer}>
-        <AppTopNavigationComponent backNavigation={false} companyLogo={true} />
-      </View>
-    );
-  }
+					<AuthTextField label={"Email Address"} value={email} onChangeText={setEmail} />
 
-  function renderTopImageSection() {
-    return (
-      <View style={forgotPasswordScreenStyles.forgotImageIllustrationContainer}>
-        <Image
-          source={IMAGES.forgotPassword}
-          style={forgotPasswordScreenStyles.forgotImageIllustrationItem}
-        />
-
-        <View style={forgotPasswordScreenStyles.forgotTopTextContainer}>
-          <Text style={forgotPasswordScreenStyles.forgotTopTitleTextItem}>Forgot Password?</Text>
-          <Text style={forgotPasswordScreenStyles.forgotTopTextItem}>
-            Don't worry, happens to the best of us.
-          </Text>
-          <Text style={forgotPasswordScreenStyles.forgotTopTextItem}>
-            Type your email to reset your password.
-          </Text>
-        </View>
-      </View>
-    );
-  }
-
-  function renderFormSection() {
-    return (
-      <View style={forgotPasswordScreenStyles.forgotFormContainer}>
-        <View style={forgotPasswordScreenStyles.forgotInputContainer}>
-          <TextInputComponent
-            value={email}
-            onChange={(text) => setEmail(text)}
-            label="Email"
-            type="email"
-            placeholder="example@company.com"
-          />
-          {!!emailError && (
-            <Text style={forgotPasswordScreenStyles.forgotErrorTextMessage}>{emailError}</Text>
-          )}
-        </View>
-      </View>
-    );
-  }
-
-  function renderButtonSection() {
-    return (
-      <View style={forgotPasswordScreenStyles.forgotButtonContainer}>
-        <GradientButtonComponent
-          onPress={handleSubmit}
-          text={isLoading ? "Verify email..." : "Send"}
-        />
-      </View>
-    );
-  }
-
-  function renderRedirectSection() {
-    return (
-      <View style={forgotPasswordScreenStyles.forgotRedirectContainer}>
-        <Text style={forgotPasswordScreenStyles.forgotRedirectTextItem}>Remember password?</Text>
-        <Text
-          onPress={() => navigation.goBack()}
-          style={forgotPasswordScreenStyles.forgotRedirectLinkTextItem}
-        >
-          Log in
-        </Text>
-      </View>
-    );
-  }
-
-  function renderSuccessModal() {
-    return (
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={showSuccessModal}
-        onRequestClose={() => setShowSuccessModal(false)}
-      >
-        <View style={forgotPasswordScreenStyles.forgotModalContainer}>
-          {/*Action section*/}
-          <View style={forgotPasswordScreenStyles.forgotModalActionContainer}>
-            <Pressable
-              onPress={handleModalClose}
-              style={forgotPasswordScreenStyles.forgotModalActionContent}
-            >
-              <AntDesign name="closecircle" size={24} color={COLORS.white} />
-            </Pressable>
-          </View>
-
-          {/*Image section*/}
-          <View style={forgotPasswordScreenStyles.forgotModalImageContainer}>
-            <Image
-              source={IMAGES.sentEmail}
-              style={forgotPasswordScreenStyles.forgotModalImageItem}
-            />
-          </View>
-
-          {/*Text section*/}
-          <View style={forgotPasswordScreenStyles.forgotModalTextContainer}>
-            <Text style={forgotPasswordScreenStyles.forgotModalTextItem}>Email sent!</Text>
-            <Text style={forgotPasswordScreenStyles.forgotModalInfoTextItem}>
-              We have sent an email to{" "}
-              <Text style={forgotPasswordScreenStyles.forgotModalInfoTextBold}>{email}</Text> with a
-              code to reset your password.
-            </Text>
-          </View>
-
-          {/*Button section*/}
-          <View style={forgotPasswordScreenStyles.forgotModalButtonContainer}>
-            <GradientButtonComponent onPress={handleModalClose} text="Continue" />
-          </View>
-
-          {/*Resend section*/}
-          <View style={forgotPasswordScreenStyles.forgotModalResendCodeContainer}>
-            <Text style={forgotPasswordScreenStyles.forgotModalResendCodeTextItem}>
-              Email not received?{" "}
-              <Text
-                onPress={() => console.log("trigger resend")}
-                style={forgotPasswordScreenStyles.forgotModalInfoTextBold}
-              >
-                Resend
-              </Text>
-            </Text>
-          </View>
-        </View>
-      </Modal>
-    );
-  }
-
-  function renderScreenContentList() {
-    return (
-      <>
-        {renderNavigationSection()}
-        {renderTopImageSection()}
-        {renderFormSection()}
-        {renderButtonSection()}
-        {renderRedirectSection()}
-        {renderSuccessModal()}
-      </>
-    );
-  }
-
-  return (
-    <ImageBackground
-      blurRadius={4}
-      source={IMAGES.authBackgroundImage}
-      style={forgotPasswordScreenStyles.forgotContentContainer}
-    >
-      <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
-        style={forgotPasswordScreenStyles.forgotKeyboardContainer}
-      >
-        <ScrollView contentContainerStyle={forgotPasswordScreenStyles.forgotScrollingContainer}>
-          <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-            <SafeAreaView style={forgotPasswordScreenStyles.forgotSafeAreaContainer}>
-              {renderScreenContentList()}
-            </SafeAreaView>
-          </TouchableWithoutFeedback>
-        </ScrollView>
-      </KeyboardAvoidingView>
-    </ImageBackground>
-  );
+					<GradientButtonComponent text="CONTINUE" onPress={handleSubmit} />
+				</View>
+			</View>
+		</View>
+	);
 };
 
 export default ForgotPasswordScreen;
