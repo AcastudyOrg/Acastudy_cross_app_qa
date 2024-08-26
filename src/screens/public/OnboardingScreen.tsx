@@ -1,77 +1,69 @@
-import React, { useState, useEffect } from "react";
-import { View} from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-// import Swiper from "react-native-swiper";
-import { Entypo } from "@expo/vector-icons";
+import React from "react";
+import { Platform, View } from "react-native";
 
-import onboardingData from "../../../assets/data/onboardingData.json";
 import { onboardingScreenStyles } from "../../styles/screensStyle/publicStyle/onboardingScreenStyle";
-import { OnboardingItemProps } from "../../types";
-import { COLORS } from "../../constants";
-import { ButtonComponent } from "../../components";
+import subjectData from "../../../assets/data/home/subjectData.json";
+import upcomingEventsData from "../../../assets/data/home/upcomingEventsData.json";
 
+import {
+  BecomeWhatAtAcaStudyComponent,
+  OnboardingTopImageComponent,
+  PublicScreenLayout,
+} from "../../components";
+import SubjectsSection from "../../components/sections/home/SubjectsSection";
+import EventsSection from "../../components/sections/home/EventsSection";
 
 const OnboardingScreen = () => {
-  const [data, setData] = useState<OnboardingItemProps[]>([]);
-  const [showButton, setShowButton] = useState(false);
-
-  // const swiperRef = useRef<Swiper>(null);
-
-  useEffect(() => {
-    setData(onboardingData);
-  }, []);
-
-  const handleMomentumScrollEnd = (event: any, state: any) => {
-    const { index, total } = state;
-    if (index === data.length - 1) {
-      setShowButton(true);
-    } else {
-      setShowButton(false);
-    }
-  };
+  const becomeStudentImage =
+    Platform.OS === "web"
+      ? "../../../assets/images/appImages/student.jpg"
+      : require("../../../assets/images/appImages/student.jpg");
+  const becomeTutorImage =
+    Platform.OS === "web"
+      ? "../../../assets/images/appImages/studentTutor.jpg"
+      : require("../../../assets/images/appImages/studentTutor.jpg");
 
   return (
-    <SafeAreaView style={onboardingScreenStyles.onboardingContainer}>
-      <View style={onboardingScreenStyles.buttonSubContainer}>
-        {showButton && (
-          <View style={onboardingScreenStyles.buttonSubContent}>
-            <ButtonComponent
-              text="Get Started"
-              onPress={() => {}}
-              icon={
-                <Entypo
-                  name="chevron-small-right"
-                  size={24}
-                  color={COLORS.white}
-                />
-              }
-            />
-          </View>
-        )}
+    <PublicScreenLayout>
+      <View style={onboardingScreenStyles.componentContainer}>
+        <View style={onboardingScreenStyles.imageContainer}>
+          <OnboardingTopImageComponent />
+        </View>
+
+        <SubjectsSection showView={false} subjectData={subjectData} />
+        <EventsSection
+          showView={false}
+          upcomingEventsData={upcomingEventsData}
+        />
       </View>
 
-      {/* <Swiper
-        ref={swiperRef}
-        showsButtons={true}
-        loop={false}
-        dotColor={COLORS.white}
-        activeDotColor={COLORS.blue}
-        onMomentumScrollEnd={handleMomentumScrollEnd}
-      >
-        {data.map((item) => (
-          <View key={item.id} style={onboardingScreenStyles.onboardingSliderContainer}>
-            <Image
-              source={{ uri: item.picture }}
-              style={onboardingScreenStyles.onboardingSliderImage}
-            />
-            <Text style={onboardingScreenStyles.onboardingSliderTitle}>{item.title}</Text>
-            <Text style={onboardingScreenStyles.onboardingSliderDescription}>
-              {item.description}
-            </Text>
-          </View>
-        ))}
-      </Swiper> */}
-    </SafeAreaView>
+      <View style={onboardingScreenStyles.infoSectionContainer}>
+        <BecomeWhatAtAcaStudyComponent
+          switchRow={false}
+          image={becomeStudentImage}
+          title="Become A Student"
+          firstSubtitle="Unlock Your Full Potential with Acastudy"
+          firstInfo="At Acastudy, we provide more than just tutoring—we offer personalized learning experiences designed to help you excel academically and personally. With top-rated tutors, tailored sessions, and a supportive community, we guide you to unlock your true potential."
+          secondSubtitle="Join us and gain access to:"
+          secondInfo="Customized one-on-one tutoring sessions that inspire growth. Comprehensive study tools and resources at your fingertips. A vibrant community of peers and mentors to support your journey. Take the next step—don’t just study, Acastudy!"
+          buttonText="Sign up as a Student"
+          onClick={() => console.log("sign up as a Student")}
+        />
+
+        <BecomeWhatAtAcaStudyComponent
+          switchRow={true}
+          image={becomeTutorImage}
+          title="Become A Tutor"
+          firstSubtitle="Transform Lives with Your Expertise on Acastudy"
+          firstInfo="Are you passionate about teaching? Acastudy provides you with a platform to connect with eager students, earn competitive income, and share your knowledge while growing professionally."
+          secondSubtitle="Earn 70% of session fees."
+          secondInfo="Share your expertise with a wide, motivated audience. Access professional growth opportunities within a supportive community. Start making a difference today."
+          extraInfo="Sign up now as a tutor on Acastudy and empower students with your expertise!"
+          buttonText="Sign up as a Tutor"
+          onClick={() => console.log("sign up as a Tutor")}
+        />
+      </View>
+    </PublicScreenLayout>
   );
 };
 

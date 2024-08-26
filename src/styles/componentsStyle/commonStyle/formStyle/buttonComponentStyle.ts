@@ -4,11 +4,10 @@ import { COLORS, SIZE, WEIGHT } from "../../../../constants";
 export const buttonComponentStyles = StyleSheet.create({
     buttonContainer: {
       width: "100%",
-      height: 50,
+      height: 40,
       borderRadius: 10,
       justifyContent: "center",
       alignItems: "center",
-      backgroundColor: COLORS.darkBlue,
     },
     buttonContent: {
       flexDirection: "row",

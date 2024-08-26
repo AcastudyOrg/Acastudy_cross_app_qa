@@ -67,6 +67,7 @@ export interface ButtonProps {
   text: string;
   onPress: () => void;
   icon?: string | JSX.Element;
+  primary?: boolean;
 }
 export interface SocialAuthButtonProps {
   text?: string;
@@ -80,9 +81,10 @@ export interface TextInputProps {
   type: "password" | "tel" | "text" | "email";
   onChange: (text: string) => void;
   value: string;
-  label: string;
+  label?: string;
   placeholder?: string;
   isTextArea?: boolean;
+  transparentBg?: boolean;
 }
 export interface ImagePickerComponentProps {
   onImagePicked: (uri: string) => void;

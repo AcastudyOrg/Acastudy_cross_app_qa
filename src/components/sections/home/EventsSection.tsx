@@ -13,9 +13,10 @@ type eventsSectionProps = {
         datetime: string;
         category: string;
     }[];
+    showView: boolean;
 };
 
-const EventsSection: React.FC<eventsSectionProps> = ({ upcomingEventsData }) => {
+const EventsSection: React.FC<eventsSectionProps> = ({ upcomingEventsData, showView }) => {
     const handleViewMore = () => {
         console.log('view more events')
     }
@@ -24,7 +25,7 @@ const EventsSection: React.FC<eventsSectionProps> = ({ upcomingEventsData }) => 
         <View style={eventsSectionStyles.upcomingMainContainer}>
             <View style={eventsSectionStyles.upcomingTextContainer}>
                 <Text style={eventsSectionStyles.upcomingTitleText}>Upcoming events</Text>
-                <Text onPress={handleViewMore} style={eventsSectionStyles.upcomingActionText}>View more</Text>
+                {showView &&(<Text onPress={handleViewMore} style={eventsSectionStyles.upcomingActionText}>View more</Text>)}
             </View>
 
             <ScrollView

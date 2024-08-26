@@ -20,6 +20,7 @@ export interface ImageProps {
   janeImg: ImageSourcePropType;
   agmedImg: ImageSourcePropType;
   druboImg: ImageSourcePropType;
+  onboard: ImageSourcePropType;
 }
 
 export interface IconProps {

@@ -26,6 +26,7 @@ const TextInputComponent = ({
   label,
   placeholder,
   isTextArea,
+  transparentBg,
 }: TextInputProps) => {
   const [isFocused, setIsFocused] = useState<boolean>(false);
   const [isValid, setIsValid] = useState<boolean>(true);
@@ -94,10 +95,28 @@ const TextInputComponent = ({
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={textInputComponentStyles.textInputContainer}>
-        <Text style={textInputComponentStyles.textInputLabelTextItem}>{label}</Text>
+        {label && (
+          <Text style={textInputComponentStyles.textInputLabelTextItem}>
+            {label}
+          </Text>
+        )}
 
-        <View style={[textInputComponentStyles.textInputItemContentContainer, getBorderStyle()]}>
-          <View style={textInputComponentStyles.textInputItemContainer}>
+        <View
+          style={[
+            textInputComponentStyles.textInputItemContentContainer,
+            getBorderStyle(),
+          ]}
+        >
+          <View
+            style={[
+              textInputComponentStyles.textInputItemContainer,
+              {
+                backgroundColor: transparentBg
+                  ? COLORS.transparent
+                  : COLORS.gray,
+              },
+            ]}
+          >
             <TextInput
               value={inputValue}
               onFocus={handleFocus}
@@ -107,8 +126,15 @@ const TextInputComponent = ({
               autoCapitalize={type === "email" ? "none" : "sentences"}
               multiline={isTextArea}
               placeholder={placeholder}
-              placeholderTextColor={COLORS.lightGray}
-              style={textInputComponentStyles.textInputItem}
+              placeholderTextColor={
+                transparentBg ? COLORS.darkGray : COLORS.lightGray
+              }
+              style={[
+                textInputComponentStyles.textInputItem,
+                {
+                  color: transparentBg ? COLORS.black : COLORS.white,
+                },
+              ]}
             />
           </View>
           <View style={textInputComponentStyles.textInputIconContainer}>
@@ -140,7 +166,9 @@ const TextInputComponent = ({
               )}
           </View>
         </View>
-        {!isValid && <Text style={textInputComponentStyles.errorText}>{errorMessage}</Text>}
+        {!isValid && (
+          <Text style={textInputComponentStyles.errorText}>{errorMessage}</Text>
+        )}
       </View>
     </TouchableWithoutFeedback>
   );

@@ -14,9 +14,10 @@ type tutorSectionProps = {
         rating: number;
         online: boolean;
     }[];
+    showView: boolean;
 };
 
-const TutorSection: React.FC<tutorSectionProps> = ({ tutorData }) => {
+const TutorSection: React.FC<tutorSectionProps> = ({ tutorData, showView }) => {
     const handleViewMore = () => {
         console.log('view more tutors')
     }
@@ -25,7 +26,7 @@ const TutorSection: React.FC<tutorSectionProps> = ({ tutorData }) => {
         <View style={tutorSectionStyles.tutorMainContainer}>
             <View style={tutorSectionStyles.tutorTextContainer}>
                 <Text style={tutorSectionStyles.tutorTitleText}>Tutors</Text>
-                <Text onPress={handleViewMore} style={tutorSectionStyles.tutorActionText}>View more</Text>
+{showView &&(                <Text onPress={handleViewMore} style={tutorSectionStyles.tutorActionText}>View more</Text>)}
             </View>
 
             <ScrollView
