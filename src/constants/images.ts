@@ -6,6 +6,7 @@ const appLogo = require("../../assets/images/appImages/logo/logo_white_no_bg.png
 const forgotPassword = require("../../assets/images/appImages/forgotPassword.png");
 const sentEmail = require("../../assets/images/appImages/sentEmail.png");
 const googleLogo = require("../../assets/images/appImages/googleLogo.png");
+const bannerImage = require("../../assets/images/appImages/onboard.jpg")
 
 //response images
 const success = require("../../assets/images/general/response/success.png");
@@ -35,6 +36,7 @@ const images: ImageProps = {
   authBackgroundImage,
   appLogo,
   googleLogo,
+  bannerImage,
   forgotPassword,
   sentEmail,
   success,
@@ -52,6 +54,7 @@ const images: ImageProps = {
   janeImg,
   agmedImg,
   druboImg,
+  onboard: 0
 };
 
 export default images;

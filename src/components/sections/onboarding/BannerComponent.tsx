@@ -3,6 +3,8 @@ import { onboardingScreenStyles } from "../../../styles/screensStyle/publicStyle
 import TextInputComponent from "../../common/Form/TextInputComponent";
 import { useState } from "react";
 import GradientButtonComponent from "../../common/Form/GradientButtonComponent";
+import AuthTextField from "../../common/Form/AuthTextField";
+import { IMAGES } from "../../../constants";
 
 const OnboardingTopImageComponent = () => {
   const [search, setSearch] = useState<string>("");
@@ -10,7 +12,7 @@ const OnboardingTopImageComponent = () => {
   return (
     <ImageBackground
       borderRadius={20}
-      source={require("../../../../assets/images/appImages/onboard.jpg")}
+      source={IMAGES.bannerImage}
       style={onboardingScreenStyles.imageBgContainer}
     >
       <View style={onboardingScreenStyles.imageTextContainer}>

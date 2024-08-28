@@ -26,13 +26,13 @@ export const onboardingScreenStyles = StyleSheet.create({
     color: COLORS.white,
     fontFamily: FONT.plusJakartaExtraBold,
     fontWeight: WEIGHT.bold,
-    fontSize: SIZE.xxl,
+    fontSize: SIZE.xxxl,
   },
   imageTextInfoItem: {
     width: Platform.OS === "ios" || Platform.OS === "android" ? "100%" : "70%",
     color: COLORS.white,
     fontFamily: FONT.plusJakartaRegular,
-    fontSize: SIZE.s,
+    fontSize: SIZE.m,
   },
   componentContainer: {
     gap: 2,
