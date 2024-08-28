@@ -5,6 +5,8 @@ export interface ImageProps {
   appLogo: ImageSourcePropType;
   googleLogo: ImageSourcePropType;
   bannerImage: ImageSourcePropType;
+  student: ImageSourcePropType;
+  studentTutor: ImageSourcePropType;
   forgotPassword: ImageSourcePropType;
   sentEmail: ImageSourcePropType;
   success: ImageSourcePropType;

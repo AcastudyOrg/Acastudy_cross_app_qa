@@ -7,6 +7,8 @@ const forgotPassword = require("../../assets/images/appImages/forgotPassword.png
 const sentEmail = require("../../assets/images/appImages/sentEmail.png");
 const googleLogo = require("../../assets/images/appImages/googleLogo.png");
 const bannerImage = require("../../assets/images/appImages/onboard.jpg")
+const student = require("../../assets/images/appImages/student.jpg");
+const studentTutor = require("../../assets/images/appImages/studentTutor.jpg");
 
 //response images
 const success = require("../../assets/images/general/response/success.png");
@@ -37,6 +39,8 @@ const images: ImageProps = {
   appLogo,
   googleLogo,
   bannerImage,
+  student,
+  studentTutor,
   forgotPassword,
   sentEmail,
   success,
