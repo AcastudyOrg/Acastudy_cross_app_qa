@@ -7,7 +7,7 @@ import upcomingEventsData from "../../../assets/data/home/upcomingEventsData.jso
 
 import {
   BecomeWhatAtAcaStudyComponent,
-  OnboardingTopImageComponent,
+  BannerComponent,
   PublicScreenLayout,
 } from "../../components";
 import SubjectsSection from "../../components/sections/home/SubjectsSection";
@@ -27,7 +27,7 @@ const OnboardingScreen = () => {
     <PublicScreenLayout>
       <View style={onboardingScreenStyles.componentContainer}>
         <View style={onboardingScreenStyles.imageContainer}>
-          <OnboardingTopImageComponent />
+          <BannerComponent />
         </View>
 
         <SubjectsSection showView={false} subjectData={subjectData} />

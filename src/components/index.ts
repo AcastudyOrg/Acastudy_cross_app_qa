@@ -18,7 +18,7 @@ import HomeDataListComponent from "./sections/HomeDataListComponent";
 import SubjectComponent from "./sections/home/SubjectComponent";
 import TutorComponent from "./sections/home/TutorComponent";
 import UpcomingEventsComponent from "./sections/home/UpcomingEventsComponent";
-import OnboardingTopImageComponent from "./sections/onboarding/OnboardingTopImageComponent";
+import BannerComponent from "./sections/onboarding/BannerComponent";
 import BecomeWhatAtAcaStudyComponent from "./sections/onboarding/BecomeWhatAtAcaStudyComponent";
 
 import ComingSoonComponent from "./common/ComingSoonComponent";
@@ -37,7 +37,7 @@ export {
   SubjectComponent,
   TutorComponent,
   UpcomingEventsComponent,
-  OnboardingTopImageComponent,
+  BannerComponent,
   BecomeWhatAtAcaStudyComponent,
   ComingSoonComponent,
 };
