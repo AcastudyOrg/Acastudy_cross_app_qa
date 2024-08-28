@@ -1,6 +1,5 @@
 import { Dimensions, Platform, StyleSheet } from "react-native";
 import { COLORS, FONT, SIZE, WEIGHT } from "../../../constants";
-import { AppColor } from "../../../constants/colors";
 
 const { height } = Dimensions.get("window");
 
@@ -54,7 +53,7 @@ export const onboardingScreenStyles = StyleSheet.create({
     justifyContent: "space-between",
     overflow: "hidden",
     borderRadius: 15,
-    backgroundColor: AppColor.lightGray,
+    backgroundColor: COLORS.lightGray,
   },
   searchTextContainer: {
     width: Platform.OS === "ios" || Platform.OS === "android" ? "45%" : "75%",

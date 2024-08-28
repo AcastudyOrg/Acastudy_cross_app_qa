@@ -1,7 +1,7 @@
 import { Image, View, Text, Platform } from "react-native";
 
 import { becomeWhatAtAcaStudyStyles } from "../../../styles/componentsStyle/sectionsStyle/onboarding/becomeWhatAtAcaStudyStyles";
-import ButtonComponent from "../../common/Form/ButtonComponent";
+import GradientButtonComponent from "../../common/Form/GradientButtonComponent";
 
 type becomeComponentProps = {
   image: string | any;
@@ -72,7 +72,7 @@ const BecomeWhatAtAcaStudyComponent = ({
         </View>
 
         <View style={becomeWhatAtAcaStudyStyles.buttonContainer}>
-          <ButtonComponent primary text={buttonText} onPress={onClick} />
+          <GradientButtonComponent text={buttonText} onPress={onClick} />
         </View>
       </View>
     </View>

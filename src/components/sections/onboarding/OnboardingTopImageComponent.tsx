@@ -1,8 +1,8 @@
 import { View, Text, ImageBackground } from "react-native";
 import { onboardingScreenStyles } from "../../../styles/screensStyle/publicStyle/onboardingScreenStyle";
-import ButtonComponent from "../../common/Form/ButtonComponent";
 import TextInputComponent from "../../common/Form/TextInputComponent";
 import { useState } from "react";
+import GradientButtonComponent from "../../common/Form/GradientButtonComponent";
 
 const OnboardingTopImageComponent = () => {
   const [search, setSearch] = useState<string>("");
@@ -42,8 +42,7 @@ const OnboardingTopImageComponent = () => {
         </View>
 
         <View style={onboardingScreenStyles.searchButtonContainer}>
-          <ButtonComponent
-            primary
+          <GradientButtonComponent
             text="Search"
             onPress={() => {
               console.log("search pressed");
