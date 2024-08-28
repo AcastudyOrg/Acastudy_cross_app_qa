@@ -12,6 +12,7 @@ import {
 } from "../../components";
 import SubjectsSection from "../../components/sections/home/SubjectsSection";
 import EventsSection from "../../components/sections/home/EventsSection";
+import { STRING } from "../../constants/strings";
 
 const OnboardingScreen = () => {
   const becomeStudentImage =
@@ -31,35 +32,33 @@ const OnboardingScreen = () => {
         </View>
 
         <SubjectsSection showView={false} subjectData={subjectData} />
-        <EventsSection
-          showView={false}
-          upcomingEventsData={upcomingEventsData}
-        />
+        <EventsSection showView={false}  upcomingEventsData={upcomingEventsData} />
       </View>
 
       <View style={onboardingScreenStyles.infoSectionContainer}>
         <BecomeWhatAtAcaStudyComponent
           switchRow={false}
           image={becomeStudentImage}
-          title="Become A Student"
-          firstSubtitle="Unlock Your Full Potential with Acastudy"
-          firstInfo="At Acastudy, we provide more than just tutoring—we offer personalized learning experiences designed to help you excel academically and personally. With top-rated tutors, tailored sessions, and a supportive community, we guide you to unlock your true potential."
-          secondSubtitle="Join us and gain access to:"
-          secondInfo="Customized one-on-one tutoring sessions that inspire growth. Comprehensive study tools and resources at your fingertips. A vibrant community of peers and mentors to support your journey. Take the next step—don’t just study, Acastudy!"
-          buttonText="Sign up as a Student"
+          title={STRING.OnbordingBecomeAStudentTittle}
+          firstSubtitle={STRING.OnbordingBecomeAStudentFirstSubtitle}
+          firstInfo={STRING.OnbordingBecomeAStudentFirstInfo}
+          secondSubtitle={STRING.OnbordingBecomeAStudentSecondSubtitle}
+          secondInfo={STRING.OnbordingBecomeAStudentSecondSubtitle}
+          buttonText={STRING.OnbordingBecomeAStudentButtonText}
+          extraInfo=""
           onClick={() => console.log("sign up as a Student")}
         />
 
         <BecomeWhatAtAcaStudyComponent
           switchRow={true}
           image={becomeTutorImage}
-          title="Become A Tutor"
-          firstSubtitle="Transform Lives with Your Expertise on Acastudy"
-          firstInfo="Are you passionate about teaching? Acastudy provides you with a platform to connect with eager students, earn competitive income, and share your knowledge while growing professionally."
-          secondSubtitle="Earn 70% of session fees."
-          secondInfo="Share your expertise with a wide, motivated audience. Access professional growth opportunities within a supportive community. Start making a difference today."
-          extraInfo="Sign up now as a tutor on Acastudy and empower students with your expertise!"
-          buttonText="Sign up as a Tutor"
+          title={STRING.OnbordingBecomeATutor}
+          firstSubtitle={STRING.OnbordingBecomeATutorFirstSubtitle}
+          firstInfo={STRING.OnbordingBecomeAStudentFirstInfo}
+          secondSubtitle={STRING.OnbordingBecomeATutorSecondSubtitle}
+          secondInfo={STRING.OnbordingBecomeATutorSecondInfo}
+          extraInfo={STRING.OnbordingBecomeATutorSecondInfoExtraInfo}
+          buttonText={STRING.OnbordingBecomeATutorButtonText}
           onClick={() => console.log("sign up as a Tutor")}
         />
       </View>
