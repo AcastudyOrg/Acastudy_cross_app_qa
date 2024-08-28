@@ -44,7 +44,7 @@ const BecomeWhatAtAcaStudyComponent = ({
     >
       <View style={becomeWhatAtAcaStudyStyles.imageContainer}>
         <Image
-          source={typeof image === "string" ? { uri: image } : image}
+          source={image}
           resizeMode="cover"
           style={becomeWhatAtAcaStudyStyles.imageItem}
         />
