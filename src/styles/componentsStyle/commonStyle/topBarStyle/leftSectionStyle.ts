@@ -7,6 +7,11 @@ export const leftSectionStyles = StyleSheet.create({
 		maxWidth: '100%',
 		flexShrink: 1,
 	},
+	logoItem: {
+		width: 150,
+		height: 55,
+		resizeMode: "contain",
+	  },
 	searchInput: {
 		backgroundColor: 'rgba(255, 255, 255, 0.1)',
 		borderRadius: 10,

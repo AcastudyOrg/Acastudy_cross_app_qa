@@ -4,7 +4,7 @@ import QueryResponseComponent from "./common/QueryResponseComponent";
 import AppTopNavigationComponent from "./common/AppTopNavigationComponent";
 
 //common form components
-import ButtonComponent from "./common/Form/ButtonComponent";
+import GradientButtonComponent from "./common/Form/GradientButtonComponent";
 import ImagePickerComponent from "./common/Form/ImagePickerComponent";
 import TextInputComponent from "./common/Form/TextInputComponent";
 import SocialAuthButtonComponent from "./common/Form/SocialAuthButtonComponent";
@@ -27,7 +27,7 @@ export {
   LoadingComponent,
   QueryResponseComponent,
   AppTopNavigationComponent,
-  ButtonComponent,
+  GradientButtonComponent,
   ImagePickerComponent,
   TextInputComponent,
   SocialAuthButtonComponent,

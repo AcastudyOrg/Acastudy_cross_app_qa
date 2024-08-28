@@ -10,17 +10,42 @@ type RightSectionProps = {
 	screenWidth: number;
 	user?: User;
 	navigation: any;
+	isLSignedIn?: boolean;
+	showBecomeATutorOnly?: boolean;
 };
 
-const RightSection: React.FC<RightSectionProps> = ({ screenWidth, user, navigation }) => (
+const RightSection: React.FC<RightSectionProps> = ({
+	screenWidth,
+	user,
+	navigation,
+	isLSignedIn,
+	showBecomeATutorOnly }) => (
+	<>
+		{isLSignedIn ? (
+			<SignedInContent screenWidth={screenWidth} navigation={navigation} user={user} />
+		) : (
+			<SignedOutContent navigation={navigation} showBecomeATutorOnly={showBecomeATutorOnly} />
+		)}
+	</>
+);
+
+type SignedInContentProps = {
+	screenWidth: number;
+	user?: User;
+	navigation: any;
+};
+
+const SignedInContent: React.FC<SignedInContentProps> = ({ screenWidth, user, navigation }) => (
 	<View style={rightSectionStyles.rightSection}>
 		{screenWidth >= 1086 && (
 			<View style={rightSectionStyles.rightSectionbuttons}>
-				<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.HomeScreen)}> {/* Todo(Phillip): Put correct screen name*/}
+				<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.HomeScreen)}>
 					<Text style={rightSectionStyles.linkText}> {STRING.becomeATutor} </Text>
 				</TouchableOpacity>
+
 				<Text style={rightSectionStyles.linkText}>|</Text>
-				<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.HomeScreen)}>  {/* Todo(Phillip): Put correct screen name*/}
+
+				<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.HomeScreen)}>
 					<Text style={rightSectionStyles.linkText}> {STRING.logout} </Text>
 				</TouchableOpacity>
 			</View>
@@ -37,6 +62,35 @@ const RightSection: React.FC<RightSectionProps> = ({ screenWidth, user, navigati
 			</View>
 		)}
 	</View>
+);
+
+type SignedOutContentProps = {
+	navigation: any;
+	showBecomeATutorOnly?: boolean;
+};
+
+const SignedOutContent: React.FC<SignedOutContentProps> = ({ navigation, showBecomeATutorOnly = false }) => (
+	<View style={rightSectionStyles.rightSection}>
+		<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.HomeScreen)}>
+			<Text style={rightSectionStyles.linkText}>{STRING.becomeATutor}</Text>
+		</TouchableOpacity>
+
+		{!showBecomeATutorOnly && (
+			<>
+				<Text style={rightSectionStyles.linkText}>|</Text>
+				<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.HomeScreen)}>
+					<Text style={rightSectionStyles.linkText}>{STRING.signIn}</Text>
+				</TouchableOpacity>
+
+				<Text style={rightSectionStyles.linkText}>|</Text>
+
+				<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.HomeScreen)}>
+					<Text style={rightSectionStyles.linkText}>{STRING.signUp}</Text>
+				</TouchableOpacity>
+			</>
+		)}
+	</View>
+
 );
 
 export default RightSection;

@@ -17,7 +17,7 @@ const SidebarNavComponent = () => {
 				<SidebarHeader screenWidth={screenWidth} navigation={navigation}/>
 				<SidebarLinks screenWidth={screenWidth}/>
 			</View>
-			<SidebarFooter screenWidth={screenWidth} navigation={navigation}/>
+			<SidebarFooter navigation={navigation} screenWidth={screenWidth}/>
 		</View>
 	);
 };

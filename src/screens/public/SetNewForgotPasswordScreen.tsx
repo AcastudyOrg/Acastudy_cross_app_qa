@@ -22,7 +22,7 @@ import { IMAGES } from "../../constants";
 import { setNewForgotPasswordScreenStyles } from "../../styles/screensStyle/publicStyle/setNewForgotPasswordScreenStyle";
 import {
   TextInputComponent,
-  ButtonComponent,
+  GradientButtonComponent,
   AppTopNavigationComponent,
 } from "../../components/";
 
@@ -136,7 +136,7 @@ const SetNewForgotPasswordScreen = () => {
   function renderSubmitButtonSection() {
     return (
       <View style={setNewForgotPasswordScreenStyles.passwordNewSubmitButtonContainer}>
-        <ButtonComponent onPress={handleSubmit} text="Reset password" />
+        <GradientButtonComponent onPress={handleSubmit} text="Reset password" />
       </View>
     );
   }

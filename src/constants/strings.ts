@@ -2,13 +2,14 @@ export const STRING = {
     searchPlaceholder: 'Search...',
     becomeATutor: 'Become A Tutor',
     logout: 'logout',
-    appName: 'ACASTUDY',
     home: 'Home',
     call: 'Call',
     chat: 'Chat',
     study: 'Study',
     profile: 'Profile',
-    requestTutor: 'Request tutor'
+    requestTutor: 'Request tutor',
+    signIn: 'SignIn',
+    signUp: 'SignUp',
 };
 
 export const NAV_SCREEN_NAME = {
@@ -22,6 +23,9 @@ export const NAV_SCREEN_NAME = {
     SignInScreen: 'SignInScreen',
     SignUpScreen: 'SignUpScreen',
     PasswordScreen: 'PasswordScreen',
+    ForgotPasswordScreen: 'ForgotPasswordScreen',
+    OnboardingScreen: 'OnboardingScreen',
+    VerifyEmailScreen: 'VerifyEmailScreen',
 
 };
 

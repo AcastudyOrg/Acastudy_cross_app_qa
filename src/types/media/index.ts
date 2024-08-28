@@ -3,6 +3,7 @@ import { ImageSourcePropType } from "react-native";
 export interface ImageProps {
   authBackgroundImage: ImageSourcePropType;
   appLogo: ImageSourcePropType;
+  googleLogo: ImageSourcePropType;
   forgotPassword: ImageSourcePropType;
   sentEmail: ImageSourcePropType;
   success: ImageSourcePropType;
