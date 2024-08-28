@@ -78,13 +78,13 @@ const SignedOutContent: React.FC<SignedOutContentProps> = ({ navigation, showBec
 		{!showBecomeATutorOnly && (
 			<>
 				<Text style={rightSectionStyles.linkText}>|</Text>
-				<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.HomeScreen)}>
+				<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.SignInScreen)}>
 					<Text style={rightSectionStyles.linkText}>{STRING.signIn}</Text>
 				</TouchableOpacity>
 
 				<Text style={rightSectionStyles.linkText}>|</Text>
 
-				<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.HomeScreen)}>
+				<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.SignUpScreen)}>
 					<Text style={rightSectionStyles.linkText}>{STRING.signUp}</Text>
 				</TouchableOpacity>
 			</>

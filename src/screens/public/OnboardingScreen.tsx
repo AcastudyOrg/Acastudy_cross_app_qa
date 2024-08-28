@@ -33,7 +33,6 @@ const OnboardingScreen = () => {
           secondSubtitle={STRING.OnbordingBecomeAStudentSecondSubtitle}
           secondInfo={STRING.OnbordingBecomeAStudentSecondInfo}
           buttonText={STRING.OnbordingBecomeAStudentButtonText}
-          extraInfo=""
           onClick={() => console.log("sign up as a Student")}
         />
 
