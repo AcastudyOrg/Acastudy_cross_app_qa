@@ -1,7 +1,9 @@
-import { ImageSourcePropType } from "react-native";
+import { ImageSourcePropType, Platform } from "react-native";
 import { Dimensions } from "react-native";
 
 const { width } = Dimensions.get("window");
+
+export const isMobile =  Platform.OS === "ios" || Platform.OS === "android"
 
 export const screenSize = () => {
   if (width < 768) {

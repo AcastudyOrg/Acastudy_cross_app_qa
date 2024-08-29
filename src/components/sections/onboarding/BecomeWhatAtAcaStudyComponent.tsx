@@ -2,6 +2,7 @@ import { Image, View, Text, Platform } from "react-native";
 
 import { becomeWhatAtAcaStudyStyles } from "../../../styles/componentsStyle/sectionsStyle/onboarding/becomeWhatAtAcaStudyStyles";
 import GradientButtonComponent from "../../common/Form/GradientButtonComponent";
+import { isMobile } from "../../../../utils/config";
 
 type becomeComponentProps = {
   image: string | any;
@@ -32,22 +33,10 @@ const BecomeWhatAtAcaStudyComponent = ({
     <View
       style={[
         becomeWhatAtAcaStudyStyles.mainContainer,
-        {
-          flexDirection:
-            Platform.OS === "ios" || Platform.OS === "android"
-              ? "column-reverse"
-              : switchRow
-              ? "row-reverse"
-              : "row",
-        },
-      ]}
-    >
+        { flexDirection: isMobile ? "column-reverse" : switchRow ? "row-reverse" : "row" },
+      ]}>
       <View style={becomeWhatAtAcaStudyStyles.imageContainer}>
-        <Image
-          source={image}
-          resizeMode="cover"
-          style={becomeWhatAtAcaStudyStyles.imageItem}
-        />
+        <Image source={image} resizeMode="cover" style={becomeWhatAtAcaStudyStyles.imageItem} />
       </View>
 
       <View style={becomeWhatAtAcaStudyStyles.textContainer}>

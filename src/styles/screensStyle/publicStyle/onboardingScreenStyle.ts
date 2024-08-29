@@ -1,5 +1,6 @@
 import { Dimensions, Platform, StyleSheet } from "react-native";
 import { COLORS, FONT, SIZE, WEIGHT } from "../../../constants";
+import { isMobile } from "../../../../utils/config";
 
 const { height } = Dimensions.get("window");
 
@@ -12,7 +13,7 @@ export const onboardingScreenStyles = StyleSheet.create({
   },
   imageContainer: {
     paddingHorizontal:
-      Platform.OS === "ios" || Platform.OS === "android" ? 0 : 15,
+      isMobile ? 0 : 15,
   },
   imageTextContainer: {
     flex: 1,
@@ -29,7 +30,7 @@ export const onboardingScreenStyles = StyleSheet.create({
     fontSize: SIZE.xxxl,
   },
   imageTextInfoItem: {
-    width: Platform.OS === "ios" || Platform.OS === "android" ? "100%" : "70%",
+    width: isMobile ? "100%" : "70%",
     color: COLORS.white,
     fontFamily: FONT.plusJakartaRegular,
     fontSize: SIZE.m,
@@ -38,13 +39,13 @@ export const onboardingScreenStyles = StyleSheet.create({
     gap: 2,
   },
   infoSectionContainer: {
-    gap: Platform.OS === "ios" || Platform.OS === "android" ? 30 : 30,
+    gap: isMobile ? 30 : 30,
     paddingTop: 20,
     paddingHorizontal:
-      Platform.OS === "ios" || Platform.OS === "android" ? 15 : 27,
+      isMobile ? 15 : 27,
   },
   searchContainer: {
-    width: Platform.OS === "ios" || Platform.OS === "android" ? "80%" : "50%",
+    width: isMobile ? "80%" : "50%",
     paddingVertical: 8,
     paddingHorizontal: 20,
     marginHorizontal: 25,
@@ -56,10 +57,10 @@ export const onboardingScreenStyles = StyleSheet.create({
     backgroundColor: COLORS.lightGray,
   },
   searchTextContainer: {
-    width: Platform.OS === "ios" || Platform.OS === "android" ? "45%" : "75%",
+    width: isMobile ? "45%" : "75%",
   },
   searchButtonContainer: {
-    width: Platform.OS === "ios" || Platform.OS === "android" ? "35%" : "20%",
+    width: isMobile ? "35%" : "20%",
     justifyContent: "center",
     alignItems: "center",
   },
