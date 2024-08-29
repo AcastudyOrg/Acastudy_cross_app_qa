@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { TextInput, View, Text, TouchableOpacity, InputModeOptions } from 'react-native';
 import { COLORS } from '../../../constants';
 import CustomIcon from '../CustomIcon';
-import { authTextFieldtyles } from '../../../styles/componentsStyle/commonStyle/formStyle/AuthTextFieldStyles';
+import { authTextFieldtyles } from '../../../styles/componentsStyle/commonStyle/formStyle/authTextFieldStyle';
+
 
 interface Props {
   label: string;

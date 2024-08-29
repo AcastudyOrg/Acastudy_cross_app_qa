@@ -1,7 +1,9 @@
 import React from 'react';
-import { Image, Text, View } from 'react-native';
+import { Image, Text, TouchableOpacity, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import { subjectComponentStyles } from '../../../styles/componentsStyle/sectionsStyle/home/subjectComponentStyle';
+import { NAV_SCREEN_NAME } from '../../../constants/strings';
 
 type SubjectsProps = {
     item: {
@@ -10,18 +12,21 @@ type SubjectsProps = {
     }
 };
 const SubjectComponent: React.FC<SubjectsProps> = ({ item }) => {
+    const navigation = useNavigation<any>();
     return (
         <View style={subjectComponentStyles.container}>
-            <Image
-                source={{ uri: item.thumbnail }}
-                style={subjectComponentStyles.subjectImageItem}
-                resizeMode="cover"
-            />
-            <Text style={subjectComponentStyles.subjectTextCardTitle}
-                numberOfLines={1}
-                ellipsizeMode="tail">
-                {item.title}
-            </Text>
+            <TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.SubjectTopicsScreen)}>
+                <Image
+                    source={{ uri: item.thumbnail }}
+                    style={subjectComponentStyles.subjectImageItem}
+                    resizeMode="cover"
+                />
+                <Text style={subjectComponentStyles.subjectTextCardTitle}
+                    numberOfLines={1}
+                    ellipsizeMode="tail">
+                    {item.title}
+                </Text>
+            </TouchableOpacity>
         </View>
     )
 }
