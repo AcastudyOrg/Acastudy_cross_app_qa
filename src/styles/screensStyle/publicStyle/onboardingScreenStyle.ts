@@ -7,7 +7,8 @@ const { height } = Dimensions.get("window");
 export const onboardingScreenStyles = StyleSheet.create({
   imageBgContainer: {
     width: "100%",
-    height: height / 2.5,
+    height: 'auto',
+    minHeight: height / 2.5,
     resizeMode: "cover",
     overflow: "hidden",
   },
