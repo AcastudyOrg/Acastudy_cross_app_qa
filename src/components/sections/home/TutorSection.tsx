@@ -3,6 +3,7 @@ import { View, Text, ScrollView } from 'react-native';
 
 import TutorComponent from './TutorComponent';
 import { tutorSectionStyles } from '../../../styles/componentsStyle/sectionsStyle/home/tutorSectionStyle';
+import { STRING } from '../../../constants/strings';
 
 type tutorSectionProps = {
     tutorData: {
@@ -24,8 +25,8 @@ const TutorSection: React.FC<tutorSectionProps> = ({ tutorData }) => {
     return (
         <View style={tutorSectionStyles.tutorMainContainer}>
             <View style={tutorSectionStyles.tutorTextContainer}>
-                <Text style={tutorSectionStyles.tutorTitleText}>Tutors</Text>
-                <Text onPress={handleViewMore} style={tutorSectionStyles.tutorActionText}>View more</Text>
+                <Text style={tutorSectionStyles.tutorTitleText}>{STRING.tutorTitle}</Text>
+                <Text onPress={handleViewMore} style={tutorSectionStyles.tutorActionText}>{STRING.viewMore}</Text>
             </View>
 
             <ScrollView

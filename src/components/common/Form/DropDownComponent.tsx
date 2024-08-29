@@ -28,7 +28,6 @@ export const DropDownComponent: React.FC<DropdownProps> = ({
                     labelField="label"
                     valueField="value"
                     data={data}
-                    // search
                     maxHeight={300}
                     placeholder={placeholder}
                     style={dropDownComponentStyles.input}
@@ -36,7 +35,6 @@ export const DropDownComponent: React.FC<DropdownProps> = ({
                     itemTextStyle={dropDownComponentStyles.itemText}
                     selectedTextStyle={dropDownComponentStyles.selectedText}
                     placeholderStyle={dropDownComponentStyles.placeholderText}
-                    // inputSearchStyle={{padding: 10}}
                     iconStyle={dropDownComponentStyles.iconStyle}
                 />
             </View>

@@ -10,6 +10,12 @@ export const STRING = {
     requestTutor: 'Request tutor',
     signIn: 'SignIn',
     signUp: 'SignUp',
+    filterBy: 'FILTER BY:',
+    viewMore: 'View more',
+    eventTitle: 'Upcoming events',
+    subjectTitle: 'Subjects',
+    tutorTitle: 'Tutors',
+    
 };
 
 export const NAV_SCREEN_NAME = {

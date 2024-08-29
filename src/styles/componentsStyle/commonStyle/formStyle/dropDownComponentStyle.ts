@@ -3,7 +3,6 @@ import { COLORS, FONT, SIZE } from '../../../../constants';
 
 export const dropDownComponentStyles = StyleSheet.create({
     container: {
-        margin: 10,
         width: '100%',
     },
     label: {
@@ -13,22 +12,20 @@ export const dropDownComponentStyles = StyleSheet.create({
     },
     inputContainer: {
         width: '100%',
-        height: 40,
+        height: 43,
     },
     input: {
         flex: 1,
-        height: 40,
-        borderRadius: 8,
+        height: 43,
+        borderRadius: 5,
         paddingHorizontal: 10,
         backgroundColor: "rgba(255,255,255,.1)",
-        // fontFamily: FONT.plusJakartaRegular,
-        // fontSize: SIZE.m,
     },
     itemContainer: {
         top: 5,
         borderRadius: 10,
-        borderColor: COLORS.transparent,
-        backgroundColor: "rgba(255,255,255,.1)",
+        borderColor: COLORS.skyBlue,
+        backgroundColor: COLORS.darkBlue,
     },
     itemText: {
         color: COLORS.lightGray,
@@ -37,13 +34,13 @@ export const dropDownComponentStyles = StyleSheet.create({
     },
     selectedText: {
         color: COLORS.white,
-        fontFamily: FONT.plusJakartaRegular,
         fontSize: SIZE.m,
+        fontFamily: FONT.plusJakartaRegular,
     },
     placeholderText: {
         fontSize: SIZE.m,
         fontFamily: FONT.plusJakartaRegular,
-        color: "rgba(255,255,255,.5)",
+        color: COLORS.white50Percent,
     },
     iconStyle: {
         tintColor: COLORS.white
