@@ -54,7 +54,7 @@ const VerifyEmailScreen = () => {
             ))}
           </View>
 
-          <TouchableOpacity style={[authScreenStyle.alternative, { paddingBottom: 20 }]} onPress={() => { }}> {/*TODO: navigate to the correct screen*/}
+          <TouchableOpacity style={[authScreenStyle.alternative, { paddingBottom: 20 }]} onPress={() => { }}> 
             <Text style={authScreenStyle.clickerbleText}>Resend code.</Text>
           </TouchableOpacity>
 
