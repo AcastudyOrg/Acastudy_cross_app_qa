@@ -1,4 +1,4 @@
-import { Dimensions, Platform, StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 import { COLORS, FONT, SIZE, WEIGHT } from "../../../constants";
 import { isMobile } from "../../../../utils/config";
 
@@ -47,6 +47,7 @@ export const onboardingScreenStyles = StyleSheet.create({
   },
   searchContainer: {
     width: isMobile ? "80%" : "50%",
+    minWidth: isMobile ? "auto" : 480,
     paddingVertical: 8,
     paddingHorizontal: 20,
     marginHorizontal: 25,
