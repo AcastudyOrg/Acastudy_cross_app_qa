@@ -1,15 +1,9 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import { COLORS, FONT, SIZE } from "../../../../constants";
 
-const { width } = Dimensions.get('window');
-
-
-const containerWidth = width > 900 ? width * .18 : 160;
 export const tutorComponentStyles = StyleSheet.create({
     tutorContentContainer: {
         flex: 1,
-        width: containerWidth,
-        paddingHorizontal: containerWidth * .1,
         paddingVertical: 20,
         marginRight: 15,
         borderRadius: 8,
@@ -24,8 +18,6 @@ export const tutorComponentStyles = StyleSheet.create({
         position: 'relative',
     },
     tutorImageItem: {
-        width: containerWidth * .3,
-        height: containerWidth * .3,
         resizeMode: 'cover',
         borderRadius: 50,
     },

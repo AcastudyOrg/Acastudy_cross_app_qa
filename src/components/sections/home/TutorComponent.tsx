@@ -4,6 +4,7 @@ import { Octicons } from '@expo/vector-icons';
 
 import { COLORS } from '../../../constants'
 import { tutorComponentStyles } from '../../../styles/componentsStyle/sectionsStyle/home/tutorComponentStyle';
+import useScreenWidth from '../../../hooks/useScreenWidth';
 
 type TutorProps = {
     item: {
@@ -18,12 +19,19 @@ type TutorProps = {
 };
 
 const TutorComponent: React.FC<TutorProps> = ({ item }) => {
+    const screenWith = useScreenWidth();
+    const containerWidth = screenWith > 900 ? screenWith * .18 : 160;
     return (
-        <View style={tutorComponentStyles.tutorContentContainer}>
+        <View style={[
+            tutorComponentStyles.tutorContentContainer,
+            { width: containerWidth, paddingHorizontal: containerWidth * .1 }]}>
             <View style={tutorComponentStyles.tutorImageContainer}>
                 <Image
                     source={{ uri: item.avatar }}
-                    style={tutorComponentStyles.tutorImageItem}
+                    style={[
+                        tutorComponentStyles.tutorImageItem,
+                        { width: containerWidth * .3, height: containerWidth * .3 }
+                    ]}
                 />
                 {item.online ? (
                     <Octicons
