@@ -1,0 +1,18 @@
+[
+    { "topic": "Algebra", "levelOfStudy": "Primary", "tutors": 870},
+    { "topic": "Algebra", "levelOfStudy": "Secondary", "tutors": 100},
+    { "topic": "Algebra", "levelOfStudy": "Tertiary", "tutors": 2000},
+    { "topic": "Trigonometry", "levelOfStudy": "Primary", "tutors": 12},
+    { "topic": "Trigonometry", "levelOfStudy": "Secondary", "tutors": 43},
+    { "topic": "Trigonometry", "levelOfStudy": "Tertiary", "tutors": 265},
+    { "topic": "Geometry", "levelOfStudy": "Primary", "tutors": 256},
+    { "topic": "Geometry", "levelOfStudy": "Secondary", "tutors": 33},
+    { "topic": "Geometry", "levelOfStudy": "Tertiary", "tutors": 443},
+    { "topic": "Number theory", "levelOfStudy": "Primary", "tutors": 864},
+    { "topic": "Number theory", "levelOfStudy": "Secondary", "tutors": 343},
+    { "topic": "Number theory", "levelOfStudy": "Tertiary", "tutors": 5},
+    { "topic": "Arithmetic", "levelOfStudy": "Primary", "tutors": 10248},
+    { "topic": "Arithmetic", "levelOfStudy": "Secondary", "tutors": 5554},
+    { "topic": "Arithmetic", "levelOfStudy": "Tertiary", "tutors": 543},
+    { "topic": "Financial Maths", "levelOfStudy": "Primary", "tutors": 221}
+]

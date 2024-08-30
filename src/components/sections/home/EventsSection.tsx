@@ -3,6 +3,7 @@ import { View, Text, ScrollView } from 'react-native';
 
 import UpcomingEventsComponent from './UpcomingEventsComponent';
 import { eventsSectionStyles } from '../../../styles/componentsStyle/sectionsStyle/home/eventsSectionStyle';
+import { STRING } from '../../../constants/strings';
 
 type eventsSectionProps = {
     upcomingEventsData: {
@@ -24,8 +25,8 @@ const EventsSection: React.FC<eventsSectionProps> = ({ upcomingEventsData, showV
     return (
         <View style={eventsSectionStyles.upcomingMainContainer}>
             <View style={eventsSectionStyles.upcomingTextContainer}>
-                <Text style={eventsSectionStyles.upcomingTitleText}>Upcoming events</Text>
-                {showView &&(<Text onPress={handleViewMore} style={eventsSectionStyles.upcomingActionText}>View more</Text>)}
+                <Text style={eventsSectionStyles.upcomingTitleText}>{STRING.eventTitle}</Text>
+                <Text onPress={handleViewMore} style={eventsSectionStyles.upcomingActionText}>{STRING.viewMore}</Text>
             </View>
 
             <ScrollView

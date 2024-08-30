@@ -10,6 +10,12 @@ export const STRING = {
     requestTutor: 'Request tutor',
     signIn: 'SignIn',
     signUp: 'SignUp',
+    filterBy: 'FILTER BY:',
+    viewMore: 'View more',
+    eventTitle: 'Upcoming events',
+    subjectTitle: 'Subjects',
+    tutorTitle: 'Tutors',
+    
     bannerTopic: 'Personalised Learning, Anytime, Anywhere',
     bannerContent: `Welcome to Acastudy, where education is tailored to fit your needs! Our platform connects you with expert tutors who are ready to help you achieve academic success. Whether it's a quick session or a scheduled deep dive, Acastudy provides flexible, on-demand learning experiences that adapt to your goals and availability.`,
     bannerSubContent: 'Take control of your academic journey and thrive with Acastudy today!',
@@ -42,6 +48,8 @@ export const NAV_SCREEN_NAME = {
     ForgotPasswordScreen: 'ForgotPasswordScreen',
     OnboardingScreen: 'OnboardingScreen',
     VerifyEmailScreen: 'VerifyEmailScreen',
+
+    SubjectTopicsScreen: 'SubjectTopicsScreen',
 
 };
 

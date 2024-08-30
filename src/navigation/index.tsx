@@ -19,6 +19,7 @@ import {
   HomeScreen,
   ProfileScreen,
   StudyScreen,
+  SubjectTopicsScreen,
 } from "../screens";
 
 const Stack = createNativeStackNavigator();
@@ -61,6 +62,8 @@ const AppMainNavigation = () => {
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
         <Stack.Screen name="StudyScreen" component={StudyScreen} />
+
+        <Stack.Screen name="SubjectTopicsScreen" component={SubjectTopicsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

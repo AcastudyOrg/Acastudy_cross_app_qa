@@ -1,8 +1,9 @@
 import React from "react";
 import { View, Text, ScrollView } from "react-native";
 
-import { subjectsSectionStyles } from "../../../styles/componentsStyle/sectionsStyle/home/subjectsSectionStyle";
-import SubjectComponent from "./SubjectComponent";
+import { subjectsSectionStyles } from '../../../styles/componentsStyle/sectionsStyle/home/subjectsSectionStyle';
+import SubjectComponent from './SubjectComponent';
+import { STRING } from '../../../constants/strings';
 
 type subjectsSectionProps = {
   subjectData: {
@@ -23,15 +24,8 @@ const SubjectsSection: React.FC<subjectsSectionProps> = ({
   return (
     <View style={subjectsSectionStyles.subjectMainContainer}>
       <View style={subjectsSectionStyles.subjectTextContainer}>
-        <Text style={subjectsSectionStyles.subjectTitleText}>Subjects</Text>
-        {showView && (
-          <Text
-            onPress={handleViewMore}
-            style={subjectsSectionStyles.subjectActionText}
-          >
-            View more
-          </Text>
-        )}
+        <Text style={subjectsSectionStyles.subjectTitleText}>{STRING.subjectTitle}</Text>
+        <Text onPress={handleViewMore} style={subjectsSectionStyles.subjectActionText}>{STRING.viewMore}</Text>
       </View>
 
       <ScrollView

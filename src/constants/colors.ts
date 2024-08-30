@@ -1,4 +1,5 @@
 const white = "#fff";
+const white50Percent = "rgba(255,255,255,.5)";
 const black = "#000";
 const gray = "#202020";
 const lightGray = "#D9D9D9";
@@ -12,6 +13,7 @@ const green = "#28A745";
 const lightGreen = "#00DD00";
 const blue = "#4361ee";
 const darkBlue = "#1A1E36";
+const skyBlue = "#2A3051";
 const darkPurple = "#391D50";
 const indigo = "#6b778d";
 const yellow = "#FFC107";
@@ -25,6 +27,7 @@ const transparentWhite = "#aaa";
 
 const colors = {
   white,
+  white50Percent,
   black,
   gray,
   lightGray,
@@ -38,6 +41,7 @@ const colors = {
   lightGreen,
   blue,
   darkBlue,
+  skyBlue,
   darkPurple,
   indigo,
   yellow,
