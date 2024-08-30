@@ -24,7 +24,7 @@ const RightSection: React.FC<RightSectionProps> = ({
 		{isLSignedIn ? (
 			<SignedInContent screenWidth={screenWidth} navigation={navigation} user={user} />
 		) : (
-			<SignedOutContent navigation={navigation} showBecomeATutorOnly={showBecomeATutorOnly} />
+			<SignedOutContent screenWidth={screenWidth} navigation={navigation} showBecomeATutorOnly={showBecomeATutorOnly} />
 		)}
 	</>
 );
@@ -65,19 +65,24 @@ const SignedInContent: React.FC<SignedInContentProps> = ({ screenWidth, user, na
 );
 
 type SignedOutContentProps = {
+	screenWidth: number
 	navigation: any;
 	showBecomeATutorOnly?: boolean;
 };
 
-const SignedOutContent: React.FC<SignedOutContentProps> = ({ navigation, showBecomeATutorOnly = false }) => (
+const SignedOutContent: React.FC<SignedOutContentProps> = ({ screenWidth, navigation, showBecomeATutorOnly = false }) => (
 	<View style={rightSectionStyles.rightSection}>
-		<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.HomeScreen)}>
-			<Text style={rightSectionStyles.linkText}>{STRING.becomeATutor}</Text>
-		</TouchableOpacity>
+		{screenWidth >= 705 && (
+			<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.HomeScreen)}>
+				<Text style={rightSectionStyles.linkText}>{STRING.becomeATutor}</Text>
+			</TouchableOpacity>
+		)}
 
 		{!showBecomeATutorOnly && (
 			<>
-				<Text style={rightSectionStyles.linkText}>|</Text>
+				{screenWidth >= 705 && (
+					<Text style={rightSectionStyles.linkText}>|</Text>
+				)}
 				<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.SignInScreen)}>
 					<Text style={rightSectionStyles.linkText}>{STRING.signIn}</Text>
 				</TouchableOpacity>
