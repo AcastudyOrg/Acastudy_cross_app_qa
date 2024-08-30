@@ -57,6 +57,7 @@ export const becomeWhatAtAcaStudyStyles = StyleSheet.create({
   buttonContainer: {
     width:
       isMobile ? width / 2 : "45%",
+    minWidth: isMobile ? 'auto' : 200,
     paddingTop: 10,
   },
 });
