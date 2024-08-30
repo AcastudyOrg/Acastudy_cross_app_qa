@@ -120,7 +120,7 @@ const TextInputComponent = ({
             <TextInput
               value={inputValue}
               onFocus={handleFocus}
-              onBlur={handleBlur}
+              onBlur={() => {}}
               onChangeText={handleChangeText}
               secureTextEntry={type === "password" && !isPasswordVisible}
               autoCapitalize={type === "email" ? "none" : "sentences"}
@@ -132,7 +132,7 @@ const TextInputComponent = ({
               style={[
                 textInputComponentStyles.textInputItem,
                 {
-                  color: transparentBg ? COLORS.black : COLORS.white,
+                  color: transparentBg ? COLORS.black : COLORS.white, height: 50
                 },
               ]}
             />
