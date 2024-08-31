@@ -11,26 +11,26 @@ import AuthTextField from "../../components/common/Form/AuthTextField";
 import { User } from "../../types/User/Student";
 import { NAV_SCREEN_NAME } from "../../constants/strings";
 
- // Note the code does not handle error messages
+// Note the code does not handle error messages
 const SignUpScreen = () => {
   const title: string = "Create your account";
-	const subtitle: string = "To Continue to Acastudy";
-	const forgotPassword: string = "Forgot Password";
+  const subtitle: string = "To Continue to Acastudy";
+  const forgotPassword: string = "Forgot Password";
 
   const navigation = useNavigation<any>()
-	const [email, setEmail] = useState<string>("");
-	const [username, setUsername] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [username, setUsername] = useState<string>("");
 
-	const user: User = {
-		name: "",
-		surname: "",
-		profilePictureUrl: 0
-	};
-	const handleSubmit = () => {
-		// Todo(Tekstaq): handle onSubmit here
-		console.log("Creds: " + email, username)
+  const user: User = {
+    name: "",
+    surname: "",
+    profilePictureUrl: 0
+  };
+  const handleSubmit = () => {
+    // Todo(Tekstaq): handle onSubmit here
+    console.log("Creds: " + email, username)
     navigation.navigate(NAV_SCREEN_NAME.PasswordScreen)
-	};
+  };
 
   return (
     <View style={authScreenStyle.signInContentContainer}>
@@ -56,7 +56,7 @@ const SignUpScreen = () => {
 
           <View style={authScreenStyle.alternative} >
             <Text>Have an account? </Text>
-            <TouchableOpacity onPress={() => { navigation.navigate(NAV_SCREEN_NAME.SignInScreen)}}> {/*TODO: navigate to the correct screen*/}
+            <TouchableOpacity onPress={() => { navigation.navigate(NAV_SCREEN_NAME.SignInScreen)}}>
               <Text style={authScreenStyle.clickerbleText}>Sign in.</Text>
             </TouchableOpacity>
           </View>

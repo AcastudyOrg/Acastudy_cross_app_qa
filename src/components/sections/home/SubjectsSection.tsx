@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import React from "react";
+import { View, Text, ScrollView } from "react-native";
 
 import { subjectsSectionStyles } from '../../../styles/componentsStyle/sectionsStyle/home/subjectsSectionStyle';
 import SubjectComponent from './SubjectComponent';
@@ -19,8 +19,8 @@ const SubjectsSection: React.FC<subjectsSectionProps> = ({ subjectData }) => {
 
   const handleViewMore = () => {
     navigation.navigate(NAV_SCREEN_NAME.SubjectScreen);
-    console.log('view more events')
-  }
+    console.log("view more events");
+  };
 
   return (
     <View style={subjectsSectionStyles.subjectMainContainer}>
@@ -35,15 +35,13 @@ const SubjectsSection: React.FC<subjectsSectionProps> = ({ subjectData }) => {
         style={subjectsSectionStyles.subjectMainDataContainer}
       >
         {subjectData.map((item, i) => (
-          <View
-            key={i}
-          >
+          <View key={i}>
             <SubjectComponent item={item} />
           </View>
         ))}
       </ScrollView>
     </View>
   );
-}
+};
 
 export default SubjectsSection;

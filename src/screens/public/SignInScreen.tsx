@@ -49,7 +49,7 @@ const SignInScreen = () => {
 						<CustomDivider />
 					</View>
 
-					<TouchableOpacity style={authScreenStyle.forgotPassword} onPress={() => { navigation.navigate(NAV_SCREEN_NAME.ForgotPasswordScreen) }}> {/*TODO: navigate to the correct screen*/}
+					<TouchableOpacity style={authScreenStyle.forgotPassword} onPress={() => { navigation.navigate(NAV_SCREEN_NAME.ForgotPasswordScreen) }}> 
 						<Text style={authScreenStyle.clickerbleText}>{forgotPassword}</Text>
 					</TouchableOpacity>
 
@@ -60,7 +60,7 @@ const SignInScreen = () => {
 
 					<View style={authScreenStyle.alternative} >
 						<Text>No account? </Text>
-						<TouchableOpacity onPress={() => { navigation.navigate(NAV_SCREEN_NAME.SignUpScreen) }}> {/*TODO: navigate to the correct screen*/}
+						<TouchableOpacity onPress={() => { navigation.navigate(NAV_SCREEN_NAME.SignUpScreen) }}> 
 							<Text style={authScreenStyle.clickerbleText}>Create account.</Text>
 						</TouchableOpacity>
 					</View>

@@ -10,9 +10,10 @@ interface Props {
   value: string;
   onChangeText: (text: string) => void;
   isPassword?: boolean;
+  placeholder?: string;
 }
 
-const AuthTextField: React.FC<Props> = ({ label, value, onChangeText, isPassword = false }) => {
+const AuthTextField: React.FC<Props> = ({ label, value, onChangeText, isPassword = false, placeholder="" }) => {
   const [isSecure, setIsSecure] = useState(isPassword);
 
   const toggleSecureEntry = () => {
@@ -29,6 +30,7 @@ const AuthTextField: React.FC<Props> = ({ label, value, onChangeText, isPassword
           onChangeText={onChangeText}
           secureTextEntry={isSecure}
           autoCapitalize="none"
+          placeholder={placeholder}
           inputMode={isSecure ? 'email' as InputModeOptions : 'password' as InputModeOptions}
         />
         {isPassword && (
