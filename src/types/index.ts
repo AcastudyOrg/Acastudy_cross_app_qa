@@ -82,9 +82,10 @@ export interface TextInputProps {
   type: "password" | "tel" | "text" | "email";
   onChange: (text: string) => void;
   value: string;
-  label: string;
+  label?: string;
   placeholder?: string;
   isTextArea?: boolean;
+  transparentBg?: boolean;
 }
 export interface ImagePickerComponentProps {
   onImagePicked: (uri: string) => void;
