@@ -1,11 +1,11 @@
-import React from 'react'
-import { Image, Text, View } from 'react-native'
-import { LinearGradient } from 'expo-linear-gradient'
+import React from 'react';
+import { Image, Text, View } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 
-import { COLORS } from '../../../constants'
-import { formatDateTime } from '../../../../utils/config'
-import { upcomingEventsComponentStyles } from '../../../styles/componentsStyle/sectionsStyle/home/upcomingEventsComponentStyle'
-import useScreenWidth from '../../../hooks/useScreenWidth'
+import { COLORS } from '../../../constants';
+import { formatDateTime, homeTileScreenWidth } from '../../../../utils/config';
+import { upcomingEventsComponentStyles } from '../../../styles/componentsStyle/sectionsStyle/home/upcomingEventsComponentStyle';
+import useScreenWidth from '../../../hooks/useScreenWidth';
 
 type EventsProps = {
     item: {
@@ -19,8 +19,8 @@ type EventsProps = {
 };
 
 const UpcomingEventsComponent: React.FC<EventsProps> = ({ item }) => {
-    const screenWith = useScreenWidth();
-    const containerWidth = screenWith > 900 ? screenWith * .18 : 160;
+    const screenWidth = useScreenWidth();
+    const containerWidth = homeTileScreenWidth(screenWidth);
     return (
         <View style={[upcomingEventsComponentStyles.container, { width: containerWidth }]}>
             <LinearGradient

@@ -1,9 +1,10 @@
-import React from 'react'
-import { Image, Text, View } from 'react-native'
+import React from 'react';
+import { Image, Text, View } from 'react-native';
 import { Octicons } from '@expo/vector-icons';
 
-import { COLORS } from '../../../constants'
+import { COLORS } from '../../../constants';
 import { tutorComponentStyles } from '../../../styles/componentsStyle/sectionsStyle/home/tutorComponentStyle';
+import { homeTileScreenWidth } from '../../../../utils/config';
 import useScreenWidth from '../../../hooks/useScreenWidth';
 
 type TutorProps = {
@@ -19,8 +20,8 @@ type TutorProps = {
 };
 
 const TutorComponent: React.FC<TutorProps> = ({ item }) => {
-    const screenWith = useScreenWidth();
-    const containerWidth = screenWith > 900 ? screenWith * .18 : 160;
+    const screenWidth = useScreenWidth();
+    const containerWidth = homeTileScreenWidth(screenWidth);
     return (
         <View style={[
             tutorComponentStyles.tutorContentContainer,

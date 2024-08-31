@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import { subjectComponentStyles } from '../../../styles/componentsStyle/sectionsStyle/home/subjectComponentStyle';
 import { NAV_SCREEN_NAME } from '../../../constants/strings';
+import { homeTileScreenWidth } from '../../../../utils/config';
 import useScreenWidth from '../../../hooks/useScreenWidth';
 
 type SubjectsProps = {
@@ -14,8 +15,8 @@ type SubjectsProps = {
 };
 const SubjectComponent: React.FC<SubjectsProps> = ({ item }) => {
     const navigation = useNavigation<any>();
-    const screenWith = useScreenWidth();
-    const containerWidth = screenWith > 900 ? screenWith * .18 : 160;
+    const screenWidth = useScreenWidth();
+    const containerWidth = homeTileScreenWidth(screenWidth);
     return (
         <View style={[subjectComponentStyles.container, { width: containerWidth }]}>
             <TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.SubjectTopicsScreen)}>
