@@ -1,16 +1,15 @@
 import * as React from "react";
-import { View, SafeAreaView, Text, Image, ScrollView } from "react-native";
+import { View, SafeAreaView, Image, ScrollView } from "react-native";
 
 import { screenSize } from "../../../utils/config";
 import TopBarComponent from "../common/TopBar/TopBarComponent";
 import { User } from "../../types/User/Student";
 import { LoginMockUser } from "../../../mockData/LoginUser";
-import { DEVICE_TYPE, STRING } from "../../constants/strings";
+import { DEVICE_TYPE } from "../../constants/strings";
 import SidebarNavComponent from "../common/SideBar/SidebarNavComponent";
 import BottomBarComponent from "../common/BottomBar/BottomBarComponent";
 import { privateScreenLayoutStyles } from "../../styles/componentsStyle/layoutStyle/privateScreenLayoutStyle";
 import { IMAGES } from "../../constants";
-import { sidebarHeaderStyles } from "../../styles/componentsStyle/commonStyle/sideBarStyle/sidebarHeaderStyle";
 
 
 const PrivateScreenLayout = ({ children }: { children: React.ReactNode }) => {
