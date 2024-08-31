@@ -7,19 +7,19 @@ const { height } = Dimensions.get("window");
 export const onboardingScreenStyles = StyleSheet.create({
   imageBgContainer: {
     width: "100%",
-    height: 'auto',
+    height: isMobile ? "auto" : 600,
     minHeight: height / 2.5,
     resizeMode: "cover",
+    borderRadius: 15,
     overflow: "hidden",
+    padding: 50,
   },
   imageContainer: {
-    paddingHorizontal:
-      isMobile ? 0 : 15,
+    paddingHorizontal: isMobile ? 0 : 15,
   },
   imageTextContainer: {
     flex: 1,
-    paddingHorizontal: 25,
-    paddingBottom: 15,
+    paddingBottom: 25,
     justifyContent: "flex-end",
     alignItems: "flex-start",
     gap: 5,
@@ -31,27 +31,27 @@ export const onboardingScreenStyles = StyleSheet.create({
     fontSize: SIZE.xxxl,
   },
   imageTextInfoItem: {
-    width: isMobile ? "100%" : "70%",
+    width: isMobile ? "100%" : "60%",
     color: COLORS.white,
     fontFamily: FONT.plusJakartaRegular,
-    fontSize: SIZE.m,
+    fontSize: SIZE.xl,
+    lineHeight: 30,
   },
   componentContainer: {
     gap: 2,
+    top: 20,
   },
   infoSectionContainer: {
-    gap: isMobile ? 30 : 30,
+    gap: 60,
     paddingTop: 20,
-    paddingHorizontal:
-      isMobile ? 15 : 27,
+    paddingBottom: 60,
+    paddingHorizontal: isMobile ? 15 : 27,
   },
   searchContainer: {
     width: isMobile ? "80%" : "50%",
     minWidth: isMobile ? "auto" : 480,
     paddingVertical: 8,
     paddingHorizontal: 20,
-    marginHorizontal: 25,
-    marginBottom: 25,
     flexDirection: "row",
     justifyContent: "space-between",
     overflow: "hidden",

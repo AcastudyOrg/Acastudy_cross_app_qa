@@ -12,9 +12,9 @@ import TutorSection from "../../components/sections/home/TutorSection";
 const HomeScreen = () => {
   return (
     <PrivateScreenLayout>
-      <EventsSection showView={true} upcomingEventsData={upcomingEventsData} />
-      <SubjectsSection showView={true} subjectData={subjectData} />
-      <TutorSection showView={true} tutorData={tutorData} />
+      <EventsSection upcomingEventsData={upcomingEventsData} />
+      <SubjectsSection subjectData={subjectData} />
+      <TutorSection tutorData={tutorData} />
     </PrivateScreenLayout>
   );
 };

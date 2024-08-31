@@ -10,13 +10,9 @@ type subjectsSectionProps = {
     thumbnail: string;
     title: string;
   }[];
-  showView: boolean;
 };
 
-const SubjectsSection: React.FC<subjectsSectionProps> = ({
-  subjectData,
-  showView,
-}) => {
+const SubjectsSection: React.FC<subjectsSectionProps> = ({ subjectData }) => {
   const handleViewMore = () => {
     console.log("view more events");
   };

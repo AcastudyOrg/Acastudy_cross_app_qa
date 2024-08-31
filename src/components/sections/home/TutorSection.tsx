@@ -15,10 +15,9 @@ type tutorSectionProps = {
         rating: number;
         online: boolean;
     }[];
-    showView: boolean;
 };
 
-const TutorSection: React.FC<tutorSectionProps> = ({ tutorData, showView }) => {
+const TutorSection: React.FC<tutorSectionProps> = ({ tutorData }) => {
     const handleViewMore = () => {
         console.log('view more tutors')
     }

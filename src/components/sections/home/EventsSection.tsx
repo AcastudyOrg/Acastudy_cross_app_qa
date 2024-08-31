@@ -14,10 +14,9 @@ type eventsSectionProps = {
         datetime: string;
         category: string;
     }[];
-    showView: boolean;
 };
 
-const EventsSection: React.FC<eventsSectionProps> = ({ upcomingEventsData, showView }) => {
+const EventsSection: React.FC<eventsSectionProps> = ({ upcomingEventsData }) => {
     const handleViewMore = () => {
         console.log('view more events')
     }

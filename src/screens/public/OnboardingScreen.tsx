@@ -19,8 +19,8 @@ const OnboardingScreen = () => {
           <BannerComponent />
         </View>
 
-        <SubjectsSection showView={false} subjectData={subjectData} />
-        <EventsSection showView={false}  upcomingEventsData={upcomingEventsData} />
+        <SubjectsSection subjectData={subjectData} />
+        <EventsSection upcomingEventsData={upcomingEventsData} />
       </View>
 
       <View style={onboardingScreenStyles.infoSectionContainer}>

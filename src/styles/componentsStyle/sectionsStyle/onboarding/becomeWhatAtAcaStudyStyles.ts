@@ -19,7 +19,7 @@ export const becomeWhatAtAcaStudyStyles = StyleSheet.create({
   },
   imageItem: {
     width: "100%",
-    height: isMobile ? 180 : 230,
+    height: isMobile ? 180 : 370,
   },
   textContainer: {
     width: isMobile ? "100%" : "48%",
@@ -28,30 +28,27 @@ export const becomeWhatAtAcaStudyStyles = StyleSheet.create({
   },
   titleText: {
     color: COLORS.white,
-    fontSize:
-      isMobile ? SIZE.xl : SIZE.l,
+    fontSize: isMobile ? SIZE.xxl : SIZE.xxxl,
     fontFamily: FONT.plusJakartaBold,
   },
   infoTextContainer: {
     flexDirection: "column",
+    paddingBottom: 20,
   },
   subtitleText: {
     color: COLORS.white,
-    fontSize:
-      isMobile ? SIZE.sm : SIZE.s,
+    fontSize: isMobile ? SIZE.m : SIZE.xl,
     fontFamily: FONT.plusJakartaBold,
   },
   infoText: {
     color: COLORS.white,
-    fontSize:
-      isMobile ? SIZE.sm : SIZE.s,
+    fontSize: isMobile ? SIZE.m : SIZE.xl,
     fontFamily: FONT.plusJakartaExtraLight,
   },
   extraInfoText: {
     paddingTop: 10,
     color: COLORS.white,
-    fontSize:
-      isMobile ? SIZE.sm : SIZE.s,
+    fontSize: isMobile ? SIZE.m : SIZE.xl,
     fontFamily: FONT.plusJakartaExtraLight,
   },
   buttonContainer: {
