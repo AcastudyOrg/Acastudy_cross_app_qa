@@ -1,10 +1,10 @@
 import { View, Text, ImageBackground } from "react-native";
 import { onboardingScreenStyles } from "../../../styles/screensStyle/publicStyle/onboardingScreenStyle";
-import TextInputComponent from "../../common/Form/TextInputComponent";
 import { useState } from "react";
 import GradientButtonComponent from "../../common/Form/GradientButtonComponent";
 import { IMAGES } from "../../../constants";
 import { STRING } from "../../../constants/strings";
+import { SearchInputComponent } from "../../common/Form/SearchInputComponent";
 
 const OnboardingTopImageComponent = () => {
   const [search, setSearch] = useState<string>("");
@@ -29,14 +29,7 @@ const OnboardingTopImageComponent = () => {
 
       <View style={onboardingScreenStyles.searchContainer}>
         <View style={onboardingScreenStyles.searchTextContainer}>
-          <TextInputComponent
-            type="text"
-            value={search}
-            onChange={(text) => setSearch(text)}
-            placeholder="Search Tutors"
-            isTextArea={false}
-            transparentBg={true}
-          />
+          <SearchInputComponent value={search} placeholder="Search for a subject" onChangeText={setSearch}/>
         </View>
 
         <View style={onboardingScreenStyles.searchButtonContainer}>
