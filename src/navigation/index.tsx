@@ -20,7 +20,11 @@ import {
   ProfileScreen,
   StudyScreen,
   SubjectTopicsScreen,
+  TutorsScreen,
+  
 } from "../screens";
+import SubjectScreen from "../screens/private/subjects/SubjectsScreen";
+
 
 const Stack = createNativeStackNavigator();
 
@@ -64,6 +68,9 @@ const AppMainNavigation = () => {
         <Stack.Screen name="StudyScreen" component={StudyScreen} />
 
         <Stack.Screen name="SubjectTopicsScreen" component={SubjectTopicsScreen} />
+        <Stack.Screen name="TutorScreen" component={TutorsScreen} />
+        <Stack.Screen name="SubjectScreen" component={SubjectScreen} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );

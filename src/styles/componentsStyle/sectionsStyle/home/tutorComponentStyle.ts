@@ -12,6 +12,7 @@ export const tutorComponentStyles = StyleSheet.create({
         paddingHorizontal: containerWidth * .1,
         paddingVertical: 20,
         marginRight: 15,
+        marginBottom: 20,
         borderRadius: 8,
         flexDirection: 'column',
         alignItems: 'center',

@@ -34,6 +34,8 @@ export const NAV_SCREEN_NAME = {
     VerifyEmailScreen: 'VerifyEmailScreen',
 
     SubjectTopicsScreen: 'SubjectTopicsScreen',
+    TutorScreen: 'TutorScreen',
+    SubjectScreen: 'SubjectScreen',
 
 };
 

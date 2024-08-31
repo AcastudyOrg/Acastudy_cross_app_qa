@@ -22,6 +22,7 @@ import HomeScreen from "./private/HomeScreen";
 import ProfileScreen from "./private/ProfileScreen";
 import StudyScreen from "./private/StudyScreen";
 import SubjectTopicsScreen from "./private/subjects/SubjectTopicsScreen";
+import TutorsScreen from "./private/TutorsScreen";
 
 export {
   OnboardingScreen,
@@ -41,4 +42,5 @@ export {
   ProfileScreen,
   StudyScreen,
   SubjectTopicsScreen,
+  TutorsScreen,
 };
