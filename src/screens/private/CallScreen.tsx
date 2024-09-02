@@ -1,22 +1,17 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View } from "react-native";
 
 import {ComingSoonComponent, PrivateScreenLayout} from "../../components";
+import { callScreenStyles } from "../../styles/screensStyle/privateStyle/callScreenStyle";
 
 const CallScreen = () => {
   return (
     <PrivateScreenLayout>
-      <View style={styles.homeMainContainer}>
+      <View style={callScreenStyles.homeMainContainer}>
             <ComingSoonComponent/>
       </View>
     </PrivateScreenLayout>
   );
 };
-
-const styles = StyleSheet.create({
-  homeMainContainer: {
-    flex: 1,
-  },
-});
 
 export default CallScreen;

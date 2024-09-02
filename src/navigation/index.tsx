@@ -19,7 +19,12 @@ import {
   HomeScreen,
   ProfileScreen,
   StudyScreen,
+  SubjectTopicsScreen,
+  TutorsScreen,
+  
 } from "../screens";
+import SubjectScreen from "../screens/private/subjects/SubjectsScreen";
+
 
 const Stack = createNativeStackNavigator();
 
@@ -27,7 +32,7 @@ const AppMainNavigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="HomeScreen"
+        initialRouteName="OnboardingScreen"
         screenOptions={{ headerShown: false }}
       >
         {/* Public Route Screens */}
@@ -61,6 +66,11 @@ const AppMainNavigation = () => {
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
         <Stack.Screen name="StudyScreen" component={StudyScreen} />
+
+        <Stack.Screen name="SubjectTopicsScreen" component={SubjectTopicsScreen} />
+        <Stack.Screen name="TutorScreen" component={TutorsScreen} />
+        <Stack.Screen name="SubjectScreen" component={SubjectScreen} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );

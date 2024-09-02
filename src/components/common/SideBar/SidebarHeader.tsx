@@ -1,35 +1,26 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { FONT, SIZE } from "../../../constants";
-import { AppColor } from "../../../constants/colors";
+import { Text, TouchableOpacity, Image } from "react-native";
 import { NAV_SCREEN_NAME, STRING } from "../../../constants/strings";
+import { sidebarHeaderStyles } from "../../../styles/componentsStyle/commonStyle/sideBarStyle/sidebarHeaderStyle";
+import { IMAGES } from "../../../constants";
 
 type SidebarHeaderProps = {
 	screenWidth: number;
 	navigation: any;
 };
 
-const SidebarHeader:  React.FC<SidebarHeaderProps> = ({screenWidth, navigation}) => {
+const SidebarHeader: React.FC<SidebarHeaderProps> = ({ screenWidth, navigation }) => {
 	return (
-		<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.HomeScreen)} style={styles.sidebarMediaContainer}>
-            {screenWidth >= 972 && (
-                <Text style={styles.sidebarMediaItem}> {STRING.appName} </Text>
-            )}
+		<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.HomeScreen)} style={sidebarHeaderStyles.sidebarMediaContainer}>
+			{screenWidth >= 972 && (
+				<Image
+					source={IMAGES.appLogo}
+					alt="coming-soon-image"
+					style={sidebarHeaderStyles.logoImage}
+				/>
+			)}
 		</TouchableOpacity>
 	);
 };
-
-const styles = StyleSheet.create({
-	sidebarMediaContainer: {
-		height: 35,
-		justifyContent: 'flex-start',
-        paddingLeft: 20
-	},
-	sidebarMediaItem: {
-		color: AppColor.white,
-		fontFamily: FONT.interBold,
-		fontSize: SIZE.xxl,
-	},
-});
 
 export default SidebarHeader;

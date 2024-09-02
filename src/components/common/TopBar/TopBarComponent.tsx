@@ -1,21 +1,35 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+
 import useScreenWidth from '../../../hooks/useScreenWidth';
 import LeftSection from './LeftSection';
 import RightSection from './RightSection';
 import { User } from '../../../types/User/Student';
-import { AppColor } from '../../../constants/colors';
+import { topBarComponentStyles } from '../../../styles/componentsStyle/commonStyle/topBarStyle/topBarComponentStyle';
 
 type TopBarProps = {
-	renderLeftSection?: boolean;
+	showSearchBar?: boolean;
+	showAppName?: boolean;
 	renderRightSection?: boolean;
+	isLSignedIn?: boolean;
+	showBecomeATutorOnly?: boolean;
 	user?: User;
 };
+/*
+TopBarComponent
+	param: renderLeftSection: boolean -> renders the left side of the top bar, (showAppName: boolean and/or showSearchBar: boolean)
+		   renderRightSection: boolean -> renders the right side of the top bar, ( isLSignedIn: boolean, showBecomeATutorOnly: boolean)
+										if showBecomeATutorOnly then dont render sign in and signup button
+		   
 
+*/
 const TopBarComponent: React.FC<TopBarProps> = ({
-	renderLeftSection = true,
+	showAppName = false,
+	showSearchBar = true,
 	renderRightSection = true,
+	isLSignedIn = true,
+	showBecomeATutorOnly = true,
 	user = null,
 }) => {
 	const navigation = useNavigation<any>();
@@ -23,34 +37,21 @@ const TopBarComponent: React.FC<TopBarProps> = ({
 
 	return (
 		<View>
-			<View style={styles.topBar}>
-				{renderLeftSection && <LeftSection />}
+			<View style={topBarComponentStyles.topBar}>
+				<LeftSection showAppName={showAppName} showSearchBar={showSearchBar} />
 				{renderRightSection && user && (
-					<RightSection screenWidth={screenWidth} user={user} navigation={navigation} />
+					<RightSection
+						screenWidth={screenWidth}
+						user={user}
+						navigation={navigation}
+						isLSignedIn={isLSignedIn}
+						showBecomeATutorOnly={showBecomeATutorOnly}
+					/>
 				)}
 			</View>
-			<View style={styles.divider} />
+			<View style={topBarComponentStyles.divider} />
 		</View>
 	);
 };
-
-const styles = StyleSheet.create({
-	topBar: {
-		flexDirection: 'row',
-		justifyContent: 'space-between',
-		alignItems: 'center',
-		paddingHorizontal: 40,
-		paddingBottom: 10,
-		paddingTop: 20,
-		backgroundColor: AppColor.transparent,
-	},
-	divider: {
-		width: "93%",
-		height: 0.5,
-		alignSelf: "center",
-		backgroundColor: 'gray',
-		marginTop: 5,
-	},
-});
 
 export default TopBarComponent;

@@ -1,9 +1,10 @@
 import React from "react";
-import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
+import { Image, TouchableOpacity, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 
 import { TopNavigationProps } from "../../types";
+import { appTopNavigationComponentStyles } from "../../styles/componentsStyle/commonStyle/appTopNavigationComponentStyle";
 import { COLORS, IMAGES } from "../../constants";
 
 const AppTopNavigationComponent = ({
@@ -14,79 +15,34 @@ const AppTopNavigationComponent = ({
   const navigation = useNavigation();
 
   return (
-    <View style={styles.appNavigationMainContainer}>
-      {/*Router section*/}
-      <View style={styles.appNavigatorRouterContainer}>
+    <View style={appTopNavigationComponentStyles.appNavigationMainContainer}>
+      <View style={appTopNavigationComponentStyles.appNavigatorRouterContainer}>
         {backNavigation && (
           <TouchableOpacity
             onPress={() => navigation.goBack()}
-            style={styles.appNavigatorRouterContent}
+            style={appTopNavigationComponentStyles.appNavigatorRouterContent}
           >
             <Ionicons name="arrow-back-circle" size={28} color={COLORS.white} />
           </TouchableOpacity>
         )}
       </View>
 
-      {/*App Logo section*/}
-      <View style={styles.appNavigatorLogoContainer}>
+      <View style={appTopNavigationComponentStyles.appNavigatorLogoContainer}>
         {companyLogo && (
-          <Image source={IMAGES.appLogo} style={styles.appNavigatorLogoItem} />
+          <Image source={IMAGES.appLogo} style={appTopNavigationComponentStyles.appNavigatorLogoItem} />
         )}
       </View>
 
-      {/*User image section*/}
-      <View style={styles.appNavigatorUserPictureContainer}>
+      <View style={appTopNavigationComponentStyles.appNavigatorUserPictureContainer}>
         {authenticatedUser && (
           <Image
-            source={IMAGES.user}
-            style={styles.appNavigatorUserPictureItem}
+            source={IMAGES.userPlaceholder}
+            style={appTopNavigationComponentStyles.appNavigatorUserPictureItem}
           />
         )}
       </View>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  appNavigationMainContainer: {
-    width: "100%",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    paddingHorizontal: "auto",
-  },
-  appNavigatorRouterContainer: {
-    width: "15%",
-    justifyContent: "center",
-    alignItems: "flex-start",
-  },
-  appNavigatorRouterContent: {
-    width: "100%",
-    justifyContent: "center",
-    alignItems: "flex-start",
-    borderRadius: 10,
-    overflow: "hidden",
-  },
-  appNavigatorLogoContainer: {
-    width: "65%",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  appNavigatorLogoItem: {
-    width: 100,
-    height: 40,
-    resizeMode: "contain",
-  },
-  appNavigatorUserPictureContainer: {
-    width: "15%",
-    justifyContent: "center",
-    alignItems: "flex-end",
-  },
-  appNavigatorUserPictureItem: {
-    width: 40,
-    height: 40,
-    resizeMode: "cover",
-    borderRadius: 50,
-  },
-});
 
 export default AppTopNavigationComponent;

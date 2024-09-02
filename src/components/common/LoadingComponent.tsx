@@ -1,45 +1,19 @@
-import { Image, StyleSheet, Text, View } from "react-native";
-import { COLORS, FONT, IMAGES, SIZE, WEIGHT } from "../../constants";
+import { Image, Text, View } from "react-native";
+
+import { IMAGES } from "../../constants";
+import { loadingComponentStyle } from "../../styles/componentsStyle/commonStyle/loadingComponentStyle";
 
 const LoadingComponent = () => {
   return (
-    <View style={styles.loaderContainer}>
-      <Image source={{ uri: IMAGES.loader }} style={styles.loaderImageItem} />
+    <View style={loadingComponentStyle.loaderContainer}>
+      <Image source={{ uri: IMAGES.loader }} style={loadingComponentStyle.loaderImageItem} />
 
-      <Text style={styles.loaderTitleText}>Please wait</Text>
-      <Text style={styles.loaderMessageText}>
+      <Text style={loadingComponentStyle.loaderTitleText}>Please wait</Text>
+      <Text style={loadingComponentStyle.loaderMessageText}>
         We are fetching all your requested information...
       </Text>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  loaderContainer: {
-    flex: 1,
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    paddingHorizontal: 25,
-    backgroundColor: COLORS.black,
-  },
-  loaderImageItem: {
-    width: 200,
-    height: 200,
-    resizeMode: "cover",
-  },
-  loaderTitleText: {
-    marginVertical: 20,
-    color: COLORS.white,
-    fontSize: SIZE.xxxl,
-    fontFamily: FONT.interBold,
-  },
-  loaderMessageText: {
-    color: COLORS.white,
-    fontSize: SIZE.m,
-    fontWeight: WEIGHT.thin,
-    textAlign: "center",
-  },
-});
 
 export default LoadingComponent;

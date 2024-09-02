@@ -1,33 +1,31 @@
 import React from 'react';
-import { View, TextInput, StyleSheet } from 'react-native';
-import { AppColor } from '../../../constants/colors';
-import { STRING } from '../../../constants/strings';
+import { View, TextInput, Image, Text } from 'react-native';
 
-const LeftSection: React.FC = () => (
-	<View style={styles.leftSection}>
-		<TextInput
-			placeholder = {STRING.searchPlaceholder}
-			placeholderTextColor = {AppColor.transparentWhite}
-			style = {styles.searchInput}
-		/>
+import { COLORS, IMAGES } from '../../../constants';
+import { STRING } from '../../../constants/strings';
+import { leftSectionStyles } from '../../../styles/componentsStyle/commonStyle/topBarStyle/leftSectionStyle';
+
+
+type LeftSectionProps = {
+	showAppName?: boolean;
+	showSearchBar?: boolean;
+};
+
+
+const LeftSection: React.FC<LeftSectionProps> = ({ showAppName, showSearchBar }) => (
+	<View style={leftSectionStyles.leftSection}>
+		{showAppName && (
+			<Image source={IMAGES.appLogo} style={leftSectionStyles.logoItem} />
+		)}
+		{showSearchBar && (
+			<TextInput
+				placeholder={STRING.searchPlaceholder}
+				placeholderTextColor={COLORS.transparentWhite}
+				style={leftSectionStyles.searchInput}
+			/>
+		)}
+
 	</View>
 );
-
-const styles = StyleSheet.create({
-	leftSection: {
-		flex: 1,
-		maxWidth: '100%',
-		flexShrink: 1,
-	},
-	searchInput: {
-		backgroundColor: 'rgba(255, 255, 255, 0.1)',
-		borderRadius: 10,
-		paddingHorizontal: 15,
-		color: AppColor.white,
-		height: 40,
-		maxWidth: '100%',
-		minWidth: '10%',
-	},
-});
 
 export default LeftSection;

@@ -3,6 +3,10 @@ import { ImageSourcePropType } from "react-native";
 export interface ImageProps {
   authBackgroundImage: ImageSourcePropType;
   appLogo: ImageSourcePropType;
+  googleLogo: ImageSourcePropType;
+  bannerImage: ImageSourcePropType;
+  student: ImageSourcePropType;
+  studentTutor: ImageSourcePropType;
   forgotPassword: ImageSourcePropType;
   sentEmail: ImageSourcePropType;
   success: ImageSourcePropType;
@@ -20,6 +24,7 @@ export interface ImageProps {
   janeImg: ImageSourcePropType;
   agmedImg: ImageSourcePropType;
   druboImg: ImageSourcePropType;
+  onboard: ImageSourcePropType;
 }
 
 export interface IconProps {
