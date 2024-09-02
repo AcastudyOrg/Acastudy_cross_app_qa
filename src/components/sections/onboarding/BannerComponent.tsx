@@ -5,9 +5,14 @@ import GradientButtonComponent from "../../common/Form/GradientButtonComponent";
 import { IMAGES } from "../../../constants";
 import { STRING } from "../../../constants/strings";
 import { SearchInputComponent } from "../../common/Form/SearchInputComponent";
+import useScreenWidth from "../../../hooks/useScreenWidth";
+import { searchContainerWidth, textWidth } from "../../../../utils/config";
 
 const OnboardingTopImageComponent = () => {
   const [search, setSearch] = useState<string>("");
+  const screenWidth = useScreenWidth();
+  const bannerTextWidth = textWidth(screenWidth);
+  const searchWidth = searchContainerWidth(screenWidth);
 
   return (
     <ImageBackground
@@ -19,17 +24,17 @@ const OnboardingTopImageComponent = () => {
         <Text style={onboardingScreenStyles.imageTitleItem}>
           {STRING.bannerTopic}
         </Text>
-        <Text style={onboardingScreenStyles.imageTextInfoItem}>
+        <Text style={[onboardingScreenStyles.imageTextInfoItem, { width: bannerTextWidth }]}>
           {STRING.bannerContent}
         </Text>
-        <Text style={onboardingScreenStyles.imageTextInfoItem}>
+        <Text style={[onboardingScreenStyles.imageTextInfoItem, { width: bannerTextWidth }]}>
           {STRING.bannerSubContent}
         </Text>
       </View>
 
-      <View style={onboardingScreenStyles.searchContainer}>
+      <View style={[onboardingScreenStyles.searchContainer, { width: searchWidth }]}>
         <View style={onboardingScreenStyles.searchTextContainer}>
-          <SearchInputComponent value={search} placeholder="Search for a subject" onChangeText={setSearch}/>
+          <SearchInputComponent value={search} placeholder={STRING.bannerSearchPlaceholder} onChangeText={setSearch} />
         </View>
 
         <View style={onboardingScreenStyles.searchButtonContainer}>
