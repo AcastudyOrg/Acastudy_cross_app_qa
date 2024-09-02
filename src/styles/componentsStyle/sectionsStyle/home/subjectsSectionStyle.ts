@@ -34,6 +34,7 @@ export const subjectsSectionStyles = StyleSheet.create({
         width: '100%',
         flexDirection: 'row',
         flexWrap: 'wrap',
-        paddingVertical: 15,
+        paddingBottom: 30,
+        left: 25,
     },
 });

@@ -35,5 +35,6 @@ export const tutorSectionStyles = StyleSheet.create({
         flexDirection: 'row',
         flexWrap: 'wrap',
         paddingVertical: 15, 
+        left: 25,
     }
 });
