@@ -23,7 +23,6 @@ const TutorSection: React.FC<tutorSectionProps> = ({ tutorData }) => {
 
     const handleViewMore = () => {
             navigation.navigate(NAV_SCREEN_NAME.TutorScreen);
-            console.log('view more tutors')
     }
 
     return (

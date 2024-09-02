@@ -19,7 +19,6 @@ const SubjectsSection: React.FC<subjectsSectionProps> = ({ subjectData }) => {
 
   const handleViewMore = () => {
     navigation.navigate(NAV_SCREEN_NAME.SubjectScreen);
-    console.log("view more events");
   };
 
   return (

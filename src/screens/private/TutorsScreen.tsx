@@ -17,8 +17,6 @@ const TutorsScreen = ()  => {
     const [levelOfStudy, setLevelOfStudy] = useState("");
     const [subject, setSubject] = useState("");
 
-    const route = useRoute();
-
     return (
         <PrivateScreenLayout>
 
