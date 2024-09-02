@@ -1,13 +1,16 @@
 {
   "files": {
-    "main.js": "/Acastudy_cross_app/static/js/main.99abe390.js",
-    "static/js/434.8afca551.js": "/Acastudy_cross_app/static/js/434.8afca551.js",
+    "main.js": "/Acastudy_cross_app/static/js/main.c2cad34b.js",
+    "static/js/901.aa2c70df.js": "/Acastudy_cross_app/static/js/901.aa2c70df.js",
     "static/media/user.svg": "/Acastudy_cross_app/static/media/user.11396190c299a31e4c2e.svg",
     "static/media/user2.svg": "/Acastudy_cross_app/static/media/user2.82c9bfe564cde24d3e5d.svg",
+    "static/media/onboard.jpg": "/Acastudy_cross_app/static/media/onboard.57362dfee567ad2c591b.jpg",
     "static/media/authBackgroundImage.jpg": "/Acastudy_cross_app/static/media/authBackgroundImage.56139cd7d5ebaa353dcc.jpg",
+    "static/media/student.jpg": "/Acastudy_cross_app/static/media/student.b6413e8675f232ea90d1.jpg",
     "static/media/user3.svg": "/Acastudy_cross_app/static/media/user3.36a259058d33a05dd439.svg",
     "static/media/user4.svg": "/Acastudy_cross_app/static/media/user4.e9f0c0aacd108e26c654.svg",
     "static/media/MaterialCommunityIcons.ttf": "/Acastudy_cross_app/static/media/MaterialCommunityIcons.5d42b4e60858731e7b65.ttf",
+    "static/media/studentTutor.jpg": "/Acastudy_cross_app/static/media/studentTutor.19442a2a3f0ea8aba053.jpg",
     "static/media/biology.svg": "/Acastudy_cross_app/static/media/biology.c70a5f92814813af11e5.svg",
     "static/media/Ionicons.ttf": "/Acastudy_cross_app/static/media/Ionicons.9b6b1954a5eb6efeaf11.ttf",
     "static/media/lifeskills.svg": "/Acastudy_cross_app/static/media/lifeskills.67330aa5ff8f2d7d3dbd.svg",
@@ -17,6 +20,7 @@
     "static/media/maths.svg": "/Acastudy_cross_app/static/media/maths.4b0b30f7098c9a6c449a.svg",
     "static/media/FontAwesome5_Solid.ttf": "/Acastudy_cross_app/static/media/FontAwesome5_Solid.07c3313b24f7b1ca85ee.ttf",
     "static/media/FontAwesome.ttf": "/Acastudy_cross_app/static/media/FontAwesome.1e59d2330b4c6deb84b3.ttf",
+    "static/media/logo_white_no_bg.png": "/Acastudy_cross_app/static/media/logo_white_no_bg.8633ca19a05f1feb7901.png",
     "static/media/success.png": "/Acastudy_cross_app/static/media/success.7fe60d51292a1102c3a9.png",
     "static/media/FontAwesome5_Brands.ttf": "/Acastudy_cross_app/static/media/FontAwesome5_Brands.9e138496e8f1719c6ebf.ttf",
     "static/media/PlusJakartaSans_200ExtraLight_Italic.ttf": "/Acastudy_cross_app/static/media/PlusJakartaSans_200ExtraLight_Italic.0da6b1562bebbe62ad51.ttf",
@@ -44,18 +48,18 @@
     "static/media/FontAwesome5_Regular.ttf": "/Acastudy_cross_app/static/media/FontAwesome5_Regular.1017bce89c72f95bcf8e.ttf",
     "favicon.ico": "/Acastudy_cross_app/favicon.ico",
     "static/media/EvilIcons.ttf": "/Acastudy_cross_app/static/media/EvilIcons.699664b33ac2837d5bee.ttf",
+    "static/media/googleLogo.png": "/Acastudy_cross_app/static/media/googleLogo.5d4cc7012b9345c218ce.png",
     "index.html": "/Acastudy_cross_app/index.html",
-    "static/media/logo.png": "/Acastudy_cross_app/static/media/logo.e5109a10e3cc099fd169.png",
     "favicon-32.png": "/Acastudy_cross_app/favicon-32.png",
     "static/media/homeActive.png": "/Acastudy_cross_app/static/media/homeActive.535927748af069e2eb94.png",
     "favicon-16.png": "/Acastudy_cross_app/favicon-16.png",
     "manifest.json": "/Acastudy_cross_app/manifest.json",
     "serve.json": "/Acastudy_cross_app/serve.json",
-    "main.99abe390.js.map": "/Acastudy_cross_app/static/js/main.99abe390.js.map",
-    "434.8afca551.js.map": "/Acastudy_cross_app/static/js/434.8afca551.js.map"
+    "main.c2cad34b.js.map": "/Acastudy_cross_app/static/js/main.c2cad34b.js.map",
+    "901.aa2c70df.js.map": "/Acastudy_cross_app/static/js/901.aa2c70df.js.map"
   },
   "entrypoints": [
-    "static/js/434.8afca551.js",
-    "static/js/main.99abe390.js"
+    "static/js/901.aa2c70df.js",
+    "static/js/main.c2cad34b.js"
   ]
 }
