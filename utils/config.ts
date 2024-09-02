@@ -3,7 +3,7 @@ import { Dimensions } from "react-native";
 
 const { width } = Dimensions.get("window");
 
-export const isMobile =  Platform.OS === "ios" || Platform.OS === "android";
+export const isMobile = Platform.OS === "ios" || Platform.OS === "android";
 
 export const screenSize = () => {
   if (width < 768) {
@@ -14,6 +14,14 @@ export const screenSize = () => {
     return "desktop";
   }
 };
+
+export const textWidth = (screenWidth: number) => {
+  return screenWidth > 1024 ? screenWidth * .6 : screenWidth * .7;
+}
+
+export const searchContainerWidth = (screenWidth: number) => {
+  return screenWidth > 1024 ? screenWidth * .4 : screenWidth * .6;
+}
 
 export const homeTileScreenWidth = (screenWidth: number) => {
   return screenWidth > 900 ? screenWidth * .18 : 160;

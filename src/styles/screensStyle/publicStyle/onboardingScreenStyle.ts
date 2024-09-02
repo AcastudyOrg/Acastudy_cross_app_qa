@@ -7,8 +7,8 @@ const { height } = Dimensions.get("window");
 export const onboardingScreenStyles = StyleSheet.create({
   imageBgContainer: {
     width: "100%",
-    height: isMobile ? "auto" : 600,
-    minHeight: height / 2.5,
+    height: "auto",
+    minHeight:  600,
     resizeMode: "cover",
     borderRadius: 15,
     overflow: "hidden",
@@ -31,7 +31,6 @@ export const onboardingScreenStyles = StyleSheet.create({
     fontSize: SIZE.xxxl,
   },
   imageTextInfoItem: {
-    width: isMobile ? "100%" : "60%",
     color: COLORS.white,
     fontFamily: FONT.plusJakartaRegular,
     fontSize: SIZE.xl,
@@ -48,8 +47,7 @@ export const onboardingScreenStyles = StyleSheet.create({
     paddingHorizontal: isMobile ? 15 : 27,
   },
   searchContainer: {
-    width: isMobile ? "80%" : "50%",
-    minWidth: isMobile ? "auto" : 480,
+    // width: "80%",
     paddingVertical: 8,
     paddingHorizontal: 20,
     flexDirection: "row",
@@ -59,11 +57,9 @@ export const onboardingScreenStyles = StyleSheet.create({
     backgroundColor: COLORS.lightGray,
   },
   searchTextContainer: {
-    width: isMobile ? "45%" : "75%",
+    width: "60%",
   },
   searchButtonContainer: {
-    width: isMobile ? "35%" : "20%",
-    justifyContent: "center",
-    alignItems: "center",
+    width: 100,
   },
 });

@@ -19,6 +19,7 @@ export const STRING = {
     bannerTopic: 'Personalised Learning, Anytime, Anywhere',
     bannerContent: `Welcome to Acastudy, where education is tailored to fit your needs! Our platform connects you with expert tutors who are ready to help you achieve academic success. Whether it's a quick session or a scheduled deep dive, Acastudy provides flexible, on-demand learning experiences that adapt to your goals and availability.`,
     bannerSubContent: 'Take control of your academic journey and thrive with Acastudy today!',
+    bannerSearchPlaceholder: 'Search for a subject',
     OnbordingBecomeAStudentTittle: 'Become A Student',
     OnbordingBecomeAStudentFirstSubtitle: 'Unlock Your Full Potential with Acastudy',
     OnbordingBecomeAStudentFirstInfo: 'At Acastudy, we provide more than just tutoring—we offer personalized learning experiences designed to help you excel academically and personally. With top-rated tutors, tailored sessions, and a supportive community, we guide you to unlock your true potential.',
@@ -50,6 +51,8 @@ export const NAV_SCREEN_NAME = {
     VerifyEmailScreen: 'VerifyEmailScreen',
 
     SubjectTopicsScreen: 'SubjectTopicsScreen',
+    TutorScreen: 'TutorScreen',
+    SubjectScreen: 'SubjectScreen',
 
 };
 

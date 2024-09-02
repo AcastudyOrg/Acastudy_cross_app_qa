@@ -30,4 +30,11 @@ export const subjectsSectionStyles = StyleSheet.create({
         marginTop: 10,
         paddingHorizontal: "2%",
     },
+    subjectScreenMainContainer: {
+        width: '100%',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        paddingBottom: 30,
+        left: 25,
+    },
 });

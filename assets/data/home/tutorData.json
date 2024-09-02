@@ -38,5 +38,45 @@
     "sessions": 245,
     "rating": 4.3,
         "online": true
+  },
+  {
+    "id": "1",
+    "firstName": "Jackie",
+    "lastName": "Van Tonder",
+    "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=922&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "subject": "Biology",
+    "sessions": 125,
+    "rating": 5,
+    "online": true
+  },
+  {
+    "id": "2",
+    "firstName": "Nondumiso",
+    "lastName": "Sikhosana",
+    "avatar": "https://images.unsplash.com/photo-1573497161161-c3e73707e25c?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "subject": "Geography",
+    "sessions": 47,
+    "rating": 4,
+        "online": false
+  },
+  {
+    "id": "3",
+    "firstName": "Peter",
+    "lastName": "Brown",
+    "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "subject": "Web Development",
+    "sessions": 32,
+    "rating": 3.6,
+        "online": false
+  },
+  {
+    "id": "4",
+    "firstName": "Myran",
+    "lastName": "Govender",
+    "avatar": "https://images.unsplash.com/photo-1589386417686-0d34b5903d23?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "subject": "History",
+    "sessions": 245,
+    "rating": 4.3,
+        "online": true
   }
 ]
