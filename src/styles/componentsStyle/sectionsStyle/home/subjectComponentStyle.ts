@@ -6,6 +6,7 @@ export const subjectComponentStyles = StyleSheet.create({
         flex: 1,
         padding: 10,
         marginRight: 15,
+        marginBottom: 20,
         borderRadius: 8,
         flexDirection: 'column',
         backgroundColor: COLORS.midGrayOpacity,

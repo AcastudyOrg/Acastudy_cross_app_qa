@@ -30,4 +30,10 @@ export const tutorSectionStyles = StyleSheet.create({
         marginTop: 10,
         paddingHorizontal: "2%",
     },
+    tutorMainScreenContainer: {
+        width: '100%',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        paddingVertical: 15, 
+    }
 });

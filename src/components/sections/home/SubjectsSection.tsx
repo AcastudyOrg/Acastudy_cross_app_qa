@@ -3,7 +3,8 @@ import { View, Text, ScrollView } from "react-native";
 
 import { subjectsSectionStyles } from '../../../styles/componentsStyle/sectionsStyle/home/subjectsSectionStyle';
 import SubjectComponent from './SubjectComponent';
-import { STRING } from '../../../constants/strings';
+import { NAV_SCREEN_NAME, STRING } from '../../../constants/strings';
+import { useNavigation } from '@react-navigation/native';
 
 type subjectsSectionProps = {
   subjectData: {
@@ -13,8 +14,11 @@ type subjectsSectionProps = {
 };
 
 const SubjectsSection: React.FC<subjectsSectionProps> = ({ subjectData }) => {
+
+  const navigation = useNavigation<any>();
+
   const handleViewMore = () => {
-    console.log("view more events");
+    navigation.navigate(NAV_SCREEN_NAME.SubjectScreen);
   };
 
   return (
