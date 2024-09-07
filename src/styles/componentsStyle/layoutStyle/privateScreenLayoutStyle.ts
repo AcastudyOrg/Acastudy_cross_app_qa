@@ -1,19 +1,14 @@
 import { StyleSheet } from "react-native";
-import { screenSize } from "../../../../utils/config";
 import { COLORS } from "../../../constants";
 import { FONT, SIZE } from "../../../constants";
-import { DEVICE_TYPE } from "../../../constants/strings";
 
-const isMobile = screenSize() === DEVICE_TYPE.mobile;
 export const privateScreenLayoutStyles = StyleSheet.create({
   layoutContainer: {
     flex: 1,
-    flexDirection: isMobile ? "column" : "row",
     backgroundColor: COLORS.darkBlue,
   },
   contentContainer: {
     flex: 1,
-    marginLeft: isMobile ? 0 : "18%",
     flexDirection: "column",
   },
   childrenScrollView: {
@@ -42,7 +37,6 @@ export const privateScreenLayoutStyles = StyleSheet.create({
     paddingBottom: 60,
   },
   sidebarContainer: {
-    width: screenSize() === "desktop" || screenSize() === "tablet" ? "18%" : "0%",
     height: "100%",
     overflow: "hidden",
     position: "absolute",

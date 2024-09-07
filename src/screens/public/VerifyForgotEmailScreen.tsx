@@ -6,11 +6,10 @@ import {
   Platform,
   SafeAreaView,
   ScrollView,
-  StyleSheet,
   Text,
-  TouchableWithoutFeedback,
   View,
   TextInput,
+  TouchableOpacity,
 } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
@@ -193,14 +192,14 @@ const VerifyForgotEmailScreen = () => {
         style={verifyForgotEmailScreenStyles.verifyForgotKeyboardContainer}
       >
         <ScrollView contentContainerStyle={verifyForgotEmailScreenStyles.verifyForgotScrollingContainer}>
-          <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+          <TouchableOpacity onPress={() => Keyboard.dismiss()}>
             <SafeAreaView style={verifyForgotEmailScreenStyles.verifyForgotContainer}>
               {renderNavigationSection()}
               {renderTopTitleSection()}
               {renderOtpInputSection()}
               {renderSubmitButtonSection()}
             </SafeAreaView>
-          </TouchableWithoutFeedback>
+          </TouchableOpacity>
         </ScrollView>
       </KeyboardAvoidingView>
     </ImageBackground>

@@ -6,9 +6,8 @@ import {
   Platform,
   SafeAreaView,
   ScrollView,
-  StyleSheet,
   Text,
-  TouchableWithoutFeedback,
+  TouchableOpacity,
   View,
 } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
@@ -163,11 +162,11 @@ const SetNewForgotPasswordScreen = () => {
         style={setNewForgotPasswordScreenStyles.passwordNewKeyboardContainer}
       >
         <ScrollView contentContainerStyle={setNewForgotPasswordScreenStyles.passwordNewScrollingContainer}>
-          <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+          <TouchableOpacity onPress={() => Keyboard.dismiss()}>
             <SafeAreaView style={setNewForgotPasswordScreenStyles.passwordNewContainer}>
               {renderScreenContentList()}
             </SafeAreaView>
-          </TouchableWithoutFeedback>
+          </TouchableOpacity>
         </ScrollView>
       </KeyboardAvoidingView>
     </ImageBackground>
