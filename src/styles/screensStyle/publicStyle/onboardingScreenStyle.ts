@@ -1,8 +1,5 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import { COLORS, FONT, SIZE, WEIGHT } from "../../../constants";
-import { isMobile } from "../../../../utils/config";
-
-const { height } = Dimensions.get("window");
 
 export const onboardingScreenStyles = StyleSheet.create({
   imageBgContainer: {
@@ -13,9 +10,6 @@ export const onboardingScreenStyles = StyleSheet.create({
     borderRadius: 15,
     overflow: "hidden",
     padding: 50,
-  },
-  imageContainer: {
-    paddingHorizontal: isMobile ? 0 : 15,
   },
   imageTextContainer: {
     flex: 1,
@@ -43,11 +37,9 @@ export const onboardingScreenStyles = StyleSheet.create({
   infoSectionContainer: {
     gap: 60,
     paddingTop: 20,
-    paddingBottom: 60,
-    paddingHorizontal: isMobile ? 15 : 27,
+    paddingBottom: 60
   },
   searchContainer: {
-    // width: "80%",
     paddingVertical: 8,
     paddingHorizontal: 20,
     flexDirection: "row",
