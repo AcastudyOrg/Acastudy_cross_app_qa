@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TextInput, View } from 'react-native';
-import { customTextInput } from '../../../styles/componentsStyle/commonStyle/formStyle/customTextInput';
+import { customTextInputStyles } from '../../../styles/componentsStyle/commonStyle/formStyle/customTextInputStyle';
 import { COLORS } from '../../../constants';
 
 interface CustomTextInputProps {
@@ -10,15 +10,19 @@ interface CustomTextInputProps {
 }
 
 const CustomTextInput: React.FC<CustomTextInputProps> = ({ placeholder, value, onChange }) => {
+  const [inputHeight, setInputHeight] = useState<number>(40);
   return (
-    <View style={[customTextInput.inputContainer]}>
+    <View style={[customTextInputStyles.inputContainer]}>
       <TextInput
-        value={ value }
-        onChangeText={ onChange } 
-        placeholder={ placeholder }
-        placeholderTextColor={ COLORS.darkGrayOpacity } 
-        multiline={true} 
-        style={ customTextInput.input } 
+        value={value}
+        onChangeText={onChange}
+        placeholder={placeholder}
+        placeholderTextColor={COLORS.darkGrayOpacity}
+        multiline={true}
+        onContentSizeChange={(event) => {
+          setInputHeight(event.nativeEvent.contentSize.height);
+        }}
+        style={[customTextInputStyles.input, { minHeight: inputHeight }]}
       />
     </View>
   );

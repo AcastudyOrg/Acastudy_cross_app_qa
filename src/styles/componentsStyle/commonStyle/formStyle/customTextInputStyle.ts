@@ -1,18 +1,20 @@
 import { Platform, StyleSheet } from 'react-native';
 import { COLORS } from '../../../../constants';
 
-export const customTextInput = StyleSheet.create({
+export const customTextInputStyles = StyleSheet.create({
     inputContainer: {
+        width: "100%",
         margin: 10,
-        height: 'auto',
+        borderRadius: 8,
+        borderColor: COLORS.gray60,
+        borderWidth: 1,
     },
     input: {
-        padding: 10,
-        borderRadius: 5,
-        color: COLORS.white,
+        flex: 1,
+        padding: 5,
+        color: COLORS.black,
+        height: 200,
         textAlignVertical: 'top',
-        minHeight: 200,
-        maxHeight: 500,
         backgroundColor: 'rgba(255, 255, 255, 0.1)',
         ...Platform.select({
             ios: {

@@ -10,6 +10,7 @@ import CustomDivider from "../../components/common/Form/CustomDivider";
 import AuthTextField from "../../components/common/Form/AuthTextField";
 import { User } from "../../types/User/Student";
 import { NAV_SCREEN_NAME } from "../../constants/strings";
+import CustomTextInput from "../../components/common/Form/CustomTextInput";
 
 // Note the code does not handle error messages
 const SignUpScreen = () => {
@@ -20,6 +21,7 @@ const SignUpScreen = () => {
   const navigation = useNavigation<any>()
   const [email, setEmail] = useState<string>("");
   const [username, setUsername] = useState<string>("");
+  const [area, setArea] = useState<string>("");
 
   const user: User = {
     name: "",
@@ -51,6 +53,7 @@ const SignUpScreen = () => {
 
           <AuthTextField label={"Email Address"} value={email} onChangeText={setEmail} />
           <AuthTextField label={"Username"} value={username} onChangeText={setUsername} />
+          <CustomTextInput value={area} placeholder={"testing area."} onChange={setArea} />
           
           <GradientButtonComponent text="CONTINUE" onPress={handleSubmit} />
 
