@@ -13,19 +13,17 @@ export const customTextInputStyles = StyleSheet.create({
         flex: 1,
         padding: 5,
         color: COLORS.black,
-        height: 200,
+        minHeight: 150,
         textAlignVertical: 'top',
         backgroundColor: 'rgba(255, 255, 255, 0.1)',
         ...Platform.select({
             ios: {
                 borderColor: 'transparent',
                 borderWidth: 0,
-                // Additional iOS-specific styles
             },
             android: {
                 borderColor: 'transparent',
                 borderWidth: 0,
-                // Additional Android-specific styles
             },
             windows: {
                 borderColor: 'transparent',
