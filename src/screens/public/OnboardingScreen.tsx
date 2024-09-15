@@ -1,77 +1,62 @@
-import React, { useState, useEffect } from "react";
-import { View} from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-// import Swiper from "react-native-swiper";
-import { Entypo } from "@expo/vector-icons";
+import React from "react";
+import { View } from "react-native";
 
-import onboardingData from "../../../assets/data/onboardingData.json";
 import { onboardingScreenStyles } from "../../styles/screensStyle/publicStyle/onboardingScreenStyle";
-import { OnboardingItemProps } from "../../types";
-import { COLORS } from "../../constants";
-import { ButtonComponent } from "../../components";
+import subjectData from "../../../assets/data/home/subjectData.json";
+import upcomingEventsData from "../../../assets/data/home/upcomingEventsData.json";
 
+import { BecomeWhatAtAcaStudyComponent, BannerComponent, PublicScreenLayout } from "../../components";
+import SubjectsSection from "../../components/sections/home/SubjectsSection";
+import EventsSection from "../../components/sections/home/EventsSection";
+import { STRING } from "../../constants/strings";
+import { IMAGES } from "../../constants";
+import useScreenWidth from "../../hooks/useScreenWidth";
+import { isNotDesktop } from "../../../utils/config";
 
 const OnboardingScreen = () => {
-  const [data, setData] = useState<OnboardingItemProps[]>([]);
-  const [showButton, setShowButton] = useState(false);
-
-  // const swiperRef = useRef<Swiper>(null);
-
-  useEffect(() => {
-    setData(onboardingData);
-  }, []);
-
-  const handleMomentumScrollEnd = (event: any, state: any) => {
-    const { index, total } = state;
-    if (index === data.length - 1) {
-      setShowButton(true);
-    } else {
-      setShowButton(false);
-    }
-  };
-
+  const screenWidth = useScreenWidth();
+  const isMobile = isNotDesktop(screenWidth);
   return (
-    <SafeAreaView style={onboardingScreenStyles.onboardingContainer}>
-      <View style={onboardingScreenStyles.buttonSubContainer}>
-        {showButton && (
-          <View style={onboardingScreenStyles.buttonSubContent}>
-            <ButtonComponent
-              text="Get Started"
-              onPress={() => {}}
-              icon={
-                <Entypo
-                  name="chevron-small-right"
-                  size={24}
-                  color={COLORS.white}
-                />
-              }
-            />
-          </View>
-        )}
+    <PublicScreenLayout>
+      <View style={onboardingScreenStyles.componentContainer}>
+        <View style={{ paddingHorizontal: isMobile ? 0 : 15 }}>
+          <BannerComponent />
+        </View>
+
+        <SubjectsSection subjectData={subjectData} />
+        <EventsSection upcomingEventsData={upcomingEventsData} />
       </View>
 
-      {/* <Swiper
-        ref={swiperRef}
-        showsButtons={true}
-        loop={false}
-        dotColor={COLORS.white}
-        activeDotColor={COLORS.blue}
-        onMomentumScrollEnd={handleMomentumScrollEnd}
-      >
-        {data.map((item) => (
-          <View key={item.id} style={onboardingScreenStyles.onboardingSliderContainer}>
-            <Image
-              source={{ uri: item.picture }}
-              style={onboardingScreenStyles.onboardingSliderImage}
-            />
-            <Text style={onboardingScreenStyles.onboardingSliderTitle}>{item.title}</Text>
-            <Text style={onboardingScreenStyles.onboardingSliderDescription}>
-              {item.description}
-            </Text>
-          </View>
-        ))}
-      </Swiper> */}
-    </SafeAreaView>
+      <View style={[
+        onboardingScreenStyles.infoSectionContainer,
+        { paddingHorizontal: isMobile ? 15 : 27, }
+      ]}>
+        <BecomeWhatAtAcaStudyComponent
+          switchRow={false}
+          image={IMAGES.student}
+          title={STRING.OnbordingBecomeAStudentTittle}
+          firstSubtitle={STRING.OnbordingBecomeAStudentFirstSubtitle}
+          firstInfo={STRING.OnbordingBecomeAStudentFirstInfo}
+          secondSubtitle={STRING.OnbordingBecomeAStudentSecondSubtitle}
+          secondInfo={STRING.OnbordingBecomeAStudentSecondInfo}
+          buttonText={STRING.OnbordingBecomeAStudentButtonText}
+          onClick={() => console.log("sign up as a Student")}
+        />
+
+        <BecomeWhatAtAcaStudyComponent
+          switchRow={true}
+          image={IMAGES.studentTutor}
+          title={STRING.OnbordingBecomeATutor}
+          firstSubtitle={STRING.OnbordingBecomeATutorFirstSubtitle}
+          firstInfo={STRING.OnbordingBecomeATutorFirstInfo}
+          secondSubtitle={STRING.OnbordingBecomeATutorSecondSubtitle}
+          secondInfo={STRING.OnbordingBecomeATutorSecondInfo}
+          extraInfo={STRING.OnbordingBecomeATutorSecondInfoExtraInfo}
+          buttonText={STRING.OnbordingBecomeATutorButtonText}
+          onClick={() => console.log("sign up as a Tutor")}
+        />
+      </View>
+    </PublicScreenLayout>
   );
 };
 

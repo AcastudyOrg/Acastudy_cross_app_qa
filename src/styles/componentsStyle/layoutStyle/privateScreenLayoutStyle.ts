@@ -1,19 +1,14 @@
 import { StyleSheet } from "react-native";
-import { screenSize } from "../../../../utils/config";
-import { AppColor } from "../../../constants/colors";
+import { COLORS } from "../../../constants";
 import { FONT, SIZE } from "../../../constants";
-import { DEVICE_TYPE } from "../../../constants/strings";
 
-const isMobile = screenSize() === DEVICE_TYPE.mobile;
 export const privateScreenLayoutStyles = StyleSheet.create({
   layoutContainer: {
     flex: 1,
-    flexDirection: isMobile ? "column" : "row",
-    backgroundColor: AppColor.darkBlue,
+    backgroundColor: COLORS.darkBlue,
   },
   contentContainer: {
     flex: 1,
-    marginLeft: isMobile ? 0 : "18%",
     flexDirection: "column",
   },
   childrenScrollView: {
@@ -29,6 +24,11 @@ export const privateScreenLayoutStyles = StyleSheet.create({
     paddingHorizontal: 10,
   },
 
+  logoMobileImage: {
+    width: 200,
+    height: 67,
+    resizeMode: 'contain',
+  },
   topNavMobileContainer: {
     width: "100%",
   },
@@ -37,19 +37,18 @@ export const privateScreenLayoutStyles = StyleSheet.create({
     paddingBottom: 60,
   },
   sidebarContainer: {
-    width: screenSize() === "desktop" || screenSize() === "tablet" ? "18%" : "0%",
     height: "100%",
     overflow: "hidden",
     position: "absolute",
     zIndex: 10,
-    backgroundColor: AppColor.darkBlue,
+    backgroundColor: COLORS.darkBlue,
   },
   sidebarMediaContainer: {
     justifyContent: "center",
     alignItems: "center",
   },
   sidebarMediaItem: {
-    color: AppColor.white,
+    color: COLORS.white,
     fontFamily: FONT.plusJakartaBold,
     fontSize: SIZE.xxl,
   },

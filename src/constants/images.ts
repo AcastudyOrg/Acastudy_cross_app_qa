@@ -2,9 +2,13 @@ import { ImageProps } from "../types/media";
 
 //app important images
 const authBackgroundImage = require("../../assets/images/appImages/authBackgroundImage.jpg");
-const appLogo = require("../../assets/images/appImages/logo/logo.png");
+const appLogo = require("../../assets/images/appImages/logo/logo_white_no_bg.png");
 const forgotPassword = require("../../assets/images/appImages/forgotPassword.png");
 const sentEmail = require("../../assets/images/appImages/sentEmail.png");
+const googleLogo = require("../../assets/images/appImages/googleLogo.png");
+const bannerImage = require("../../assets/images/appImages/onboard.jpg")
+const student = require("../../assets/images/appImages/student.jpg");
+const studentTutor = require("../../assets/images/appImages/studentTutor.jpg");
 
 //response images
 const success = require("../../assets/images/general/response/success.png");
@@ -33,6 +37,10 @@ const druboImg = require('../../assets/images/general/dummy/user4.svg');
 const images: ImageProps = {
   authBackgroundImage,
   appLogo,
+  googleLogo,
+  bannerImage,
+  student,
+  studentTutor,
   forgotPassword,
   sentEmail,
   success,
@@ -50,6 +58,7 @@ const images: ImageProps = {
   janeImg,
   agmedImg,
   druboImg,
+  onboard: 0
 };
 
 export default images;

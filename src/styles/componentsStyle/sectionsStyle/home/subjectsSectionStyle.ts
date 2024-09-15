@@ -11,7 +11,7 @@ export const subjectsSectionStyles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        paddingHorizontal: Platform.OS === 'ios' || Platform.OS === 'android' ? 17 : 29,
+        paddingHorizontal: "2.2%",
     },
     subjectTitleText: {
         color: COLORS.white,
@@ -28,6 +28,13 @@ export const subjectsSectionStyles = StyleSheet.create({
         width: '100%',
         flexDirection: 'row',
         marginTop: 10,
-        paddingHorizontal: Platform.OS === 'ios' || Platform.OS === 'android' ? 15 : 27,
+        paddingHorizontal: "2%",
+    },
+    subjectScreenMainContainer: {
+        width: '100%',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        paddingBottom: 30,
+        left: 25,
     },
 });

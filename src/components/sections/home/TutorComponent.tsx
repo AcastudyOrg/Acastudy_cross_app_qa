@@ -1,9 +1,11 @@
-import React from 'react'
-import { Image, Text, View } from 'react-native'
+import React from 'react';
+import { Image, Text, View } from 'react-native';
 import { Octicons } from '@expo/vector-icons';
 
-import { COLORS } from '../../../constants'
+import { COLORS } from '../../../constants';
 import { tutorComponentStyles } from '../../../styles/componentsStyle/sectionsStyle/home/tutorComponentStyle';
+import { homeTileScreenWidth } from '../../../../utils/config';
+import useScreenWidth from '../../../hooks/useScreenWidth';
 
 type TutorProps = {
     item: {
@@ -18,12 +20,19 @@ type TutorProps = {
 };
 
 const TutorComponent: React.FC<TutorProps> = ({ item }) => {
+    const screenWidth = useScreenWidth();
+    const containerWidth = homeTileScreenWidth(screenWidth);
     return (
-        <View style={tutorComponentStyles.tutorContentContainer}>
+        <View style={[
+            tutorComponentStyles.tutorContentContainer,
+            { width: containerWidth, paddingHorizontal: containerWidth * .1 }]}>
             <View style={tutorComponentStyles.tutorImageContainer}>
                 <Image
                     source={{ uri: item.avatar }}
-                    style={tutorComponentStyles.tutorImageItem}
+                    style={[
+                        tutorComponentStyles.tutorImageItem,
+                        { width: containerWidth * .3, height: containerWidth * .3 }
+                    ]}
                 />
                 {item.online ? (
                     <Octicons

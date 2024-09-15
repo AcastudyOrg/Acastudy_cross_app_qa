@@ -1,17 +1,36 @@
 import { ImageSourcePropType } from "react-native";
-import { Dimensions } from "react-native";
 
-const { width } = Dimensions.get("window");
+export const isMobile = (screenWidth: number) => {
+  return screenWidth < 768;
+}
 
-export const screenSize = () => {
-  if (width < 768) {
-    return "mobile";
-  } else if (width < 1024) {
-    return "tablet";
-  } else {
-    return "desktop";
-  }
-};
+export const isTablet = (screenWidth: number) => {
+  return screenWidth >= 768 && screenWidth <= 1024;
+}
+
+export const isDesktop = (screenWidth: number) => {
+  return screenWidth > 1024;
+}
+
+export const isNotMobile = (screenWidth: number) => {
+  return screenWidth > 768;
+}
+
+export const isNotDesktop = (screenWidth: number) => {
+  return screenWidth < 1024;
+}
+
+export const textWidth = (screenWidth: number) => {
+  return screenWidth > 1024 ? screenWidth * .6 : screenWidth * .7;
+}
+
+export const searchContainerWidth = (screenWidth: number) => {
+  return screenWidth > 1024 ? screenWidth * .4 : screenWidth * .6;
+}
+
+export const homeTileScreenWidth = (screenWidth: number) => {
+  return screenWidth > 900 ? screenWidth * .18 : 160;
+}
 
 export const getImageSource = (image: string | ImageSourcePropType) => {
   if (typeof image === "string") {
@@ -30,7 +49,7 @@ export const formatDateTime = (datetime: string): string => {
     day: "numeric",
     month: "short",
   };
-    const formattedDate = new Intl.DateTimeFormat('en-US', options).format(date);
-    const [weekday, dayMonth, time] = formattedDate.split(", ");
-    return `${time} | ${weekday}, ${dayMonth}`;
+  const formattedDate = new Intl.DateTimeFormat('en-US', options).format(date);
+  const [weekday, dayMonth, time] = formattedDate.split(", ");
+  return `${time} | ${weekday}, ${dayMonth}`;
 };
