@@ -1,8 +1,10 @@
+import { ImageSourcePropType } from "react-native";
+
 export interface TutorData {
     name: string;
     rating: number;
     reviews: number;
-    imageUrl: string;
+    imageUrl: ImageSourcePropType;
     bio: string;
     subjects: string[];
     experiences: Experience[];

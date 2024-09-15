@@ -14,9 +14,11 @@ import useScreenWidth from "../../hooks/useScreenWidth";
 interface privatePropType {
   children: React.ReactNode;
   showBackButton?: boolean;
+  showAppName?: boolean;
+	showSearchBar?: boolean;
 }
 
-const PrivateScreenLayout: React.FC<privatePropType> = ({ children, showBackButton = false }) => {
+const PrivateScreenLayout: React.FC<privatePropType> = ({ children, showBackButton = false, showAppName = false, showSearchBar = true}) => {
   const screenWidth = useScreenWidth();
   const isNotMobileWidth = isNotMobile(screenWidth);
   const isMobileWidth = isMobile(screenWidth);
@@ -49,7 +51,7 @@ const PrivateScreenLayout: React.FC<privatePropType> = ({ children, showBackButt
       <View style={[privateScreenLayoutStyles.contentContainer, { marginLeft: isMobileWidth ? 0 : "18%" }]}>
         {isNotMobileWidth ? (
           <View style={privateScreenLayoutStyles.topNavContainer}>
-            <TopBarComponent user={user} showBackButton={showBackButton} />
+            <TopBarComponent user={user} showBackButton={showBackButton} showAppName={showAppName} showSearchBar={showSearchBar}/>
             <ScrollView
               style={privateScreenLayoutStyles.childrenScrollView}
               showsVerticalScrollIndicator={false}>
