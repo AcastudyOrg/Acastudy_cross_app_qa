@@ -33,7 +33,7 @@ export const tutorHeaderStyles = StyleSheet.create({
     },
     rating: {
         fontSize: 16,
-        color: COLORS.white50Percent,
+        color: COLORS.white,
     },
     requestButton: {
         justifyContent: 'flex-start',

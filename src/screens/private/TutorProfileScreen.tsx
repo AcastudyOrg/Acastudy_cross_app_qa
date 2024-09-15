@@ -1,6 +1,8 @@
 import PrivateScreenLayout from "../../components/layout/PrivateScreenLayout";
 import TutorHeader from "../../components/sections/tutorProfile/TutorHeader";
 import { tutorData } from "../../../mockData/TutorData";
+import React from "react";
+import TutorBio from "../../components/sections/tutorProfile/TutorBio";
 
 const TutorProfileScreen = () => {
     return (
@@ -11,7 +13,7 @@ const TutorProfileScreen = () => {
                 reviews={tutorData.reviews}
                 imageUrl={tutorData.imageUrl}
             />
-
+            <TutorBio text={tutorData.bio} />
         </PrivateScreenLayout>
     );
 }
