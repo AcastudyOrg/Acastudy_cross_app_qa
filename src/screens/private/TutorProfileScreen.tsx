@@ -6,7 +6,6 @@ import TutorBio from "../../components/sections/tutorProfile/TutorBio";
 import TutoSubjectOfInterest from "../../components/sections/tutorProfile/TutorSubjectOfInterest";
 import TutorExperience from "../../components/sections/tutorProfile/TutorsExperience";
 import EventsSection from "../../components/sections/home/EventsSection";
-import upcomingEventsData from '../../../assets/data/home/upcomingEventsData.json';
 
 
 const TutorProfileScreen = () => {
@@ -21,7 +20,7 @@ const TutorProfileScreen = () => {
             <TutorBio text={tutorData.bio} />
             <TutoSubjectOfInterest subjects={tutorData.subjects}/>
             <TutorExperience experiences={tutorData.experiences} />
-            <EventsSection upcomingEventsData={tutorData.upcomingEvents}/>
+            <EventsSection upcomingEventsData={tutorData.upcomingEvents} showViewMoreButton={tutorData.upcomingEvents.length > 4}/>
         </PrivateScreenLayout>
     );
 }

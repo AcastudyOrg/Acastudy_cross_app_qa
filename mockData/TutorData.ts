@@ -53,22 +53,6 @@ export const tutorData: TutorData = {
         "datetime": "2024-05-20T07:00:00Z",
         "category": "Class"
       },
-      {
-        "id": 5,
-        "thumbnail": "https://images.unsplash.com/photo-1624395213043-fa2e123b2656?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "title": "Psychology",
-        "tutor": "Chiyan Yey",
-        "datetime": "2024-05-26T10:00:00Z",
-        "category": "Class"
-      },
-      {
-        "id": 6,
-        "thumbnail": "https://images.unsplash.com/photo-1624395213043-fa2e123b2656?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "title": "Human Rights",
-        "tutor": "Chiyan Yey",
-        "datetime": "2024-05-26T15:00:00Z",
-        "category": "Class"
-      }
     ],
     reviewCounts: {
       '5': 50,
