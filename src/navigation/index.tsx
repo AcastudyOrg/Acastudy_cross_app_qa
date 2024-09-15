@@ -25,7 +25,7 @@ import {
 } from "../screens";
 import SubjectScreen from "../screens/private/subjects/SubjectsScreen";
 import { NAV_SCREEN_NAME } from "../constants/strings";
-import TutorProfileScreen from "../screens/TutorProfileScreen";
+import TutorProfileScreen from "../screens/private/TutorProfileScreen";
 
 
 const Stack = createNativeStackNavigator();

@@ -1,6 +1,6 @@
-import PrivateScreenLayout from "../components/layout/PrivateScreenLayout";
-import TutorHeader from "../components/sections/tutorProfile/TutorHeader";
-import { tutorData } from "../../mockData/TutorData";
+import PrivateScreenLayout from "../../components/layout/PrivateScreenLayout";
+import TutorHeader from "../../components/sections/tutorProfile/TutorHeader";
+import { tutorData } from "../../../mockData/TutorData";
 
 const TutorProfileScreen = () => {
     return (
