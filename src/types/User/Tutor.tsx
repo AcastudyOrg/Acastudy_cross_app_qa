@@ -8,6 +8,14 @@ export interface TutorData {
     bio: string;
     subjects: string[];
     experiences: Experience[];
+    upcomingEvents: {
+      id: number;
+      thumbnail: string;
+      title: string;
+      tutor: string;
+      datetime: string;
+      category: string;
+    } []
     reviewCounts: Record<string, number>;
   }
 
