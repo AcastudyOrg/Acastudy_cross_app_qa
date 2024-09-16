@@ -6,6 +6,7 @@ export const privateScreenLayoutStyles = StyleSheet.create({
   layoutContainer: {
     flex: 1,
     backgroundColor: COLORS.darkBlue,
+    paddingHorizontal: 5,
   },
   contentContainer: {
     flex: 1,
