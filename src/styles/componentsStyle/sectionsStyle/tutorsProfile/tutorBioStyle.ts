@@ -5,6 +5,7 @@ import { COLORS } from "../../../../constants";
 export const tutorBioStyles = StyleSheet.create({
     section: {
       padding: 20,
+      width: '85%'
     },
     sectionTitle: {
       fontSize: 18,
