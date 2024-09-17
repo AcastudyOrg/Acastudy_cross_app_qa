@@ -1,8 +1,9 @@
-import { Image, View, Text, Platform } from "react-native";
+import { Image, View, Text } from "react-native";
 
 import { becomeWhatAtAcaStudyStyles } from "../../../styles/componentsStyle/sectionsStyle/onboarding/becomeWhatAtAcaStudyStyles";
 import GradientButtonComponent from "../../common/Form/GradientButtonComponent";
-import { isMobile } from "../../../../utils/config";
+import { isNotDesktop } from "../../../../utils/config";
+import useScreenWidth from "../../../hooks/useScreenWidth";
 
 type becomeComponentProps = {
   image: string | any;
@@ -29,17 +30,31 @@ const BecomeWhatAtAcaStudyComponent = ({
   buttonText,
   onClick,
 }: becomeComponentProps) => {
+  const screenWidth = useScreenWidth();
+  const isMobile = isNotDesktop(screenWidth);
   return (
     <View
       style={[
         becomeWhatAtAcaStudyStyles.mainContainer,
-        { flexDirection: isMobile ? "column-reverse" : switchRow ? "row-reverse" : "row" },
+        {
+          flexDirection: isMobile ? "column" : switchRow ? "row-reverse" : "row",
+          paddingBottom: isMobile ? 0 : 20,
+        },
       ]}>
-      <View style={becomeWhatAtAcaStudyStyles.imageContainer}>
-        <Image source={image} resizeMode="cover" style={becomeWhatAtAcaStudyStyles.imageItem} />
+      <View style={[
+        becomeWhatAtAcaStudyStyles.imageContainer,
+        { width: isMobile ? "100%" : "48%" }
+      ]}>
+        <Image source={image} resizeMode="cover" style={[
+          becomeWhatAtAcaStudyStyles.imageItem,
+          { height: isMobile ? screenWidth : 380 }
+        ]} />
       </View>
 
-      <View style={becomeWhatAtAcaStudyStyles.textContainer}>
+      <View style={[
+        becomeWhatAtAcaStudyStyles.textContainer,
+        { width: isMobile ? "100%" : "48%" }
+      ]}>
         <Text style={becomeWhatAtAcaStudyStyles.titleText}>{title}</Text>
         <View style={becomeWhatAtAcaStudyStyles.infoTextContainer}>
           <Text style={becomeWhatAtAcaStudyStyles.subtitleText}>

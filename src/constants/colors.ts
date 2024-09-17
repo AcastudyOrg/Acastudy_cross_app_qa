@@ -1,6 +1,8 @@
 const white = "#fff";
+const gray60 = '#ddd';
 const white50Percent = "rgba(255,255,255,.5)";
 const black = "#000";
+const black30 = "#333";
 const gray = "#202020";
 const lightGray = "#D9D9D9";
 const lightCardGray = "#D9DEF6";
@@ -27,8 +29,10 @@ const transparentWhite = "#aaa";
 
 const colors = {
   white,
+  gray60,
   white50Percent,
   black,
+  black30,
   gray,
   lightGray,
   lightCardGray,

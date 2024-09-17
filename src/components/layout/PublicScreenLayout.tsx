@@ -1,14 +1,15 @@
 import * as React from "react";
 import { View, SafeAreaView, ScrollView } from "react-native";
 
-import { screenSize } from "../../../utils/config";
-import { DEVICE_TYPE } from "../../constants/strings";
+import { isNotMobile } from "../../../utils/config";
 import { privateScreenLayoutStyles } from "../../styles/componentsStyle/layoutStyle/privateScreenLayoutStyle";
 import TopBarComponent from "../common/TopBar/TopBarComponent";
 import { User } from "../../types/User/Student";
+import useScreenWidth from "../../hooks/useScreenWidth";
 
 const PublicScreenLayout = ({ children }: { children: React.ReactNode }) => {
-    const size = screenSize();
+    const screenWidth = useScreenWidth();
+    const isNotMobileWidth = isNotMobile(screenWidth);
 
     const user: User = {
         name: "",
@@ -18,8 +19,7 @@ const PublicScreenLayout = ({ children }: { children: React.ReactNode }) => {
 
     return (
         <SafeAreaView style={privateScreenLayoutStyles.layoutContainer}>
-            {size === DEVICE_TYPE.desktop ||
-                (DEVICE_TYPE.tablet && size !== DEVICE_TYPE.mobile) ? (
+            {isNotMobileWidth ? (
                 <View style={privateScreenLayoutStyles.topNavContainer}>
                     <TopBarComponent
                         renderRightSection={true}

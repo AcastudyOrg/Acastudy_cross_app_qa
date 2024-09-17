@@ -16,7 +16,8 @@ export const tutorSectionStyles = StyleSheet.create({
     tutorTitleText: {
         color: COLORS.white,
         fontSize: SIZE.l,
-        fontFamily: FONT.plusJakartaMedium
+        fontFamily: FONT.plusJakartaMedium,
+        fontWeight: "bold",
     },
     tutorActionText: {
         color: COLORS.white,

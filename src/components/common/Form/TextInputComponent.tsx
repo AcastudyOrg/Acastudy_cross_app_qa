@@ -4,7 +4,6 @@ import {
   TextInput,
   View,
   TouchableOpacity,
-  TouchableWithoutFeedback,
   Keyboard,
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
@@ -93,7 +92,7 @@ const TextInputComponent = ({
   };
 
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+    <TouchableOpacity onPress={Keyboard.dismiss}>
       <View style={textInputComponentStyles.textInputContainer}>
         {label && (
           <Text style={textInputComponentStyles.textInputLabelTextItem}>
@@ -170,7 +169,7 @@ const TextInputComponent = ({
           <Text style={textInputComponentStyles.errorText}>{errorMessage}</Text>
         )}
       </View>
-    </TouchableWithoutFeedback>
+    </TouchableOpacity>
   );
 };
 

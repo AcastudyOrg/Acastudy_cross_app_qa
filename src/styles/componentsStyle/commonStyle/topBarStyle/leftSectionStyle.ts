@@ -11,7 +11,18 @@ export const leftSectionStyles = StyleSheet.create({
 		width: 150,
 		height: 55,
 		resizeMode: "contain",
-	  },
+	},
+	horizontalContainer: {
+		flexDirection: "row",
+	},
+	horizontalContainerBack: {
+		flexDirection: "row",
+		right: 20,
+	},
+	backIconContainer: {
+		justifyContent: "center",
+		paddingHorizontal: 3,
+	},
 	searchInput: {
 		backgroundColor: 'rgba(255, 255, 255, 0.1)',
 		borderRadius: 10,
@@ -19,7 +30,6 @@ export const leftSectionStyles = StyleSheet.create({
 		color: COLORS.white,
 		fontFamily: FONT.plusJakartaRegular,
 		height: 40,
-		maxWidth: '100%',
-		minWidth: '10%',
+		width: '100%',
 	},
 });

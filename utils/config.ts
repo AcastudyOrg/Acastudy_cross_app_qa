@@ -1,19 +1,24 @@
-import { ImageSourcePropType, Platform } from "react-native";
-import { Dimensions } from "react-native";
+import { ImageSourcePropType } from "react-native";
 
-const { width } = Dimensions.get("window");
+export const isMobile = (screenWidth: number) => {
+  return screenWidth < 768;
+}
 
-export const isMobile = Platform.OS === "ios" || Platform.OS === "android";
+export const isTablet = (screenWidth: number) => {
+  return screenWidth >= 768 && screenWidth <= 1024;
+}
 
-export const screenSize = () => {
-  if (width < 768) {
-    return "mobile";
-  } else if (width < 1024) {
-    return "tablet";
-  } else {
-    return "desktop";
-  }
-};
+export const isDesktop = (screenWidth: number) => {
+  return screenWidth > 1024;
+}
+
+export const isNotMobile = (screenWidth: number) => {
+  return screenWidth > 768;
+}
+
+export const isNotDesktop = (screenWidth: number) => {
+  return screenWidth < 1024;
+}
 
 export const textWidth = (screenWidth: number) => {
   return screenWidth > 1024 ? screenWidth * .6 : screenWidth * .7;

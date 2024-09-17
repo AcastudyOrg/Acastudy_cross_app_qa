@@ -15,7 +15,6 @@ import { NAV_SCREEN_NAME } from "../../constants/strings";
 const SignUpScreen = () => {
   const title: string = "Create your account";
   const subtitle: string = "To Continue to Acastudy";
-  const forgotPassword: string = "Forgot Password";
 
   const navigation = useNavigation<any>()
   const [email, setEmail] = useState<string>("");
@@ -27,8 +26,6 @@ const SignUpScreen = () => {
     profilePictureUrl: 0
   };
   const handleSubmit = () => {
-    // Todo(Tekstaq): handle onSubmit here
-    console.log("Creds: " + email, username)
     navigation.navigate(NAV_SCREEN_NAME.PasswordScreen)
   };
 

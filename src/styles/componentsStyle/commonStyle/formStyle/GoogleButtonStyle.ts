@@ -7,7 +7,7 @@ export const googleButtonStyle = StyleSheet.create({
 		padding: 10,
 		borderRadius: 10,
 		borderWidth: 1,
-		borderColor: '#ddd',
+		borderColor: COLORS.gray60,
 		alignItems: 'flex-start',
 		justifyContent: 'flex-start',
 		flexDirection: 'row',
