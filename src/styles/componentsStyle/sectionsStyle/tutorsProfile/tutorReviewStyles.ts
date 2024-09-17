@@ -20,7 +20,7 @@ export const ReviewTutorstyles = StyleSheet.create({
         marginBottom: 20,
     },
     overallRating: {
-        fontSize: 48,
+        fontSize: 40,
         fontWeight: 'bold',
         color: COLORS.white,
         marginRight: 15,
@@ -33,7 +33,7 @@ export const ReviewTutorstyles = StyleSheet.create({
     totalReviews: {
         paddingTop: 10,
         color: COLORS.white,
-        fontSize: 16,
+        fontSize: 14,
     },
     reviewBar: {
         flexDirection: 'row',
