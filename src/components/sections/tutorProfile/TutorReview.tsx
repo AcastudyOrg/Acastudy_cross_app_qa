@@ -1,8 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { Star } from 'lucide-react-native';
+import { View, Text } from 'react-native';
 import CustomIcon from '../../common/CustomIcon';
-import { COLORS } from '../../../constants';
+import { ReviewTutorstyles } from '../../../styles/componentsStyle/sectionsStyle/tutorsProfile/tutorReviewStyles';
 
 interface ReviewsProps {
     rating: number;
@@ -53,73 +52,5 @@ const TutorReviews: React.FC<ReviewsProps> = ({ rating, reviewCounts }) => {
         </View>
     );
 };
-
-const ReviewTutorstyles = StyleSheet.create({
-    section: {
-        padding: 20,
-    },
-    innerSection: {
-        flexDirection: 'row',
-        alignItems: 'flex-start'
-    },
-    sectionTitle: {
-        fontSize: 18,
-        fontWeight: 'bold',
-        color: '#ffffff',
-        marginBottom: 10,
-    },
-    ratingContainer: {
-        alignItems: 'flex-start',
-        marginBottom: 20,
-    },
-    overallRating: {
-        fontSize: 48,
-        fontWeight: 'bold',
-        color: '#ffffff',
-        marginRight: 15,
-    },
-    starsContainer: {
-        paddingTop: 10,
-        flexDirection: 'row',
-        marginRight: 15,
-    },
-    totalReviews: {
-        paddingTop: 10,
-        color: COLORS.white,
-        fontSize: 16,
-    },
-    reviewBar: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginBottom: 8,
-        width: 200,
-    },
-    starText: {
-        color: '#ffffff',
-        width: 20,
-        marginRight: 10,
-        textAlign: 'right',
-    },
-    barContainer: {
-        flex: 1,
-        height: 8,
-        backgroundColor: COLORS.midGrayOpacity,
-        borderRadius: 4,
-        overflow: 'hidden',
-        marginHorizontal: 10,
-    },
-    barFill: {
-        height: '100%',
-        backgroundColor: '#FFFFFF',
-        borderRadius: 4,
-    },
-    countText: {
-        color: COLORS.darkGrayOpacity,
-        textAlign: 'left',
-    },
-    makeRow: {
-        flexDirection: 'row',
-    },
-});
 
 export default TutorReviews;
