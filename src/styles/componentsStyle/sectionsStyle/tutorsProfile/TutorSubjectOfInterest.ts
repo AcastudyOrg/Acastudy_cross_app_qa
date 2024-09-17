@@ -1,13 +1,13 @@
 import { StyleSheet } from 'react-native';
-import { COLORS } from '../../../../constants';
+import { COLORS, FONT, SIZE } from '../../../../constants';
 
 export const tutorSubjectOfInterestStyles = StyleSheet.create({
   section: {
     padding: 20,
   },
   sectionTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
+    fontSize: SIZE.l,
+    fontFamily: FONT.plusJakartaBold,
     color: COLORS.white,
     marginBottom: 10,
   },
@@ -24,5 +24,7 @@ export const tutorSubjectOfInterestStyles = StyleSheet.create({
   },
   subjectText: {
     color: COLORS.darkBlue,
+    fontSize: SIZE.sm,
+    fontFamily: FONT.plusJakartaRegular,
   },
 });

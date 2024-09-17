@@ -1,13 +1,13 @@
 import { StyleSheet } from 'react-native';
-import { COLORS } from '../../../../constants';
+import { COLORS, FONT, SIZE } from '../../../../constants';
 
 export const tutorExperienceStyles = StyleSheet.create({
     section: {
         padding: 20,
     },
     sectionTitle: {
-        fontSize: 18,
-        fontWeight: 'bold',
+        fontSize: SIZE.l,
+        fontFamily: FONT.plusJakartaBold,
         color: COLORS.white,
         marginBottom: 10,
     },
@@ -21,18 +21,20 @@ export const tutorExperienceStyles = StyleSheet.create({
         flexDirection: 'row'
     },
     companyName: {
-        fontSize: 14,
-        fontWeight: 'bold',
+        fontSize: SIZE.m,
+        fontFamily: FONT.plusJakartaBold,
         color:  COLORS.white,
         paddingBottom: 5,
     },
     period: {
-        fontSize: 14,
+        fontSize: SIZE.sm,
+        fontFamily: FONT.plusJakartaExtraLight,
         color:  COLORS.white50Percent,
         paddingBottom: 5,
     },
     position: {
-        fontSize: 14,
+        fontSize: SIZE.m,
+        fontFamily: FONT.plusJakartaRegular,
         color: COLORS.white50Percent,
         paddingBottom: 5,
     },

@@ -1,8 +1,9 @@
 import { StyleSheet } from 'react-native';
-import { COLORS } from '../../../../constants';
+import { COLORS, FONT, SIZE } from '../../../../constants';
 
 export const ReviewTutorstyles = StyleSheet.create({
     section: {
+        top: 20,
         padding: 20,
     },
     innerSection: {
@@ -10,10 +11,10 @@ export const ReviewTutorstyles = StyleSheet.create({
         alignItems: 'flex-start'
     },
     sectionTitle: {
-        fontSize: 18,
-        fontWeight: 'bold',
+        fontSize: SIZE.l,
+        fontFamily: FONT.plusJakartaBold,
         color: COLORS.white,
-        marginBottom: 10,
+        bottom: 20,
     },
     ratingContainer: {
         alignItems: 'flex-start',
@@ -33,13 +34,14 @@ export const ReviewTutorstyles = StyleSheet.create({
     totalReviews: {
         paddingTop: 10,
         color: COLORS.white,
-        fontSize: 14,
+        fontSize: SIZE.m,
+        fontFamily: FONT.plusJakartaRegular,
     },
     reviewBar: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginBottom: 8,
-        width: 200,
+        marginBottom: 20,
+        width: 250,
     },
     starText: {
         color: COLORS.white,
@@ -49,7 +51,7 @@ export const ReviewTutorstyles = StyleSheet.create({
     },
     barContainer: {
         flex: 1,
-        height: 8,
+        height: 10,
         backgroundColor: COLORS.midGrayOpacity,
         borderRadius: 4,
         overflow: 'hidden',

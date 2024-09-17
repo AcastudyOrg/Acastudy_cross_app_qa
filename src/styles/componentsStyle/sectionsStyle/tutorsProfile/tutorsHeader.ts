@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { COLORS } from '../../../../constants';
+import { COLORS, FONT, SIZE } from '../../../../constants';
 
 export const tutorHeaderStyles = StyleSheet.create({
     container: {
@@ -7,7 +7,6 @@ export const tutorHeaderStyles = StyleSheet.create({
         justifyContent: "space-between",
         alignItems: "center",
         paddingTop: 10,
-
     },
     header: {
         padding: 20,
@@ -26,13 +25,14 @@ export const tutorHeaderStyles = StyleSheet.create({
         justifyContent: 'flex-start',
     },
     name: {
-        fontSize: 24,
-        fontWeight: 'bold',
+        fontSize: SIZE.xxl,
+        fontFamily: FONT.plusJakartaBold,
         color: COLORS.white,
         marginTop: 10,
     },
     rating: {
-        fontSize: 16,
+        fontSize: SIZE.l,
+        fontFamily: FONT.plusJakartaRegular,
         color: COLORS.white,
     },
     requestButton: {
