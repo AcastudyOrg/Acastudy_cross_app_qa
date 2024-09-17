@@ -7,7 +7,7 @@ import { TopicsSection } from "../../../components/sections/subjects/TopicsSecti
 
 const SubjectTopicsScreen = () => {
     return (
-        <PrivateScreenLayout>
+        <PrivateScreenLayout showBackButton={true}>
             <View>
                 <TopicsHeader />
                 <TopicsSection />

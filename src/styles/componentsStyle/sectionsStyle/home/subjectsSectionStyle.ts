@@ -16,7 +16,8 @@ export const subjectsSectionStyles = StyleSheet.create({
     subjectTitleText: {
         color: COLORS.white,
         fontSize: SIZE.l,
-        fontFamily: FONT.plusJakartaMedium
+        fontFamily: FONT.plusJakartaMedium,
+        fontWeight: "bold",
     },
     subjectActionText: {
         color: COLORS.white,

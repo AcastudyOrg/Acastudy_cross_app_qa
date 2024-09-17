@@ -53,6 +53,7 @@ export const NAV_SCREEN_NAME = {
     SubjectTopicsScreen: 'SubjectTopicsScreen',
     TutorScreen: 'TutorScreen',
     SubjectScreen: 'SubjectScreen',
+    TutorProfileScreen: 'TutorProfileScreen',
 
 };
 

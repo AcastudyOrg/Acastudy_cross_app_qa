@@ -1,23 +1,33 @@
 import * as React from "react";
 import { View, SafeAreaView, Image, ScrollView } from "react-native";
 
-import { screenSize } from "../../../utils/config";
 import TopBarComponent from "../common/TopBar/TopBarComponent";
 import { User } from "../../types/User/Student";
+import { IMAGES } from "../../constants";
 import { LoginMockUser } from "../../../mockData/LoginUser";
-import { DEVICE_TYPE } from "../../constants/strings";
 import SidebarNavComponent from "../common/SideBar/SidebarNavComponent";
 import BottomBarComponent from "../common/BottomBar/BottomBarComponent";
+import { isMobile, isNotMobile } from "../../../utils/config";
 import { privateScreenLayoutStyles } from "../../styles/componentsStyle/layoutStyle/privateScreenLayoutStyle";
-import { IMAGES } from "../../constants";
+import useScreenWidth from "../../hooks/useScreenWidth";
 
+interface privatePropType {
+  children: React.ReactNode;
+  showBackButton?: boolean;
+  showAppName?: boolean;
+	showSearchBar?: boolean;
+}
 
-const PrivateScreenLayout = ({ children }: { children: React.ReactNode }) => {
-  const size = screenSize();
+const PrivateScreenLayout: React.FC<privatePropType> = ({ children, showBackButton = false, showAppName = false, showSearchBar = true}) => {
+  const screenWidth = useScreenWidth();
+  const isNotMobileWidth = isNotMobile(screenWidth);
+  const isMobileWidth = isMobile(screenWidth);
+
   const user: User = LoginMockUser;
   return (
-    <SafeAreaView style={privateScreenLayoutStyles.layoutContainer}>
-      {size === DEVICE_TYPE.mobile ? (
+    <SafeAreaView style={[privateScreenLayoutStyles.layoutContainer,
+    { flexDirection: isMobileWidth ? "column" : "row" }]}>
+      {isMobileWidth ? (
         <View style={privateScreenLayoutStyles.topNavMobileContainer}>
           <View style={privateScreenLayoutStyles.sidebarMediaContainer}>
             <Image
@@ -30,18 +40,18 @@ const PrivateScreenLayout = ({ children }: { children: React.ReactNode }) => {
         </View>
       ) : (
         <>
-          {size === DEVICE_TYPE.desktop || DEVICE_TYPE.tablet ? (
-            <View style={privateScreenLayoutStyles.sidebarContainer}>
+          {isNotMobileWidth ? (
+            <View style={[privateScreenLayoutStyles.sidebarContainer, { width: isNotMobileWidth ? "18%" : "0%" }]}>
               <SidebarNavComponent />
             </View>
           ) : null}
         </>
       )}
 
-      <View style={privateScreenLayoutStyles.contentContainer}>
-        {size === DEVICE_TYPE.desktop || (DEVICE_TYPE.tablet && size !== DEVICE_TYPE.mobile) ? (
+      <View style={[privateScreenLayoutStyles.contentContainer, { marginLeft: isMobileWidth ? 0 : "18%" }]}>
+        {isNotMobileWidth ? (
           <View style={privateScreenLayoutStyles.topNavContainer}>
-            <TopBarComponent user={user} />
+            <TopBarComponent user={user} showBackButton={showBackButton} showAppName={showAppName} showSearchBar={showSearchBar}/>
             <ScrollView
               style={privateScreenLayoutStyles.childrenScrollView}
               showsVerticalScrollIndicator={false}>
