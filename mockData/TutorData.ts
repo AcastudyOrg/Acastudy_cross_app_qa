@@ -3,8 +3,8 @@ import { TutorData } from "../src/types/User/Tutor";
 
 export const tutorData: TutorData = {
     name: 'Chiyan Yey',
-    rating: 4.9,
-    reviews: 6,
+    rating: 3.9,
+    reviews: 1000,
     imageUrl: IMAGES.userPlaceholder,
     bio: "I'm a professional engineer with 5 years of experience. I specialize in data analysis and machine learning. I've worked on several projects in the finance and healthcare industries.",
     subjects: ['Python', 'Data Analysis', 'Machine Learning', 'SQL', 'Tensorflow', 'Pandas'],
