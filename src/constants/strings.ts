@@ -8,6 +8,7 @@ export const STRING = {
     study: 'Study',
     profile: 'Profile',
     requestTutor: 'Request tutor',
+    signInTitle: 'Sign In',
     signIn: 'SignIn',
     signUp: 'SignUp',
     filterBy: 'FILTER BY:',
@@ -15,7 +16,11 @@ export const STRING = {
     eventTitle: 'Upcoming events',
     subjectTitle: 'Subjects',
     tutorTitle: 'Tutors',
+    forgotPassword: 'Forgot password',
+    continueToAcastudy: 'To Continue to Acastudy',
     
+    forgotPasswordSubTitle: 'To reset your password, please provide your email address in the field below.',
+
     bannerTopic: 'Personalised Learning, Anytime, Anywhere',
     bannerContent: `Welcome to Acastudy, where education is tailored to fit your needs! Our platform connects you with expert tutors who are ready to help you achieve academic success. Whether it's a quick session or a scheduled deep dive, Acastudy provides flexible, on-demand learning experiences that adapt to your goals and availability.`,
     bannerSubContent: 'Take control of your academic journey and thrive with Acastudy today!',

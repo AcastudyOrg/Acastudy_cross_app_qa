@@ -8,7 +8,7 @@ import CustomIcon from "../CustomIcon";
 import { COLORS } from "../../../constants";
 
 const BottomBarComponent = () => {
-	const navigation = useNavigation();
+	const navigation = useNavigation<any>();
 	const route = useRoute();
 
 	return (
@@ -18,7 +18,7 @@ const BottomBarComponent = () => {
 				return (
 					<TouchableOpacity
 						key={i}
-						onPress={() => navigation.navigate(item.link as never)}
+						onPress={() => navigation.navigate(item.link)}
 						style={bottomBarComponentStyles.bottomTabContentContainer}
 					>
 						<CustomIcon

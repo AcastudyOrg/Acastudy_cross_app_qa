@@ -12,7 +12,7 @@ type SidebarLinksProps = {
 };
 
 const SidebarLinks: React.FC<SidebarLinksProps> = ({ screenWidth }) => {
-    const navigation = useNavigation();
+    const navigation = useNavigation<any>();
     const route = useRoute();
 
     return (
@@ -22,7 +22,7 @@ const SidebarLinks: React.FC<SidebarLinksProps> = ({ screenWidth }) => {
                 return (
                     <TouchableOpacity
                         key={i}
-                        onPress={() => navigation.navigate(item.link as never)}
+                        onPress={() => navigation.navigate(item.link)}
                         style={sidebarLinksStyles.sidebarLinksItemsContainer}
                     >
                         <View style={sidebarLinksStyles.sidebarLinksIconItem}>
