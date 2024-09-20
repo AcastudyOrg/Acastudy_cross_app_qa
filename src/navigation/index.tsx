@@ -22,6 +22,7 @@ import {
   TutorProfileScreen,
   SubjectScreen,
 } from "../screens";
+import { NAV_SCREEN_NAME } from "../constants/strings";
 
 
 const Stack = createNativeStackNavigator();
@@ -30,38 +31,31 @@ const AppMainNavigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="OnboardingScreen"
+        initialRouteName={NAV_SCREEN_NAME.OnboardingScreen}
         screenOptions={{ headerShown: false }}
       >
         {/* Public Route Screens */}
-        <Stack.Screen
-          name="ForgotPasswordScreen"
-          component={ForgotPasswordScreen}
-        />
-        <Stack.Screen name="OnboardingScreen" component={OnboardingScreen} />
-        <Stack.Screen
-          name="PrivacyPolicyScreen"
-          component={PrivacyPolicyScreen}
-        />
-        <Stack.Screen name="TermsOfUseScreen" component={TermsOfUseScreen} />
-        <Stack.Screen name="SignInScreen" component={SignInScreen} />
-        <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
-        <Stack.Screen name="PasswordScreen" component={PasswordScreen} />
-        <Stack.Screen name="VerifyEmailScreen" component={VerifyEmailScreen} />
+        <Stack.Screen name={NAV_SCREEN_NAME.ForgotPasswordScreen} component={ForgotPasswordScreen} />
+        <Stack.Screen name={NAV_SCREEN_NAME.OnboardingScreen} component={OnboardingScreen} />
+        <Stack.Screen name={NAV_SCREEN_NAME.PrivacyPolicyScreen} component={PrivacyPolicyScreen} />
+        <Stack.Screen name={NAV_SCREEN_NAME.TermsOfUseScreen} component={TermsOfUseScreen} />
+        <Stack.Screen name={NAV_SCREEN_NAME.SignInScreen} component={SignInScreen} />
+        <Stack.Screen name={NAV_SCREEN_NAME.SignUpScreen} component={SignUpScreen} />
+        <Stack.Screen name={NAV_SCREEN_NAME.PasswordScreen} component={PasswordScreen} />
+        <Stack.Screen name={NAV_SCREEN_NAME.VerifyEmailScreen} component={VerifyEmailScreen} />
 
         {/* Private Route Screens */}
-        <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
-        <Stack.Screen name="CallScreen" component={CallScreen} />
-        <Stack.Screen name="ChatScreen" component={ChatScreen} />
-        <Stack.Screen name="HomeScreen" component={HomeScreen} />
-        <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
-        <Stack.Screen name="StudyScreen" component={StudyScreen} />
+        <Stack.Screen name={NAV_SCREEN_NAME.WelcomeScreen} component={WelcomeScreen} />
+        <Stack.Screen name={NAV_SCREEN_NAME.CallScreen} component={CallScreen} />
+        <Stack.Screen name={NAV_SCREEN_NAME.ChatScreen} component={ChatScreen} />
+        <Stack.Screen name={NAV_SCREEN_NAME.HomeScreen} component={HomeScreen} />
+        <Stack.Screen name={NAV_SCREEN_NAME.ProfileScreen} component={ProfileScreen} />
+        <Stack.Screen name={NAV_SCREEN_NAME.StudyScreen} component={StudyScreen} />
 
-        <Stack.Screen name="SubjectTopicsScreen" component={SubjectTopicsScreen} />
-        <Stack.Screen name="TutorScreen" component={TutorsScreen} />
-        <Stack.Screen name="SubjectScreen" component={SubjectScreen} />
-        <Stack.Screen name="TutorProfileScreen" component={TutorProfileScreen} />
-
+        <Stack.Screen name={NAV_SCREEN_NAME.SubjectTopicsScreen} component={SubjectTopicsScreen} />
+        <Stack.Screen name={NAV_SCREEN_NAME.TutorScreen} component={TutorsScreen} />
+        <Stack.Screen name={NAV_SCREEN_NAME.SubjectScreen} component={SubjectScreen} />
+        <Stack.Screen name={NAV_SCREEN_NAME.TutorProfileScreen} component={TutorProfileScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

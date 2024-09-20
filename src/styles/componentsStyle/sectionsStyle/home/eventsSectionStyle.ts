@@ -5,6 +5,7 @@ export const eventsSectionStyles = StyleSheet.create({
     upcomingMainContainer: {
         flexDirection: 'column',
         paddingBottom: 15,
+        paddingTop: 10,
     },
     upcomingTextContainer: {
         paddingBottom: 5,
