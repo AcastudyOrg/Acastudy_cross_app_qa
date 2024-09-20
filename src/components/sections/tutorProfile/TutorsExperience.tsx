@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
 import { Experience } from '../../../types/User/Tutor';
 import CustomIcon from '../../common/CustomIcon';
 import { tutorExperienceStyles } from '../../../styles/componentsStyle/sectionsStyle/tutorsProfile/tutorExperienceStyle';

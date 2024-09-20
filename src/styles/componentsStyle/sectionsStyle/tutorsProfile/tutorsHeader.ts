@@ -18,7 +18,7 @@ export const tutorHeaderStyles = StyleSheet.create({
     profileImage: {
         width: 150,
         height: 150,
-        borderRadius: 50,
+        borderRadius: 100,
     },
     tutorHeaderInfo: {
         paddingLeft: 20,

@@ -9,14 +9,10 @@ import AuthTextField from "../../components/common/Form/AuthTextField";
 import GoogleButton from "../../components/common/GoogleButton";
 import { authScreenStyle } from "../../styles/screensStyle/publicStyle/authScreenStyle";
 import { useNavigation } from "@react-navigation/native";
-import { NAV_SCREEN_NAME } from "../../constants/strings";
+import { NAV_SCREEN_NAME, STRING } from "../../constants/strings";
 
 // Note the code does not handle error messages
 const SignInScreen = () => {
-	const title: string = "Sign In";
-	const subtitle: string = "To Continue to Acastudy";
-	const forgotPassword: string = "Forgot Password";
-
 	const navigation = useNavigation<any>()
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -26,9 +22,8 @@ const SignInScreen = () => {
 		surname: "",
 		profilePictureUrl: 0
 	};
+	
 	const handleSubmit = () => {
-		// Todo(Tekstaq): handle onSubmit here
-		console.log("Creds: " + email, password)
 		navigation.navigate(NAV_SCREEN_NAME.HomeScreen)
 	};
 
@@ -38,8 +33,8 @@ const SignInScreen = () => {
 
 			<View style={authScreenStyle.content}>
 				<View style={authScreenStyle.container}>
-					<Text style={authScreenStyle.title}>{title}</Text>
-					<Text style={authScreenStyle.subtitle}>{subtitle}</Text>
+					<Text style={authScreenStyle.title}>{STRING.signInTitle}</Text>
+					<Text style={authScreenStyle.subtitle}>{STRING.continueToAcastudy}</Text>
 
 					<GoogleButton title="Continue with Google" onPress={() => { console.log("Google") }} />
 
@@ -50,7 +45,7 @@ const SignInScreen = () => {
 					</View>
 
 					<TouchableOpacity style={authScreenStyle.forgotPassword} onPress={() => { navigation.navigate(NAV_SCREEN_NAME.ForgotPasswordScreen) }}> 
-						<Text style={authScreenStyle.clickerbleText}>{forgotPassword}</Text>
+						<Text style={authScreenStyle.clickerbleText}>{STRING.forgotPassword}</Text>
 					</TouchableOpacity>
 
 					<AuthTextField label={"Email Address"} value={email} onChangeText={setEmail} />
