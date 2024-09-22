@@ -23,10 +23,6 @@ const CustomCalendar: React.FC<CustomCalendarProps> = ({ selectedDates }) => {
 
 		const oneDay = 24 * 60 * 60 * 1000;
 
-		const isStandalone =
-			(!prevDateTime || currentDate - prevDateTime !== oneDay) &&
-			(!nextDateTime || nextDateTime - currentDate !== oneDay);
-
 		const isStartingDay = !prevDateTime || currentDate - prevDateTime !== oneDay;
 		const isEndingDay = !nextDateTime || nextDateTime - currentDate !== oneDay;
 
