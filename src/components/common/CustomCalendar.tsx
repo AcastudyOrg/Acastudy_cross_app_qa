@@ -2,12 +2,16 @@ import React from 'react';
 import { Calendar, DateData } from 'react-native-calendars';
 import { COLORS } from '../../constants';
 import fontFamily from '../../constants/fontFamily';
+import { isMobile } from '../../../utils/config';
+import useScreenWidth from '../../hooks/useScreenWidth';
 
 interface CustomCalendarProps {
 	selectedDates: string[]; // Array of selected dates in 'YYYY-MM-DD' format e.g 2024-05-01
 }
 
 const CustomCalendar: React.FC<CustomCalendarProps> = ({ selectedDates }) => {
+	const screenWidth = useScreenWidth();
+	const isMobileWidth = isMobile(screenWidth);
 
 	const markedDates = selectedDates.reduce((acc, date, index, array) => {
 		const prevDate = array[index - 1];
@@ -38,7 +42,7 @@ const CustomCalendar: React.FC<CustomCalendarProps> = ({ selectedDates }) => {
 	return (
 		<Calendar
 			onDayPress={(day: DateData) => { console.log('selected day', day); }}
-			style={{ height: 350, width: 350 }}
+			style={{ height: 350, width: isMobileWidth ? '100%' : 600}}
 			markedDates={markedDates}
 			markingType={'period'}
 			theme={{
