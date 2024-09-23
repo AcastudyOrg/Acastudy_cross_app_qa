@@ -7,6 +7,7 @@ const gray = "#202020";
 const lightGray = "#D9D9D9";
 const lightCardGray = "#D9DEF6";
 const darkGray = "#555555";
+const textGray = "#9CABBA";
 const darkGrayOpacity = "rgba(255, 255, 255, 0.2)";
 const lightGrayOpacity = "rgba(175, 175, 175, 0.1)";
 const midGrayOpacity = "rgba(175, 175, 175, 0.2)";
@@ -37,6 +38,7 @@ const colors = {
   lightGray,
   lightCardGray,
   darkGray,
+  textGray,
   darkGrayOpacity,
   lightGrayOpacity,
   midGrayOpacity,
