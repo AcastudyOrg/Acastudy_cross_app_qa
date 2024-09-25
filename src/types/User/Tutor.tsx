@@ -17,6 +17,7 @@ export interface TutorData {
       category: string;
     } []
     reviewCounts: Record<string, number>;
+    bookedDays: string[];
   }
 
   export interface Experience {
