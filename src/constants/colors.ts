@@ -26,6 +26,7 @@ const hotPink = "#ff88d2";
 const orange = "#FD7E14";
 const transparent = "transparent";
 const transparentWhite = "#aaa";
+const appearTransparentWite = "#484a5d";
 
 const colors = {
   white,
@@ -53,6 +54,7 @@ const colors = {
   tan,
   purple,
   hotPink,
+  appearTransparentWite,
   orange,
   transparent,
   transparentWhite,

@@ -27,7 +27,7 @@ const CustomCalendar: React.FC<CustomCalendarProps> = ({ selectedDates }) => {
 		const isEndingDay = !nextDateTime || nextDateTime - currentDate !== oneDay;
 
 		acc[date] = {
-			color: COLORS.darkGray,
+			color: COLORS.appearTransparentWite,
 			textColor: COLORS.white,
 			startingDay: isStartingDay,
 			endingDay: isEndingDay,
