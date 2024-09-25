@@ -27,7 +27,7 @@ const CustomCalendar: React.FC<CustomCalendarProps> = ({ selectedDates }) => {
 		const isEndingDay = !nextDateTime || nextDateTime - currentDate !== oneDay;
 
 		acc[date] = {
-			color: COLORS.appearTransparentWite,
+			color: COLORS.appearTransparentWhite,
 			textColor: COLORS.white,
 			startingDay: isStartingDay,
 			endingDay: isEndingDay,
@@ -38,7 +38,7 @@ const CustomCalendar: React.FC<CustomCalendarProps> = ({ selectedDates }) => {
 	return (
 		<Calendar
 			onDayPress={(day: DateData) => { console.log('selected day', day); }}
-			style={{ height: 350, width: isMobileWidth ? '100%' : 600}}
+			style={{ height: 350, width: isMobileWidth ? '100%' : 600 }}
 			markedDates={markedDates}
 			markingType={'period'}
 			theme={{
