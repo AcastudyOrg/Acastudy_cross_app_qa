@@ -48,6 +48,10 @@ export const STRING = {
     "Sign up now as a tutor on Acastudy and empower students with your expertise!",
   OnbordingBecomeATutorButtonText: "Sign up as a Tutor",
 
+  username: "Tokyo Maeliner",
+  userAddress: "San Francisco, CA",
+  userPostCode: "1,345 SC",
+
   upcomingScreenTitle: "Upcoming Session",
 
   reviewPastMeetingTitle: "Review Past Meetings",

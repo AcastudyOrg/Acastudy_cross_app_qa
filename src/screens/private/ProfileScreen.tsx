@@ -1,5 +1,5 @@
 import React from "react";
-import { ScrollView, Text, View } from "react-native";
+import {ScrollView, Text, View } from "react-native";
 
 import { STRING } from "../../constants/strings";
 import {
@@ -11,11 +11,15 @@ import { profileScreenStyles } from "../../styles/screensStyle/privateStyle/prof
 import { PrivateScreenLayout } from "../../components";
 import UpcomingSessionComponent from "../../components/sections/userProfile/UpcomingSessionComponent";
 import ReviewPastMeetingComponent from "../../components/sections/userProfile/ReviewPastMeetingComponent";
+import TopProfileComponent from "../../components/sections/userProfile/TopProfileComponent";
 
 const ProfileScreen = () => {
   return (
     <PrivateScreenLayout>
       <View style={profileScreenStyles.homeMainContainer}>
+        {/* top profile section */}
+        <TopProfileComponent/>
+
         {/* Upcoming Sessions */}
         <View style={profileScreenStyles.titleTextItemContainer}>
           <Text style={profileScreenStyles.titleTextItem}>

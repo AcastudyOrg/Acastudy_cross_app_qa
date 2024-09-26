@@ -6,8 +6,54 @@ export const profileScreenStyles = StyleSheet.create({
     flex: 1,
     paddingTop: 15,
     paddingHorizontal: 15,
-    gap: 25,
+    gap: 30,
   },
+
+  topProfileContainer: {
+    flexDirection: "column",
+  },
+  topProfileImageContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    paddingBottom: 10,
+  },
+  topProfileImage: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    resizeMode: "cover",
+  },
+  topProfileTextContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  topProfileTextEmptyContainer: {
+    width: "25%",
+  },
+  topProfileTextNameContainer: {
+    width: "50%",
+    alignItems: "center",
+    flexDirection: "column",
+    gap: 2,
+  },
+  topProfileTextNameItem: {
+    color: COLORS.white,
+    fontSize: SIZE.m,
+    fontFamily: FONT.plusJakartaBold,
+  },
+  topProfileTextNameItems: {
+    color: COLORS.white,
+    fontSize: SIZE.s,
+    fontFamily: FONT.plusJakartaRegular,
+    opacity: 0.6,
+  },
+  topProfileButtonContainer: {
+    width: "25%",
+    alignItems: "flex-end",
+    justifyContent: "flex-end",
+  },
+
   titleTextItemContainer: {
     flexDirection: "column",
   },
