@@ -27,6 +27,7 @@ const hotPink = "#ff88d2";
 const orange = "#FD7E14";
 const transparent = "transparent";
 const transparentWhite = "#aaa";
+const tableHeader = "#858AA4";
 
 const colors = {
   white,
@@ -58,6 +59,7 @@ const colors = {
   orange,
   transparent,
   transparentWhite,
+  tableHeader,
 };
 
 export default colors;

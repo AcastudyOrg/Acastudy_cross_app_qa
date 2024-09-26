@@ -49,6 +49,8 @@ export const STRING = {
   OnbordingBecomeATutorButtonText: "Sign up as a Tutor",
 
   upcomingScreenTitle: "Upcoming Session",
+
+  reviewPastMeetingTitle: "Review Past Meetings",
 };
 
 export const NAV_SCREEN_NAME = {

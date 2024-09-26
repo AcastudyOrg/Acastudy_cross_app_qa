@@ -48,3 +48,20 @@ export const upcomingSessionData = [
         description: "Strengthen your mathematical skills in our comprehensive session designed for students of all levels. This workshop will cover essential concepts, including algebra, geometry, and statistics, with a focus on real-world applications. Through engaging problem-solving activities and interactive discussions, participants will develop a deeper understanding of mathematical principles and how to apply them in everyday situations. This session is ideal for those looking to improve their confidence in math or those preparing for exams. Our goal is to create a supportive environment that fosters learning and collaboration. Join us to build a strong foundation in mathematics and unlock the potential for future success in academics and beyond!"
     },
 ];
+
+export const profileHistoryTableData = [
+    {
+        id: 1,
+        tableHead: ['Tutor', 'Subject', 'Date', 'Review', 'Rewatch'],
+        tableData: [
+            ['John Doe', 'Mathematics', '2024-09-20', 'Review', 'Rewatch'],
+            ['Jane Smith', 'Physics', '2024-09-18', 'Review', 'Rewatch'],
+            ['Michael Brown', 'Chemistry', '2024-09-15', 'Review', 'Rewatch'],
+            ['Emily White', 'Biology', '2024-09-10', 'Review', 'Rewatch'],
+            ['David Black', 'History', '2024-09-08', 'Review', 'Rewatch'],
+            ['Sophia Green', 'English', '2024-09-05', 'Review', 'Rewatch'],
+            ['Liam Grey', 'Mathematics', '2024-09-03', 'Review', 'Rewatch'],
+            ['Ava Blue', 'Geography', '2024-08-30', 'Review', 'Rewatch'],
+        ]
+    }
+]

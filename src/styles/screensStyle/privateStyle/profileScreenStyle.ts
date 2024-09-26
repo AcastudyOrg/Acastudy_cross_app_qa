@@ -6,6 +6,10 @@ export const profileScreenStyles = StyleSheet.create({
     flex: 1,
     paddingTop: 15,
     paddingHorizontal: 15,
+    gap: 25,
+  },
+  titleTextItemContainer: {
+    flexDirection: "column",
   },
   titleTextItem: {
     fontFamily: FONT.plusJakartaExtraBold,
@@ -40,5 +44,53 @@ export const profileScreenStyles = StyleSheet.create({
     fontFamily: FONT.plusJakartaRegular,
     fontSize: Platform.OS === "web" ? SIZE.xs : SIZE.s,
     opacity: 0.7,
+  },
+  title: {
+    color: "white",
+    fontSize: SIZE.m,
+    fontWeight: "bold",
+    marginBottom: 16,
+  },
+  table: {
+    borderRadius: 8,
+    overflow: "hidden",
+    width: "100%",
+  },
+  tableHeader: {
+    flexDirection: "row",
+    backgroundColor: "#858AA4",
+    padding: 12,
+  },
+  tableRow: {
+    flexDirection: "row",
+    backgroundColor: "#2A2A3F",
+    borderTopWidth: 1,
+    borderTopColor: "#3D3D56",
+  },
+  headerCell: {
+    color: COLORS.white,
+    fontWeight: "bold",
+    textAlign: "left",
+    flex: 1,
+    minWidth: 100,
+  },
+  cell: {
+    color: COLORS.white,
+    padding: 12,
+    textAlign: "left",
+    flex: 1,
+    minWidth: 100,
+  },
+  tableText: {
+    fontSize: SIZE.s,
+    color: COLORS.white,
+  },
+  actionCell: {
+    flex: 1,
+    minWidth: 100,
+  },
+  actionText: {
+    fontSize: SIZE.s,
+    color: COLORS.white,
   },
 });
