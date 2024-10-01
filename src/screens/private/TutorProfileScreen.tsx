@@ -17,22 +17,24 @@ type propType = NativeStackScreenProps<any>;
 const TutorProfileScreen: React.FC<propType> = ({ route }) => {
     return (
         <PrivateScreenLayout showBackButton={true} showSearchBar={false}>
-            <TutorHeader
-                name={tutorData.name}
-                rating={tutorData.rating}
-                reviews={tutorData.reviews}
-                imageUrl={route?.params?.imageUrl ?? tutorData.imageUrl}
-            />
-            <TutorBio text={tutorData.bio} />
-            <TutoSubjectOfInterest subjects={tutorData.subjects} />
-            <TutorExperience experiences={tutorData.experiences} />
-            <EventsSection upcomingEventsData={tutorData.upcomingEvents} showViewMoreButton={tutorData.upcomingEvents.length > 4} />
-            <TutorReviews rating={tutorData.rating} reviewCounts={tutorData.reviewCounts} />
+            <View style={tutorProfileStyles.tutorProfileContainer}>
+                <TutorHeader
+                    name={tutorData.name}
+                    rating={tutorData.rating}
+                    reviews={tutorData.reviews}
+                    imageUrl={route?.params?.imageUrl ?? tutorData.imageUrl}
+                />
+                <TutorBio text={tutorData.bio} />
+                <TutoSubjectOfInterest subjects={tutorData.subjects} />
+                <TutorExperience experiences={tutorData.experiences} />
+                <EventsSection upcomingEventsData={tutorData.upcomingEvents} showViewMoreButton={tutorData.upcomingEvents.length > 4} />
+                <TutorReviews rating={tutorData.rating} reviewCounts={tutorData.reviewCounts} />
 
-            <View style={tutorProfileStyles.availabilitySection}>
-                <Text style={tutorProfileStyles.availability}>Availability</Text>
-                <View style={tutorProfileStyles.availabilityCalendar}>
-                    <CustomCalendar selectedDates={tutorData.bookedDays} />
+                <View style={tutorProfileStyles.availabilitySection}>
+                    <Text style={tutorProfileStyles.availability}>Availability</Text>
+                    <View style={tutorProfileStyles.availabilityCalendar}>
+                        <CustomCalendar selectedDates={tutorData.bookedDays} />
+                    </View>
                 </View>
             </View>
         </PrivateScreenLayout>
