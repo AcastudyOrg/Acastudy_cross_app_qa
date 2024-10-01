@@ -13,7 +13,7 @@ export const tutorProfileStyles = StyleSheet.create({
         bottom: 20,
     },
     availabilityCalendar: {
-        justifyContent: 'center',
-        alignItems: 'center',
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
     }
 })

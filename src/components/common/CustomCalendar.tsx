@@ -6,7 +6,7 @@ import { isMobile } from '../../../utils/config';
 import useScreenWidth from '../../hooks/useScreenWidth';
 
 interface CustomCalendarProps {
-	selectedDates: string[]; // Array of selected dates in 'YYYY-MM-DD' format e.g 2024-05-01
+	selectedDates: string[];
 }
 
 const CustomCalendar: React.FC<CustomCalendarProps> = ({ selectedDates }) => {
@@ -38,7 +38,7 @@ const CustomCalendar: React.FC<CustomCalendarProps> = ({ selectedDates }) => {
 	return (
 		<Calendar
 			onDayPress={(day: DateData) => { console.log('selected day', day); }}
-			style={{ height: 350, width: isMobileWidth ? '100%' : 600 }}
+			style={{ height: 350, width: isMobileWidth ? '100%' : 500 }}
 			markedDates={markedDates}
 			markingType={'period'}
 			theme={{
