@@ -22,7 +22,7 @@ const TutorSection: React.FC<tutorSectionProps> = ({ tutorData }) => {
     const navigation = useNavigation<any>();
 
     const handleViewMore = () => {
-            navigation.navigate(NAV_SCREEN_NAME.TutorScreen);
+        navigation.navigate(NAV_SCREEN_NAME.TutorScreen);
     }
 
     return (

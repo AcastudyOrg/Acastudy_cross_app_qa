@@ -1,11 +1,13 @@
 import React from 'react';
-import { Image, Text, View } from 'react-native';
+import { Image, Pressable, Text, View } from 'react-native';
 import { Octicons } from '@expo/vector-icons';
 
 import { COLORS } from '../../../constants';
 import { tutorComponentStyles } from '../../../styles/componentsStyle/sectionsStyle/home/tutorComponentStyle';
 import { homeTileScreenWidth } from '../../../../utils/config';
 import useScreenWidth from '../../../hooks/useScreenWidth';
+import { NAV_SCREEN_NAME } from '../../../constants/strings';
+import { useNavigation } from '@react-navigation/native';
 
 type TutorProps = {
     item: {
@@ -20,10 +22,11 @@ type TutorProps = {
 };
 
 const TutorComponent: React.FC<TutorProps> = ({ item }) => {
+    const navigation = useNavigation<any>();
     const screenWidth = useScreenWidth();
     const containerWidth = homeTileScreenWidth(screenWidth);
     return (
-        <View style={[
+        <Pressable onPress={() => navigation.navigate(NAV_SCREEN_NAME.TutorProfileScreen, { imageUrl: item.avatar })} style={[
             tutorComponentStyles.tutorContentContainer,
             { width: containerWidth, paddingHorizontal: containerWidth * .1 }]}>
             <View style={tutorComponentStyles.tutorImageContainer}>
@@ -70,7 +73,7 @@ const TutorComponent: React.FC<TutorProps> = ({ item }) => {
                     <Text style={tutorComponentStyles.ratingValueText}>3.5</Text>
                 </View>
             </View>
-        </View>
+        </Pressable>
     )
 }
 

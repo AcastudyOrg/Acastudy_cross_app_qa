@@ -1,12 +1,14 @@
-import { StyleSheet, Platform } from "react-native";
+import { StyleSheet } from "react-native";
 import { COLORS,SIZE, FONT } from "../../../../constants";
 
 export const eventsSectionStyles = StyleSheet.create({
     upcomingMainContainer: {
         flexDirection: 'column',
-        paddingVertical: 15,
+        paddingBottom: 15,
+        paddingTop: 10,
     },
     upcomingTextContainer: {
+        paddingBottom: 5,
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -15,7 +17,8 @@ export const eventsSectionStyles = StyleSheet.create({
     upcomingTitleText: {
         color: COLORS.white,
         fontSize: SIZE.l,
-        fontFamily: FONT.plusJakartaMedium
+        fontFamily: FONT.plusJakartaMedium,
+        fontWeight: 'bold',
     },
     upcomingActionText: {
         color: COLORS.white,

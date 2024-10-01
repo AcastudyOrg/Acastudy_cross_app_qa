@@ -8,7 +8,7 @@ import subjectData from '../../../../assets/data/home/subjectData.json';
 
 const SubjectScreen = () => {
 return (
-    <PrivateScreenLayout>
+    <PrivateScreenLayout showBackButton={true}>
         <View style={subjectsSectionStyles.subjectMainContainer}>
             <View style={subjectsSectionStyles.subjectTextContainer}>
             <Text style={subjectsSectionStyles.subjectTitleText}>{STRING.subjectTitle}</Text>

@@ -12,9 +12,11 @@ export interface ImageProps {
   success: ImageSourcePropType;
   error: ImageSourcePropType;
   loader: ImageSourcePropType | string;
+
   user: ImageSourcePropType | string;
   userPlaceholder: ImageSourcePropType;
   comingSoon: ImageSourcePropType| string;
+  studentPicture: string;
 
   mathImg: ImageSourcePropType;
   physicsImg: ImageSourcePropType;
