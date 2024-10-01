@@ -1,12 +1,12 @@
-import { Platform, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import { COLORS, FONT, SIZE } from "../../../constants";
 
 export const profileScreenStyles = StyleSheet.create({
   homeMainContainer: {
     flex: 1,
-    paddingTop: 15,
+    paddingTop: 50,
     paddingBottom: 100,
-    paddingHorizontal: 15,
+    paddingHorizontal: 30,
     gap: 30,
   },
 
@@ -19,18 +19,15 @@ export const profileScreenStyles = StyleSheet.create({
     paddingBottom: 10,
   },
   topProfileImage: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
+    width: 150,
+    height: 150,
+    borderRadius: 100,
     resizeMode: "cover",
   },
   topProfileTextContainer: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
-  },
-  topProfileTextEmptyContainer: {
-    width: "25%",
+    justifyContent: "flex-end",
   },
   topProfileTextNameContainer: {
     width: "50%",
@@ -40,17 +37,18 @@ export const profileScreenStyles = StyleSheet.create({
   },
   topProfileTextNameItem: {
     color: COLORS.white,
-    fontSize: SIZE.m,
+    paddingVertical: 5,
+    fontSize: SIZE.xxl,
     fontFamily: FONT.plusJakartaBold,
   },
   topProfileTextNameItems: {
     color: COLORS.white,
-    fontSize: SIZE.s,
+    fontSize: SIZE.m,
     fontFamily: FONT.plusJakartaRegular,
     opacity: 0.6,
   },
   topProfileButtonContainer: {
-    width: "25%",
+    width: 150,
     alignItems: "flex-end",
     justifyContent: "flex-end",
   },
@@ -59,7 +57,7 @@ export const profileScreenStyles = StyleSheet.create({
     flexDirection: "column",
   },
   titleTextItem: {
-    fontFamily: FONT.plusJakartaExtraBold,
+    fontFamily: FONT.plusJakartaMedium,
     color: COLORS.white,
     fontSize: SIZE.xl,
     paddingBottom: 20,
@@ -71,7 +69,7 @@ export const profileScreenStyles = StyleSheet.create({
   upcomingItemContentContainer: {
     flexDirection: "column",
     paddingRight: 20,
-    gap: 15,
+    gap: 10,
   },
   upcomingImageItem: {
     resizeMode: "cover",
@@ -88,56 +86,56 @@ export const profileScreenStyles = StyleSheet.create({
   },
   upcomingInfoItem: {
     color: COLORS.textGray,
-    fontFamily: FONT.plusJakartaRegular,
-    fontSize: Platform.OS === "web" ? SIZE.xs : SIZE.s,
-    opacity: 0.7,
-  },
-  title: {
-    color: "white",
+    fontFamily: FONT.plusJakartaExtraLight,
     fontSize: SIZE.m,
-    fontWeight: "bold",
-    marginBottom: 16,
   },
   table: {
     borderRadius: 8,
+    borderWidth: .5,
+    borderColor: COLORS.darkGrayOpacity,
     overflow: "hidden",
     width: "100%",
   },
   tableHeader: {
     flexDirection: "row",
-    backgroundColor: "#858AA4",
+    backgroundColor: COLORS.studentProfileTableHeader,
     padding: 12,
   },
   tableRow: {
     flexDirection: "row",
-    backgroundColor: "#2A2A3F",
-    borderTopWidth: 1,
-    borderTopColor: "#3D3D56",
+    backgroundColor: COLORS.transparent,
+    borderTopWidth: .3,
+    borderTopColor: COLORS.white,
   },
   headerCell: {
-    color: COLORS.white,
-    fontWeight: "bold",
-    textAlign: "left",
     flex: 1,
     minWidth: 100,
   },
   cell: {
-    color: COLORS.white,
-    padding: 12,
-    textAlign: "left",
     flex: 1,
     minWidth: 100,
+    paddingVertical: 25,
+    padding: 12,
+    color: COLORS.white,
+  },
+  headerText: {
+    color: COLORS.white,
+    fontSize: SIZE.m,
+    fontFamily: FONT.plusJakartaBold,
   },
   tableText: {
-    fontSize: SIZE.s,
     color: COLORS.white,
+    fontSize: SIZE.m,
+    fontFamily: FONT.plusJakartaExtraLight,
   },
   actionCell: {
     flex: 1,
     minWidth: 100,
   },
   actionText: {
-    fontSize: SIZE.s,
     color: COLORS.white,
+    fontSize: SIZE.m,
+    fontFamily: FONT.plusJakartaExtraLight,
+    textAlign: "left",
   },
 });

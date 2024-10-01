@@ -14,13 +14,6 @@ const TopProfileComponent = () => {
           }}
           style={profileScreenStyles.topProfileImage}
         />
-      </View>
-
-      <View style={profileScreenStyles.topProfileTextContainer}>
-        <View style={profileScreenStyles.topProfileTextEmptyContainer}>
-          <Text style={profileScreenStyles.topProfileTextNameItem}></Text>
-        </View>
-
         <View style={profileScreenStyles.topProfileTextNameContainer}>
           <Text style={profileScreenStyles.topProfileTextNameItem}>
             {STRING.username}
@@ -32,7 +25,9 @@ const TopProfileComponent = () => {
             {STRING.userPostCode}
           </Text>
         </View>
+      </View>
 
+      <View style={profileScreenStyles.topProfileTextContainer}>
         <View style={profileScreenStyles.topProfileButtonContainer}>
           <GradientButtonComponent
             text="Study Credit"

@@ -23,7 +23,7 @@ const ReviewPastMeetingsComponent: React.FC<ReviewPastMeetingsProps> = ({ data }
           <Text key={index}
             style={[
               profileScreenStyles.headerCell,
-              profileScreenStyles.tableText,
+              profileScreenStyles.headerText,
             ]}
           >
             {heading}

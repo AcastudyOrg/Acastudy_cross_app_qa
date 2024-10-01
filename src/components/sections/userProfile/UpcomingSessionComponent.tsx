@@ -27,7 +27,7 @@ const UpcomingSessionComponent = ({ item }: UpcomingSessionProps) => {
         style={[
           profileScreenStyles.upcomingImageItem,
           {
-            width: containerWidth * 0.9,
+            width: containerWidth * 1,
             height: containerWidth * 0.55,
           },
         ]}
@@ -38,14 +38,14 @@ const UpcomingSessionComponent = ({ item }: UpcomingSessionProps) => {
           style={[
             profileScreenStyles.upcomingTitleItem,
             {
-              width: containerWidth * 0.9,
+              width: containerWidth * 1,
             },
           ]}
         >
           {item.title}
         </Text>
         <Text numberOfLines={3} style={[profileScreenStyles.upcomingInfoItem,             {
-              width: containerWidth * 0.9,
+              width: containerWidth * 1,
             },]}>
           {item.description}
         </Text>

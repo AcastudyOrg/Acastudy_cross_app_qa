@@ -13,12 +13,13 @@ import useScreenWidth from "../../hooks/useScreenWidth";
 
 interface privatePropType {
   children: React.ReactNode;
+  showTopBar?: boolean;
   showBackButton?: boolean;
   showAppName?: boolean;
-	showSearchBar?: boolean;
+  showSearchBar?: boolean;
 }
 
-const PrivateScreenLayout: React.FC<privatePropType> = ({ children, showBackButton = false, showAppName = false, showSearchBar = true}) => {
+const PrivateScreenLayout: React.FC<privatePropType> = ({ children, showTopBar = true, showBackButton = false, showAppName = false, showSearchBar = true }) => {
   const screenWidth = useScreenWidth();
   const isNotMobileWidth = isNotMobile(screenWidth);
   const isMobileWidth = isMobile(screenWidth);
@@ -36,7 +37,7 @@ const PrivateScreenLayout: React.FC<privatePropType> = ({ children, showBackButt
               style={privateScreenLayoutStyles.logoMobileImage}
             />
           </View>
-          <TopBarComponent renderRightSection={false} user={user} />
+          {showTopBar && <TopBarComponent renderRightSection={false} user={user} />}
         </View>
       ) : (
         <>
@@ -51,7 +52,7 @@ const PrivateScreenLayout: React.FC<privatePropType> = ({ children, showBackButt
       <View style={[privateScreenLayoutStyles.contentContainer, { marginLeft: isMobileWidth ? 0 : "18%" }]}>
         {isNotMobileWidth ? (
           <View style={privateScreenLayoutStyles.topNavContainer}>
-            <TopBarComponent user={user} showBackButton={showBackButton} showAppName={showAppName} showSearchBar={showSearchBar}/>
+            {showTopBar && <TopBarComponent user={user} showBackButton={showBackButton} showAppName={showAppName} showSearchBar={showSearchBar} />}
             <ScrollView
               style={privateScreenLayoutStyles.childrenScrollView}
               showsVerticalScrollIndicator={false}>

@@ -13,7 +13,7 @@ import TopProfileComponent from "../../components/sections/userProfile/TopProfil
 
 const StudentProfileScreen = () => {
   return (
-    <PrivateScreenLayout>
+    <PrivateScreenLayout showTopBar={false}>
       <View style={profileScreenStyles.homeMainContainer}>
         <TopProfileComponent />
 
@@ -26,13 +26,11 @@ const StudentProfileScreen = () => {
             showsHorizontalScrollIndicator={false}
             style={profileScreenStyles.upcomingItemContainer}
           >
-            {upcomingSessionData
-              .map((item) => (
-                <View key={item.id}>
-                  <UpcomingSessionComponent item={item} />
-                </View>
-              ))
-              .slice(0, 4)}
+            {upcomingSessionData.map((item) => (
+              <View key={item.id}>
+                <UpcomingSessionComponent item={item} />
+              </View>
+            )).slice(0, 4)}
           </ScrollView>
         </View>
 
