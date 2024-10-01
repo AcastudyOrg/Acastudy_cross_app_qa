@@ -15,7 +15,7 @@ import {
   CallScreen,
   ChatScreen,
   HomeScreen,
-  ProfileScreen,
+  StudentProfileScreen,
   StudyScreen,
   SubjectTopicsScreen,
   TutorsScreen,
@@ -31,7 +31,7 @@ const AppMainNavigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName={NAV_SCREEN_NAME.OnboardingScreen}
+        initialRouteName={NAV_SCREEN_NAME.StudentProfileScreen}
         screenOptions={{ headerShown: false }}
       >
         {/* Public Route Screens */}
@@ -49,7 +49,7 @@ const AppMainNavigation = () => {
         <Stack.Screen name={NAV_SCREEN_NAME.CallScreen} component={CallScreen} />
         <Stack.Screen name={NAV_SCREEN_NAME.ChatScreen} component={ChatScreen} />
         <Stack.Screen name={NAV_SCREEN_NAME.HomeScreen} component={HomeScreen} />
-        <Stack.Screen name={NAV_SCREEN_NAME.ProfileScreen} component={ProfileScreen} />
+        <Stack.Screen name={NAV_SCREEN_NAME.StudentProfileScreen} component={StudentProfileScreen} />
         <Stack.Screen name={NAV_SCREEN_NAME.StudyScreen} component={StudyScreen} />
 
         <Stack.Screen name={NAV_SCREEN_NAME.SubjectTopicsScreen} component={SubjectTopicsScreen} />
