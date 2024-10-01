@@ -5,5 +5,5 @@ export const links = [
   { name: "Study", link: "StudyScreen", icon: ICONS.studyIcon },
   { name: "Calls", link: "CallScreen", icon: ICONS.callsIcon },
   { name: "Chats", link: "ChatScreen", icon: ICONS.chatsIcon },
-  { name: "Profile", link: "ProfileScreen", icon: ICONS.profileIcon },
+  { name: "Profile", link: "StudentProfileScreen", icon: ICONS.profileIcon },
 ];

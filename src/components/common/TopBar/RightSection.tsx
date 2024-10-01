@@ -53,7 +53,7 @@ const SignedInContent: React.FC<SignedInContentProps> = ({ screenWidth, user, na
 		{user && (
 			<View style={rightSectionStyles.profile}>
 				<Text style={rightSectionStyles.profileName}>{user.name} {user.surname}</Text>
-				<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.ProfileScreen)}>
+				<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.StudentProfileScreen)}>
 					<Image
 						source={user.profilePictureUrl}
 						style={rightSectionStyles.profilePicture}
