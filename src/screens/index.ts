@@ -17,7 +17,7 @@ import WelcomeScreen from "./private/WelcomeScreen";
 import ChatScreen from "./private/ChatScreen";
 import CallScreen from "./private/CallScreen";
 import HomeScreen from "./private/HomeScreen";
-import ProfileScreen from "./private/ProfileScreen";
+import StudentProfileScreen from "./private/StudentProfileScreen";
 import StudyScreen from "./private/StudyScreen";
 import SubjectTopicsScreen from "./private/subjects/SubjectTopicsScreen";
 import TutorsScreen from "./private/tutors/TutorsScreen";
@@ -37,7 +37,7 @@ export {
   ChatScreen,
   CallScreen,
   HomeScreen,
-  ProfileScreen,
+  StudentProfileScreen,
   StudyScreen,
   SubjectTopicsScreen,
   TutorsScreen,

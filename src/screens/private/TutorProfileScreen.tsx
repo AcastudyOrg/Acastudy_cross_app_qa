@@ -8,6 +8,9 @@ import TutorExperience from "../../components/sections/tutorProfile/TutorsExperi
 import EventsSection from "../../components/sections/home/EventsSection";
 import TutorReviews from "../../components/sections/tutorProfile/TutorReview";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import CustomCalendar from "../../components/common/CustomCalendar";
+import { Text, View } from "react-native";
+import { tutorProfileStyles } from "../../styles/componentsStyle/commonStyle/tutorProfileStyle";
 
 type propType = NativeStackScreenProps<any>;
 
@@ -18,13 +21,20 @@ const TutorProfileScreen: React.FC<propType> = ({ route }) => {
                 name={tutorData.name}
                 rating={tutorData.rating}
                 reviews={tutorData.reviews}
-                imageUrl={route?.params?.imageUrl ?? tutorData.imageUrl }
+                imageUrl={route?.params?.imageUrl ?? tutorData.imageUrl}
             />
             <TutorBio text={tutorData.bio} />
             <TutoSubjectOfInterest subjects={tutorData.subjects} />
             <TutorExperience experiences={tutorData.experiences} />
             <EventsSection upcomingEventsData={tutorData.upcomingEvents} showViewMoreButton={tutorData.upcomingEvents.length > 4} />
             <TutorReviews rating={tutorData.rating} reviewCounts={tutorData.reviewCounts} />
+
+            <View style={tutorProfileStyles.availabilitySection}>
+                <Text style={tutorProfileStyles.availability}>Availability</Text>
+                <View style={tutorProfileStyles.availabilityCalendar}>
+                    <CustomCalendar selectedDates={tutorData.bookedDays} />
+                </View>
+            </View>
         </PrivateScreenLayout>
     );
 }

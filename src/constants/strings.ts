@@ -64,7 +64,7 @@ export const NAV_SCREEN_NAME = {
   WelcomeScreen: "WelcomeScreen",
   CallScreen: "CallScreen",
   ChatScreen: "ChatScreen",
-  ProfileScreen: "ProfileScreen",
+  StudentProfileScreen: "StudentProfileScreen",
   StudyScreen: "StudyScreen",
 
   SignInScreen: "SignInScreen",

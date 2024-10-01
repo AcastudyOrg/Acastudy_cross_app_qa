@@ -28,6 +28,7 @@ const orange = "#FD7E14";
 const transparent = "transparent";
 const transparentWhite = "#aaa";
 const tableHeader = "#858AA4";
+const appearTransparentWhite = "#484a5d";
 
 const colors = {
   white,
@@ -56,6 +57,7 @@ const colors = {
   tan,
   purple,
   hotPink,
+  appearTransparentWhite,
   orange,
   transparent,
   transparentWhite,

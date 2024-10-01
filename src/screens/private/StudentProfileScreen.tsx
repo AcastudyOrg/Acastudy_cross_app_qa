@@ -11,7 +11,7 @@ import UpcomingSessionComponent from "../../components/sections/userProfile/Upco
 import ReviewPastMeetingsComponent from "../../components/sections/userProfile/ReviewPastMeetingsComponent";
 import TopProfileComponent from "../../components/sections/userProfile/TopProfileComponent";
 
-const ProfileScreen = () => {
+const StudentProfileScreen = () => {
   return (
     <PrivateScreenLayout>
       <View style={profileScreenStyles.homeMainContainer}>
@@ -47,4 +47,4 @@ const ProfileScreen = () => {
   );
 };
 
-export default ProfileScreen;
+export default StudentProfileScreen;
