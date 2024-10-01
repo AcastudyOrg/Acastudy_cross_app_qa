@@ -5,6 +5,7 @@ export const profileScreenStyles = StyleSheet.create({
   homeMainContainer: {
     flex: 1,
     paddingTop: 15,
+    paddingBottom: 100,
     paddingHorizontal: 15,
     gap: 30,
   },

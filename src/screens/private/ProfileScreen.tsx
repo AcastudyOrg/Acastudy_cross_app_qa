@@ -1,31 +1,26 @@
 import React from "react";
-import {ScrollView, Text, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 
 import { STRING } from "../../constants/strings";
-import {
-  profileHistoryTableData,
-  upcomingSessionData,
-} from "../../../assets/data/profile";
+import upcomingSessionData from "../../../assets/data/profile/upcomingSessionData.json";
+import profileHistoryTableData from "../../../assets/data/profile/profileHistoryTableData.json";
 import { profileScreenStyles } from "../../styles/screensStyle/privateStyle/profileScreenStyle";
 
 import { PrivateScreenLayout } from "../../components";
 import UpcomingSessionComponent from "../../components/sections/userProfile/UpcomingSessionComponent";
-import ReviewPastMeetingComponent from "../../components/sections/userProfile/ReviewPastMeetingComponent";
+import ReviewPastMeetingsComponent from "../../components/sections/userProfile/ReviewPastMeetingsComponent";
 import TopProfileComponent from "../../components/sections/userProfile/TopProfileComponent";
 
 const ProfileScreen = () => {
   return (
     <PrivateScreenLayout>
       <View style={profileScreenStyles.homeMainContainer}>
-        {/* top profile section */}
-        <TopProfileComponent/>
+        <TopProfileComponent />
 
-        {/* Upcoming Sessions */}
         <View style={profileScreenStyles.titleTextItemContainer}>
           <Text style={profileScreenStyles.titleTextItem}>
             {STRING.upcomingScreenTitle}
           </Text>
-
           <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
@@ -41,16 +36,11 @@ const ProfileScreen = () => {
           </ScrollView>
         </View>
 
-        {/* Review Past Meetings */}
         <View style={profileScreenStyles.titleTextItemContainer}>
           <Text style={profileScreenStyles.titleTextItem}>
             {STRING.reviewPastMeetingTitle}
           </Text>
-
-          {/* Pass the tableData from the first object in profileHistoryTableData */}
-          <ReviewPastMeetingComponent
-            data={profileHistoryTableData[0].tableData}
-          />
+          <ReviewPastMeetingsComponent data={profileHistoryTableData.tableData} />
         </View>
       </View>
     </PrivateScreenLayout>

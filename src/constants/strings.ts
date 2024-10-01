@@ -55,6 +55,8 @@ export const STRING = {
   upcomingScreenTitle: "Upcoming Session",
 
   reviewPastMeetingTitle: "Review Past Meetings",
+
+  reviewTableHeadings: ['Tutor', 'Subject', 'Date', 'Review', 'Rewatch'],
 };
 
 export const NAV_SCREEN_NAME = {
