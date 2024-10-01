@@ -1,13 +1,9 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import { COLORS, FONT, SIZE } from "../../../../constants";
 
-const { width } = Dimensions.get('window');
 
-
-const containerWidth = width > 900 ? width * .18 : 160;
 export const upcomingEventsComponentStyles = StyleSheet.create({
     container: {
-        width: containerWidth,
         marginRight: 15,
     },
     upcomingEventsContentContainer: {
@@ -22,7 +18,6 @@ export const upcomingEventsComponentStyles = StyleSheet.create({
         flexDirection: 'column',
     },
     upcomingImageItem: {
-        width: containerWidth * .22,
         height: 55,
         borderRadius: 5
     },

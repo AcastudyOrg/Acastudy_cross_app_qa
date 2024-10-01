@@ -1,10 +1,11 @@
-import React from 'react'
-import { Image, Text, View } from 'react-native'
-import { LinearGradient } from 'expo-linear-gradient'
+import React from 'react';
+import { Image, Text, View } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 
-import { COLORS } from '../../../constants'
-import { formatDateTime } from '../../../../utils/config'
-import { upcomingEventsComponentStyles } from '../../../styles/componentsStyle/sectionsStyle/home/upcomingEventsComponentStyle'
+import { COLORS } from '../../../constants';
+import { formatDateTime, homeTileScreenWidth } from '../../../../utils/config';
+import { upcomingEventsComponentStyles } from '../../../styles/componentsStyle/sectionsStyle/home/upcomingEventsComponentStyle';
+import useScreenWidth from '../../../hooks/useScreenWidth';
 
 type EventsProps = {
     item: {
@@ -18,8 +19,10 @@ type EventsProps = {
 };
 
 const UpcomingEventsComponent: React.FC<EventsProps> = ({ item }) => {
+    const screenWidth = useScreenWidth();
+    const containerWidth = homeTileScreenWidth(screenWidth);
     return (
-        <View style={upcomingEventsComponentStyles.container}>
+        <View style={[upcomingEventsComponentStyles.container, { width: containerWidth }]}>
             <LinearGradient
                 start={{ x: 0.2, y: 0 }}
                 end={{ x: 0, y: 1 }}
@@ -28,7 +31,7 @@ const UpcomingEventsComponent: React.FC<EventsProps> = ({ item }) => {
                 <View style={upcomingEventsComponentStyles.upcomingImageContainer}>
                     <Image
                         source={{ uri: item.thumbnail }}
-                        style={upcomingEventsComponentStyles.upcomingImageItem}
+                        style={[upcomingEventsComponentStyles.upcomingImageItem, { width: containerWidth * .22 }]}
                         resizeMode="cover"
                     />
                 </View>

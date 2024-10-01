@@ -3,6 +3,7 @@ import { View, Text, ScrollView } from 'react-native';
 
 import UpcomingEventsComponent from './UpcomingEventsComponent';
 import { eventsSectionStyles } from '../../../styles/componentsStyle/sectionsStyle/home/eventsSectionStyle';
+import { STRING } from '../../../constants/strings';
 
 type eventsSectionProps = {
     upcomingEventsData: {
@@ -13,9 +14,10 @@ type eventsSectionProps = {
         datetime: string;
         category: string;
     }[];
+    showViewMoreButton?: boolean;
 };
 
-const EventsSection: React.FC<eventsSectionProps> = ({ upcomingEventsData }) => {
+const EventsSection: React.FC<eventsSectionProps> = ({ upcomingEventsData, showViewMoreButton = true}) => {
     const handleViewMore = () => {
         console.log('view more events')
     }
@@ -23,8 +25,10 @@ const EventsSection: React.FC<eventsSectionProps> = ({ upcomingEventsData }) => 
     return (
         <View style={eventsSectionStyles.upcomingMainContainer}>
             <View style={eventsSectionStyles.upcomingTextContainer}>
-                <Text style={eventsSectionStyles.upcomingTitleText}>Upcoming events</Text>
-                <Text onPress={handleViewMore} style={eventsSectionStyles.upcomingActionText}>View more</Text>
+                <Text style={eventsSectionStyles.upcomingTitleText}>{STRING.eventTitle}</Text>
+                { showViewMoreButton && (
+                    <Text onPress={handleViewMore} style={eventsSectionStyles.upcomingActionText}>{STRING.viewMore}</Text>
+                )}
             </View>
 
             <ScrollView

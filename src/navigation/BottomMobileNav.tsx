@@ -7,7 +7,7 @@ import { bottomMobileNavStyleS } from "../styles/navigationStyle/bottomMobileNav
 import { COLORS } from "../constants";
 
 const BottomMobileNavigation = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<any>();
   const route = useRoute();
 
   return (
@@ -17,7 +17,7 @@ const BottomMobileNavigation = () => {
         return (
           <TouchableOpacity
             key={i}
-            onPress={() => navigation.navigate(item.link as never)}
+            onPress={() => navigation.navigate(item.link)}
             style={bottomMobileNavStyleS.bottomTabContentContainer}
           >
             <Image source={item.icon} style={bottomMobileNavStyleS.sidebarLinksIconItem} />

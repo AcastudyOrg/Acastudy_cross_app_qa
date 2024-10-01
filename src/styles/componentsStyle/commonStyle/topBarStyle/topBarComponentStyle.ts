@@ -12,7 +12,7 @@ export const topBarComponentStyles = StyleSheet.create({
         backgroundColor: COLORS.transparent,
     },
     divider: {
-        width: "92%",
+        width: "95%",
         height: 0.5,
         backgroundColor: COLORS.white,
         alignSelf: "center",

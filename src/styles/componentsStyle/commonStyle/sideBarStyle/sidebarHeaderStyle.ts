@@ -7,9 +7,11 @@ export const sidebarHeaderStyles = StyleSheet.create({
 		justifyContent: 'flex-start',
         paddingLeft: 20
 	},
-	sidebarMediaItem: {
-		color: COLORS.white,
-		fontFamily: FONT.plusJakartaBold,
-		fontSize: SIZE.xxl,
-	},
+	logoImage:  {
+      width: 200,
+      height: 67,
+	  right: 45,
+	  bottom: 15,
+      resizeMode: 'contain',
+    },
 });

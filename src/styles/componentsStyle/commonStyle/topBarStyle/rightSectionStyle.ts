@@ -8,7 +8,8 @@ export const rightSectionStyles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'flex-end',
 		flexShrink: 1,
-		flexWrap: 'wrap'
+		flexWrap: 'wrap',
+		right: 10,
 	},
 	rightSectionbuttons: {
 		flexDirection: 'row',
