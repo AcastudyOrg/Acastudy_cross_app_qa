@@ -9,8 +9,6 @@ import SignUpScreen from "./public/SignUpScreen";
 import PasswordScreen from "./public/PasswordScreen";
 import VerifyEmailScreen from "./public/VerifyEmailScreen";
 import ForgotPasswordScreen from "./public/ForgotPasswordScreen";
-import VerifyForgotEmailScreen from "./public/VerifyEmailScreen";
-import SetNewForgotPasswordScreen from "./public/SetNewForgotPasswordScreen";
 
 {
   /* Private Route Screens */
@@ -19,10 +17,12 @@ import WelcomeScreen from "./private/WelcomeScreen";
 import ChatScreen from "./private/ChatScreen";
 import CallScreen from "./private/CallScreen";
 import HomeScreen from "./private/HomeScreen";
-import ProfileScreen from "./private/ProfileScreen";
+import StudentProfileScreen from "./private/StudentProfileScreen";
 import StudyScreen from "./private/StudyScreen";
 import SubjectTopicsScreen from "./private/subjects/SubjectTopicsScreen";
 import TutorsScreen from "./private/tutors/TutorsScreen";
+import TutorProfileScreen from "./private/TutorProfileScreen";
+import SubjectScreen from "./private/subjects/SubjectsScreen";
 
 export {
   OnboardingScreen,
@@ -33,14 +33,14 @@ export {
   PasswordScreen,
   VerifyEmailScreen,
   ForgotPasswordScreen,
-  VerifyForgotEmailScreen,
-  SetNewForgotPasswordScreen,
   WelcomeScreen,
   ChatScreen,
   CallScreen,
   HomeScreen,
-  ProfileScreen,
+  StudentProfileScreen,
   StudyScreen,
   SubjectTopicsScreen,
   TutorsScreen,
+  TutorProfileScreen,
+  SubjectScreen,
 };

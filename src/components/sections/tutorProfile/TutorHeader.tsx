@@ -11,12 +11,9 @@ interface TutorHeaderProps {
   reviews: number;
   imageUrl: ImageSourcePropType;
 }
-// const navigation = useNavigation();
 
 const TutorHeader: React.FC<TutorHeaderProps> = ({ name, rating, reviews, imageUrl }) => (
-
   <View style={tutorHeaderStyles.container}>
-
     <View style={tutorHeaderStyles.header}>
       <Image source={imageUrl} style={tutorHeaderStyles.profileImage} />
       <View style={tutorHeaderStyles.tutorHeaderInfo}>
@@ -24,14 +21,12 @@ const TutorHeader: React.FC<TutorHeaderProps> = ({ name, rating, reviews, imageU
         <Text style={tutorHeaderStyles.rating}>{rating} • {reviews} reviews</Text>
       </View>
     </View>
-
     <View style={tutorHeaderStyles.requestButton}>
       <GradientButtonComponent
         text={STRING.requestTutor}
         onPress={() => { }}
       />
     </View>
-
   </View>
 );
 

@@ -22,11 +22,11 @@ type TutorProps = {
 };
 
 const TutorComponent: React.FC<TutorProps> = ({ item }) => {
-    const navigation = useNavigation();
+    const navigation = useNavigation<any>();
     const screenWidth = useScreenWidth();
     const containerWidth = homeTileScreenWidth(screenWidth);
     return (
-        <Pressable onPress={() => navigation.navigate(NAV_SCREEN_NAME.TutorProfileScreen as never)} style={[
+        <Pressable onPress={() => navigation.navigate(NAV_SCREEN_NAME.TutorProfileScreen, { imageUrl: item.avatar })} style={[
             tutorComponentStyles.tutorContentContainer,
             { width: containerWidth, paddingHorizontal: containerWidth * .1 }]}>
             <View style={tutorComponentStyles.tutorImageContainer}>
