@@ -10,13 +10,15 @@ import { PrivateScreenLayout } from "../../components";
 import UpcomingSessionComponent from "../../components/sections/userProfile/UpcomingSessionComponent";
 import ReviewPastMeetingsComponent from "../../components/sections/userProfile/ReviewPastMeetingsComponent";
 import TopProfileComponent from "../../components/sections/userProfile/TopProfileComponent";
+import DeatilsFormComponent from "../../components/sections/userProfile/DetailsFormComponent";
 
 const StudentProfileScreen = () => {
   return (
     <PrivateScreenLayout showTopBar={false}>
       <View style={profileScreenStyles.homeMainContainer}>
         <TopProfileComponent />
-
+        <DeatilsFormComponent />
+        
         <View style={profileScreenStyles.titleTextItemContainer}>
           <Text style={profileScreenStyles.titleTextItem}>
             {STRING.upcomingScreenTitle}

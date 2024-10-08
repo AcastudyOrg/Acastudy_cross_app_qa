@@ -6,7 +6,6 @@ import AppTopNavigationComponent from "./common/AppTopNavigationComponent";
 //common form components
 import GradientButtonComponent from "./common/Form/GradientButtonComponent";
 import ImagePickerComponent from "./common/Form/ImagePickerComponent";
-import TextInputComponent from "./common/Form/TextInputComponent";
 import SocialAuthButtonComponent from "./common/Form/SocialAuthButtonComponent";
 
 //layouts
@@ -29,7 +28,6 @@ export {
   AppTopNavigationComponent,
   GradientButtonComponent,
   ImagePickerComponent,
-  TextInputComponent,
   SocialAuthButtonComponent,
   PrivateScreenLayout,
   PublicScreenLayout,

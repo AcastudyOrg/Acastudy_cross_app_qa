@@ -42,10 +42,9 @@ export const profileScreenStyles = StyleSheet.create({
     fontFamily: FONT.plusJakartaBold,
   },
   topProfileTextNameItems: {
-    color: COLORS.white,
     fontSize: SIZE.m,
+    color: COLORS.textGray,
     fontFamily: FONT.plusJakartaRegular,
-    opacity: 0.6,
   },
   topProfileButtonContainer: {
     width: 150,
