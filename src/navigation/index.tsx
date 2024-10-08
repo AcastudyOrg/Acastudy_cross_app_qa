@@ -31,7 +31,7 @@ const AppMainNavigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName={NAV_SCREEN_NAME.OnboardingScreen}
+        initialRouteName={NAV_SCREEN_NAME.StudentProfileScreen}
         screenOptions={{ headerShown: false }}
       >
         {/* Public Route Screens */}

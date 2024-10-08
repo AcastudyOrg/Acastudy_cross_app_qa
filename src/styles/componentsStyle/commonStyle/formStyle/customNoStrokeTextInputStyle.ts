@@ -8,15 +8,15 @@ export const customNoStrokeTextInputStyles = StyleSheet.create({
     },
     input: {
         flex: 1,
-        minHeight: 40,
         fontSize: SIZE.m,
+        lineHeight: 25,
         fontFamily: FONT.plusJakartaRegular,
         paddingHorizontal: 10,
         color: COLORS.white,
     },
     inputLabel: {
         paddingLeft: 10,
-        fontSize: SIZE.s,
+        fontSize: SIZE.sm,
         color: COLORS.textGray,
         fontFamily: FONT.plusJakartaMedium,
     },
@@ -24,7 +24,7 @@ export const customNoStrokeTextInputStyles = StyleSheet.create({
         borderColor: 'transparent',
         borderWidth: 0,
     },
-      inputUnfocused: {
+    inputUnfocused: {
         borderColor: 'transparent',
-      },
+    },
 });

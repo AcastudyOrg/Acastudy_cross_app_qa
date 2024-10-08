@@ -12,6 +12,7 @@ const DeatilsFormComponent = () => {
 
     return (
         <View>
+            <View style={detailsFormComponentStyles.detailsDivider} />
             <View style={detailsFormComponentStyles.detailsFormRow}>
                 <DetailsInputContainerComponent value={education} label="Education level" placeholder="Education level" onChange={setEducation} />
                 <DetailsInputContainerComponent value={school} label="School" placeholder="School" onChange={setSchool} />
