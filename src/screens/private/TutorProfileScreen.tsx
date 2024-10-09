@@ -30,7 +30,6 @@ const TutorProfileScreen: React.FC<propType> = ({ route }) => {
                 <TutorExperience experiences={tutorData.experiences} />
                 <EventsSection upcomingEventsData={tutorData.upcomingEvents} showViewMoreButton={tutorData.upcomingEvents.length > 4} />
                 <TutorReviews rating={tutorData.rating} reviewCounts={tutorData.reviewCounts} />
-                <StudentSubjectOfInterest subjects={tutorData.subjects} />
 
                 <View style={tutorProfileStyles.availabilitySection}>
                     <Text style={tutorProfileStyles.availability}>Availability</Text>
