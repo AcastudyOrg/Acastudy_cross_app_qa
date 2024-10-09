@@ -19,6 +19,7 @@ export const STRING = {
   forgotPassword: "Forgot password",
   continueToAcastudy: "To Continue to Acastudy",
   subjectOfInterest: "Subject of interest",
+  personalInformation: "Personal Information",
 
   forgotPasswordSubTitle:
     "To reset your password, please provide your email address in the field below.",
@@ -48,6 +49,7 @@ export const STRING = {
   OnbordingBecomeATutorSecondInfoExtraInfo:
     "Sign up now as a tutor on Acastudy and empower students with your expertise!",
   OnbordingBecomeATutorButtonText: "Sign up as a Tutor",
+  studentBio: "A student bio is a short introduction about yourself that is commonly used in academic settings. It is a way for students to showcase their achievements, goals, and personal qualities. Writing an effective student bio can be a daunting task, but with the right approach, you can create a compelling bio that will leave a lasting impression. In this article, we will discuss why a student bio is important, what to include in a student bio, provide some student bio examples, and share tips for writing an effective student bio.",
 
   username: "Tokyo Maeliner",
   userAddress: "San Francisco, CA",
