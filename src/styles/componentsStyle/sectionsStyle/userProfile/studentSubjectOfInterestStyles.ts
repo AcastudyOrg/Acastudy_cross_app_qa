@@ -4,6 +4,7 @@ import { COLORS, FONT, SIZE } from '../../../../constants';
 export const studentSubjectOfInterestStyles = StyleSheet.create({
     section: {
         padding: 1,
+        gap: 10
     },
     sectionTitle: {
         fontSize: SIZE.l,
