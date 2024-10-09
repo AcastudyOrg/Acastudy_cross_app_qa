@@ -11,6 +11,7 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import CustomCalendar from "../../components/common/CustomCalendar";
 import { Text, View } from "react-native";
 import { tutorProfileStyles } from "../../styles/componentsStyle/commonStyle/tutorProfileStyle";
+import StudentSubjectOfInterest from "../../components/sections/userProfile/StudentSubjectOfInteret";
 
 type propType = NativeStackScreenProps<any>;
 
@@ -29,6 +30,7 @@ const TutorProfileScreen: React.FC<propType> = ({ route }) => {
                 <TutorExperience experiences={tutorData.experiences} />
                 <EventsSection upcomingEventsData={tutorData.upcomingEvents} showViewMoreButton={tutorData.upcomingEvents.length > 4} />
                 <TutorReviews rating={tutorData.rating} reviewCounts={tutorData.reviewCounts} />
+                <StudentSubjectOfInterest subjects={tutorData.subjects} />
 
                 <View style={tutorProfileStyles.availabilitySection}>
                     <Text style={tutorProfileStyles.availability}>Availability</Text>
