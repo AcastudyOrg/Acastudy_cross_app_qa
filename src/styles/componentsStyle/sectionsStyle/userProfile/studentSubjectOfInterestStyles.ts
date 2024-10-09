@@ -1,7 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { COLORS, FONT, SIZE } from '../../../../constants';
 
-
 export const studentSubjectOfInterestStyles = StyleSheet.create({
     section: {
         padding: 1,
@@ -20,22 +19,36 @@ export const studentSubjectOfInterestStyles = StyleSheet.create({
         fontFamily: FONT.plusJakartaRegular,
         height: 40,
         width: "50%",
-
     },
     subjectsContainer: {
         flexDirection: 'row',
         flexWrap: 'wrap',
     },
     subjectTag: {
-        backgroundColor: COLORS.white,
+        backgroundColor: 'rgba(255, 255, 255, 0.2)',
         borderRadius: 10,
         paddingHorizontal: 10,
         paddingVertical: 5,
         margin: 5,
+        flexDirection: 'row',
+        alignItems: 'center',
     },
     subjectText: {
-        color: COLORS.darkBlue,
-    fontSize: SIZE.sm,
-    fontFamily: FONT.plusJakartaRegular,
+        color: COLORS.white,
+        fontSize: SIZE.sm,
+        fontFamily: FONT.plusJakartaRegular,
+        marginRight: 5,
+    },
+    removeButton: {
+        marginLeft: 5,
+        width: 20,
+        height: 20,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    removeButtonText: {
+        color: COLORS.white,
+        fontSize: SIZE.l,
+        lineHeight: 20,
     },
 });

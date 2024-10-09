@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Keyboard } from 'react-native';
+import { View, Text, TextInput, Keyboard, TouchableOpacity } from 'react-native';
 import { STRING } from '../../../constants/strings';
 import { COLORS } from '../../../constants';
 import { studentSubjectOfInterestStyles } from '../../../styles/componentsStyle/sectionsStyle/userProfile/studentSubjectOfInterestStyles';
@@ -9,15 +9,19 @@ interface StudentSubjectOfInterestProps {
 }
 
 const StudentSubjectOfInterest: React.FC<StudentSubjectOfInterestProps> = ({ subjects }) => {
-    const [subjectList, setSubjectList] = useState(subjects);  // State to manage subjects
-    const [newSubject, setNewSubject] = useState('');          // State for new subject from search bar
+    const [subjectList, setSubjectList] = useState(subjects);
+    const [newSubject, setNewSubject] = useState('');
 
     const handleAddSubject = () => {
         if (newSubject.trim() !== '') {
-            setSubjectList([...subjectList, newSubject]);  // Add the new subject to the list
-            setNewSubject('');                            // Reset the input field
-            Keyboard.dismiss();                           // Dismiss the keyboard
+            setSubjectList([...subjectList, newSubject]);
+            setNewSubject('');
+            Keyboard.dismiss();
         }
+    };
+
+    const handleRemoveSubject = (indexToRemove: number) => {
+        setSubjectList(subjectList.filter((_, index) => index !== indexToRemove));
     };
 
     return (
@@ -28,6 +32,12 @@ const StudentSubjectOfInterest: React.FC<StudentSubjectOfInterestProps> = ({ sub
                 {subjectList.map((subject, index) => (
                     <View key={index} style={studentSubjectOfInterestStyles.subjectTag}>
                         <Text style={studentSubjectOfInterestStyles.subjectText}>{subject}</Text>
+                        <TouchableOpacity 
+                            onPress={() => handleRemoveSubject(index)}
+                            style={studentSubjectOfInterestStyles.removeButton}
+                        >
+                            <Text style={studentSubjectOfInterestStyles.removeButtonText}>×</Text>
+                        </TouchableOpacity>
                     </View>
                 ))}
             </View>
