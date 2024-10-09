@@ -7,8 +7,8 @@ export const studentSubjectOfInterestStyles = StyleSheet.create({
         gap: 10
     },
     sectionTitle: {
-        fontSize: SIZE.l,
-        fontFamily: FONT.plusJakartaBold,
+        fontSize: SIZE.xl,
+        fontFamily: FONT.plusJakartaMedium,
         color: COLORS.white,
         marginBottom: 10,
     },
