@@ -38,7 +38,7 @@ const LeftSection: React.FC<LeftSectionProps> = ({ showAppName, showSearchBar, s
 				)}
 				{showSearchBar && (
 					<TextInput
-						placeholder={STRING.searchPlaceholder}
+						placeholder={STRING.searchPlaceholder}     
 						placeholderTextColor={COLORS.transparentWhite}
 						style={leftSectionStyles.searchInput}
 					/>
