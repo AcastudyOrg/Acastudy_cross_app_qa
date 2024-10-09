@@ -13,10 +13,20 @@ const StudentSubjectOfInterest: React.FC<StudentSubjectOfInterestProps> = ({ sub
     const [newSubject, setNewSubject] = useState('');
 
     const handleAddSubject = () => {
-        if (newSubject.trim() !== '') {
-            setSubjectList([...subjectList, newSubject]);
-            setNewSubject('');
-            Keyboard.dismiss();
+        const trimmedSubject = newSubject.trim();
+        if (trimmedSubject !== '') {
+            const isDuplicate = subjectList.some(
+                subject => subject.toLowerCase() === trimmedSubject.toLowerCase()
+            );
+
+            if (!isDuplicate) {
+                setSubjectList([...subjectList, trimmedSubject]);
+                setNewSubject('');
+                Keyboard.dismiss();
+            } else {
+                setNewSubject('');
+                Keyboard.dismiss();
+            }
         }
     };
 
