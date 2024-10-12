@@ -1,3 +1,4 @@
+
 export const STRING = {
   searchPlaceholder: "Search...",
   becomeATutor: "Become A Tutor",
@@ -83,6 +84,7 @@ export const NAV_SCREEN_NAME = {
   TutorProfileScreen: "TutorProfileScreen",
   TermsOfUseScreen: "TermsOfUseScreen",
   PrivacyPolicyScreen: "PrivacyPolicyScreen",
+  RequestTutorScreen: "RequestTutorScreen", 
 };
 
 export const DEVICE_TYPE = {
