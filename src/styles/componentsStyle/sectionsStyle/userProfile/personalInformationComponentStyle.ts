@@ -4,10 +4,9 @@ import { COLORS, FONT, SIZE } from "../../../../constants";
 export const personalInformationComponentStyles = StyleSheet.create({
     container: {
         width: "100%",
-        paddingTop: 10,
     },
     personalInfoTitleContainer: {
-        paddingVertical: 15,
+        paddingBottom: 15,
     },
     personalInfoTitle: {
         color: COLORS.white,

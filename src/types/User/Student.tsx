@@ -4,4 +4,5 @@ export type User = {
     name: string;
     surname: string;
     profilePictureUrl: ImageSourcePropType;
+    subjects: string[];
 };

@@ -18,6 +18,7 @@ export const STRING = {
   tutorTitle: "Tutors",
   forgotPassword: "Forgot password",
   continueToAcastudy: "To Continue to Acastudy",
+  subjectOfInterest: "Subject of interest",
   personalInformation: "Personal Information",
 
   forgotPasswordSubTitle:

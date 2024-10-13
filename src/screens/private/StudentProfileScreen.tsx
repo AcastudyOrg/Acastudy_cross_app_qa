@@ -11,6 +11,9 @@ import UpcomingSessionComponent from "../../components/sections/userProfile/Upco
 import ReviewPastMeetingsComponent from "../../components/sections/userProfile/ReviewPastMeetingsComponent";
 import TopProfileComponent from "../../components/sections/userProfile/TopProfileComponent";
 import PersonalInformationComponent from "../../components/sections/userProfile/PersonalInformationComponent";
+import StudentSubjectOfInterest from "../../components/sections/userProfile/StudentSubjectOfInteret";
+import { tutorData } from "../../../mockData/TutorData";
+import { LoginMockUser } from "../../../mockData/LoginUser";
 
 const StudentProfileScreen = () => {
   return (
@@ -18,6 +21,7 @@ const StudentProfileScreen = () => {
       <View style={profileScreenStyles.homeMainContainer}>
         <TopProfileComponent />
         <PersonalInformationComponent />
+        <StudentSubjectOfInterest subjects={LoginMockUser.subjects} />
 
         <View style={profileScreenStyles.titleTextItemContainer}>
           <Text style={profileScreenStyles.titleTextItem}>
