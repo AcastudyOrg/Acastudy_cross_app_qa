@@ -21,7 +21,7 @@ const user = "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&
 const userPlaceholder = require("../../assets/images/general/dummy/userPlaceholder.png");
 const comingSoon = "https://static.vecteezy.com/system/resources/previews/026/972/633/original/traffic-cone-under-construction-free-png.png";
 const studentPicture = "https://images.unsplash.com/photo-1649123245135-4db6ead931b5?q=80&w=1025&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
-
+const maths = "https://images.unsplash.com/photo-1509869175650-a1d97972541a?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 
 //Homescreen Tiles images
 const mathImg = require('../../assets/images/appImages/maths.svg');
@@ -51,6 +51,7 @@ const images: ImageProps = {
   userPlaceholder,
   comingSoon,
   studentPicture,
+  maths,
 
   mathImg,
   physicsImg,

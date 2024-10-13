@@ -49,7 +49,8 @@ export const STRING = {
   OnbordingBecomeATutorSecondInfoExtraInfo:
     "Sign up now as a tutor on Acastudy and empower students with your expertise!",
   OnbordingBecomeATutorButtonText: "Sign up as a Tutor",
-  studentBio: "A student bio is a short introduction about yourself that is commonly used in academic settings. It is a way for students to showcase their achievements, goals, and personal qualities. Writing an effective student bio can be a daunting task, but with the right approach, you can create a compelling bio that will leave a lasting impression. In this article, we will discuss why a student bio is important, what to include in a student bio, provide some student bio examples, and share tips for writing an effective student bio.",
+  studentBio:
+    "A student bio is a short introduction about yourself that is commonly used in academic settings. It is a way for students to showcase their achievements, goals, and personal qualities. Writing an effective student bio can be a daunting task, but with the right approach, you can create a compelling bio that will leave a lasting impression. In this article, we will discuss why a student bio is important, what to include in a student bio, provide some student bio examples, and share tips for writing an effective student bio.",
 
   username: "Tokyo Maeliner",
   userAddress: "San Francisco, CA",
@@ -59,7 +60,15 @@ export const STRING = {
 
   reviewPastMeetingTitle: "Review Past Meetings",
 
-  reviewTableHeadings: ['Tutor', 'Subject', 'Date', 'Review', 'Rewatch'],
+  reviewTableHeadings: ["Tutor", "Subject", "Date", "Review", "Rewatch"],
+
+  studyPostTitle: "Analytical Geometry | Circles",
+  studyTutorName: "Nicolas Cage",
+  studyDate: "12 Feb 2024",
+  studyRSVPies: 176,
+  studyDuration: "18:00 - 1h30",
+  studyPostText:
+    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione eum alias fugiat sint excepturi quos, eaque omnis cupiditate maxime laborum soluta aspernatur repellendus dolore saepe. Ducimus id illum laborum nisi.",
 };
 
 export const NAV_SCREEN_NAME = {
