@@ -20,6 +20,7 @@ import {
   TutorsScreen,
   TutorProfileScreen,
   SubjectScreen,
+  RequestTutorScreen,
 } from "../screens";
 import { NAV_SCREEN_NAME } from "../constants/strings";
 
@@ -54,6 +55,7 @@ const AppMainNavigation = () => {
       <Stack.Screen name={NAV_SCREEN_NAME.TutorScreen} component={TutorsScreen} />
       <Stack.Screen name={NAV_SCREEN_NAME.SubjectScreen} component={SubjectScreen} />
       <Stack.Screen name={NAV_SCREEN_NAME.TutorProfileScreen} component={TutorProfileScreen} />
+      <Stack.Screen name={NAV_SCREEN_NAME.RequestTutorScreen} component={RequestTutorScreen} />
     </Stack.Navigator>
   );
 };

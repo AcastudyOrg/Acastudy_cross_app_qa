@@ -23,6 +23,7 @@ import SubjectTopicsScreen from "./private/subjects/SubjectTopicsScreen";
 import TutorsScreen from "./private/tutors/TutorsScreen";
 import TutorProfileScreen from "./private/TutorProfileScreen";
 import SubjectScreen from "./private/subjects/SubjectsScreen";
+import RequestTutorScreen from "./private/RequestTutorScreen";
 
 export {
   OnboardingScreen,
@@ -43,4 +44,5 @@ export {
   TutorsScreen,
   TutorProfileScreen,
   SubjectScreen,
+  RequestTutorScreen,
 };
