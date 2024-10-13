@@ -5,7 +5,7 @@ export const studyFeedStyles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     flexDirection: "column",
-        paddingTop: 10,
+    paddingTop: 10,
     paddingHorizontal: 10,
   },
   feedMainContainer: {
@@ -24,7 +24,6 @@ export const studyFeedStyles = StyleSheet.create({
   feedAvatarContainer: {
     width: "15%",
     justifyContent: "flex-start",
-    alignItems: "center",
   },
   feedAvatarItem: {
     width: Platform.OS ==="ios" || Platform.OS ==="android" ?50 :40,
@@ -60,7 +59,7 @@ export const studyFeedStyles = StyleSheet.create({
   feedTopTextNameItem: {
     color: COLORS.white,
     fontFamily: FONT.plusJakartaBold,
-    fontSize: SIZE.m,
+    fontSize: SIZE.sm,
   },
   feedTopTextDateContainer: {
     flexDirection: "row",
@@ -78,7 +77,7 @@ export const studyFeedStyles = StyleSheet.create({
   feedTopTextTimeItem: {
     color: COLORS.white,
     fontFamily: FONT.plusJakartaRegular,
-    fontSize: SIZE.m,
+    fontSize: SIZE.sm,
   },
 
   feedMiddleContainer: {
@@ -88,7 +87,7 @@ export const studyFeedStyles = StyleSheet.create({
   feedMiddleTextItem: {
     color: COLORS.white,
     fontFamily: FONT.plusJakartaRegular,
-    fontSize: SIZE.m,
+    fontSize: SIZE.sm,
   },
 
   feedBottomContainer: {
@@ -97,7 +96,7 @@ export const studyFeedStyles = StyleSheet.create({
   },
   feedBottomPostImageItem: {
     width: "100%",
-    height: 150,
+    height: 200,
     resizeMode: "cover",
     borderRadius: 10,
   },
