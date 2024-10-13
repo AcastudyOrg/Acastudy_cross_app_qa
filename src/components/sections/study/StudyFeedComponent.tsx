@@ -1,9 +1,8 @@
 import React from "react";
-import { View, Text, Pressable } from "react-native";
-import { SimpleLineIcons } from "@expo/vector-icons";
+import { View } from "react-native";
 import useScreenWidth from "../../../hooks/useScreenWidth";
 import { homeTileScreenWidth, isMobile } from "../../../../utils/config";
-import { COLORS, IMAGES } from "../../../constants";
+import { IMAGES } from "../../../constants";
 import { STRING } from "../../../constants/strings";
 import { studyFeedStyles } from "../../../styles/componentsStyle/sectionsStyle/study/studyFeedStyle";
 import StudyDescription from "./StudyDescription";
