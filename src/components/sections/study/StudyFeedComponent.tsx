@@ -3,15 +3,19 @@ import { View } from "react-native";
 import useScreenWidth from "../../../hooks/useScreenWidth";
 import { homeTileScreenWidth, isMobile } from "../../../../utils/config";
 import { IMAGES } from "../../../constants";
-import { STRING } from "../../../constants/strings";
 import { studyFeedStyles } from "../../../styles/componentsStyle/sectionsStyle/study/studyFeedStyle";
 import StudyDescription from "./StudyDescription";
 import StudyAvatar from "./StudyAvatar";
 import StudyDateTime from "./StudyDateTime";
 import StudyTutorImage from "./StudyTutorImage";
 import StudyTileHeader from "./StudyTileHeader";
+import { StudyFeedEntry } from "../../../types/User/Feed";
 
-const StudyFeedComponent: React.FC = () => {
+interface StudyFeedComponentProps {
+	entry: StudyFeedEntry;
+  }
+  
+const StudyFeedComponent: React.FC<StudyFeedComponentProps> = ({ entry }) => {
 	const screenWidth = useScreenWidth();
 	const containerWidth = homeTileScreenWidth(screenWidth);
 	const mobile = isMobile(screenWidth);
@@ -33,19 +37,19 @@ const StudyFeedComponent: React.FC = () => {
 		>
 			<View style={studyFeedStyles.feedMainContainer}>
 				<View style={studyFeedStyles.feedTopContainer}>
-					<StudyAvatar onPress={showTutorProfile} imageSource={IMAGES.studentPicture} />
+					<StudyAvatar onPress={showTutorProfile} imageSource={entry.tutorAvatar} />
 					<View style={studyFeedStyles.feedTopTextContainer}>
 						<StudyTileHeader
-							title={STRING.studyPostTitle}
-							name={STRING.studyTutorName}
+							title={entry.title}
+							name={entry.tutorName}
 							onAuthorPress={showTutorProfile}
 						/>
 					</View>
 				</View>
 
-				<StudyDateTime date={STRING.studyDate} rsvp={STRING.studyRSVPies} duration={STRING.studyDuration} />
-				<StudyDescription text={STRING.studyPostText} onPress={readMoreAboutStudy} />
-				<StudyTutorImage imageSource={IMAGES.maths} />
+				<StudyDateTime date={entry.date} rsvp={entry.rsvpCount} duration={ entry.time + " - " + entry.duration} />
+				<StudyDescription text={entry.description} onPress={readMoreAboutStudy} />
+				<StudyTutorImage imageUrl={entry.image} />
 			</View>
 		</View>
 	);

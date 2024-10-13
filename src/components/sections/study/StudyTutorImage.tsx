@@ -1,15 +1,15 @@
 import React from "react";
-import { View, Image } from "react-native";
+import { View, Image, ImageSourcePropType } from "react-native";
 import { studyFeedStyles } from "../../../styles/componentsStyle/sectionsStyle/study/studyFeedStyle";
   
   interface StudyTutorImageProps {
-    imageSource: string;
+    imageUrl: ImageSourcePropType;
   }
   
-  const StudyTutorImage: React.FC<StudyTutorImageProps> = ({ imageSource }) => (
+  const StudyTutorImage: React.FC<StudyTutorImageProps> = ({ imageUrl }) => (
     <View style={studyFeedStyles.feedBottomContainer}>
       <Image
-        source={{ uri: imageSource }}
+        source={imageUrl}
         alt="post-image"
         style={studyFeedStyles.feedBottomPostImageItem}
       />
