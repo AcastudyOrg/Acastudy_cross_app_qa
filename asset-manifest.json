@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/Acastudy_cross_app/static/js/main.219c09d7.js",
-    "static/js/140.0ab6a5ba.js": "/Acastudy_cross_app/static/js/140.0ab6a5ba.js",
+    "main.js": "/Acastudy_cross_app/static/js/main.40030085.js",
+    "static/js/108.c29c8741.js": "/Acastudy_cross_app/static/js/108.c29c8741.js",
     "static/media/user.svg": "/Acastudy_cross_app/static/media/user.11396190c299a31e4c2e.svg",
     "static/media/user2.svg": "/Acastudy_cross_app/static/media/user2.82c9bfe564cde24d3e5d.svg",
     "static/media/onboard.jpg": "/Acastudy_cross_app/static/media/onboard.57362dfee567ad2c591b.jpg",
@@ -41,6 +41,7 @@
     "static/media/Entypo.ttf": "/Acastudy_cross_app/static/media/Entypo.fc6169344c041cffcdae.ttf",
     "static/media/error.png": "/Acastudy_cross_app/static/media/error.3500251728cc02f6bd9d.png",
     "static/media/Feather.ttf": "/Acastudy_cross_app/static/media/Feather.0f5d9cede2e831f3fc80.ttf",
+    "static/media/SimpleLineIcons.ttf": "/Acastudy_cross_app/static/media/SimpleLineIcons.3ec13a24af3fdda11107.ttf",
     "static/media/Octicons.ttf": "/Acastudy_cross_app/static/media/Octicons.6b742a230954dc640ba2.ttf",
     "static/media/userPlaceholder.png": "/Acastudy_cross_app/static/media/userPlaceholder.a37ce062d049c120cc4a.png",
     "static/media/sentEmail.png": "/Acastudy_cross_app/static/media/sentEmail.cfbd30cfa769b2d76e05.png",
@@ -55,11 +56,11 @@
     "favicon-16.png": "/Acastudy_cross_app/favicon-16.png",
     "manifest.json": "/Acastudy_cross_app/manifest.json",
     "serve.json": "/Acastudy_cross_app/serve.json",
-    "main.219c09d7.js.map": "/Acastudy_cross_app/static/js/main.219c09d7.js.map",
-    "140.0ab6a5ba.js.map": "/Acastudy_cross_app/static/js/140.0ab6a5ba.js.map"
+    "main.40030085.js.map": "/Acastudy_cross_app/static/js/main.40030085.js.map",
+    "108.c29c8741.js.map": "/Acastudy_cross_app/static/js/108.c29c8741.js.map"
   },
   "entrypoints": [
-    "static/js/140.0ab6a5ba.js",
-    "static/js/main.219c09d7.js"
+    "static/js/108.c29c8741.js",
+    "static/js/main.40030085.js"
   ]
 }
