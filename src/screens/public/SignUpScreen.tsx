@@ -23,7 +23,8 @@ const SignUpScreen = () => {
   const user: User = {
     name: "",
     surname: "",
-    profilePictureUrl: 0
+    profilePictureUrl: 0,
+    subjects: []
   };
   const handleSubmit = () => {
     navigation.navigate(NAV_SCREEN_NAME.PasswordScreen)
