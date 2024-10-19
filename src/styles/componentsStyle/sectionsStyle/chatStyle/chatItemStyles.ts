@@ -58,8 +58,9 @@ export default StyleSheet.create({
   unreadBadge: {
     backgroundColor: COLORS.purple,
     borderRadius: 12,
-    maxWidth: 20,
+    minWidth: 20,
     height: 20,
+    flexWrap: 'wrap',
     justifyContent: 'center',
     alignItems: 'center',
     marginLeft: 8,
@@ -74,5 +75,10 @@ export default StyleSheet.create({
   messageStatus: {
     flex: 1,
     flexDirection: 'row'
-  }
+  },
+  dateAndUnread: {
+    flexDirection: 'column',
+    alignItems: 'flex-end', 
+},
+
 });
