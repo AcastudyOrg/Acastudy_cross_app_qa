@@ -15,9 +15,16 @@ interface ChatItemProps {
 const ChatItem: React.FC<ChatItemProps> = ({ chat, isActive, onPress }) => {
 	const currentUser = LoginMockUser;
 	const lastChatMessage = chat.messages[chat.messages.length - 1];
-	const unreadMessagesCount = chat.messages.filter(
-		message => !message.read && message.receiverId === currentUser.id
-	).length;
+	
+	// get unread chats from chat struct
+	let unreadMessagesCount = 0;
+	for (let i = chat.messages.length - 1; i >= 0; i--) {
+		const message = chat.messages[i];
+		if(message.senderId === currentUser.id || message.read) {
+			break
+		}
+		unreadMessagesCount++;
+	}
 
 	const isCurrentUserSender = lastChatMessage.senderId === currentUser.id;
 

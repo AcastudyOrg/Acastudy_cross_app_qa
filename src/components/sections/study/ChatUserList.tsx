@@ -4,6 +4,7 @@ import ChatItem from '../chat/ChatItem';
 import ChatSearchBar from '../chat/ChatSearchBar';
 import ChatFilterTabs from '../chat/ChatFilterTabs';
 import { Chat } from '../../../types/User/Chat';
+import { LoginMockUser } from '../../../../mockData/LoginUser';
 
 interface ChatSidebarProps {
   chatsData: Chat[];
@@ -13,6 +14,7 @@ const ChatUserList: React.FC<ChatSidebarProps> = ({ chatsData }) => {
   const [activeFilter, setActiveFilter] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
   const [activeChat, setActiveChat] = useState(chatsData[0]?.id);
+  const currentUser = LoginMockUser
 
   const handleSearch = useCallback((term: string) => {
     setSearchTerm(term);
@@ -35,9 +37,11 @@ const ChatUserList: React.FC<ChatSidebarProps> = ({ chatsData }) => {
     // Apply read/unread filter
     switch (activeFilter) {
       case 'read':
-        return filteredChats.filter(chat => chat.messages[chat.messages.length - 1].read);
+        return filteredChats.filter(chat => chat.messages[chat.messages.length - 1].read && 
+          chat.messages[chat.messages.length - 1].senderId === currentUser.id);
       case 'unread':
-        return filteredChats.filter(chat => !chat.messages[chat.messages.length - 1].read);
+        return filteredChats.filter(chat => !chat.messages[chat.messages.length - 1].read && 
+          chat.messages[chat.messages.length - 1].receiverId === currentUser.id);
       case 'online':
         return filteredChats.filter(chat => chat.user.onlineStatus)
       default:

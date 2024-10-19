@@ -155,33 +155,193 @@ export const mockChatsData = [
                 datetime: new Date('2024-07-20T08:55:00'),
                 senderId: "123",
                 receiverId: "u1",
-                sent: true, 
-                delivered: true, 
-                read: true 
-    
+                sent: true,
+                delivered: true,
+                read: true
+
             },
             {
                 id: "m1",
                 message: "how are you ",
                 datetime: new Date('2024-07-20T08:55:00'),
-                senderId: "u1", 
+                senderId: "u1",
                 receiverId: "123",
-                sent: false, 
-                delivered: false, 
-                read: false 
-    
+                sent: false,
+                delivered: false,
+                read: false
+
             },
             {
                 id: "m1",
                 message: "Can i have the PDF that i requested yestereday? ❤️",
                 datetime: new Date('2024-07-20T08:55:00'),
-                senderId: "u1", 
+                senderId: "u1",
                 receiverId: "123",
-                sent: false, 
-                delivered: false, 
-                read: false 
-    
+                sent: false,
+                delivered: false,
+                read: false
+
             }
         ]
-    }
+    },
+    {
+        id: '6',
+        user: {
+            id: 'u5',
+            name: 'David',
+            surname: 'Lee',
+            profilePictureUrl: IMAGES.googleLogo,
+            onlineStatus: false,
+        },
+        messages: [
+            {
+                id: 'm1',
+                message: 'Are you free for a quick call later?',
+                datetime: new Date('2024-07-24T14:00:00'),
+                senderId: 'u5',
+                receiverId: '123',
+                sent: true,
+                delivered: true,
+                read: false,
+            },
+            {
+                id: 'm2',
+                message: 'I’m available after 3 PM.',
+                datetime: new Date('2024-07-24T14:10:00'),
+                senderId: '123',
+                receiverId: 'u5',
+                sent: true,
+                delivered: true,
+                read: false,
+            },
+        ],
+    },
+    {
+        id: '7',
+        user: {
+            id: 'u6',
+            name: 'Sophia',
+            surname: 'Williams',
+            profilePictureUrl: IMAGES.mathImg,
+            onlineStatus: true,
+        },
+        messages: [
+            {
+                id: 'm1',
+                message: 'Don’t forget the presentation tomorrow!',
+                datetime: new Date('2024-07-25T09:45:00'),
+                senderId: 'u6',
+                receiverId: '123',
+                sent: true,
+                delivered: true,
+                read: true,
+            },
+            {
+                id: 'm2',
+                message: 'Thanks for the reminder! I’ll be ready.',
+                datetime: new Date('2024-07-25T09:50:00'),
+                senderId: '123',
+                receiverId: 'u6',
+                sent: true,
+                delivered: true,
+                read: true,
+            },
+        ],
+    },
+    {
+        id: '8',
+        user: {
+            id: 'u7',
+            name: 'Oliver',
+            surname: 'Smith',
+            profilePictureUrl: IMAGES.userPlaceholder,
+            onlineStatus: false,
+        },
+        messages: [
+            {
+                id: 'm1',
+                message: 'Let’s finalize the project timeline.',
+                datetime: new Date('2024-07-26T16:30:00'),
+                senderId: '123',
+                receiverId: 'u7',
+                sent: true,
+                delivered: true,
+                read: false,
+            },
+            {
+                id: 'm2',
+                message: 'Sure, I’ll send my feedback tonight.',
+                datetime: new Date('2024-07-26T16:40:00'),
+                senderId: 'u7',
+                receiverId: '123',
+                sent: true,
+                delivered: true,
+                read: false,
+            },
+        ],
+    },
+    {
+        id: '9',
+        user: {
+            id: 'u8',
+            name: 'Emily',
+            surname: 'Davis',
+            profilePictureUrl: IMAGES.physicsImg,
+            onlineStatus: true,
+        },
+        messages: [
+            {
+                id: 'm1',
+                message: 'Can you check the budget report for me?',
+                datetime: new Date('2024-07-27T11:15:00'),
+                senderId: 'u8',
+                receiverId: '123',
+                sent: true,
+                delivered: true,
+                read: false,
+            },
+            {
+                id: 'm2',
+                message: 'I’ll take a look and get back to you later today.',
+                datetime: new Date('2024-07-27T11:25:00'),
+                senderId: '123',
+                receiverId: 'u8',
+                sent: true,
+                delivered: true,
+                read: true,
+            },
+        ],
+    },
+    {
+        id: '10',
+        user: {
+            id: 'u9',
+            name: 'Samuel',
+            surname: 'Martinez',
+            profilePictureUrl: IMAGES.johnImg,
+            onlineStatus: true,
+        },
+        messages: [
+            {
+                id: 'm1',
+                message: 'Did you manage to finish the draft?',
+                datetime: new Date('2024-07-28T18:00:00'),
+                senderId: 'u9',
+                receiverId: '123',
+                sent: true,
+                delivered: true,
+                read: true,
+            },
+            {
+                id: 'm2',
+                message: 'Yes, I’ll send it your way in a few minutes.',
+                datetime: new Date('2024-07-28T18:05:00'),
+                senderId: '123',
+                receiverId: 'u9',
+                sent: true,
+                delivered: false,
+                read: false,
+            },
+        ],
+    },
 ];
