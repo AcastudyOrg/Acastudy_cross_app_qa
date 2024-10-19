@@ -40,6 +40,7 @@ const ChatItem: React.FC<ChatItemProps> = ({ chat, isActive, onPress }) => {
 			</View>
 
 			<View style={chatItemStyles.chatInfo}>
+				
 				<View style={chatItemStyles.chatHeader}>
 					<Text style={chatItemStyles.userName} numberOfLines={1}>
 						{chat.user.name + ' ' + chat.user.surname}
@@ -47,7 +48,7 @@ const ChatItem: React.FC<ChatItemProps> = ({ chat, isActive, onPress }) => {
 					<Text style={chatItemStyles.timestamp}>{lastChatMessage.datetime.getFullYear()}</Text>
 				</View>
 				
-				<View style={{flex: 1, flexDirection: 'row'}}>
+				<View style={chatItemStyles.messageStatus}>
 				{messageStatusIcon && <View style={{paddingRight: 5}}>{messageStatusIcon}</View>}
 				<Text style={chatItemStyles.lastMessage} numberOfLines={1}>{lastChatMessage.message}</Text>
 				</View>

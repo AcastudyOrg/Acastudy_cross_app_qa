@@ -33,7 +33,7 @@ export default StyleSheet.create({
     flex: 1,
     marginLeft: 12,
   },
-  chatHeader: {
+  chatHeader: { 
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -58,7 +58,7 @@ export default StyleSheet.create({
   unreadBadge: {
     backgroundColor: COLORS.purple,
     borderRadius: 12,
-    minWidth: 20,
+    maxWidth: 20,
     height: 20,
     justifyContent: 'center',
     alignItems: 'center',
@@ -66,9 +66,13 @@ export default StyleSheet.create({
     paddingHorizontal: 6,
     fontFamily: FONT.plusJakartaExtraLight
   },
-  unreadCount: {
+  unreadCount: { 
     color: COLORS.white,
     fontSize: 12,
     fontWeight: WEIGHT.medium,
   },
+  messageStatus: {
+    flex: 1,
+    flexDirection: 'row'
+  }
 });
