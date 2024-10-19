@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { COLORS, FONT, SIZE } from '../../../../constants';
 
 export default  StyleSheet.create({
   filterContainer: {
@@ -6,7 +7,8 @@ export default  StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 8,
     borderBottomWidth: 1,
-    borderBottomColor: '#374151',
+    borderBottomColor: COLORS.appearTransparentWhite,
+    marginBottom: 5
   },
   filterTab: {
     marginRight: 16,
@@ -14,13 +16,14 @@ export default  StyleSheet.create({
   },
   activeFilterTab: {
     borderBottomWidth: 2,
-    borderBottomColor: '#8B5CF6',
+    borderBottomColor: COLORS.purple,
   },
   filterText: {
-    color: '#9CA3AF',
-    fontSize: 14,
+    color: COLORS.appearDirtyWhite,
+    fontSize: SIZE.m,
+    fontFamily: FONT.plusJakartaRegular
   },
   activeFilterText: {
-    color: '#8B5CF6',
+    color: COLORS.purple,
   },
 });

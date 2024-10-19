@@ -29,6 +29,7 @@ const transparent = "transparent";
 const transparentWhite = "#aaa";
 const tableHeader = "#858AA4";
 const appearTransparentWhite = "#484a5d";
+const appearDirtyWhite = '#9CA3AF'
 const studentProfileTableHeader = "#858AA4";
 
 const colors = {
@@ -59,6 +60,7 @@ const colors = {
   purple,
   hotPink,
   appearTransparentWhite,
+  appearDirtyWhite,
   orange,
   transparent,
   transparentWhite,

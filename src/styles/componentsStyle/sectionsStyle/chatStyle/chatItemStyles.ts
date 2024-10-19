@@ -4,8 +4,10 @@ import { COLORS, FONT, SIZE, WEIGHT } from '../../../../constants';
 export default StyleSheet.create({
   chatItem: {
     flexDirection: 'row',
-    padding: 12,
+    paddingVertical: 5,
+    paddingHorizontal: 12,
     alignItems: 'center',
+    borderRadius: 8
   },
   activeChatItem: {
     backgroundColor: 'rgba(255, 255, 255, 0.1)',

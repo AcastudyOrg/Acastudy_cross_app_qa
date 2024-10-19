@@ -12,6 +12,7 @@ const ChatFilterTabs: React.FC<FilterTabsProps> = ({ activeFilter, onFilterChang
     { id: 'all', label: 'All' },
     { id: 'read', label: 'Read' },
     { id: 'unread', label: 'Unread' },
+    { id: 'online', label: 'Online' },
   ];
 
   return (
