@@ -10,9 +10,10 @@ interface MessageStatusProps {
     delivered?: boolean;
     sent?: boolean;
     message: string;
+    unreadMessageCount: number;
 }
 
-const ChatMessageStatus: React.FC<MessageStatusProps> = ({ isCurrentUserSender, read, delivered, sent, message }) => {
+const ChatMessageStatus: React.FC<MessageStatusProps> = ({ isCurrentUserSender, read, delivered, sent, message, unreadMessageCount }) => {
     let messageStatusIcon = null;
 
     if (isCurrentUserSender) {
@@ -27,10 +28,13 @@ const ChatMessageStatus: React.FC<MessageStatusProps> = ({ isCurrentUserSender, 
 
     return (
         <View style={chatItemStyles.messageStatus}>
-            {messageStatusIcon && <View style={{ paddingRight: 5 }}>{messageStatusIcon}</View>}
-            <Text style={chatItemStyles.lastMessage} numberOfLines={1}>
-                {message}
-            </Text>
+            {messageStatusIcon && (<View style={{ paddingRight: 5 }}>{messageStatusIcon}</View>)}
+            <Text style={chatItemStyles.lastMessage} numberOfLines={1}>{message}</Text>
+            {unreadMessageCount > 0 && (
+                <View style={[chatItemStyles.unreadBadge,  {marginTop: 5}]}>
+                    <Text style={chatItemStyles.unreadCount}>{unreadMessageCount}</Text>
+                </View>
+            )}
         </View>
     );
 };

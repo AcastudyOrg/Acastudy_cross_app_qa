@@ -53,7 +53,8 @@ export default StyleSheet.create({
     color: COLORS.white50Percent,
     fontSize: SIZE.sm,
     marginTop: 2,
-    fontFamily: FONT.plusJakartaRegular
+    fontFamily: FONT.plusJakartaRegular,
+    width: '100%',
   },
   unreadBadge: {
     backgroundColor: COLORS.purple,
@@ -62,10 +63,10 @@ export default StyleSheet.create({
     height: 15,
     flexWrap: 'wrap',
     justifyContent: 'center',
-    alignItems: 'center',
     marginLeft: 8,
     paddingHorizontal: 6,
-    fontFamily: FONT.plusJakartaExtraLight
+    fontFamily: FONT.plusJakartaExtraLight,
+    alignItems: 'flex-end', 
   },
   unreadCount: { 
     color: COLORS.white,
@@ -79,9 +80,4 @@ export default StyleSheet.create({
     top: 0,
     left: 0,
   },
-  dateAndUnread: {
-    flexDirection: 'column',
-    alignItems: 'flex-end', 
-},
-
 });
