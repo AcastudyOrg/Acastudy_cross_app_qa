@@ -2,9 +2,9 @@ export type Message = {
     id: string;
     message: string,
     datetime: Date,
-    senderId: string,
+    senderId: string, 
     receiverId: string,
-    sent?: boolean,
-    delivered?: boolean,
-    read?: boolean
+    sent?: boolean, // for a single tick
+    delivered?: boolean, // double ticks
+    read?: boolean // if its read or not
 }

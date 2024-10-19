@@ -140,7 +140,7 @@ export const mockChatsData = [
         ],
     },
     {
-        id: '3',
+        id: '5',
         user: {
             id: 'u1',
             name: 'Gorgina',
@@ -153,11 +153,11 @@ export const mockChatsData = [
                 id: "m1",
                 message: "hi",
                 datetime: new Date('2024-07-20T08:55:00'),
-                senderId: "123", // assist in finding if its from or too
+                senderId: "123",
                 receiverId: "u1",
-                sent: true, // for a single tick
-                delivered: true, // double ticks
-                read: true // if its read or not
+                sent: true, 
+                delivered: true, 
+                read: true 
     
             },
             {
