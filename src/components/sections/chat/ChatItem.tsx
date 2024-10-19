@@ -3,6 +3,8 @@ import { View, Text, Image, Pressable, TouchableOpacity } from 'react-native';
 import chatItemStyles from '../../../styles/componentsStyle/sectionsStyle/chatStyle/chatItemStyles';
 import { Chat } from '../../../types/User/Chat';
 import { LoginMockUser } from '../../../../mockData/LoginUser';
+import CustomIcon from '../../common/CustomIcon';
+import { COLORS } from '../../../constants';
 
 
 interface ChatItemProps {
@@ -16,6 +18,19 @@ const ChatItem: React.FC<ChatItemProps> = ({ chat, isActive, onPress }) => {
 	const unreadMessagesCount = chat.messages.filter(
 		message => !message.read && message.receiverId === currentUser.id
 	).length;
+
+	const isCurrentUserSender = lastChatMessage.senderId === currentUser.id;
+
+	let messageStatusIcon;
+	if (isCurrentUserSender) {
+		if (lastChatMessage.read) {
+			messageStatusIcon = <CustomIcon set={'MaterialCommunityIcons'} name={'check-all'} size={20} color={COLORS.purple}/>;
+		} else if (lastChatMessage.delivered) {
+			messageStatusIcon = <CustomIcon set={'MaterialCommunityIcons'} name={'check-all'} size={20} color={COLORS.white50Percent}/>; 
+		} else if (lastChatMessage.sent) {
+			messageStatusIcon = <CustomIcon set={'MaterialCommunityIcons'} name={'check'} size={20} color={COLORS.white50Percent}/>;
+		}
+	}
 	
 	return (
 		<TouchableOpacity onPress={onPress} style={[chatItemStyles.chatItem, isActive && chatItemStyles.activeChatItem]}>
@@ -31,7 +46,12 @@ const ChatItem: React.FC<ChatItemProps> = ({ chat, isActive, onPress }) => {
 					</Text>
 					<Text style={chatItemStyles.timestamp}>{lastChatMessage.datetime.getFullYear()}</Text>
 				</View>
+				
+				<View style={{flex: 1, flexDirection: 'row'}}>
+				{messageStatusIcon && <View style={{paddingRight: 5}}>{messageStatusIcon}</View>}
 				<Text style={chatItemStyles.lastMessage} numberOfLines={1}>{lastChatMessage.message}</Text>
+				</View>
+				
 			</View>
 
 			{unreadMessagesCount > 0  && (
