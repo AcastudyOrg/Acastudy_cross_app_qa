@@ -14,7 +14,7 @@ export const mockChatsData = [
             {
                 id: 'm1',
                 message: 'Hi, how are you?',
-                datetime: new Date('2024-07-20T08:50:00'),
+                datetime: new Date('2024-10-19T08:50:00'),
                 senderId: '123',
                 receiverId: 'u1',
                 sent: true,
@@ -24,7 +24,7 @@ export const mockChatsData = [
             {
                 id: 'm2',
                 message: 'I’m good, thanks! You?',
-                datetime: new Date('2024-07-20T08:55:00'),
+                datetime: new Date('2024-10-19T08:55:00'),
                 senderId: 'u1',
                 receiverId: '123',
                 sent: true,
@@ -34,7 +34,7 @@ export const mockChatsData = [
             {
                 id: 'm3',
                 message: 'Great! Can you send me the files?',
-                datetime: new Date('2024-07-20T09:10:00'),
+                datetime: new Date('2024-10-19:10:00'),
                 senderId: '123',
                 receiverId: 'u1',
                 sent: true,
@@ -56,7 +56,7 @@ export const mockChatsData = [
             {
                 id: 'm1',
                 message: 'Hey, are you coming to the meeting?',
-                datetime: new Date('2024-07-19T13:45:00'),
+                datetime: new Date('2024-10-19T13:45:00'),
                 senderId: 'u2',
                 receiverId: '123',
                 sent: true,
@@ -66,7 +66,7 @@ export const mockChatsData = [
             {
                 id: 'm2',
                 message: 'Yes, I’ll be there in 10 minutes.',
-                datetime: new Date('2024-07-19T13:55:00'),
+                datetime: new Date('2024-10-19T13:55:00'),
                 senderId: '123',
                 receiverId: 'u2',
                 sent: true,
@@ -88,7 +88,7 @@ export const mockChatsData = [
             {
                 id: 'm1',
                 message: 'Can you review the document I sent you?',
-                datetime: new Date('2024-07-22T10:05:00'),
+                datetime: new Date('2024-10-19T10:05:00'),
                 senderId: 'u3',
                 receiverId: '123',
                 sent: true,
@@ -98,7 +98,7 @@ export const mockChatsData = [
             {
                 id: 'm2',
                 message: 'Sure, give me a moment.',
-                datetime: new Date('2024-07-22T10:15:00'),
+                datetime: new Date('2024-10-19T10:15:00'),
                 senderId: '123',
                 receiverId: 'u3',
                 sent: true,
@@ -120,7 +120,7 @@ export const mockChatsData = [
             {
                 id: 'm1',
                 message: 'Let’s meet for lunch tomorrow.',
-                datetime: new Date('2024-07-23T12:30:00'),
+                datetime: new Date('2024-10-19T12:30:00'),
                 senderId: '123',
                 receiverId: 'u4',
                 sent: true,
@@ -130,7 +130,7 @@ export const mockChatsData = [
             {
                 id: 'm2',
                 message: 'Sounds good! See you at 1 PM.',
-                datetime: new Date('2024-07-23T12:35:00'),
+                datetime: new Date('2024-10-19T12:35:00'),
                 senderId: 'u4',
                 receiverId: '123',
                 sent: true,
@@ -152,7 +152,7 @@ export const mockChatsData = [
             {
                 id: "m1",
                 message: "hi",
-                datetime: new Date('2024-07-20T08:55:00'),
+                datetime: new Date('2024-10-19T08:55:00'),
                 senderId: "123",
                 receiverId: "u1",
                 sent: true,
@@ -163,7 +163,7 @@ export const mockChatsData = [
             {
                 id: "m1",
                 message: "how are you ",
-                datetime: new Date('2024-07-20T08:55:00'),
+                datetime: new Date('2024-10-19T08:55:00'),
                 senderId: "u1",
                 receiverId: "123",
                 sent: false,
@@ -174,7 +174,7 @@ export const mockChatsData = [
             {
                 id: "m1",
                 message: "Can i have the PDF that i requested yestereday? ❤️",
-                datetime: new Date('2024-07-20T08:55:00'),
+                datetime: new Date('2024-10-19T08:55:00'),
                 senderId: "u1",
                 receiverId: "123",
                 sent: false,
@@ -197,7 +197,7 @@ export const mockChatsData = [
             {
                 id: 'm1',
                 message: 'Are you free for a quick call later?',
-                datetime: new Date('2024-07-24T14:00:00'),
+                datetime: new Date('2024-10-19T14:00:00'),
                 senderId: 'u5',
                 receiverId: '123',
                 sent: true,
@@ -207,7 +207,7 @@ export const mockChatsData = [
             {
                 id: 'm2',
                 message: 'I’m available after 3 PM.',
-                datetime: new Date('2024-07-24T14:10:00'),
+                datetime: new Date('2024-10-19T14:10:00'),
                 senderId: '123',
                 receiverId: 'u5',
                 sent: true,
@@ -229,7 +229,7 @@ export const mockChatsData = [
             {
                 id: 'm1',
                 message: 'Don’t forget the presentation tomorrow!',
-                datetime: new Date('2024-07-25T09:45:00'),
+                datetime: new Date('2024-10-19T09:45:00'),
                 senderId: 'u6',
                 receiverId: '123',
                 sent: true,
@@ -239,7 +239,7 @@ export const mockChatsData = [
             {
                 id: 'm2',
                 message: 'Thanks for the reminder! I’ll be ready.',
-                datetime: new Date('2024-07-25T09:50:00'),
+                datetime: new Date('2024-10-19T09:50:00'),
                 senderId: '123',
                 receiverId: 'u6',
                 sent: true,
@@ -261,7 +261,7 @@ export const mockChatsData = [
             {
                 id: 'm1',
                 message: 'Let’s finalize the project timeline.',
-                datetime: new Date('2024-07-26T16:30:00'),
+                datetime: new Date('2024-10-18T16:30:00'),
                 senderId: '123',
                 receiverId: 'u7',
                 sent: true,
@@ -271,7 +271,7 @@ export const mockChatsData = [
             {
                 id: 'm2',
                 message: 'Sure, I’ll send my feedback tonight.',
-                datetime: new Date('2024-07-26T16:40:00'),
+                datetime: new Date('2024-10-18T16:40:00'),
                 senderId: 'u7',
                 receiverId: '123',
                 sent: true,
@@ -293,7 +293,7 @@ export const mockChatsData = [
             {
                 id: 'm1',
                 message: 'Can you check the budget report for me?',
-                datetime: new Date('2024-07-27T11:15:00'),
+                datetime: new Date('2024-10-14T11:15:00'),
                 senderId: 'u8',
                 receiverId: '123',
                 sent: true,
@@ -303,7 +303,7 @@ export const mockChatsData = [
             {
                 id: 'm2',
                 message: 'I’ll take a look and get back to you later today.',
-                datetime: new Date('2024-07-27T11:25:00'),
+                datetime: new Date('2024-10-14T11:25:00'),
                 senderId: '123',
                 receiverId: 'u8',
                 sent: true,
@@ -325,7 +325,7 @@ export const mockChatsData = [
             {
                 id: 'm1',
                 message: 'Did you manage to finish the draft?',
-                datetime: new Date('2024-07-28T18:00:00'),
+                datetime: new Date('2024-19-18T18:00:00'),
                 senderId: 'u9',
                 receiverId: '123',
                 sent: true,
@@ -335,7 +335,7 @@ export const mockChatsData = [
             {
                 id: 'm2',
                 message: 'Yes, I’ll send it your way in a few minutes.',
-                datetime: new Date('2024-07-28T18:05:00'),
+                datetime: new Date('2024-09-19T18:05:00'),
                 senderId: '123',
                 receiverId: 'u9',
                 sent: true,

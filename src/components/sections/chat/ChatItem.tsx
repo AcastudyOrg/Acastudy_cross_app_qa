@@ -5,6 +5,7 @@ import { Chat } from '../../../types/User/Chat';
 import { LoginMockUser } from '../../../../mockData/LoginUser';
 import CustomIcon from '../../common/CustomIcon';
 import { COLORS } from '../../../constants';
+import { formatChatMessageDate } from '../../../../utils/config';
 
 interface ChatItemProps {
 	chat: Chat;
@@ -52,7 +53,7 @@ const ChatItem: React.FC<ChatItemProps> = ({ chat, isActive, onPress }) => {
 						{chat.user.name + ' ' + chat.user.surname}
 					</Text>
 					<View style={chatItemStyles.dateAndUnread}>
-						<Text style={chatItemStyles.timestamp}>{lastChatMessage.datetime.getFullYear()}</Text>
+						<Text style={chatItemStyles.timestamp}>{formatChatMessageDate(lastChatMessage.datetime)}</Text>
 						{unreadMessagesCount > 0 && (
 							<View style={chatItemStyles.unreadBadge}>
 								<Text style={chatItemStyles.unreadCount}>{unreadMessagesCount}</Text>
