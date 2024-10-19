@@ -4,7 +4,7 @@ import { COLORS, FONT, SIZE } from '../../../../constants';
 export const chatSearchBarStyles = StyleSheet.create({
 
   searchInput: {
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    backgroundColor: COLORS.white10Percent,
     borderRadius: 10,
     paddingHorizontal: 15,
     color: COLORS.white,

@@ -20,7 +20,7 @@ export default  StyleSheet.create({
   },
   filterText: {
     color: COLORS.appearDirtyWhite,
-    fontSize: SIZE.m,
+    fontSize: SIZE.sm,
     fontFamily: FONT.plusJakartaRegular
   },
   activeFilterText: {

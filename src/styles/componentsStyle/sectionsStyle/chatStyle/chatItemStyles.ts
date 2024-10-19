@@ -10,22 +10,22 @@ export default StyleSheet.create({
     borderRadius: 8
   },
   activeChatItem: {
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    backgroundColor: COLORS.white10Percent,
   },
   avatarContainer: {
     position: 'relative',
   },
   avatar: {
-    width: 48,
-    height: 48,
+    width: 40,
+    height: 40,
     borderRadius: 24,
   },
   onlineIndicator: {
     position: 'absolute',
-    bottom: 0,
+    bottom: 2,
     right: 0,
-    width: 12,
-    height: 12,
+    width: 8,
+    height: 8,
     borderRadius: 6,
     backgroundColor: COLORS.green,
   },
@@ -42,7 +42,7 @@ export default StyleSheet.create({
     color: COLORS.white,
     fontSize: SIZE.m,
     fontWeight: WEIGHT.medium,
-    fontFamily: FONT.plusJakartaBold
+    fontFamily: FONT.plusJakartaMedium
   },
   timestamp: {
     color: COLORS.white50Percent,
@@ -58,8 +58,8 @@ export default StyleSheet.create({
   unreadBadge: {
     backgroundColor: COLORS.purple,
     borderRadius: 12,
-    minWidth: 20,
-    height: 20,
+    minWidth: 15,
+    height: 15,
     flexWrap: 'wrap',
     justifyContent: 'center',
     alignItems: 'center',
@@ -69,12 +69,15 @@ export default StyleSheet.create({
   },
   unreadCount: { 
     color: COLORS.white,
-    fontSize: 12,
+    fontSize: SIZE.s,
     fontWeight: WEIGHT.medium,
   },
   messageStatus: {
     flex: 1,
-    flexDirection: 'row'
+    flexDirection: 'row',
+    position: 'relative',
+    top: 0,
+    left: 0,
   },
   dateAndUnread: {
     flexDirection: 'column',
