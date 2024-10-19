@@ -6,5 +6,4 @@ export type Chat  = {
 	lastMessage: string;
 	timestamp: string;
 	unreadCount: number;
-	read: boolean;
 }

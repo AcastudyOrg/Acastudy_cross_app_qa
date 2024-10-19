@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, Pressable } from 'react-native';
+import { View, Text, Image, Pressable, TouchableOpacity } from 'react-native';
 import chatItemStyles from '../../../styles/componentsStyle/sectionsStyle/chatStyle/chatItemStyles';
 import { User } from '../../../types/User/Student';
 import { Chat } from '../../../types/User/Chat';
@@ -12,7 +12,7 @@ interface ChatItemProps {
 }
 
 const ChatItem: React.FC<ChatItemProps> = ({ chat, isActive, onPress }) => (
-	<Pressable onPress={onPress} style={[chatItemStyles.chatItem, isActive && chatItemStyles.activeChatItem]}>
+	<TouchableOpacity onPress={onPress} style={[chatItemStyles.chatItem, isActive && chatItemStyles.activeChatItem]}>
 		<View style={chatItemStyles.avatarContainer}>
 			<Image source={chat.user.profilePictureUrl} style={chatItemStyles.avatar} />
 			{chat.user.onlineStatus && <View style={chatItemStyles.onlineIndicator} />}
@@ -33,7 +33,7 @@ const ChatItem: React.FC<ChatItemProps> = ({ chat, isActive, onPress }) => (
 				<Text style={chatItemStyles.unreadCount}>{chat.unreadCount}</Text>
 			</View>
 		)}
-	</Pressable>
+	</TouchableOpacity>
 );
 
 export default ChatItem;
