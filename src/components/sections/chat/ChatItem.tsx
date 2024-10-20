@@ -30,14 +30,9 @@ const ChatItem: React.FC<ChatItemProps> = ({ chat, isActive, onPress }) => {
 					<Text style={chatItemStyles.userName} numberOfLines={1}>
 						{chat.user.name + ' ' + chat.user.surname}
 					</Text>
-					{/* <View style={chatItemStyles.dateAndUnread}> */}
-						<Text style={chatItemStyles.timestamp}>{formatChatMessageDate(lastChatMessage.datetime)}</Text>
-						{/* {unreadMessageCount > 0 && (
-							<View style={chatItemStyles.unreadBadge}>
-								<Text style={chatItemStyles.unreadCount}>{unreadMessageCount}</Text>
-							</View>
-						)} */}
-					{/* </View> */}
+					<Text style={chatItemStyles.timestamp}>
+							{formatChatMessageDate(lastChatMessage.datetime)}
+					</Text>
 				</View>
 
 				<ChatMessageStatus
