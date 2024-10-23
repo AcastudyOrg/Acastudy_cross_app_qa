@@ -4,6 +4,7 @@ import { COLORS, FONT, SIZE } from '../../../../constants';
 export const dropDownComponentStyles = StyleSheet.create({
     container: {
         width: '100%',
+        margin: 10
     },
     label: {
         fontSize: SIZE.m,

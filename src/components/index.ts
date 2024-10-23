@@ -6,7 +6,6 @@ import AppTopNavigationComponent from "./common/AppTopNavigationComponent";
 //common form components
 import GradientButtonComponent from "./common/Form/GradientButtonComponent";
 import ImagePickerComponent from "./common/Form/ImagePickerComponent";
-import TextInputComponent from "./common/Form/TextInputComponent";
 import SocialAuthButtonComponent from "./common/Form/SocialAuthButtonComponent";
 
 //layouts
@@ -14,7 +13,6 @@ import PrivateScreenLayout from "./layout/PrivateScreenLayout";
 import PublicScreenLayout from "./layout/PublicScreenLayout";
 
 //sections
-import HomeDataListComponent from "./sections/HomeDataListComponent";
 import SubjectComponent from "./sections/home/SubjectComponent";
 import TutorComponent from "./sections/home/TutorComponent";
 import UpcomingEventsComponent from "./sections/home/UpcomingEventsComponent";
@@ -29,11 +27,9 @@ export {
   AppTopNavigationComponent,
   GradientButtonComponent,
   ImagePickerComponent,
-  TextInputComponent,
   SocialAuthButtonComponent,
   PrivateScreenLayout,
   PublicScreenLayout,
-  HomeDataListComponent,
   SubjectComponent,
   TutorComponent,
   UpcomingEventsComponent,

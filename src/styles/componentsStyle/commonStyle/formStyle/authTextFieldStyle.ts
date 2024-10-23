@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { COLORS, SIZE } from '../../../../constants';
+import { COLORS, FONT, SIZE } from '../../../../constants';
 
 export const authTextFieldtyles = StyleSheet.create({
   container: {
@@ -23,7 +23,8 @@ export const authTextFieldtyles = StyleSheet.create({
   input: {
     flex: 1,
     height: 40,
-    fontSize: 14,
+    fontSize: SIZE.m,
+    fontFamily: FONT.plusJakartaRegular,
     paddingHorizontal: 10,
     color: COLORS.black30,
   },

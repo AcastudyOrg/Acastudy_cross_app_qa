@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, Image, Pressable } from "react-native";
 
 import { profileScreenStyles } from "../../../styles/screensStyle/privateStyle/profileScreenStyle";
 import useScreenWidth from "../../../hooks/useScreenWidth";
 import { homeTileScreenWidth } from "../../../../utils/config";
+import JoinMeetingPopUp from "../../common/JoinMeetingPopUp";
 
 type UpcomingSessionProps = {
   item: {
@@ -12,16 +13,20 @@ type UpcomingSessionProps = {
     title: string;
     description: string;
   };
+  controlModal: () => void;
+  modalVisible: boolean; 
 };
 
-const UpcomingSessionComponent = ({ item }: UpcomingSessionProps) => {
+const UpcomingSessionComponent = ({ item, controlModal, modalVisible }: UpcomingSessionProps) => {
   const screenWidth = useScreenWidth();
   const containerWidth = homeTileScreenWidth(screenWidth);
+
   return (
     <Pressable
-      onPress={() => console.log("session", item.title + " has been pressed")}
+      onPress={() => controlModal()}
       style={profileScreenStyles.upcomingItemContentContainer}
     >
+      <JoinMeetingPopUp visible={modalVisible} controlModal={controlModal} item={item} />
       <Image
         source={{ uri: item.avatar }}
         style={[

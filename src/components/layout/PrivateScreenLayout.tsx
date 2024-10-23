@@ -13,13 +13,25 @@ import useScreenWidth from "../../hooks/useScreenWidth";
 
 interface privatePropType {
   children: React.ReactNode;
+  title?: string;
+  shouldScroll?: boolean;
+  showTitle?: boolean;
   showTopBar?: boolean;
   showBackButton?: boolean;
   showAppName?: boolean;
   showSearchBar?: boolean;
 }
 
-const PrivateScreenLayout: React.FC<privatePropType> = ({ children, showTopBar = true, showBackButton = false, showAppName = false, showSearchBar = true }) => {
+const PrivateScreenLayout: React.FC<privatePropType> = ({
+  children,
+  title,
+  shouldScroll = true,
+  showTitle = false,
+  showTopBar = true,
+  showBackButton = false,
+  showAppName = false,
+  showSearchBar = true
+}) => {
   const screenWidth = useScreenWidth();
   const isNotMobileWidth = isNotMobile(screenWidth);
   const isMobileWidth = isMobile(screenWidth);
@@ -52,20 +64,29 @@ const PrivateScreenLayout: React.FC<privatePropType> = ({ children, showTopBar =
       <View style={[privateScreenLayoutStyles.contentContainer, { marginLeft: isMobileWidth ? 0 : "18%" }]}>
         {isNotMobileWidth ? (
           <View style={privateScreenLayoutStyles.topNavContainer}>
-            {showTopBar && <TopBarComponent user={user} showBackButton={showBackButton} showAppName={showAppName} showSearchBar={showSearchBar} />}
-            <ScrollView
+            {showTopBar && <TopBarComponent
+              user={user}
+              title={title}
+              showTitle={showTitle}
+              showBackButton={showBackButton}
+              showAppName={showAppName}
+              showSearchBar={showSearchBar}
+            />}
+            {shouldScroll ? <ScrollView
               style={privateScreenLayoutStyles.childrenScrollView}
               showsVerticalScrollIndicator={false}>
               <View style={privateScreenLayoutStyles.mainContent}>{children}</View>
-            </ScrollView>
+            </ScrollView> :
+              <View style={privateScreenLayoutStyles.mainContent}>{children}</View>
+            }
           </View>
         ) : (
           <View style={privateScreenLayoutStyles.mobileScrollViewContainer}>
-            <ScrollView showsVerticalScrollIndicator={false}>
-              <View style={privateScreenLayoutStyles.mainContent}>
-                {children}
-              </View>
-            </ScrollView>
+            {shouldScroll ? <ScrollView showsVerticalScrollIndicator={false}>
+              <View style={privateScreenLayoutStyles.mainContent}>{children}</View>
+            </ScrollView> :
+              <View style={privateScreenLayoutStyles.mainContent}>{children}</View>
+            }
             <BottomBarComponent />
           </View>
         )}

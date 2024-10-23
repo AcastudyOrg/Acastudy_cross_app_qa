@@ -30,7 +30,7 @@ const SidebarFooter: React.FC<SidebarFooterProps> = ({ navigation, screenWidth }
                 :
                 <GradientButtonComponent
                     text={STRING.requestTutor}
-                    onPress={() => navigation.navigate(NAV_SCREEN_NAME.HomeScreen)}
+                    onPress={() => navigation.navigate(NAV_SCREEN_NAME.RequestTutorScreen)}
                 />}
         </View>
     );

@@ -12,7 +12,8 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 const user: User = {
 	name: "",
 	surname: "",
-	profilePictureUrl: 0
+	profilePictureUrl: 0,
+	subjects: []
 };
 
 type propTypes = NativeStackScreenProps<any>;

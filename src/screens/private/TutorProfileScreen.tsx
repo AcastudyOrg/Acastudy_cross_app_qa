@@ -11,6 +11,7 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import CustomCalendar from "../../components/common/CustomCalendar";
 import { Text, View } from "react-native";
 import { tutorProfileStyles } from "../../styles/componentsStyle/commonStyle/tutorProfileStyle";
+import StudentSubjectOfInterest from "../../components/sections/userProfile/StudentSubjectOfInteret";
 
 type propType = NativeStackScreenProps<any>;
 

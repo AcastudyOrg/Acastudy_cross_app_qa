@@ -1,13 +1,22 @@
 import { Platform, StyleSheet } from 'react-native';
-import { COLORS } from '../../../../constants';
+import { COLORS, SIZE } from '../../../../constants';
 
 export const customTextInputStyles = StyleSheet.create({
+    container: {
+        width: '100%',
+        margin: 10
+    },
     inputContainer: {
         width: "100%",
         margin: 10,
         borderRadius: 8,
         borderColor: COLORS.gray60,
         borderWidth: 1,
+    },
+    label: {
+        fontSize: SIZE.m,
+        marginBottom: 4,
+        color: COLORS.white,
     },
     input: {
         flex: 1,
