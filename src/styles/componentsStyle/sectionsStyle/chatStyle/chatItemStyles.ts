@@ -7,7 +7,8 @@ export default StyleSheet.create({
     paddingVertical: 5,
     paddingHorizontal: 12,
     alignItems: 'center',
-    borderRadius: 8
+    borderRadius: 8,
+    marginVertical: 5,
   },
   activeChatItem: {
     backgroundColor: COLORS.white10Percent,
@@ -41,7 +42,6 @@ export default StyleSheet.create({
   userName: {
     color: COLORS.white,
     fontSize: SIZE.m,
-    fontWeight: WEIGHT.medium,
     fontFamily: FONT.plusJakartaMedium
   },
   timestamp: {

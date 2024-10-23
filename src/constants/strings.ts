@@ -71,7 +71,7 @@ export const STRING = {
   studyPostText:
     "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione eum alias fugiat sint excepturi quos, eaque omnis cupiditate maxime laborum soluta aspernatur repellendus dolore saepe. Ducimus id illum laborum nisi.",
 
-    chatSearchPlaceholder: "Search messages or contacts...",
+    chatSearchPlaceholder: "Search...",
 };
 
 export const NAV_SCREEN_NAME = {

@@ -9,13 +9,15 @@ import { useNavigation } from '@react-navigation/native';
 
 
 type LeftSectionProps = {
+	title?: string;
+	showTitle?: boolean;
 	showAppName?: boolean;
 	showSearchBar?: boolean;
 	showBackButton?: boolean;
 };
 
 
-const LeftSection: React.FC<LeftSectionProps> = ({ showAppName, showSearchBar, showBackButton }) => {
+const LeftSection: React.FC<LeftSectionProps> = ({ showAppName, showTitle, title, showSearchBar, showBackButton }) => {
 	const navigation = useNavigation();
 	return (
 		<View style={leftSectionStyles.leftSection}>
@@ -36,6 +38,7 @@ const LeftSection: React.FC<LeftSectionProps> = ({ showAppName, showSearchBar, s
 						/>
 					</TouchableOpacity>
 				)}
+				{showTitle && <Text style={leftSectionStyles.title}>{title}</Text>}
 				{showSearchBar && (
 					<TextInput
 						placeholder={STRING.searchPlaceholder}     
