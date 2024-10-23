@@ -6,8 +6,6 @@ export default  StyleSheet.create({
     flexDirection: 'row',
     paddingHorizontal: 16,
     paddingVertical: 8,
-    borderBottomWidth: 1,
-    borderBottomColor: COLORS.appearTransparentWhite,
     marginBottom: 5
   },
   filterTab: {

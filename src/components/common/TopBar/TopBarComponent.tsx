@@ -9,6 +9,8 @@ import { User } from '../../../types/User/Student';
 import { topBarComponentStyles } from '../../../styles/componentsStyle/commonStyle/topBarStyle/topBarComponentStyle';
 
 type TopBarProps = {
+	title?: string;
+	showTitle?: boolean;
 	showSearchBar?: boolean;
 	showAppName?: boolean;
 	renderRightSection?: boolean;
@@ -26,6 +28,8 @@ TopBarComponent
 
 */
 const TopBarComponent: React.FC<TopBarProps> = ({
+	title,
+	showTitle = false,
 	showAppName = false,
 	showSearchBar = true,
 	renderRightSection = true,
@@ -41,6 +45,8 @@ const TopBarComponent: React.FC<TopBarProps> = ({
 		<View>
 			<View style={topBarComponentStyles.topBar}>
 				<LeftSection
+					title={title}
+					showTitle={showTitle}
 					showAppName={showAppName}
 					showSearchBar={showSearchBar}
 					showBackButton={showBackButton}

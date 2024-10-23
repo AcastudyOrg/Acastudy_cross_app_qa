@@ -344,4 +344,103 @@ export const mockChatsData = [
             },
         ],
     },
+
+
+    //Duplicates ... Added for testing scrolling..... ______________________
+    {
+        id: '11',
+        user: {
+            id: 'u11',
+            name: 'Feali',
+            surname: 'Milanda',
+            profilePictureUrl: IMAGES.userPlaceholder,
+            onlineStatus: false,
+        },
+        messages: [
+            {
+                id: 'm1',
+                message: 'Let’s finalize the project timeline.',
+                datetime: new Date('2024-10-18T16:30:00'),
+                senderId: '123',
+                receiverId: 'u7',
+                sent: true,
+                delivered: true,
+                read: false,
+            },
+            {
+                id: 'm2',
+                message: 'Sure, I’ll send my feedback tonight.',
+                datetime: new Date('2024-10-18T16:40:00'),
+                senderId: 'u7',
+                receiverId: '123',
+                sent: true,
+                delivered: true,
+                read: false,
+            },
+        ],
+    },
+    {
+        id: '12',
+        user: {
+            id: 'u12',
+            name: 'Gorgina',
+            surname: 'Gerald',
+            profilePictureUrl: IMAGES.userPlaceholder,
+            onlineStatus: true,
+        },
+        messages: [
+            {
+                id: 'm1',
+                message: 'Can you check the budget report for me?',
+                datetime: new Date('2024-10-14T11:15:00'),
+                senderId: 'u8',
+                receiverId: '123',
+                sent: true,
+                delivered: true,
+                read: false,
+            },
+            {
+                id: 'm2',
+                message: 'I’ll take a look and get back to you later today.',
+                datetime: new Date('2024-10-14T11:25:00'),
+                senderId: '123',
+                receiverId: 'u8',
+                sent: true,
+                delivered: true,
+                read: true,
+            },
+        ],
+    },
+    {
+        id: '13',
+        user: {
+            id: 'u13',
+            name: 'Saeilo',
+            surname: 'Hebard',
+            profilePictureUrl: IMAGES.userPlaceholder,
+            onlineStatus: true,
+        },
+        messages: [
+            {
+                id: 'm1',
+                message: 'Did you manage to finish the draft?',
+                datetime: new Date('2024-19-18T18:00:00'),
+                senderId: 'u9',
+                receiverId: '123',
+                sent: true,
+                delivered: true,
+                read: true,
+            },
+            {
+                id: 'm2',
+                message: 'Yes, I’ll send it your way in a few minutes.',
+                datetime: new Date('2024-09-19T18:05:00'),
+                senderId: '123',
+                receiverId: 'u9',
+                sent: true,
+                delivered: false,
+                read: false,
+            },
+        ],
+    },
 ];

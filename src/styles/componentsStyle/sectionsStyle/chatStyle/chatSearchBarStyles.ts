@@ -9,7 +9,7 @@ export const chatSearchBarStyles = StyleSheet.create({
     paddingHorizontal: 15,
     color: COLORS.white,
     fontFamily: FONT.plusJakartaRegular,
-    height: 40,
+    height: 60,
     width: '100%',
   },
 });

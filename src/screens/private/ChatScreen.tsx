@@ -1,16 +1,20 @@
 import React from "react";
 import { View } from "react-native";
-import {PrivateScreenLayout} from "../../components";
+import { PrivateScreenLayout } from "../../components";
 import { chatScreenStyles } from "../../styles/screensStyle/privateStyle/chatScreenStyle";
-import ChatUserList from "../../components/sections/study/ChatUserList";
-import { mockChatsData } from "../../../mockData/ChatData";
+import ChatDraggableComponent from "../../components/sections/chat/ChatDraggableComponent";
+import { STRING } from "../../constants/strings";
 
 const ChatScreen = () => {
-  const data = mockChatsData
   return (
-    <PrivateScreenLayout>
+    <PrivateScreenLayout
+      showTitle={true}
+      shouldScroll={false}
+      title={STRING.chat}
+      showSearchBar={false}
+    >
       <View style={chatScreenStyles.homeMainContainer}>
-      <ChatUserList chatsData={data}/>
+        <ChatDraggableComponent />
       </View>
     </PrivateScreenLayout>
   );

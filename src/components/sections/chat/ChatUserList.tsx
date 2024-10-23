@@ -1,16 +1,18 @@
 import React, { useState, useCallback } from 'react';
-import { View, FlatList, ScrollView } from 'react-native';
-import ChatItem from '../chat/ChatItem';
-import ChatSearchBar from '../chat/ChatSearchBar';
-import ChatFilterTabs from '../chat/ChatFilterTabs';
+import { View, ScrollView } from 'react-native';
+import ChatItem from './ChatItem';
+import ChatSearchBar from './ChatSearchBar';
+import ChatFilterTabs from './ChatFilterTabs';
 import { Chat } from '../../../types/User/Chat';
 import { filterChats } from '../../../../utils/chatHelpers';
+import chatUserListStyles from '../../../styles/componentsStyle/sectionsStyle/chatStyle/chatUserListStyles';
 
 interface ChatSidebarProps {
   chatsData: Chat[];
+  onChatChange: (activeChat: Chat) => void;
 }
 
-const ChatUserList: React.FC<ChatSidebarProps> = ({ chatsData }) => {
+const ChatUserList: React.FC<ChatSidebarProps> = ({ chatsData, onChatChange }) => {
   const [activeFilter, setActiveFilter] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
   const [activeChat, setActiveChat] = useState(chatsData[0]?.id);
@@ -24,18 +26,20 @@ const ChatUserList: React.FC<ChatSidebarProps> = ({ chatsData }) => {
   }, [chatsData, searchTerm, activeFilter]);
 
   return (
-    <View style={ {flex: 1} }>
+    <View style={chatUserListStyles.container}>
       <ChatSearchBar onSearch={handleSearch} />
       <ChatFilterTabs activeFilter={activeFilter} onFilterChange={setActiveFilter} />
 
       <ScrollView showsVerticalScrollIndicator={false}>
         {filteredChats().map((chat) => (
-          <ChatItem
-            key={chat.id}
-            chat={chat}
-            isActive={chat.id === activeChat}
-            onPress={() => setActiveChat(chat.id)}
-          />
+          <View style={chatUserListStyles.userItem}>
+            <ChatItem
+              key={chat.id}
+              chat={chat}
+              isActive={chat.id === activeChat}
+              onPress={() => [setActiveChat(chat.id), onChatChange(chat)]}
+            />
+          </View>
         ))}
       </ScrollView>
     </View>
