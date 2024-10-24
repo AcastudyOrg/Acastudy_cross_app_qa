@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import * as Linking from 'expo-linking';
 
 const useDeepLinking= () => {
-  const prefix = Linking.createURL("http://localhost:8081/");
+  const prefix = Linking.createURL("/");
   const linking = {
     prefixes: [prefix, "acastudy_ts_app"],
     config: {

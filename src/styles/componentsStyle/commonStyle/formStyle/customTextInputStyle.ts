@@ -1,5 +1,5 @@
 import { Platform, StyleSheet } from 'react-native';
-import { COLORS, SIZE } from '../../../../constants';
+import { COLORS, FONT, SIZE } from '../../../../constants';
 
 export const customTextInputStyles = StyleSheet.create({
     container: {
@@ -21,7 +21,8 @@ export const customTextInputStyles = StyleSheet.create({
     input: {
         flex: 1,
         padding: 5,
-        color: COLORS.black,
+        color: COLORS.white,
+        fontFamily: FONT.plusJakartaRegular,
         minHeight: 150,
         textAlignVertical: 'top',
         backgroundColor: 'rgba(255, 255, 255, 0.1)',
