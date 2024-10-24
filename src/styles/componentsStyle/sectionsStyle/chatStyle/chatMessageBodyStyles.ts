@@ -4,16 +4,25 @@ import { COLORS } from "../../../../constants";
 export default StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
+        flexDirection: "column",
     },
-    footerContainer: {
-        width: "100%",
-        position: "absolute",
-        bottom: 0,
+
+    scrollContainer: {
+        flexGrow: 1,
+        backgroundColor: COLORS.red,
+    },
+    scroll: {
         padding: 10,
     },
+
+    footerContainer: {
+        position: "absolute",
+        bottom: 0,
+        width: "100%",
+        paddingHorizontal: 10,
+        backgroundColor: COLORS.skyBlue,
+    },
     divider: {
-        paddingVertical: 10,
+        paddingBottom: 10,
     },
 });
