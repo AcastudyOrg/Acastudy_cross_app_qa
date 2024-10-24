@@ -1,6 +1,7 @@
 const white = "#fff";
 const gray60 = '#ddd';
 const white50Percent = "rgba(255,255,255,.5)";
+const white10Percent = "rgba(255, 255, 255, 0.1)"
 const black = "#000";
 const black30 = "#333";
 const gray = "#202020";
@@ -14,6 +15,7 @@ const midGrayOpacity = "rgba(175, 175, 175, 0.2)";
 const red = "#DC3545";
 const green = "#28A745";
 const lightGreen = "#00DD00";
+const green19Percent = "rgba(50, 205, 50, .19)";
 const blue = "#4361ee";
 const darkBlue = "#1A1E36";
 const skyBlue = "#2A3051";
@@ -29,12 +31,14 @@ const transparent = "transparent";
 const transparentWhite = "#aaa";
 const tableHeader = "#858AA4";
 const appearTransparentWhite = "#484a5d";
+const appearDirtyWhite = '#9CA3AF'
 const studentProfileTableHeader = "#858AA4";
 
 const colors = {
   white,
   gray60,
   white50Percent,
+  white10Percent,
   black,
   black30,
   gray,
@@ -48,6 +52,7 @@ const colors = {
   red,
   green,
   lightGreen,
+  green19Percent,
   blue,
   darkBlue,
   skyBlue,
@@ -59,6 +64,7 @@ const colors = {
   purple,
   hotPink,
   appearTransparentWhite,
+  appearDirtyWhite,
   orange,
   transparent,
   transparentWhite,

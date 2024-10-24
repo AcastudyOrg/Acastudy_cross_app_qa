@@ -17,6 +17,7 @@ export interface ImageProps {
   userPlaceholder: ImageSourcePropType;
   comingSoon: ImageSourcePropType| string;
   studentPicture: string;
+    maths: string;
 
   mathImg: ImageSourcePropType;
   physicsImg: ImageSourcePropType;

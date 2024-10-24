@@ -72,9 +72,9 @@ console.log(selectedBook)
 
 
   return (
-    
-<PrivateScreenLayout showBackButton={true} showSearchBar={false}>
-        <View style={styles.Container}>
+
+    <PrivateScreenLayout showBackButton={true} showSearchBar={false}>
+      <View style={styles.Container}>
         <ScrollView>
             <View style={styles.dropDownContainer}>
                 <View style={styles.Dropdown}>
@@ -101,20 +101,20 @@ console.log(selectedBook)
           </View>
 
           <View style={styles.input}>
-              <Text style={tutorProfileStyles.availability}>Select Date</Text>
-              <View style={tutorProfileStyles.availabilityCalendar}>
-                  <CustomCalendar selectedDates={tutorData.bookedDays} />
-              </View>
+            <Text style={tutorProfileStyles.availability}>Select Date</Text>
+            <View style={tutorProfileStyles.availabilityCalendar}>
+              <CustomCalendar selectedDates={tutorData.bookedDays} />
+            </View>
           </View>
           <View style={styles.input}>
             <DropDownComponent data={filterTutorData} label="Time" placeholder="Tutor" value={tutor} onChange={setTutor} />
           </View>
 
-            <View>
-                <GradientButtonComponent text="Request Tutor" onPress={() => console.log("Pressed")} />
-            </View>
-            </ScrollView>
-        </View>
+          <View>
+            <GradientButtonComponent text="Request Tutor" onPress={() => console.log("Pressed")} />
+          </View>
+        </ScrollView>
+      </View>
     </PrivateScreenLayout>
   );
 };
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
 
   dropDownContainer: {
     flexDirection: 'row',
-    justifyContent: 'center', 
+    justifyContent: 'center',
   },
   input: {
     width: 'auto',

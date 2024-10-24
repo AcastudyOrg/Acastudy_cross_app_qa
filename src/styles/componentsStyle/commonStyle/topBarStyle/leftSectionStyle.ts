@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { COLORS, FONT } from "../../../../constants";
+import { COLORS, FONT, SIZE } from "../../../../constants";
 
 export const leftSectionStyles = StyleSheet.create({
 	leftSection: {
@@ -31,5 +31,10 @@ export const leftSectionStyles = StyleSheet.create({
 		fontFamily: FONT.plusJakartaRegular,
 		height: 40,
 		width: '100%',
+	},
+	title: {
+		color: COLORS.white,
+		fontSize: SIZE.xxl,
+		fontFamily: FONT.plusJakartaMedium,
 	},
 });

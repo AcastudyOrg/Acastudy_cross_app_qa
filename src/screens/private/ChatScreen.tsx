@@ -1,14 +1,20 @@
 import React from "react";
 import { View } from "react-native";
-
-import {ComingSoonComponent, PrivateScreenLayout} from "../../components";
+import { PrivateScreenLayout } from "../../components";
 import { chatScreenStyles } from "../../styles/screensStyle/privateStyle/chatScreenStyle";
+import ChatDraggableComponent from "../../components/sections/chat/ChatDraggableComponent";
+import { STRING } from "../../constants/strings";
 
 const ChatScreen = () => {
   return (
-    <PrivateScreenLayout>
+    <PrivateScreenLayout
+      showTitle={true}
+      shouldScroll={false}
+      title={STRING.chat}
+      showSearchBar={false}
+    >
       <View style={chatScreenStyles.homeMainContainer}>
-     <ComingSoonComponent/>
+        <ChatDraggableComponent />
       </View>
     </PrivateScreenLayout>
   );
