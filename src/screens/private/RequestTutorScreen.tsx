@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, View, Text, Button, StyleSheet, ScrollView,  } from 'react-native';
+import { Modal, View, Text, Button, StyleSheet, ScrollView, } from 'react-native';
 import filterLevelOfStudy from '../../../assets/data/subjects/filterLeveOfStudy.json';
 import filterTutorData from '../../../assets/data/subjects/filterTutorData.json';
 import { DropDownComponent } from '../../components/common/Form/DropDownComponent';
@@ -12,48 +12,46 @@ import PrivateScreenLayout from '../../components/layout/PrivateScreenLayout';
 
 
 const RequestTutorScreen = () => {
-
-    const [levelOfStudy, setLevelOfStudy] = useState("");
-    const [tutor, setTutor] = useState("");
+  const [description, setDescription] = useState("");
+  const [levelOfStudy, setLevelOfStudy] = useState("");
+  const [tutor, setTutor] = useState("");
 
   return (
-    
-<PrivateScreenLayout showBackButton={true} showSearchBar={false}>
-        <View style={styles.Container}>
+
+    <PrivateScreenLayout showBackButton={true} showSearchBar={false}>
+      <View style={styles.Container}>
         <ScrollView>
-            <View style={styles.dropDownContainer}>
-                <View style={styles.Dropdown}>
-                    <DropDownComponent data={filterLevelOfStudy} label="Study level" placeholder="Level of study" value={levelOfStudy} onChangeText={setLevelOfStudy} />
-                    <DropDownComponent data={filterTutorData} label= "Topic" placeholder="Tutor" value={tutor} onChangeText={setTutor} />
-                    <DropDownComponent data={filterLevelOfStudy} label="Book" placeholder="Level of study" value={levelOfStudy} onChangeText={setLevelOfStudy} />
-                </View>
-                <View style={styles.Dropdown}>
-                    <DropDownComponent data={filterTutorData} label="Course" placeholder="Tutor" value={tutor} onChangeText={setTutor} />
-                    <DropDownComponent data={filterTutorData} label="Tutor" placeholder="Tutor" value={tutor} onChangeText={setTutor} />
-                    <DropDownComponent data={filterLevelOfStudy} label="Chapter"  placeholder="Level of study" value={levelOfStudy} onChangeText={setLevelOfStudy} />
-                </View>
+          <View style={styles.dropDownContainer}>
+            <View style={styles.Dropdown}>
+              <DropDownComponent data={filterLevelOfStudy} label="Study level" placeholder="Level of study" value={levelOfStudy} onChangeText={setLevelOfStudy} />
+              <DropDownComponent data={filterTutorData} label="Topic" placeholder="Tutor" value={tutor} onChangeText={setTutor} />
+              <DropDownComponent data={filterLevelOfStudy} label="Book" placeholder="Level of study" value={levelOfStudy} onChangeText={setLevelOfStudy} />
             </View>
-            <View style={styles.input}>
-              <CustomTextAreaInput label="Description" placeholder='Describe that of which you are requesting a tutor for' value={''} onChange={function (text: string): void {
-            throw new Error('Function not implemented.'); 
-            } }/>
+            <View style={styles.Dropdown}>
+              <DropDownComponent data={filterTutorData} label="Course" placeholder="Tutor" value={tutor} onChangeText={setTutor} />
+              <DropDownComponent data={filterTutorData} label="Tutor" placeholder="Tutor" value={tutor} onChangeText={setTutor} />
+              <DropDownComponent data={filterLevelOfStudy} label="Chapter" placeholder="Level of study" value={levelOfStudy} onChangeText={setLevelOfStudy} />
+            </View>
+          </View>
+          <View style={styles.input}>
+            <CustomTextAreaInput label="Description" placeholder='Describe that of which you are requesting a tutor for' value={description} onChange={setDescription} />
           </View>
 
           <View style={styles.input}>
-              <Text style={tutorProfileStyles.availability}>Select Date</Text>
-              <View style={tutorProfileStyles.availabilityCalendar}>
-                  <CustomCalendar selectedDates={tutorData.bookedDays} />
-              </View>
+            <Text style={tutorProfileStyles.availability}>Select Date</Text>
+            <View style={tutorProfileStyles.availabilityCalendar}>
+              <CustomCalendar selectedDates={tutorData.bookedDays} />
+            </View>
           </View>
           <View style={styles.input}>
             <DropDownComponent data={filterTutorData} label="Time" placeholder="Tutor" value={tutor} onChangeText={setTutor} />
           </View>
 
-            <View>
-                <GradientButtonComponent text="Request Tutor" onPress={() => console.log("Pressed")} />
-            </View>
-            </ScrollView>
-        </View>
+          <View>
+            <GradientButtonComponent text="Request Tutor" onPress={() => console.log("Pressed")} />
+          </View>
+        </ScrollView>
+      </View>
     </PrivateScreenLayout>
   );
 };
@@ -70,7 +68,7 @@ const styles = StyleSheet.create({
 
   dropDownContainer: {
     flexDirection: 'row',
-    justifyContent: 'center', 
+    justifyContent: 'center',
   },
   input: {
     width: 'auto',
