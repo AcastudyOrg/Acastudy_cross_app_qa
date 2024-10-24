@@ -14,14 +14,22 @@ const DeatilsFormComponent = () => {
         <View>
             <View style={detailsFormComponentStyles.detailsDivider} />
             <View style={detailsFormComponentStyles.detailsFormRow}>
-                <DetailsInputContainerComponent value={education} label="Education level" placeholder="Education level" onChange={setEducation} />
-                <DetailsInputContainerComponent value={school} label="School" placeholder="School" onChange={setSchool} />
+                <View style={detailsFormComponentStyles.inputContainer}>
+                    <DetailsInputContainerComponent value={education} label="Education level" placeholder="Education level" onChange={setEducation} />
+                </View>
+                <View style={detailsFormComponentStyles.inputContainer}>
+                    <DetailsInputContainerComponent value={school} label="School" placeholder="School" onChange={setSchool} />
+                </View>
             </View>
             <View style={detailsFormComponentStyles.detailsDivider} />
 
             <View style={detailsFormComponentStyles.detailsFormRow}>
-                <DetailsInputContainerComponent value={gender} label="Gender" placeholder="Gender" onChange={setGender} />
-                <DetailsInputContainerComponent value={curriculum} label="Curriculum" placeholder="Curriculum" onChange={setCurriculum} />
+                <View style={detailsFormComponentStyles.inputContainer}>
+                    <DetailsInputContainerComponent value={gender} label="Gender" placeholder="Gender" onChange={setGender} />
+                </View>
+                <View style={detailsFormComponentStyles.inputContainer}>
+                    <DetailsInputContainerComponent value={curriculum} label="Curriculum" placeholder="Curriculum" onChange={setCurriculum} />
+                </View>
             </View>
             <View style={detailsFormComponentStyles.detailsDivider} />
         </View>

@@ -5,14 +5,14 @@ import CustomNoStrokeTextInput from "../../common/Form/CustomNoStrokeTextInput";
 
 interface InputContainerProps {
     value: string;
-    label: string;
+    label?: string;
     placeholder: string;
     onChange: (text: string) => void;
 }
 
 
 const DetailsInputContainerComponent: React.FC<InputContainerProps> = ({
-    value, label, placeholder, onChange
+    value, label="", placeholder, onChange
 }) => {
     return (
         <View style={detailsFormComponentStyles.detailsInputContainer}>
