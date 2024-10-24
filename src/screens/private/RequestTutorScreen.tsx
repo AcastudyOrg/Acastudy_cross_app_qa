@@ -62,7 +62,7 @@ const RequestTutorScreen = () => {
       const selectedBookData = booksDropdownData.find(
         (book) => book.id === selectedBook
       );
-console.log(selectedBook)
+
     const chaptersDropdownData = selectedBookData
   ? selectedBookData.chapters.map((chapter) => ({
       label: chapter.title,
@@ -79,19 +79,18 @@ console.log(selectedBook)
             <View style={styles.dropDownContainer}>
                 <View style={styles.Dropdown}>
                     <DropDownComponent data={filterLevelOfStudy} label="Study level" placeholder="Level of study" value={levelOfStudy} onChange={setLevelOfStudy} />
-                    <DropDownComponent data={topicsDropdownData} label= "Topic" placeholder="Pick a Topic" value={selectedTopic} onChange={setSelectedTopic} disabled={!selectedCourse}/>
-                    <DropDownComponent data={booksDropdownData} label="Book" placeholder="Choose preferred book" value={selectedBook} onChange={(value) => {
-                          setSelectedBook(value.id);
-                        }} disabled={!selectedCourse}/>
-                </View>
-                <View style={styles.Dropdown}>
                     <DropDownComponent data={coursesDropdownData} label="Select Course" placeholder="Choose Course" value={selectedCourse} onChange={(value) => {
                           setSelectedCourse(value.value);
-                          setSelectedTopic(null);
-                          setSelectedTutor(null);
+                          setSelectedTopic(0);
+                          setSelectedTutor(0);
                         }} />
-                    <DropDownComponent data={tutorsDropdownData} label="Tutor" placeholder="Tutor" value={selectedTutor} onChange={setSelectedTutor} disabled={!selectedCourse} />
+                    <DropDownComponent data={topicsDropdownData} label= "Topic" placeholder="Pick a Topic" value={selectedTopic} onChange={setSelectedTopic} disabled={!selectedCourse}/>
+
+                </View>
+                <View style={styles.Dropdown}>
+                <DropDownComponent data={booksDropdownData} label="Book" placeholder="Choose preferred book" value={selectedBook} onChange={setSelectedBook} disabled={!selectedCourse}/>
                     <DropDownComponent data={chaptersDropdownData} label="Chapter"  placeholder="Select a chapter" value={selectedBookChapter} onChange={setSelectedBookChapter}  disabled={!selectedBook}/>
+                    <DropDownComponent data={tutorsDropdownData} label="Tutor" placeholder="Tutor" value={selectedTutor} onChange={setSelectedTutor} disabled={!selectedCourse} />
                 </View>
             </View>
             <View style={styles.input}>
