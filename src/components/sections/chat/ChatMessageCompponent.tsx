@@ -4,7 +4,9 @@ import { Image, Text, View } from "react-native";
 import { Message } from "../../../types/User/Message";
 import chatMessageComponentStyles from "../../../styles/componentsStyle/sectionsStyle/chatStyle/chatMessageComponentStyles";
 import { User } from "../../../types/User/Student";
-import { STRING } from "../../../constants/strings";
+import CustomIcon from "../../common/CustomIcon";
+import { COLORS } from "../../../constants";
+import { LoginMockUser } from "../../../../mockData/LoginUser";
 
 interface ChatMessageComponentProps {
   message: Message;
@@ -15,35 +17,50 @@ const ChatMessageComponent: React.FC<ChatMessageComponentProps> = ({
   message,
   user,
 }) => {
-  console.log({ message });
+  const currentUser = message.senderId === LoginMockUser.id;
+  const minutes = String(message.datetime.getMinutes()).padStart(2, "0");
+  const hours = String(message.datetime.getHours()).padStart(2, "0");
+  const time = `${hours}:${minutes}`;
+
   return (
     <View style={chatMessageComponentStyles.container}>
-      <View style={chatMessageComponentStyles.leftContainer}>
-        <View style={chatMessageComponentStyles.leftMessageContainer}>
-          <View style={chatMessageComponentStyles.userImageContainer}>
-            <Image
-              source={user.profilePictureUrl}
-              style={chatMessageComponentStyles.image}
-            />
-          </View>
+      {!currentUser ?
+        <View style={chatMessageComponentStyles.leftContainer}>
+          <View style={chatMessageComponentStyles.leftMessageContainer}>
+            <View style={chatMessageComponentStyles.userImageContainer}>
+              <Image
+                source={user.profilePictureUrl}
+                style={chatMessageComponentStyles.image}
+              />
+            </View>
 
-          <View style={chatMessageComponentStyles.leftTextContainer}>
+            <View style={chatMessageComponentStyles.leftTextContainer}>
+              <Text style={chatMessageComponentStyles.text}>
+                {message.message}
+              </Text>
+            </View>
+          </View>
+          <Text style={chatMessageComponentStyles.leftTime}>{time}</Text>
+        </View>
+        :
+        <View style={chatMessageComponentStyles.rightMessageContainer}>
+          <View style={chatMessageComponentStyles.rightTextContainer}>
             <Text style={chatMessageComponentStyles.text}>
-              {STRING.OnbordingBecomeAStudentFirstInfo}
+              {message.message}
             </Text>
           </View>
-        </View>
-        <Text style={chatMessageComponentStyles.leftTime}>13:43</Text>
-      </View>
 
-      <View style={chatMessageComponentStyles.rightMessageContainer}>
-        <View style={chatMessageComponentStyles.rightTextContainer}>
-          <Text style={chatMessageComponentStyles.text}>
-            {STRING.bannerContent}
-          </Text>
+          <View style={chatMessageComponentStyles.rightSendContainer}>
+            <Text style={chatMessageComponentStyles.rightTime}>{time}</Text>
+            <CustomIcon
+              size={15}
+              set={'MaterialCommunityIcons'}
+              name={(message.sent && !message.delivered && !message.read) ? 'check' : 'check-all'}
+              color={(message.sent && message.delivered && message.read) ? COLORS.purple : COLORS.white50Percent}
+            />
+          </View>
         </View>
-        <Text style={chatMessageComponentStyles.rightTime}>15:10</Text>
-      </View>
+      }
     </View>
   );
 };

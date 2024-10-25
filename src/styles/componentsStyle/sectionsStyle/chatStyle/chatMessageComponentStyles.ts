@@ -4,7 +4,9 @@ import { COLORS, FONT, SIZE } from "../../../../constants";
 const globalStyle = StyleSheet.create({
     TextContainer: {
         padding: 10,
-        maxWidth: '70%',
+        maxWidth: 600,
+        flexGrow: 1,
+        flexShrink: 1,
         borderTopLeftRadius: 8,
         borderTopRightRadius: 8,
     },
@@ -24,6 +26,7 @@ export default StyleSheet.create({
     leftContainer: {
         paddingVertical: 5,
         paddingHorizontal: 10,
+        alignSelf: "flex-start",
     },
     leftMessageContainer: {
         flexDirection: "row",
@@ -51,9 +54,14 @@ export default StyleSheet.create({
         borderBottomLeftRadius: 8,
         backgroundColor: COLORS.white10Percent,
     },
+    rightSendContainer: {
+        alignItems: 'center',
+        alignSelf: 'flex-end',
+        flexDirection: 'row',
+    },
     rightTime: {
         ...globalStyle.time,
-        alignSelf: 'flex-end',
+        right: 5,
     },
 
     userImageContainer: {

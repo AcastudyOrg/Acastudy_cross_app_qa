@@ -8,15 +8,16 @@ export default StyleSheet.create({
     },
 
     scrollContainer: {
-        flexGrow: 1,
+        flex: 1,
+        paddingHorizontal: 10,
     },
-    scroll: {
-        padding: 10,
+    scrollView: {
+        paddingTop: 10,
+        paddingBottom: 50,
     },
 
     footerContainer: {
-        position: "absolute",
-        bottom: 0,
+        flexShrink: 0,
         width: "100%",
         paddingHorizontal: 10,
         backgroundColor: COLORS.skyBlue,

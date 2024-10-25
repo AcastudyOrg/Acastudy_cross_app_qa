@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { View, ScrollView } from "react-native";
 
 import ChatMessageTextSection from "./ChatMessageTextSection";
@@ -13,16 +13,23 @@ interface ChatMessageBodyProps {
 }
 
 const ChatMessageBody: React.FC<ChatMessageBodyProps> = ({ chat }) => {
+  const scrollViewRef = useRef<ScrollView | null>(null);
+
+  useEffect(() => {
+    scrollViewRef.current?.scrollToEnd({ animated: true });
+  }, []);
+
   return (
     <View style={chatMessageBodyStyles.container}>
       <View style={chatMessageBodyStyles.scrollContainer}>
         <ScrollView
-          showsHorizontalScrollIndicator={false}
-          style={chatMessageBodyStyles.scroll}
+          ref={scrollViewRef}
+          showsVerticalScrollIndicator={false}
+          style={chatMessageBodyStyles.scrollView}
         >
           {chat.messages.map((message, i) => (
             <View key={i}>
-                <ChatMessageComponent message={message} user={chat.user} />
+              <ChatMessageComponent message={message} user={chat.user} />
             </View>
           ))}
         </ScrollView>
