@@ -22,7 +22,7 @@ const ChatMessageBody: React.FC<ChatMessageBodyProps> = ({ chat }) => {
         >
           {chat.messages.map((message, i) => (
             <View key={i}>
-                <ChatMessageComponent message={message} />
+                <ChatMessageComponent message={message} user={chat.user} />
             </View>
           ))}
         </ScrollView>

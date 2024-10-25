@@ -9,7 +9,6 @@ export default StyleSheet.create({
 
     scrollContainer: {
         flexGrow: 1,
-        backgroundColor: COLORS.red,
     },
     scroll: {
         padding: 10,
