@@ -14,7 +14,7 @@ const CustomTextAreaInput: React.FC<CustomTextInputProps> = ({ placeholder, valu
   return (
     <View style={customTextInputStyles.container}>
       {label && <Text style={customTextInputStyles.label}>{label}</Text>}
-      <View style={customTextInputStyles.inputContainer}>
+      <View>
         <TextInput
           value={value}
           onChangeText={onChange}
