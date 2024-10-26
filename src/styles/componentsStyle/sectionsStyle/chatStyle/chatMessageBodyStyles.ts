@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { COLORS } from "../../../../constants";
+import { COLORS, FONT, SIZE } from "../../../../constants";
 
 export default StyleSheet.create({
     container: {
@@ -14,6 +14,13 @@ export default StyleSheet.create({
     scrollView: {
         paddingTop: 10,
         paddingBottom: 50,
+    },
+    whichDay: {
+        textAlign: "left",
+        fontSize: SIZE.s,
+        fontFamily: FONT.plusJakartaRegular,
+        color: COLORS.white50Percent,
+        paddingVertical: 10,
     },
 
     footerContainer: {

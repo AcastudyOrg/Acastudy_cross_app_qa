@@ -11,7 +11,7 @@ const globalStyle = StyleSheet.create({
         borderTopRightRadius: 8,
     },
     time: {
-        color: COLORS.textGray,
+        color: COLORS.white50Percent,
         fontSize: SIZE.s,
         fontFamily: FONT.plusJakartaMedium,
     },

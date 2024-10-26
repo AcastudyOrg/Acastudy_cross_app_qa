@@ -46,7 +46,7 @@ export default StyleSheet.create({
   },
   timestamp: {
     color: COLORS.white50Percent,
-    fontSize: SIZE.sm,
+    fontSize: SIZE.s,
     fontFamily: FONT.plusJakartaRegular
   },
   lastMessage: {

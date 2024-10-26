@@ -2,7 +2,9 @@ import { LoginMockUser } from "../mockData/LoginUser";
 import { Chat } from "../src/types/User/Chat";
 import { Message } from "../src/types/User/Message";
 import { User } from "../src/types/User/Student";
+import { formatDate } from "./config";
 
+type groupMessageType = Record<string, Message[]>;
 
 const currentUser = LoginMockUser;
 
@@ -84,3 +86,14 @@ export const formatChatMessageDate = (date: Date): string => {
 
     return `${dayFormatted}/${monthFormatted}/${year}`;
 }
+
+export const groupMessagesByDate = (messages: Message[]) => {
+    return messages && messages?.reduce((groups: groupMessageType, message: Message) => {
+        const date = formatDate(message.datetime);
+        if (!groups[date]) {
+            groups[date] = [];
+        }
+        groups[date].push(message);
+        return groups;
+    }, {} as groupMessageType);
+};

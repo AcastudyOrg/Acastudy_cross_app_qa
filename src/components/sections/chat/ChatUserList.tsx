@@ -29,12 +29,10 @@ const ChatUserList: React.FC<ChatSidebarProps> = ({ chatsData, onChatChange }) =
     <View style={chatUserListStyles.container}>
       <ChatSearchBar onSearch={handleSearch} />
       <ChatFilterTabs activeFilter={activeFilter} onFilterChange={setActiveFilter} />
-
       <ScrollView showsVerticalScrollIndicator={false}>
-        {filteredChats().map((chat) => (
-          <View style={chatUserListStyles.userItem}>
+        {filteredChats().map((chat, i) => (
+          <View key={i} style={chatUserListStyles.userItem}>
             <ChatItem
-              key={chat.id}
               chat={chat}
               isActive={chat.id === activeChat}
               onPress={() => [setActiveChat(chat.id), onChatChange(chat)]}
