@@ -16,7 +16,6 @@ const ChatItem: React.FC<ChatItemProps> = ({ chat, isActive, onPress }) => {
 	const currentUser = LoginMockUser;
 	const lastChatMessage = chat.messages[chat.messages.length - 1];
 	const unreadMessageCount = unreadMessagesCount(chat.messages, currentUser)
-	const isCurrentUserSender = lastChatMessage.senderId === currentUser.id;
 
 	return (
 		<TouchableOpacity onPress={onPress} style={[chatItemStyles.chatItem, isActive && chatItemStyles.activeChatItem]}>
@@ -31,16 +30,13 @@ const ChatItem: React.FC<ChatItemProps> = ({ chat, isActive, onPress }) => {
 						{chat.user.name + ' ' + chat.user.surname}
 					</Text>
 					<Text style={chatItemStyles.timestamp}>
-							{formatChatMessageDate(lastChatMessage.datetime)}
+						{formatChatMessageDate(lastChatMessage.datetime)}
 					</Text>
 				</View>
 
 				<ChatMessageStatus
-					isCurrentUserSender={isCurrentUserSender}
-					read={lastChatMessage.read}
-					delivered={lastChatMessage.delivered}
-					sent={lastChatMessage.sent}
-					message={lastChatMessage.message}
+					currentUser={currentUser}
+					message={lastChatMessage}
 					unreadMessageCount={unreadMessageCount}
 				/>
 			</View>
