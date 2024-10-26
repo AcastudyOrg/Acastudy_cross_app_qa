@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, Text, View } from "react-native";
+import { Text, View } from "react-native";
 
 import { Message } from "../../../types/User/Message";
 import chatMessageComponentStyles from "../../../styles/componentsStyle/sectionsStyle/chatStyle/chatMessageComponentStyles";
@@ -7,6 +7,7 @@ import { User } from "../../../types/User/Student";
 import CustomIcon from "../../common/CustomIcon";
 import { COLORS } from "../../../constants";
 import { LoginMockUser } from "../../../../mockData/LoginUser";
+import ChatMessageLeftTextComponent from "./ChatMessageLeftTextComponent";
 
 interface ChatMessageComponentProps {
   message: Message;
@@ -26,20 +27,7 @@ const ChatMessageComponent: React.FC<ChatMessageComponentProps> = ({
     <View style={chatMessageComponentStyles.container}>
       {!currentUser ?
         <View style={chatMessageComponentStyles.leftContainer}>
-          <View style={chatMessageComponentStyles.leftMessageContainer}>
-            <View style={chatMessageComponentStyles.userImageContainer}>
-              <Image
-                source={user.profilePictureUrl}
-                style={chatMessageComponentStyles.image}
-              />
-            </View>
-
-            <View style={chatMessageComponentStyles.leftTextContainer}>
-              <Text style={chatMessageComponentStyles.text}>
-                {message.message}
-              </Text>
-            </View>
-          </View>
+          <ChatMessageLeftTextComponent message={message} user={user} />
           <Text style={chatMessageComponentStyles.leftTime}>{time}</Text>
         </View>
         :
