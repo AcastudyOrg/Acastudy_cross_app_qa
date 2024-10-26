@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { View, Text, ScrollView, } from 'react-native';
 import filterLevelOfStudy from '../../../assets/data/subjects/filterLeveOfStudy.json';
 import { DropDownComponent } from '../../components/common/Form/DropDownComponent';
-import { tutorProfileStyles } from '../../styles/componentsStyle/commonStyle/tutorProfileStyle';
 import CustomCalendar from '../../components/common/CustomCalendar';
 import { tutorData } from '../../../mockData/TutorData';
 import CourseData from '../../../assets/data/subjects/CourseData.json'
@@ -11,6 +10,8 @@ import GradientButtonComponent from '../../components/common/Form/GradientButton
 import PrivateScreenLayout from '../../components/layout/PrivateScreenLayout';
 import { requestTutorStyles } from '../../styles/screensStyle/privateStyle/requestTutorStyle';
 import availableTime from '../../../assets/data/subjects/availableTime.json';
+import { STRING } from '../../constants/strings';
+import { isPlatformAndroid, isPlatformOS } from '../../../utils/config';
 
 
 const RequestTutorScreen = () => {
@@ -82,36 +83,55 @@ const RequestTutorScreen = () => {
 			<ScrollView style={requestTutorStyles.container}>
 				<View style={requestTutorStyles.dropDownContainer}>
 					<View style={requestTutorStyles.Dropdown}>
-						<DropDownComponent data={filterLevelOfStudy} label="Study level" placeholder="Level of study" value={levelOfStudy} onChange={setLevelOfStudy} />
-						<DropDownComponent data={coursesDropdownData} label="Select Course" placeholder="Choose Course" value={selectedCourse} onChange={(value) => {
+						<DropDownComponent data={filterLevelOfStudy} label={STRING.levelOfStudy} placeholder={STRING.levelOfStudy} value={levelOfStudy} onChange={setLevelOfStudy} />
+						<DropDownComponent data={coursesDropdownData} label={STRING.selectCourse} placeholder={STRING.selectCourse} value={selectedCourse} onChange={(value) => {
 							setSelectedCourse(value.value);
 							setSelectedTopic(0);
 							setSelectedTutor(0);
 						}} />
-						<DropDownComponent data={topicsDropdownData} label="Topic" placeholder="Pick a Topic" value={selectedTopic} onChange={setSelectedTopic} disabled={!selectedCourse} />
+						<DropDownComponent data={topicsDropdownData} label={STRING.topic} placeholder={STRING.topic} value={selectedTopic} onChange={setSelectedTopic} disabled={!selectedCourse} />
 
 					</View>
 					<View style={requestTutorStyles.Dropdown}>
-						<DropDownComponent data={booksDropdownData} label="Book" placeholder="Choose preferred book" value={selectedBook} onChange={setSelectedBook} disabled={!selectedCourse} />
-						<DropDownComponent data={chaptersDropdownData} label="Chapter" placeholder="Select a chapter" value={selectedBookChapter} onChange={setSelectedBookChapter} disabled={!selectedBook} />
-						<DropDownComponent data={tutorsDropdownData} label="Tutor" placeholder="Tutor" value={selectedTutor} onChange={setSelectedTutor} disabled={!selectedCourse} />
+						<DropDownComponent data={booksDropdownData} label={STRING.book} placeholder={STRING.book} value={selectedBook} onChange={setSelectedBook} disabled={!selectedCourse} />
+						<DropDownComponent data={chaptersDropdownData} label={STRING.chapter} placeholder={STRING.chapter} value={selectedBookChapter} onChange={setSelectedBookChapter} disabled={!selectedBook} />
+						<DropDownComponent data={tutorsDropdownData} label={STRING.tutor} placeholder={STRING.tutor} value={selectedTutor} onChange={setSelectedTutor} disabled={!selectedCourse} />
 					</View>
 				</View>
-				<CustomTextAreaInput label="Description" placeholder='Describe that of which you are requesting a tutor for' value={description} onChange={setDescription} />
+				<CustomTextAreaInput label={STRING.description} placeholder={STRING.descriptionHendler} value={description} onChange={setDescription} />
 
-				<View style={requestTutorStyles.input}>
-					<Text style={tutorProfileStyles.availability}>Select Date</Text>
-					<View style={tutorProfileStyles.availabilityCalendar}>
-						<CustomCalendar selectedDates={tutorData.bookedDays} />
+				<View style={requestTutorStyles.dropDownContainer}>
+
+
+
+					<View style={requestTutorStyles.Dropdown}>
+						<DropDownComponent data={timeDropdownData} label={STRING.time} placeholder={STRING.time} value={time} onChange={setTime} />
+
+						{!(isPlatformOS() || isPlatformAndroid()) &&
+							<View style={requestTutorStyles.requestTutorButton}>
+								<GradientButtonComponent text={STRING.requestTutor} onPress={() => console.log("Pressed")} />
+							</View>
+						}
 					</View>
-				</View>
-				<View style={requestTutorStyles.input}>
-					<DropDownComponent data={timeDropdownData} label="Time" placeholder="Time" value={time} onChange={setTime} />
-				</View>
 
-				<View>
-					<GradientButtonComponent text="Request Tutor" onPress={() => console.log("Pressed")} />
+
+
+					<View style={requestTutorStyles.input}>
+						<Text style={requestTutorStyles.availabilityLabel}>Select Date</Text>
+						<View style={requestTutorStyles.availabilityCalendar}>
+							<CustomCalendar selectedDates={tutorData.bookedDays} />
+						</View>
+					</View>
+
+
+
 				</View>
+				{(isPlatformOS() || isPlatformAndroid()) &&
+					<View style={requestTutorStyles.requestTutorButton}>
+						<GradientButtonComponent text={STRING.requestTutor} onPress={() => console.log("Pressed")} />
+					</View>
+				}
+
 			</ScrollView>
 		</PrivateScreenLayout>
 	);

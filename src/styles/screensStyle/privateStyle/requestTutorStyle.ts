@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import { isPlatformAndroid, isPlatformOS } from "../../../../utils/config";
+import { COLORS, SIZE } from "../../../constants";
 
 export const requestTutorStyles = StyleSheet.create({
 	container: {
@@ -8,7 +9,7 @@ export const requestTutorStyles = StyleSheet.create({
 	dropDownContainer: {
 		flexDirection: isPlatformOS() || isPlatformAndroid() ? 'column' : 'row',
 		justifyContent: isPlatformOS() || isPlatformAndroid() ? 'center' : 'space-between',
-		marginHorizontal: 30
+		marginHorizontal: isPlatformOS() || isPlatformAndroid() ? 0 : 30
 	},
 	input: {
 		width: 'auto',
@@ -18,14 +19,22 @@ export const requestTutorStyles = StyleSheet.create({
 		paddingRight: 20,
 		width: isPlatformOS() || isPlatformAndroid() ? "100%" : "50%",
 	},
-	button: {
-		backgroundColor: '#2196F3',
-		padding: 10,
-		borderRadius: 5,
+	requestTutorButton: { 
+		width: '80%', 
+		justifyContent: 
+		'center', 
+		alignSelf: 
+		'center' 
 	},
-	buttonText: {
-		color: 'white',
-		fontSize: 16,
-	},
+	availabilityLabel: {
+        fontSize: SIZE.m,
+        marginBottom: 4,
+        color: COLORS.white,
+    },
+    availabilityCalendar: {
+        justifyContent: isPlatformOS() || isPlatformAndroid() ? 'center' : 'flex-start',
+		width: isPlatformOS() || isPlatformAndroid() ? '100%' : 'auto',
+    }
+
 
 });
