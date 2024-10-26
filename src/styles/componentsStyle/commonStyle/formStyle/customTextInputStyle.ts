@@ -16,7 +16,7 @@ export const customTextInputStyles = StyleSheet.create({
         padding: 5,
         color: COLORS.white,
         fontFamily: FONT.plusJakartaRegular,
-        minHeight: 80,
+        minHeight: 150,
         borderRadius: 8,
         borderColor: COLORS.transparent,
         borderWidth: 0,

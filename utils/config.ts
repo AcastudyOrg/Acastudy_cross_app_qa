@@ -1,4 +1,4 @@
-import { ImageSourcePropType } from "react-native";
+import { ImageSourcePropType, Platform } from "react-native";
 
 export const isMobile = (screenWidth: number) => {
   return screenWidth < 768;
@@ -22,6 +22,14 @@ export const isNotDesktop = (screenWidth: number) => {
 
 export const textWidth = (screenWidth: number) => {
   return screenWidth > 1024 ? screenWidth * .6 : screenWidth * .7;
+}
+
+export const isPlatformOS = () => {
+  return Platform.OS === "ios"
+}
+
+export const isPlatformAndroid = () => {
+  return Platform.OS === "android"
 }
 
 export const searchContainerWidth = (screenWidth: number) => {

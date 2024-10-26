@@ -17,7 +17,7 @@ const RequestTutorScreen = () => {
 
 	const [levelOfStudy, setLevelOfStudy] = useState("");
 	const [time, setTime] = useState("");
-
+	const [description, setDescription] = useState("");
 	const [selectedCourse, setSelectedCourse] = useState<number | null>(null);
 	const [selectedTopic, setSelectedTopic] = useState<number | null>(null);
 	const [selectedTutor, setSelectedTutor] = useState<number | null>(null);
@@ -79,7 +79,7 @@ const RequestTutorScreen = () => {
 	return (
 
 		<PrivateScreenLayout showBackButton={true} showSearchBar={false}>
-			<ScrollView>
+			<ScrollView style={requestTutorStyles.container}>
 				<View style={requestTutorStyles.dropDownContainer}>
 					<View style={requestTutorStyles.Dropdown}>
 						<DropDownComponent data={filterLevelOfStudy} label="Study level" placeholder="Level of study" value={levelOfStudy} onChange={setLevelOfStudy} />
@@ -97,9 +97,7 @@ const RequestTutorScreen = () => {
 						<DropDownComponent data={tutorsDropdownData} label="Tutor" placeholder="Tutor" value={selectedTutor} onChange={setSelectedTutor} disabled={!selectedCourse} />
 					</View>
 				</View>
-					<CustomTextAreaInput label="Description" placeholder='Describe that of which you are requesting a tutor for' value={''} onChange={function (text: string): void {
-						throw new Error('Function not implemented.');
-					}} />
+				<CustomTextAreaInput label="Description" placeholder='Describe that of which you are requesting a tutor for' value={description} onChange={setDescription} />
 
 				<View style={requestTutorStyles.input}>
 					<Text style={tutorProfileStyles.availability}>Select Date</Text>
