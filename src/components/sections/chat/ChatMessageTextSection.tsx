@@ -3,7 +3,6 @@ import { View } from "react-native";
 import DetailsInputContainerComponent from "../userProfile/DetailsInputContainerComponent";
 import chatMessageTextSectionStyles from "../../../styles/componentsStyle/sectionsStyle/chatStyle/chatMessageTextSectionStyles";
 import GradientButtonComponent from "../../common/Form/GradientButtonComponent";
-import { COLORS } from "../../../constants";
 
 const ChatMessageTextSection = () => {
     const [textMessage, setTextMessage] = React.useState<string>("");

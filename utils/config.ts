@@ -1,4 +1,5 @@
 import { ImageSourcePropType, Platform } from "react-native";
+import moment from "moment";
 
 export const isMobile = (screenWidth: number) => {
   return screenWidth < 768;
@@ -46,6 +47,26 @@ export const getImageSource = (image: string | ImageSourcePropType) => {
   }
   return image;
 };
+
+export const formatDate = (date: Date) => {
+  const day = date.getDate();
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
+  return `${year}-${month}-${day}`;
+}
+
+export const formatTime = (datetime: Date) => {
+  const minutes = String(datetime.getMinutes()).padStart(2, "0");
+  const hours = String(datetime.getHours()).padStart(2, "0");
+  return `${hours}:${minutes}`;
+}
+
+export const whichDay = (date: string) => {
+  const yesterday = moment().subtract(1, 'day');
+  return moment().isSame(date, 'd') ? "Today" :
+    yesterday.isSame(date, 'd') ? "Yesterday" :
+      `${moment(date).format('dddd, DD MMM YYYY')}`
+}
 
 export const formatDateTime = (datetime: string): string => {
   const date = new Date(datetime);
