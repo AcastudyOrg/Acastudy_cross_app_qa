@@ -99,7 +99,7 @@ const RequestTutorScreen = () => {
 					</View>
 				</View>
 				<CustomTextAreaInput label={STRING.description} placeholder={STRING.descriptionHendler} value={description} onChange={setDescription} />
-
+				{/* add the file picker here */}
 				<View style={requestTutorStyles.dropDownContainer}>
 
 
