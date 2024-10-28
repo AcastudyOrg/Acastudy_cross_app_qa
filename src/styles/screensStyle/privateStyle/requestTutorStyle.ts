@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { isPlatformAndroid, isPlatformOS } from "../../../../utils/config";
+import { isPlatformIOSorAndroid } from "../../../../utils/config";
 import { COLORS, SIZE } from "../../../constants";
 
 export const requestTutorStyles = StyleSheet.create({
@@ -7,9 +7,9 @@ export const requestTutorStyles = StyleSheet.create({
 		paddingVertical: 30
 	},
 	dropDownContainer: {
-		flexDirection: isPlatformOS() || isPlatformAndroid() ? 'column' : 'row',
-		justifyContent: isPlatformOS() || isPlatformAndroid() ? 'center' : 'space-between',
-		marginHorizontal: isPlatformOS() || isPlatformAndroid() ? 0 : 30
+		flexDirection: isPlatformIOSorAndroid() ? 'column' : 'row',
+		justifyContent: isPlatformIOSorAndroid() ? 'center' : 'space-between',
+		marginHorizontal: isPlatformIOSorAndroid() ? 0 : 30
 	},
 	input: {
 		width: 'auto',
@@ -17,24 +17,22 @@ export const requestTutorStyles = StyleSheet.create({
 	},
 	Dropdown: {
 		paddingRight: 20,
-		width: isPlatformOS() || isPlatformAndroid() ? "100%" : "50%",
+		width: isPlatformIOSorAndroid() ? "100%" : "50%",
 	},
-	requestTutorButton: { 
-		width: '80%', 
-		justifyContent: 
-		'center', 
-		alignSelf: 
-		'center' 
+	requestTutorButton: {
+		width: '80%',
+		justifyContent: 'center',
+		alignSelf: 'center'
 	},
 	availabilityLabel: {
-        fontSize: SIZE.m,
-        marginBottom: 4,
-        color: COLORS.white,
-    },
-    availabilityCalendar: {
-        justifyContent: isPlatformOS() || isPlatformAndroid() ? 'center' : 'flex-start',
-		width: isPlatformOS() || isPlatformAndroid() ? '100%' : 'auto',
-    },
+		fontSize: SIZE.m,
+		marginBottom: 4,
+		color: COLORS.white,
+	},
+	availabilityCalendar: {
+		justifyContent: isPlatformIOSorAndroid() ? 'center' : 'flex-start',
+		width: isPlatformIOSorAndroid() ? '100%' : 'auto',
+	},
 	textAreaContainer: {
 		paddingHorizontal: 5,
 	},

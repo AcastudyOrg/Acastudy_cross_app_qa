@@ -25,12 +25,16 @@ export const textWidth = (screenWidth: number) => {
   return screenWidth > 1024 ? screenWidth * .6 : screenWidth * .7;
 }
 
-export const isPlatformOS = () => {
+export const isPlatformIOS = () => {
   return Platform.OS === "ios"
 }
 
 export const isPlatformAndroid = () => {
   return Platform.OS === "android"
+}
+
+export const isPlatformIOSorAndroid = () => {
+  return isPlatformIOS() || isPlatformAndroid();
 }
 
 export const searchContainerWidth = (screenWidth: number) => {
