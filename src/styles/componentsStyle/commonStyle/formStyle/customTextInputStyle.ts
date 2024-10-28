@@ -13,7 +13,7 @@ export const customTextInputStyles = StyleSheet.create({
     },
     input: {
         flex: 1,
-        padding: 5,
+        padding: 10,
         color: COLORS.white,
         fontFamily: FONT.plusJakartaRegular,
         minHeight: 150,

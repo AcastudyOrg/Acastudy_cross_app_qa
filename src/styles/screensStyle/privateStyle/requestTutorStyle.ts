@@ -34,7 +34,8 @@ export const requestTutorStyles = StyleSheet.create({
     availabilityCalendar: {
         justifyContent: isPlatformOS() || isPlatformAndroid() ? 'center' : 'flex-start',
 		width: isPlatformOS() || isPlatformAndroid() ? '100%' : 'auto',
-    }
-
-
+    },
+	textAreaContainer: {
+		paddingHorizontal: 5,
+	},
 });

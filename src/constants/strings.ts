@@ -21,6 +21,7 @@ export const STRING = {
   continueToAcastudy: "To Continue to Acastudy",
   subjectOfInterest: "Subject of interest",
   personalInformation: "Personal Information",
+  selectDate: "Select Date",
 
   forgotPasswordSubTitle:
     "To reset your password, please provide your email address in the field below.",

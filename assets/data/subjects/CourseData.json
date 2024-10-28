@@ -1,357 +1,342 @@
-{
-    "courses": [
+[
+  {
+    "id": 1,
+    "title": "Mathematics 101",
+    "description": "An introduction to fundamental mathematical concepts and techniques.",
+    "topics": [
       {
         "id": 1,
-        "title": "Mathematics 101",
-        "description": "An introduction to fundamental mathematical concepts and techniques.",
-        "topics": [
+        "name": "Algebra",
+        "description": "Study of variables, equations, and functions."
+      },
+      {
+        "id": 2,
+        "name": "Calculus I",
+        "description": "Introduction to limits, derivatives, and integrals."
+      },
+      {
+        "id": 3,
+        "name": "Linear Algebra",
+        "description": "Matrices, vector spaces, and linear transformations."
+      }
+    ],
+    "tutors": ["Fankholor Vereening", "Neo Samsons"],
+    "books": [
+      {
+        "id": 1,
+        "title": "Introduction to Algebra",
+        "author": "Richard Rusczyk",
+        "year": 2017,
+        "chapters": [
           {
             "id": 1,
-            "name": "Algebra",
-            "description": "Study of variables, equations, and functions."
+            "title": "Introduction to Algebra"
           },
           {
             "id": 2,
-            "name": "Calculus I",
-            "description": "Introduction to limits, derivatives, and integrals."
+            "title": "Linear Equations"
           },
           {
             "id": 3,
-            "name": "Linear Algebra",
-            "description": "Matrices, vector spaces, and linear transformations."
-          }
-        ],
-        "tutors": [
-          "Fankholor Vereening",
-          "Neo Samsons"
-        ],
-        "books": [
-          {
-            "id": 1,
-            "title": "Introduction to Algebra",
-            "author": "Richard Rusczyk",
-            "year": 2017,
-            "chapters": [
-              {
-                "id": 1,
-                "title": "Introduction to Algebra"
-              },
-              {
-                "id": 2,
-                "title": "Linear Equations"
-              },
-              {
-                "id": 3,
-                "title": "Quadratic Equations"
-              }
-            ]
-          },
-          {
-            "id": 2,
-            "title": "Calculus: Early Transcendentals",
-            "author": "James Stewart",
-            "year": 2015,
-            "chapters": [
-              {
-                "id": 1,
-                "title": "Limits and Derivatives"
-              },
-              {
-                "id": 2,
-                "title": "Applications of Derivatives"
-              },
-              {
-                "id": 3,
-                "title": "Integrals"
-              }
-            ]
-          },
-          {
-            "id": 3,
-            "title": "Linear Algebra and Its Applications",
-            "author": "David C. Lay",
-            "year": 2012,
-            "chapters": [
-              {
-                "id": 1,
-                "title": "Vectors and Matrices"
-              },
-              {
-                "id": 2,
-                "title": "Systems of Linear Equations"
-              },
-              {
-                "id": 3,
-                "title": "Determinants"
-              }
-            ]
+            "title": "Quadratic Equations"
           }
         ]
       },
       {
         "id": 2,
-        "title": "Physics 101",
-        "description": "Explore the basic principles of classical mechanics, energy, and motion.",
-        "topics": [
+        "title": "Calculus: Early Transcendentals",
+        "author": "James Stewart",
+        "year": 2015,
+        "chapters": [
           {
             "id": 1,
-            "name": "Newtonian Mechanics",
-            "description": "The laws of motion and their applications."
+            "title": "Limits and Derivatives"
           },
           {
             "id": 2,
-            "name": "Work and Energy",
-            "description": "Understanding kinetic and potential energy."
+            "title": "Applications of Derivatives"
           },
           {
             "id": 3,
-            "name": "Momentum and Collisions",
-            "description": "Study of momentum conservation in different systems."
-          }
-        ],
-        "tutors": [
-          "Yinkeer Njobi",
-          "Ntalo Yorbs"
-        ],
-        "books": [
-          {
-            "id": 4,
-            "title": "University Physics with Modern Physics",
-            "author": "Hugh D. Young",
-            "year": 2019,
-            "chapters": [
-              {
-                "id": 1,
-                "title": "Mechanics"
-              },
-              {
-                "id": 2,
-                "title": "Waves"
-              },
-              {
-                "id": 3,
-                "title": "Thermodynamics"
-              }
-            ]
-          },
-          {
-            "id": 5,
-            "title": "Fundamentals of Physics",
-            "author": "David Halliday",
-            "year": 2013,
-            "chapters": [
-              {
-                "id": 1,
-                "title": "Motion in One Dimension"
-              },
-              {
-                "id": 2,
-                "title": "Force and Motion"
-              },
-              {
-                "id": 3,
-                "title": "Energy"
-              }
-            ]
-          },
-          {
-            "id": 6,
-            "title": "Classical Mechanics",
-            "author": "John R. Taylor",
-            "year": 2005,
-            "chapters": [
-              {
-                "id": 1,
-                "title": "Kinematics"
-              },
-              {
-                "id": 2,
-                "title": "Dynamics"
-              },
-              {
-                "id": 3,
-                "title": "Oscillations"
-              }
-            ]
+            "title": "Integrals"
           }
         ]
       },
       {
         "id": 3,
-        "title": "Accounting 101",
-        "description": "Introduction to the basic principles of accounting and financial reporting.",
-        "topics": [
+        "title": "Linear Algebra and Its Applications",
+        "author": "David C. Lay",
+        "year": 2012,
+        "chapters": [
           {
             "id": 1,
-            "name": "Financial Statements",
-            "description": "Overview of balance sheets, income statements, and cash flow statements."
+            "title": "Vectors and Matrices"
           },
           {
             "id": 2,
-            "name": "Double-Entry Accounting",
-            "description": "Learning the basics of credits and debits in accounting."
+            "title": "Systems of Linear Equations"
           },
           {
             "id": 3,
-            "name": "Accounting for Assets",
-            "description": "How to account for physical and intangible assets."
+            "title": "Determinants"
           }
-        ],
-        "tutors": [
-          "Donald Gorgia",
-          "Linen Covert"
-        ],
-        "books": [
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Physics 101",
+    "description": "Explore the basic principles of classical mechanics, energy, and motion.",
+    "topics": [
+      {
+        "id": 1,
+        "name": "Newtonian Mechanics",
+        "description": "The laws of motion and their applications."
+      },
+      {
+        "id": 2,
+        "name": "Work and Energy",
+        "description": "Understanding kinetic and potential energy."
+      },
+      {
+        "id": 3,
+        "name": "Momentum and Collisions",
+        "description": "Study of momentum conservation in different systems."
+      }
+    ],
+    "tutors": ["Yinkeer Njobi", "Ntalo Yorbs"],
+    "books": [
+      {
+        "id": 4,
+        "title": "University Physics with Modern Physics",
+        "author": "Hugh D. Young",
+        "year": 2019,
+        "chapters": [
           {
-            "id": 7,
-            "title": "Financial Accounting",
-            "author": "Jerry J. Weygandt",
-            "year": 2018,
-            "chapters": [
-              {
-                "id": 1,
-                "title": "Introduction to Financial Statements"
-              },
-              {
-                "id": 2,
-                "title": "Recording Financial Transactions"
-              },
-              {
-                "id": 3,
-                "title": "Adjusting Entries"
-              }
-            ]
+            "id": 1,
+            "title": "Mechanics"
           },
           {
-            "id": 8,
-            "title": "Intermediate Accounting",
-            "author": "Donald E. Kieso",
-            "year": 2020,
-            "chapters": [
-              {
-                "id": 1,
-                "title": "Conceptual Framework"
-              },
-              {
-                "id": 2,
-                "title": "Measurement and Disclosure"
-              },
-              {
-                "id": 3,
-                "title": "Liabilities"
-              }
-            ]
+            "id": 2,
+            "title": "Waves"
           },
           {
-            "id": 9,
-            "title": "Principles of Accounting",
-            "author": "Belverd E. Needles",
-            "year": 2013,
-            "chapters": [
-              {
-                "id": 1,
-                "title": "The Accounting Cycle"
-              },
-              {
-                "id": 2,
-                "title": "Internal Control"
-              },
-              {
-                "id": 3,
-                "title": "Financial Reporting"
-              }
-            ]
+            "id": 3,
+            "title": "Thermodynamics"
           }
         ]
       },
       {
-        "id": 4,
-        "title": "Biology 101",
-        "description": "An introduction to the study of living organisms and biological systems.",
-        "topics": [
+        "id": 5,
+        "title": "Fundamentals of Physics",
+        "author": "David Halliday",
+        "year": 2013,
+        "chapters": [
           {
             "id": 1,
-            "name": "Cell Biology",
-            "description": "Study of the structure and function of cells."
+            "title": "Motion in One Dimension"
           },
           {
             "id": 2,
-            "name": "Genetics",
-            "description": "Introduction to genes, heredity, and genetic variation."
+            "title": "Force and Motion"
           },
           {
             "id": 3,
-            "name": "Evolution",
-            "description": "Understanding the principles of evolution and natural selection."
+            "title": "Energy"
           }
-        ],
-        "tutors": [
-          "Phathu Nkobela",
-          "Neo Samsons"
-        ],
-        "books": [
+        ]
+      },
+      {
+        "id": 6,
+        "title": "Classical Mechanics",
+        "author": "John R. Taylor",
+        "year": 2005,
+        "chapters": [
           {
-            "id": 10,
-            "title": "Biology",
-            "author": "Neil A. Campbell",
-            "year": 2017,
-            "chapters": [
-              {
-                "id": 1,
-                "title": "The Science of Life"
-              },
-              {
-                "id": 2,
-                "title": "Cell Structure and Function"
-              },
-              {
-                "id": 3,
-                "title": "Genetics"
-              }
-            ]
+            "id": 1,
+            "title": "Kinematics"
           },
           {
-            "id": 11,
-            "title": "Genetics: A Conceptual Approach",
-            "author": "Benjamin A. Pierce",
-            "year": 2020,
-            "chapters": [
-              {
-                "id": 1,
-                "title": "Introduction to Genetics"
-              },
-              {
-                "id": 2,
-                "title": "Mendelian Genetics"
-              },
-              {
-                "id": 3,
-                "title": "DNA Structure and Function"
-              }
-            ]
+            "id": 2,
+            "title": "Dynamics"
           },
           {
-            "id": 12,
-            "title": "The Selfish Gene",
-            "author": "Richard Dawkins",
-            "year": 2016,
-            "chapters": [
-              {
-                "id": 1,
-                "title": "Why Are We?"
-              },
-              {
-                "id": 2,
-                "title": "Genes and Replication"
-              },
-              {
-                "id": 3,
-                "title": "Survival Machines"
-              }
-            ]
+            "id": 3,
+            "title": "Oscillations"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Accounting 101",
+    "description": "Introduction to the basic principles of accounting and financial reporting.",
+    "topics": [
+      {
+        "id": 1,
+        "name": "Financial Statements",
+        "description": "Overview of balance sheets, income statements, and cash flow statements."
+      },
+      {
+        "id": 2,
+        "name": "Double-Entry Accounting",
+        "description": "Learning the basics of credits and debits in accounting."
+      },
+      {
+        "id": 3,
+        "name": "Accounting for Assets",
+        "description": "How to account for physical and intangible assets."
+      }
+    ],
+    "tutors": ["Donald Gorgia", "Linen Covert"],
+    "books": [
+      {
+        "id": 7,
+        "title": "Financial Accounting",
+        "author": "Jerry J. Weygandt",
+        "year": 2018,
+        "chapters": [
+          {
+            "id": 1,
+            "title": "Introduction to Financial Statements"
+          },
+          {
+            "id": 2,
+            "title": "Recording Financial Transactions"
+          },
+          {
+            "id": 3,
+            "title": "Adjusting Entries"
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "title": "Intermediate Accounting",
+        "author": "Donald E. Kieso",
+        "year": 2020,
+        "chapters": [
+          {
+            "id": 1,
+            "title": "Conceptual Framework"
+          },
+          {
+            "id": 2,
+            "title": "Measurement and Disclosure"
+          },
+          {
+            "id": 3,
+            "title": "Liabilities"
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "title": "Principles of Accounting",
+        "author": "Belverd E. Needles",
+        "year": 2013,
+        "chapters": [
+          {
+            "id": 1,
+            "title": "The Accounting Cycle"
+          },
+          {
+            "id": 2,
+            "title": "Internal Control"
+          },
+          {
+            "id": 3,
+            "title": "Financial Reporting"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Biology 101",
+    "description": "An introduction to the study of living organisms and biological systems.",
+    "topics": [
+      {
+        "id": 1,
+        "name": "Cell Biology",
+        "description": "Study of the structure and function of cells."
+      },
+      {
+        "id": 2,
+        "name": "Genetics",
+        "description": "Introduction to genes, heredity, and genetic variation."
+      },
+      {
+        "id": 3,
+        "name": "Evolution",
+        "description": "Understanding the principles of evolution and natural selection."
+      }
+    ],
+    "tutors": ["Phathu Nkobela", "Neo Samsons"],
+    "books": [
+      {
+        "id": 10,
+        "title": "Biology",
+        "author": "Neil A. Campbell",
+        "year": 2017,
+        "chapters": [
+          {
+            "id": 1,
+            "title": "The Science of Life"
+          },
+          {
+            "id": 2,
+            "title": "Cell Structure and Function"
+          },
+          {
+            "id": 3,
+            "title": "Genetics"
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "title": "Genetics: A Conceptual Approach",
+        "author": "Benjamin A. Pierce",
+        "year": 2020,
+        "chapters": [
+          {
+            "id": 1,
+            "title": "Introduction to Genetics"
+          },
+          {
+            "id": 2,
+            "title": "Mendelian Genetics"
+          },
+          {
+            "id": 3,
+            "title": "DNA Structure and Function"
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "title": "The Selfish Gene",
+        "author": "Richard Dawkins",
+        "year": 2016,
+        "chapters": [
+          {
+            "id": 1,
+            "title": "Why Are We?"
+          },
+          {
+            "id": 2,
+            "title": "Genes and Replication"
+          },
+          {
+            "id": 3,
+            "title": "Survival Machines"
           }
         ]
       }
     ]
   }
-  
+]
