@@ -1,5 +1,6 @@
 import React from "react";
-import { View } from "react-native";
+import { View, Image, TouchableOpacity, Text, Platform, Pressable } from "react-native";
+import { StyleSheet } from 'react-native';
 import useScreenWidth from "../../../hooks/useScreenWidth";
 import { homeTileScreenWidth, isMobile } from "../../../../utils/config";
 import { IMAGES } from "../../../constants";
@@ -7,14 +8,16 @@ import { studyFeedStyles } from "../../../styles/componentsStyle/sectionsStyle/s
 import StudyDescription from "./StudyDescription";
 import StudyAvatar from "./StudyAvatar";
 import StudyDateTime from "./StudyDateTime";
-import StudyTutorImage from "./StudyTutorImage";
-import StudyTileHeader from "./StudyTileHeader";
+import StudyTileHeader, { StudyTileContent } from "./StudyTileContent";
 import { StudyFeedEntry } from "../../../types/User/Feed";
+import { COLORS, FONT, SIZE, WEIGHT } from "../../../constants";
+import CustomIcon from "../../common/CustomIcon";
+import { StudyTileImage } from "./StudyTileImage";
 
 interface StudyFeedComponentProps {
 	entry: StudyFeedEntry;
-  }
-  
+}
+
 const StudyFeedComponent: React.FC<StudyFeedComponentProps> = ({ entry }) => {
 	const screenWidth = useScreenWidth();
 	const containerWidth = homeTileScreenWidth(screenWidth);
@@ -29,29 +32,12 @@ const StudyFeedComponent: React.FC<StudyFeedComponentProps> = ({ entry }) => {
 	};
 
 	return (
-		<View
-			style={[
-				studyFeedStyles.mainContainer,
-				{ width: mobile ? containerWidth * 2.55 : containerWidth * 1.4 },
-			]}
-		>
-			<View style={studyFeedStyles.feedMainContainer}>
-				<View style={studyFeedStyles.feedTopContainer}>
-					<StudyAvatar onPress={showTutorProfile} imageSource={entry.tutorAvatar} />
-					<View style={studyFeedStyles.feedTopTextContainer}>
-						<StudyTileHeader
-							title={entry.title}
-							name={entry.tutorName}
-							onAuthorPress={showTutorProfile}
-						/>
-					</View>
-				</View>
-
-				<StudyDateTime date={entry.date} rsvp={entry.rsvpCount} duration={ entry.time + " - " + entry.duration} />
-				<StudyDescription text={entry.description} onPress={readMoreAboutStudy} />
-				<StudyTutorImage imageUrl={entry.image} />
-			</View>
-		</View>
+		<TouchableOpacity 
+		onPress={readMoreAboutStudy} 
+		style={[studyFeedStyles.mainContainer, { width: mobile ? containerWidth * 2.55 : containerWidth * 1.4 }]}>
+			<StudyTileImage image={entry.image} />
+			<StudyTileContent entry={entry} onTutorPress={showTutorProfile} />
+		</TouchableOpacity>
 	);
 };
 
