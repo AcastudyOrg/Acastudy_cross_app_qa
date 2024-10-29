@@ -33,6 +33,7 @@ const tableHeader = "#858AA4";
 const appearTransparentWhite = "#484a5d";
 const appearDirtyWhite = '#9CA3AF'
 const studentProfileTableHeader = "#858AA4";
+const imageBackgroundGray = "#23274A"
 
 const colors = {
   white,
@@ -70,6 +71,7 @@ const colors = {
   transparentWhite,
   tableHeader,
   studentProfileTableHeader,
+  imageBackgroundGray,
 };
 
 export default colors;
