@@ -34,6 +34,9 @@ const useDeepLinking= () => {
         TutorProfileScreen: {
           path: "web/tutor-profile",
         },
+        RequestTutorScreen: {
+          path: "web/request-tutor"
+        }
       },
     },
   };
