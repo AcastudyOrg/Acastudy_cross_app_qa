@@ -23,7 +23,7 @@ export const StudyTileContent: React.FC<StudyTileContentProps> = ({
 				<View>
 					<Text style={studyFeedStyles.titleText} numberOfLines={1}> {entry.title} </Text>
 					<Pressable onPress={onTutorPress}>
-						<Text style={studyFeedStyles.tutorName} numberOfLines={1}>  {entry.tutorName} </Text>
+						<Text style={studyFeedStyles.tutorName} numberOfLines={1}>{entry.tutorName} </Text>
 					</Pressable>
 					<Text style={studyFeedStyles.dateText}> {entry.date}    |    RSVP: {entry.rsvpCount} </Text>
 				</View>
