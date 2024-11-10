@@ -29,7 +29,7 @@ export const onboardingScreenStyles = StyleSheet.create({
   imageTextInfoItem: {
     color: COLORS.white,
     fontFamily: FONT.plusJakartaRegular,
-    fontSize: SIZE.xl,
+    fontSize: SIZE.l,
     lineHeight: 30,
   },
   componentContainer: {
@@ -51,7 +51,7 @@ export const onboardingScreenStyles = StyleSheet.create({
     backgroundColor: COLORS.lightGray,
   },
   searchTextContainer: {
-    width: isPlatformIOSorAndroid() ? "100%" : "60%",
+    width: "60%",
   },
   searchButtonContainer: {
     width: 100,
