@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { SIZE, COLORS, FONT } from '../../../constants';
+import { isAndroidOrIOS } from '../../../../utils/config';
 
 export const tutorProfileStyles = StyleSheet.create({
     tutorProfileContainer: {
@@ -16,7 +17,6 @@ export const tutorProfileStyles = StyleSheet.create({
         bottom: 20,
     },
     availabilityCalendar: {
-        justifyContent: 'flex-start',
-        alignItems: 'flex-start',
+        width: isAndroidOrIOS ? "100%": "auto"
     }
 })
