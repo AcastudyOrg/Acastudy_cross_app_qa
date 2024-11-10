@@ -1,5 +1,6 @@
-import { ImageSourcePropType } from "react-native";
+import { ImageSourcePropType, Platform } from "react-native";
 
+export const isAndroidOrIOS = Platform.OS === "ios" || Platform.OS === "android"
 export const isMobile = (screenWidth: number) => {
   return screenWidth < 768;
 }

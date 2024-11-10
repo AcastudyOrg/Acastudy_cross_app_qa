@@ -1,16 +1,17 @@
 import { StyleSheet } from 'react-native';
 import { COLORS, FONT, SIZE } from '../../../../constants';
+import { isAndroidOrIOS } from '../../../../../utils/config';
 
 export const tutorHeaderStyles = StyleSheet.create({
     container: {
-        flexDirection: "row",
+        flexDirection: isAndroidOrIOS ? 'column' : 'row',
         justifyContent: "space-between",
         alignItems: "center",
         paddingTop: 10,
     },
     header: {
         padding: 20,
-        flexDirection: 'row',
+        flexDirection: isAndroidOrIOS ? 'column' : 'row',
         justifyContent: 'center',
         alignItems: "center",
 
@@ -38,5 +39,20 @@ export const tutorHeaderStyles = StyleSheet.create({
     requestButton: {
         justifyContent: 'flex-start',
         paddingRight: 20,
+    },
+    requestButtonMobileStyle:{
+        backgroundColor: COLORS.white,
+        padding: 10,
+        borderRadius: 50,
+        
+        position: 'relative',
+        bottom: 125,
+        left: 50,
+        
+        shadowColor: COLORS.white,
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: .5,
+        shadowRadius: 8,
+        elevation: 2,
     }
 });
