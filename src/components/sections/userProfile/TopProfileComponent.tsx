@@ -1,9 +1,7 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import { profileScreenStyles } from "../../../styles/screensStyle/privateStyle/profileScreenStyle";
-import GradientButtonComponent from "../../common/Form/GradientButtonComponent";
 import { STRING } from "../../../constants/strings";
 import { COLORS, IMAGES } from "../../../constants";
-import { isPlatformIOSorAndroid } from "../../../../utils/config";
 import CustomIcon from "../../common/CustomIcon";
 
 const TopProfileComponent = () => {
@@ -26,15 +24,11 @@ const TopProfileComponent = () => {
           </Text>
         </View>
       </View>
-      <FloatingButton />
+      <TouchableOpacity style={profileScreenStyles.floatingButton} onPress={() => console.log("Settings")} >
+        <CustomIcon set={"Feather"} name={"settings"} color={COLORS.white} />
+      </TouchableOpacity>
     </View>
   );
 };
-
-const FloatingButton = () => (
-  <TouchableOpacity style={profileScreenStyles.floatingButton} onPress={() => console.log("Settings")} >
-    <CustomIcon set={"Feather"} name={"settings"} color={COLORS.white}/>
-  </TouchableOpacity>
-);
 
 export default TopProfileComponent;
