@@ -47,7 +47,7 @@ const BecomeWhatAtAcaStudyComponent = ({
       ]}>
         <Image source={image} resizeMode="cover" style={[
           becomeWhatAtAcaStudyStyles.imageItem,
-          { height: isMobile ? screenWidth : 380 }
+          { height: isMobile ? screenWidth / 2 : 380 }
         ]} />
       </View>
 
