@@ -15,55 +15,58 @@ import { NAV_SCREEN_NAME } from "../../constants/strings";
 import { useNavigation } from "@react-navigation/native";
 
 interface privatePropType {
-	children: React.ReactNode;
-	title?: string;
-	shouldScroll?: boolean;
-	showTitle?: boolean;
-	showTopBar?: boolean;
-	showBackButton?: boolean;
-	showAppName?: boolean;
-	showSearchBar?: boolean;
+  children: React.ReactNode;
+  title?: string;
+  shouldScroll?: boolean;
+  showTitle?: boolean;
+  showTopBar?: boolean;
+  showBackButton?: boolean;
+  showAppName?: boolean;
+  showSearchBar?: boolean;
+  mobileShowAppLogo?: boolean;
 }
 
 const PrivateScreenLayout: React.FC<privatePropType> = ({
-	children,
-	title,
-	shouldScroll = true,
-	showTitle = false,
-	showTopBar = true,
-	showBackButton = false,
-	showAppName = false,
-	showSearchBar = true
+  children,
+  title,
+  shouldScroll = true,
+  showTitle = false,
+  showTopBar = true,
+  showBackButton = false,
+  showAppName = false,
+  showSearchBar = true,
+  mobileShowAppLogo = true
 }) => {
 	const screenWidth = useScreenWidth();
 	const isNotMobileWidth = isNotMobile(screenWidth);
 	const isMobileWidth = isMobile(screenWidth);
 	const navigation = useNavigation<any>()
 
-	const user: User = LoginMockUser;
-	return (
-		<SafeAreaView style={[privateScreenLayoutStyles.layoutContainer,
-		{ flexDirection: isMobileWidth ? "column" : "row" }]}>
-			{isMobileWidth ? (
-				<View style={privateScreenLayoutStyles.topNavMobileContainer}>
-					<View style={privateScreenLayoutStyles.sidebarMediaContainer}>
-						<Image
-							source={IMAGES.appLogo}
-							alt="coming-soon-image"
-							style={privateScreenLayoutStyles.logoMobileImage}
-						/>
-					</View>
-					{showTopBar && <TopBarComponent renderRightSection={false} user={user} />}
-				</View>
-			) : (
-				<>
-					{isNotMobileWidth ? (
-						<View style={[privateScreenLayoutStyles.sidebarContainer, { width: isNotMobileWidth ? "18%" : "0%" }]}>
-							<SidebarNavComponent />
-						</View>
-					) : null}
-				</>
-			)}
+  const user: User = LoginMockUser;
+  return (
+    <SafeAreaView style={[privateScreenLayoutStyles.layoutContainer,
+    { flexDirection: isMobileWidth ? "column" : "row" }]}>
+      {isMobileWidth ? (
+        mobileShowAppLogo && 
+        <View style={privateScreenLayoutStyles.topNavMobileContainer}>
+          <View style={privateScreenLayoutStyles.sidebarMediaContainer}>
+            <Image
+              source={IMAGES.appLogo}
+              alt="app_logo"
+              style={privateScreenLayoutStyles.logoMobileImage}
+            />
+          </View>
+          {showTopBar && <TopBarComponent renderRightSection={false} user={user} />}
+        </View>
+      ) : (
+        <>
+          {isNotMobileWidth ? (
+            <View style={[privateScreenLayoutStyles.sidebarContainer, { width: isNotMobileWidth ? "18%" : "0%" }]}>
+              <SidebarNavComponent />
+            </View>
+          ) : null}
+        </>
+      )}
 
 			<View style={[privateScreenLayoutStyles.contentContainer, { marginLeft: isMobileWidth ? 0 : "18%" }]}>
 				{isNotMobileWidth ? (

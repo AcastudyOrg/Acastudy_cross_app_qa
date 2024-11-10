@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import { COLORS, SIZE, FONT } from "../../../../constants";
+import { isPlatformIOSorAndroid } from "../../../../../utils/config";
 
 export const becomeWhatAtAcaStudyStyles = StyleSheet.create({
   mainContainer: {
@@ -43,7 +44,7 @@ export const becomeWhatAtAcaStudyStyles = StyleSheet.create({
     fontFamily: FONT.plusJakartaExtraLight,
   },
   buttonContainer: {
-    width: 250,
+    width: isPlatformIOSorAndroid() ? "auto" : 250,
     paddingTop: 10,
   },
 });
