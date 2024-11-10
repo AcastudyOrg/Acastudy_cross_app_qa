@@ -1,6 +1,6 @@
 import { ImageSourcePropType, Platform } from "react-native";
+import moment from "moment";
 
-export const isAndroidOrIOS = Platform.OS === "ios" || Platform.OS === "android"
 export const isMobile = (screenWidth: number) => {
   return screenWidth < 768;
 }
@@ -25,6 +25,18 @@ export const textWidth = (screenWidth: number) => {
   return screenWidth > 1024 ? screenWidth * .6 : screenWidth * .7;
 }
 
+export const isPlatformIOS = () => {
+  return Platform.OS === "ios"
+}
+
+export const isPlatformAndroid = () => {
+  return Platform.OS === "android"
+}
+
+export const isPlatformIOSorAndroid = () => {
+  return isPlatformIOS() || isPlatformAndroid();
+}
+
 export const searchContainerWidth = (screenWidth: number) => {
   return screenWidth > 1024 ? screenWidth * .4 : screenWidth * .6;
 }
@@ -39,6 +51,26 @@ export const getImageSource = (image: string | ImageSourcePropType) => {
   }
   return image;
 };
+
+export const formatDate = (date: Date) => {
+  const day = date.getDate();
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
+  return `${year}-${month}-${day}`;
+}
+
+export const formatTime = (datetime: Date) => {
+  const minutes = String(datetime.getMinutes()).padStart(2, "0");
+  const hours = String(datetime.getHours()).padStart(2, "0");
+  return `${hours}:${minutes}`;
+}
+
+export const whichDay = (date: string) => {
+  const yesterday = moment().subtract(1, 'day');
+  return moment().isSame(date, 'd') ? "Today" :
+    yesterday.isSame(date, 'd') ? "Yesterday" :
+      `${moment(date).format('dddd, DD MMM YYYY')}`
+}
 
 export const formatDateTime = (datetime: string): string => {
   const date = new Date(datetime);

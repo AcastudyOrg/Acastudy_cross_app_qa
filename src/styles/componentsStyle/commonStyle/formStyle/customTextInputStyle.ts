@@ -1,47 +1,26 @@
 import { Platform, StyleSheet } from 'react-native';
-import { COLORS, SIZE } from '../../../../constants';
+import { COLORS, FONT, SIZE } from '../../../../constants';
 
 export const customTextInputStyles = StyleSheet.create({
     container: {
-        width: '100%',
-        margin: 10
-    },
-    inputContainer: {
-        width: "100%",
-        margin: 10,
-        borderRadius: 8,
-        borderColor: COLORS.gray60,
-        borderWidth: 1,
+        paddingHorizontal: "3%"
     },
     label: {
         fontSize: SIZE.m,
-        marginBottom: 4,
         color: COLORS.white,
+        paddingBottom: 5,
+        fontFamily: FONT.plusJakartaRegular
     },
     input: {
         flex: 1,
-        padding: 5,
-        color: COLORS.black,
+        padding: 10,
+        color: COLORS.white,
+        fontFamily: FONT.plusJakartaRegular,
         minHeight: 150,
+        borderRadius: 8,
+        borderColor: COLORS.transparent,
+        borderWidth: 0,
         textAlignVertical: 'top',
-        backgroundColor: 'rgba(255, 255, 255, 0.1)',
-        ...Platform.select({
-            ios: {
-                borderColor: 'transparent',
-                borderWidth: 0,
-            },
-            android: {
-                borderColor: 'transparent',
-                borderWidth: 0,
-            },
-            windows: {
-                borderColor: 'transparent',
-                borderWidth: 0,
-            },
-            macos: {
-                borderColor: 'transparent',
-                borderWidth: 0,
-            }
-        }),
+        backgroundColor: COLORS.white10Percent,
     }
 });

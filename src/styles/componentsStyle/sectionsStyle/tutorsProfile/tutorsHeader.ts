@@ -1,17 +1,17 @@
 import { StyleSheet } from 'react-native';
 import { COLORS, FONT, SIZE } from '../../../../constants';
-import { isAndroidOrIOS } from '../../../../../utils/config';
+import { isPlatformIOSorAndroid } from '../../../../../utils/config';
 
 export const tutorHeaderStyles = StyleSheet.create({
     container: {
-        flexDirection: isAndroidOrIOS ? 'column' : 'row',
+        flexDirection: isPlatformIOSorAndroid() ? 'column' : 'row',
         justifyContent: "space-between",
         alignItems: "center",
         paddingTop: 10,
     },
     header: {
         padding: 20,
-        flexDirection: isAndroidOrIOS ? 'column' : 'row',
+        flexDirection: isPlatformIOSorAndroid() ? 'column' : 'row',
         justifyContent: 'center',
         alignItems: "center",
 

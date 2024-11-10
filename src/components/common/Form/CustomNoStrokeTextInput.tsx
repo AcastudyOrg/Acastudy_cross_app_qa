@@ -1,7 +1,7 @@
-import React from 'react';
-import { TextInput, View, Text } from 'react-native';
-import { customNoStrokeTextInputStyles } from '../../../styles/componentsStyle/commonStyle/formStyle/customNoStrokeTextInputStyle';
-import { COLORS, FONT, SIZE } from '../../../constants';
+import React from "react";
+import { TextInput, View, Text } from "react-native";
+import { customNoStrokeTextInputStyles } from "../../../styles/componentsStyle/commonStyle/formStyle/customNoStrokeTextInputStyle";
+import { COLORS } from "../../../constants";
 
 interface CustomNoStrokeTextInputProps {
   placeholder: string;
@@ -12,14 +12,22 @@ interface CustomNoStrokeTextInputProps {
 }
 
 const CustomNoStrokeTextInput: React.FC<CustomNoStrokeTextInputProps> = ({
-  placeholder, value, label, multiline = false, onChange
+  placeholder,
+  value,
+  label,
+  multiline = false,
+  onChange,
 }) => {
   return (
     <View style={customNoStrokeTextInputStyles.inputContainer}>
-      <Text style={[
-        customNoStrokeTextInputStyles.inputLabel,
-        { paddingVertical: multiline ? 10 : 0 }
-      ]}>{label}</Text>
+      <Text
+        style={[
+          customNoStrokeTextInputStyles.inputLabel,
+          { paddingVertical: multiline ? 10 : 0 },
+        ]}
+      >
+        {label}
+      </Text>
       <TextInput
         value={value}
         onChangeText={onChange}
@@ -28,7 +36,7 @@ const CustomNoStrokeTextInput: React.FC<CustomNoStrokeTextInputProps> = ({
         placeholderTextColor={COLORS.darkGrayOpacity}
         style={[
           customNoStrokeTextInputStyles.input,
-          { minHeight: multiline ? 100 : 40 }
+          { minHeight: multiline ? 100 : 40 },
         ]}
       />
     </View>

@@ -30,7 +30,7 @@ export default StyleSheet.create({
     paddingVertical: 8,
     borderBottomWidth: 1,
     borderBottomColor: COLORS.white10Percent,
-    marginBottom: 5
+    marginBottom: 3,
   },
   pofileSection: {
     flexDirection: "row",

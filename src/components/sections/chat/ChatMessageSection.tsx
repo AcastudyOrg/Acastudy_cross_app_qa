@@ -2,17 +2,18 @@ import React from 'react';
 import { View } from 'react-native';
 
 import ChatMessageHeader from './ChatMessageHeader';
-import { chatData } from '../../../types/User/Chat';
+import { Chat } from '../../../types/User/Chat';
+import ChatMessageBody from './ChatMessageBody';
 
 interface ChatMessageProps {
-    chatData: chatData,
+    chat: Chat,
 }
 
-const ChatMessageSection: React.FC<ChatMessageProps> = ({ chatData }) => {
+const ChatMessageSection: React.FC<ChatMessageProps> = ({ chat }) => {
     return (
         <View style={{ flex: 1 }}>
-            <ChatMessageHeader user={chatData.user} />
-            {/*Chat Body component goes here...*/}
+            <ChatMessageHeader user={chat.user} />
+            <ChatMessageBody chat={chat} />
         </View>
     );
 };

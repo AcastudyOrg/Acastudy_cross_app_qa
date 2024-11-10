@@ -4,9 +4,9 @@ import { tutorHeaderStyles } from '../../../styles/componentsStyle/sectionsStyle
 import GradientButtonComponent from '../../common/Form/GradientButtonComponent';
 import { NAV_SCREEN_NAME, STRING } from '../../../constants/strings';
 import { useNavigation } from '@react-navigation/native';
-import { COLORS, IMAGES } from '../../../constants';
-import { isAndroidOrIOS } from '../../../../utils/config';
+import { COLORS } from '../../../constants';
 import CustomIcon from '../../common/CustomIcon';
+import { isPlatformIOSorAndroid } from '../../../../utils/config';
 
 interface TutorHeaderProps {
 	name: string;
@@ -27,7 +27,7 @@ const TutorHeader: React.FC<TutorHeaderProps> = ({ name, rating, reviews, imageU
 					<Text style={tutorHeaderStyles.rating}>{rating} • {reviews} reviews</Text>
 				</View>
 			</View>
-			{!isAndroidOrIOS ?
+			{!isPlatformIOSorAndroid ?
 				<View style={tutorHeaderStyles.requestButton}>
 					<GradientButtonComponent
 						text={STRING.requestTutor}
