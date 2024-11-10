@@ -23,11 +23,11 @@ const StudentProfileScreen = () => {
   };
 
   return (
-    <PrivateScreenLayout showTopBar={false}>
+    <PrivateScreenLayout showTopBar={false} mobileShowAppLogo={false}>
       <View style={profileScreenStyles.homeMainContainer}>
         <TopProfileComponent />
         <PersonalInformationComponent />
-        <StudentSubjectOfInterest subjects={LoginMockUser.subjects} />
+        <StudentSubjectOfInterest subjects={LoginMockUser.subjects ?? [] } />
 
         <View style={profileScreenStyles.titleTextItemContainer}>
           <Text style={profileScreenStyles.titleTextItem}>

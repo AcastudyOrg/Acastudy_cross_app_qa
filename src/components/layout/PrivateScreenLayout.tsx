@@ -20,6 +20,7 @@ interface privatePropType {
   showBackButton?: boolean;
   showAppName?: boolean;
   showSearchBar?: boolean;
+  mobileShowAppLogo?: boolean;
 }
 
 const PrivateScreenLayout: React.FC<privatePropType> = ({
@@ -30,7 +31,8 @@ const PrivateScreenLayout: React.FC<privatePropType> = ({
   showTopBar = true,
   showBackButton = false,
   showAppName = false,
-  showSearchBar = true
+  showSearchBar = true,
+  mobileShowAppLogo = true
 }) => {
   const screenWidth = useScreenWidth();
   const isNotMobileWidth = isNotMobile(screenWidth);
@@ -41,11 +43,12 @@ const PrivateScreenLayout: React.FC<privatePropType> = ({
     <SafeAreaView style={[privateScreenLayoutStyles.layoutContainer,
     { flexDirection: isMobileWidth ? "column" : "row" }]}>
       {isMobileWidth ? (
+        mobileShowAppLogo && 
         <View style={privateScreenLayoutStyles.topNavMobileContainer}>
           <View style={privateScreenLayoutStyles.sidebarMediaContainer}>
             <Image
               source={IMAGES.appLogo}
-              alt="coming-soon-image"
+              alt="app_logo"
               style={privateScreenLayoutStyles.logoMobileImage}
             />
           </View>

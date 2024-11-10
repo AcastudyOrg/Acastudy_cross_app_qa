@@ -1,15 +1,17 @@
 import { StyleSheet } from "react-native";
 import { COLORS, FONT, SIZE, WEIGHT } from "../../../constants";
+import { isPlatformIOSorAndroid } from "../../../../utils/config";
 
 export const onboardingScreenStyles = StyleSheet.create({
   imageBgContainer: {
-    width: "100%",
+    width: isPlatformIOSorAndroid() ? "auto" : "100%",
     height: "auto",
     minHeight:  600,
     resizeMode: "cover",
     borderRadius: 15,
     overflow: "hidden",
-    padding: 50,
+    paddingVertical: 50,
+    paddingHorizontal: isPlatformIOSorAndroid() ? 20 : 50,
   },
   imageTextContainer: {
     flex: 1,
@@ -49,7 +51,7 @@ export const onboardingScreenStyles = StyleSheet.create({
     backgroundColor: COLORS.lightGray,
   },
   searchTextContainer: {
-    width: "60%",
+    width: isPlatformIOSorAndroid() ? "100%" : "60%",
   },
   searchButtonContainer: {
     width: 100,

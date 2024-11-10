@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { COLORS, FONT, SIZE } from '../../../../constants';
+import { isPlatformIOSorAndroid } from '../../../../../utils/config';
 
 export const studentSubjectOfInterestStyles = StyleSheet.create({
     section: {
@@ -19,7 +20,7 @@ export const studentSubjectOfInterestStyles = StyleSheet.create({
         color: COLORS.white,
         fontFamily: FONT.plusJakartaRegular,
         height: 40,
-        width: "50%",
+        width: isPlatformIOSorAndroid() ? "100%" : "50%",
     },
     subjectsContainer: {
         flexDirection: 'row',
