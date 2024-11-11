@@ -14,8 +14,13 @@ import {
     tutorsDropdownDataFn
 } from '../../../utils/requestTutorHelper';
 import { bookType, courseType } from '../../types/RequestTutor/requestTutorTypes';
+import useScreenWidth from '../../hooks/useScreenWidth';
+import { isNotDesktop } from '../../../utils/config';
 
 const RequestTutorRowSection = () => {
+    const screenWidth = useScreenWidth();
+    const notDesktop = isNotDesktop(screenWidth);
+
     const [levelOfStudy, setLevelOfStudy] = useState("");
     const [selectedBook, setSelectedBook] = useState<bookType | null>(null);
     const [selectedTopic, setSelectedTopic] = useState<number | null>(null);
@@ -26,7 +31,7 @@ const RequestTutorRowSection = () => {
     const coursesDropdownData = coursesDropdownDataFn(CourseData);
     const selectedCourseData = coursesDropdownData.find((course) => course.value === selectedCourse?.value);
     const topicsDropdownData = topicsDropdownDataFn(selectedCourseData?.topics ?? []);
-    
+
     const booksDropdownData = booksDropdownDataFn(selectedCourseData?.books ?? []);
     const selectedBookData = selectedCourseData?.books?.find((book) => book.id === selectedBook?.id);
 
@@ -34,13 +39,18 @@ const RequestTutorRowSection = () => {
     const tutorsDropdownData = tutorsDropdownDataFn(selectedCourseData?.tutors ?? []);
 
     return (
-        <View style={requestTutorStyles.dropDownContainer}>
-            <View style={requestTutorStyles.Dropdown}>
+        <View style={[
+            requestTutorStyles.dropDownContainer,
+            {
+                flexDirection: notDesktop ? 'column' : 'row',
+                justifyContent: notDesktop ? 'center' : 'space-between',
+            }]}>
+            <View style={[requestTutorStyles.Dropdown, { width: notDesktop ? "100%" : "50%" }]}>
                 <DropDownComponent data={filterLevelOfStudy} label={STRING.levelOfStudy} placeholder={STRING.levelOfStudy} value={levelOfStudy} onChange={setLevelOfStudy} />
                 <DropDownComponent data={coursesDropdownData} label={STRING.selectCourse} placeholder={STRING.selectCourse} value={selectedCourse} onChange={setSelectedCourse} />
                 <DropDownComponent data={topicsDropdownData} label={STRING.topic} placeholder={STRING.topic} value={selectedTopic} onChange={setSelectedTopic} />
             </View>
-            <View style={requestTutorStyles.Dropdown}>
+            <View style={[requestTutorStyles.Dropdown, { width: notDesktop ? "100%" : "50%" }]}>
                 <DropDownComponent data={booksDropdownData} label={STRING.book} placeholder={STRING.book} value={selectedBook} onChange={setSelectedBook} />
                 <DropDownComponent data={chaptersDropdownData} label={STRING.chapter} placeholder={STRING.chapter} value={selectedBookChapter} onChange={setSelectedBookChapter} />
                 <DropDownComponent data={tutorsDropdownData} label={STRING.tutor} placeholder={STRING.tutor} value={selectedTutor} onChange={setSelectedTutor} />

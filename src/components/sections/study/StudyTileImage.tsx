@@ -5,15 +5,16 @@ import { studyFeedStyles } from "../../../styles/componentsStyle/sectionsStyle/s
 
 interface StudyTileImageProps {
   image: ImageSourcePropType;
+  live: boolean;
 }
 
-export const StudyTileImage: React.FC<StudyTileImageProps> = ({ image }) => {
+export const StudyTileImage: React.FC<StudyTileImageProps> = ({ image, live }) => {
   return (
     <View style={studyFeedStyles.imageContainer}>
       <Image source={image} style={studyFeedStyles.coverImage} />
-      <View style={studyFeedStyles.liveIndicator}>
+      {live && <View style={studyFeedStyles.liveIndicator}>
         <Text style={studyFeedStyles.liveText}>LIVE</Text>
-      </View>
+      </View>}
     </View>
   );
 };

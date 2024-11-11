@@ -12,7 +12,7 @@ interface TutorHeaderProps {
 	name: string;
 	rating: number;
 	reviews: number;
-	imageUrl: ImageSourcePropType;
+	imageUrl: ImageSourcePropType | string;
 }
 
 const TutorHeader: React.FC<TutorHeaderProps> = ({ name, rating, reviews, imageUrl }) => {
@@ -21,7 +21,10 @@ const TutorHeader: React.FC<TutorHeaderProps> = ({ name, rating, reviews, imageU
 	return (
 		<View style={tutorHeaderStyles.container}>
 			<View style={tutorHeaderStyles.header}>
-				<Image source={{ uri: imageUrl }} style={tutorHeaderStyles.profileImage} />
+				<Image
+					source={typeof (imageUrl) === "number" ? imageUrl : { uri: imageUrl }}
+					style={tutorHeaderStyles.profileImage}
+				/>
 				<View style={tutorHeaderStyles.tutorHeaderInfo}>
 					<Text style={tutorHeaderStyles.name}>{name}</Text>
 					<Text style={tutorHeaderStyles.rating}>{rating} • {reviews} reviews</Text>

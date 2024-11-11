@@ -13,10 +13,8 @@ import TopProfileComponent from "../../components/sections/userProfile/TopProfil
 import PersonalInformationComponent from "../../components/sections/userProfile/PersonalInformationComponent";
 import StudentSubjectOfInterest from "../../components/sections/userProfile/StudentSubjectOfInteret";
 import { LoginMockUser } from "../../../mockData/LoginUser";
-import { isPlatformIOSorAndroid } from "../../../utils/config";
 
 const StudentProfileScreen = () => {
-
   const [modalVisible, setModalVisible] = useState(false);
 
   const controlModal = () => {
@@ -28,7 +26,7 @@ const StudentProfileScreen = () => {
       <View style={profileScreenStyles.homeMainContainer}>
         <TopProfileComponent />
         <PersonalInformationComponent />
-        <StudentSubjectOfInterest subjects={LoginMockUser.subjects ?? [] } />
+        <StudentSubjectOfInterest subjects={LoginMockUser.subjects ?? []} />
 
         <View style={profileScreenStyles.titleTextItemContainer}>
           <Text style={profileScreenStyles.titleTextItem}>
@@ -46,15 +44,13 @@ const StudentProfileScreen = () => {
             )).slice(0, 4)}
           </ScrollView>
         </View>
-        {/* Don't show on the student profile (Reason: UI not user friendly) */}
-        {!isPlatformIOSorAndroid() &&
-          <View style={profileScreenStyles.titleTextItemContainer}>
-            <Text style={profileScreenStyles.titleTextItem}>
-              {STRING.reviewPastMeetingTitle}
-            </Text>
-            <ReviewPastMeetingsComponent data={profileHistoryTableData.tableData} />
-          </View>
-        }
+
+        <View style={profileScreenStyles.titleTextItemContainer}>
+          <Text style={profileScreenStyles.titleTextItem}>
+            {STRING.reviewPastMeetingTitle}
+          </Text>
+          <ReviewPastMeetingsComponent data={profileHistoryTableData.tableData} />
+        </View>
       </View>
     </PrivateScreenLayout>
   );

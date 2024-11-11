@@ -9,6 +9,7 @@ export interface StudyFeedEntry {
     time: string;
     duration: string;
     rsvpCount: number;
+    live: boolean;
     description: string;
     image: ImageSourcePropType;
   }
