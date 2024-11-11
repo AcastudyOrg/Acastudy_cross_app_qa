@@ -22,6 +22,7 @@ export const STRING = {
   subjectOfInterest: "Subject of interest",
   personalInformation: "Personal Information",
   selectDate: "Select Date",
+  studyTitle: "What you might like!",
 
   forgotPasswordSubTitle:
     "To reset your password, please provide your email address in the field below.",

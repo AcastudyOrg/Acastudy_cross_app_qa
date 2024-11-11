@@ -1,7 +1,7 @@
 import { ImageSourcePropType } from 'react-native';
 
 export type User = {
-    id: string;
+    id?: string;
     name: string;
     surname: string;
     profilePictureUrl: ImageSourcePropType;

@@ -1,13 +1,12 @@
 import { StyleSheet } from "react-native";
 import { COLORS, FONT, SIZE } from "../../../constants";
-import { isPlatformIOSorAndroid } from "../../../../utils/config";
 
 export const profileScreenStyles = StyleSheet.create({
   homeMainContainer: {
     flex: 1,
     paddingTop: 50,
     paddingBottom: 100,
-    paddingHorizontal: 30,
+    marginHorizontal: 30,
     gap: 30,
   },
 
@@ -53,6 +52,7 @@ export const profileScreenStyles = StyleSheet.create({
   },
 
   titleTextItemContainer: {
+    width: "100%",
     flexDirection: "column",
   },
   titleTextItem: {
@@ -93,7 +93,6 @@ export const profileScreenStyles = StyleSheet.create({
     borderWidth: .5,
     borderColor: COLORS.darkGrayOpacity,
     overflow: "hidden",
-    width: "100%",
   },
   tableHeader: {
     flexDirection: "row",

@@ -7,23 +7,22 @@ import subjectData from '../../../../assets/data/home/subjectData.json';
 
 
 const SubjectScreen = () => {
-return (
-    <PrivateScreenLayout showBackButton={true}>
-        <View style={subjectsSectionStyles.subjectMainContainer}>
-            <View style={subjectsSectionStyles.subjectTextContainer}>
-            <Text style={subjectsSectionStyles.subjectTitleText}>{STRING.subjectTitle}</Text>
+    return (
+        <PrivateScreenLayout showBackButton={true}>
+            <View style={subjectsSectionStyles.subjectMainContainer}>
+                <View style={subjectsSectionStyles.subjectTextContainer}>
+                    <Text style={subjectsSectionStyles.subjectTitleText}>{STRING.subjectTitle}</Text>
+                </View>
             </View>
-        </View>
-        <View style={subjectsSectionStyles.subjectScreenMainContainer}>
-            {subjectData.map((item, i) => (
-            <View key={i}>
-                <SubjectComponent item={item} />
+            <View style={subjectsSectionStyles.subjectScreenMainContainer}>
+                {subjectData.map((item, i) => (
+                    <View key={i}>
+                        <SubjectComponent item={item} />
+                    </View>
+                ))}
             </View>
-            ))}
-        </View>
-
-    </PrivateScreenLayout>
-  );
+        </PrivateScreenLayout>
+    );
 }
 
 export default SubjectScreen;
