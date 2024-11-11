@@ -34,6 +34,7 @@ export const requestTutorStyles = StyleSheet.create({
 		width: isPlatformIOSorAndroid() ? '100%' : 'auto',
 	},
 	textAreaContainer: {
-		paddingHorizontal: 5,
+		paddingHorizontal: 15,
+		marginVertical: 20
 	},
 });
