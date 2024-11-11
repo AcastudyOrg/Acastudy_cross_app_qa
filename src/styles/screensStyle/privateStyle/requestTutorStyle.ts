@@ -4,7 +4,7 @@ import { COLORS, SIZE } from "../../../constants";
 
 export const requestTutorStyles = StyleSheet.create({
 	container: {
-		paddingVertical: 30
+		paddingVertical: 30,
 	},
 	dropDownContainer: {
 		marginHorizontal: isPlatformIOSorAndroid() ? 0 : 30
