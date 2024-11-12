@@ -13,7 +13,6 @@ import PrivateScreenLayout from "./layout/PrivateScreenLayout";
 import PublicScreenLayout from "./layout/PublicScreenLayout";
 
 //sections
-import HomeDataListComponent from "./sections/HomeDataListComponent";
 import SubjectComponent from "./sections/home/SubjectComponent";
 import TutorComponent from "./sections/home/TutorComponent";
 import UpcomingEventsComponent from "./sections/home/UpcomingEventsComponent";
@@ -31,7 +30,6 @@ export {
   SocialAuthButtonComponent,
   PrivateScreenLayout,
   PublicScreenLayout,
-  HomeDataListComponent,
   SubjectComponent,
   TutorComponent,
   UpcomingEventsComponent,

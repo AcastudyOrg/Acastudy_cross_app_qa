@@ -12,6 +12,7 @@ const PublicScreenLayout = ({ children }: { children: React.ReactNode }) => {
     const isNotMobileWidth = isNotMobile(screenWidth);
 
     const user: User = {
+        id: "",
         name: "",
         surname: "",
         profilePictureUrl: 0

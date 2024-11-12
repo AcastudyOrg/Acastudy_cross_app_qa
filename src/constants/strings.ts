@@ -8,7 +8,7 @@ export const STRING = {
   chat: "Chat",
   study: "Study",
   profile: "Profile",
-  requestTutor: "Request tutor",
+  requestTutor: "Request Tutor",
   signInTitle: "Sign In",
   signIn: "SignIn",
   signUp: "SignUp",
@@ -21,6 +21,8 @@ export const STRING = {
   continueToAcastudy: "To Continue to Acastudy",
   subjectOfInterest: "Subject of interest",
   personalInformation: "Personal Information",
+  selectDate: "Select Date",
+  studyTitle: "What you might like!",
 
   forgotPasswordSubTitle:
     "To reset your password, please provide your email address in the field below.",
@@ -70,6 +72,18 @@ export const STRING = {
   studyDuration: "18:00 - 1h30",
   studyPostText:
     "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione eum alias fugiat sint excepturi quos, eaque omnis cupiditate maxime laborum soluta aspernatur repellendus dolore saepe. Ducimus id illum laborum nisi.",
+
+  chatSearchPlaceholder: "Search...",
+  levelOfStudy: "Level Of Study",
+  selectCourse: "Select Course",
+  topic: "Topic",
+  book: "Book",
+  chapter: "Chapter",
+  tutor: "Tutor",
+  time: "Select Time",
+  description: "Description",
+  descriptionHendler: "Describe that of which you are requesting a tutor for"
+
 };
 
 export const NAV_SCREEN_NAME = {

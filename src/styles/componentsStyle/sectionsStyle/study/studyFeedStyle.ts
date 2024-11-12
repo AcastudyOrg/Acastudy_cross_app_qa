@@ -1,103 +1,93 @@
-import { StyleSheet, Platform } from 'react-native';
-import { COLORS, FONT, SIZE } from "../../../../constants";
+import { StyleSheet } from 'react-native';
+import { COLORS, FONT, SIZE, WEIGHT } from "../../../../constants";
 
 export const studyFeedStyles = StyleSheet.create({
-  mainContainer: {
-    flex: 1,
-    flexDirection: "column",
-    paddingTop: 10,
-    paddingHorizontal: 10,
-  },
-  feedMainContainer: {
-    flexDirection: "column",
-    gap: 4,
-    padding: 15,
-    borderRadius: 10,
-    overflow: "hidden",
-    backgroundColor: COLORS.skyBlue,
-  },
+	studyTextContainer: {
+		paddingVertical: 10,
+		paddingHorizontal: "2.2%",
+	},
+	studyTitleText: {
+		color: COLORS.white,
+		fontSize: SIZE.l,
+		fontFamily: FONT.plusJakartaMedium,
+		fontWeight: "bold",
+	},
+	studyScrollWrap: {
+		width: '100%',
+		flexDirection: 'row',
+		flexWrap: 'wrap',
+		paddingBottom: 50,
+		left: 25,
+	},
+	itemContainer: {
+		overflow: 'hidden',
+		paddingHorizontal: 5,
+		marginBottom: 25,
+		backgroundColor: COLORS.transparent,
+	},
+	
+	imageContainer: {
+		width: '100%',
+		aspectRatio: 16 / 9,
+		borderRadius: 5,
+		backgroundColor: COLORS.imageBackgroundGray,
+	},
+	coverImage: {
+		width: '100%',
+		height: '100%',
+		resizeMode: 'cover',
+		borderRadius: 5,
+	},
+	liveIndicator: {
+		position: 'absolute',
+		right: 8,
+		bottom: 8,
+		backgroundColor: COLORS.fullRed,
+		paddingHorizontal: 8,
+		paddingVertical: 4,
+		borderRadius: 2,
+	},
+	liveText: {
+		color: COLORS.white,
+		fontSize: SIZE.s,
+		fontWeight: WEIGHT.bold,
+	},
+	contentContainer: {
+		paddingLeft: 8,
+		paddingTop: 3,
+		justifyContent: 'space-between',
+		flexDirection: 'row',
+	},
 
-  feedTopContainer: {
-    flexDirection: "row",
-    gap: 15,
-  },
-  feedAvatarContainer: {
-    width: "15%",
-    justifyContent: "flex-start",
-  },
-  feedAvatarItem: {
-    width: Platform.OS ==="ios" || Platform.OS ==="android" ?50 :40,
-    height: Platform.OS ==="ios" || Platform.OS ==="android" ?50 :40,
-    resizeMode: "cover",
-    borderRadius: 25,
-  },
-  feedTopTextContainer: {
-    width: "75%",
-    justifyContent: "space-between",
-  },
-  feedTopTextActionContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  feedTopTextItemContainer: {
-    width: "85%",
-  },
-  feedTopTextItem: {
-    color: COLORS.white,
-    fontFamily: FONT.plusJakartaExtraBold,
-    fontSize: SIZE.l,
-  },
-  feedTopActionItemContainer: {
-    width: "10%",
-    justifyContent: "flex-end",
-    alignItems: "flex-end",
-  },
-  feedTopTextNameContainer: {
-    width: "100%",
-    paddingVertical: 5,
-  },
-  feedTopTextNameItem: {
-    color: COLORS.white,
-    fontFamily: FONT.plusJakartaBold,
-    fontSize: SIZE.sm,
-  },
-  feedTopTextDateContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  feedTopTextDateRsvpContainer: {
-    flexDirection: "column",
-    gap: 2,
-  },
-  feedTopTextTimeContainer: {
-    flexDirection: "column",
-    justifyContent: "flex-start",
-    alignItems: "flex-end",
-  },
-  feedTopTextTimeItem: {
-    color: COLORS.white,
-    fontFamily: FONT.plusJakartaRegular,
-    fontSize: SIZE.sm,
-  },
-
-  feedMiddleContainer: {
-    flexDirection: "column",
-    paddingVertical: 8,
-  },
-  feedMiddleTextItem: {
-    color: COLORS.white,
-    fontFamily: FONT.plusJakartaRegular,
-    fontSize: SIZE.sm,
-  },
-
-  feedBottomContainer: {
-    flexDirection: "column",
-    width: "100%",
-  },
-  feedBottomPostImageItem: {
-    width: "100%",
-    height: 200,
-    resizeMode: "cover",
-    borderRadius: 10,
-  },
+	menuIconContainer: {
+		top: 5,
+	},
+	headerRow: {
+		flexDirection: 'row',
+		alignItems: 'center',
+	},
+	avatarImage: {
+		width: 30,
+		height: 30,
+		borderRadius: 25,
+		marginRight: 10,
+	},
+	titleText: {
+		color: COLORS.white,
+		fontSize: SIZE.m,
+		fontFamily: FONT.plusJakartaMedium,
+	},
+	tutorName: {
+		color: COLORS.white,
+		fontSize: SIZE.s,
+		fontFamily: FONT.plusJakartaRegular,
+		opacity: 0.8,
+	},
+	dateText: {
+		right: 1,
+		color: COLORS.white,
+		fontSize: SIZE.xs,
+		fontFamily: FONT.plusJakartaRegular,
+		opacity: 0.5,
+	},
 });

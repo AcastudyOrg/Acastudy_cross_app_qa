@@ -1,17 +1,15 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import { profileScreenStyles } from "../../../styles/screensStyle/privateStyle/profileScreenStyle";
-import GradientButtonComponent from "../../common/Form/GradientButtonComponent";
 import { STRING } from "../../../constants/strings";
-import { IMAGES } from "../../../constants";
+import { COLORS, IMAGES } from "../../../constants";
+import CustomIcon from "../../common/CustomIcon";
 
 const TopProfileComponent = () => {
   return (
     <View style={profileScreenStyles.topProfileContainer}>
       <View style={profileScreenStyles.topProfileImageContainer}>
         <Image
-          source={{
-            uri: IMAGES.studentPicture,
-          }}
+          source={{ uri: IMAGES.studentPicture }}
           style={profileScreenStyles.topProfileImage}
         />
         <View style={profileScreenStyles.topProfileTextNameContainer}>
@@ -26,15 +24,9 @@ const TopProfileComponent = () => {
           </Text>
         </View>
       </View>
-
-      <View style={profileScreenStyles.topProfileTextContainer}>
-        <View style={profileScreenStyles.topProfileButtonContainer}>
-          <GradientButtonComponent
-            text="Study Credit"
-            onPress={() => console.log("Study Credit")}
-          />
-        </View>
-      </View>
+      <TouchableOpacity style={profileScreenStyles.floatingButton} onPress={() => console.log("Settings")} >
+        <CustomIcon set={"Feather"} name={"settings"} color={COLORS.white} />
+      </TouchableOpacity>
     </View>
   );
 };

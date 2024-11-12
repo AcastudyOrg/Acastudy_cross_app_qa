@@ -8,15 +8,17 @@ type DropdownProps = {
     label?: string;
     placeholder: string;
     data: any;
-    onChangeText: (value: any) => any;
+    disabled?: boolean;
+    onChange: (value: any) => any;
 }
 
 export const DropDownComponent: React.FC<DropdownProps> = ({
     value = "",
     label,
     placeholder,
-    onChangeText,
-    data
+    onChange,
+    data,
+    disabled
 }) => {
     return (
         <View style={dropDownComponentStyles.container}>
@@ -24,11 +26,12 @@ export const DropDownComponent: React.FC<DropdownProps> = ({
             <View style={dropDownComponentStyles.inputContainer}>
                 <Dropdown
                     value={value}
-                    onChange={onChangeText}
+                    onChange={onChange}
                     labelField="label"
                     valueField="value"
                     data={data}
                     maxHeight={300}
+                    disable={disabled}
                     placeholder={placeholder}
                     style={dropDownComponentStyles.input}
                     containerStyle={dropDownComponentStyles.itemContainer}
