@@ -30,7 +30,7 @@ const RequestTutorScreen = () => {
 				</View>
 				<View style={requestTutorStyles.input}>
 					<Text style={requestTutorStyles.availabilityLabel}>{STRING.selectDate}</Text>
-					<View style={requestTutorStyles.availabilityCalendar}>
+					<View>
 						<CustomCalendar selectedDates={tutorData.bookedDays} isClickable={true}/>
 					</View>
             	</View>
