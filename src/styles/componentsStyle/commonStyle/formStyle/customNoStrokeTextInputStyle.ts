@@ -20,11 +20,4 @@ export const customNoStrokeTextInputStyles = StyleSheet.create({
         color: COLORS.textGray,
         fontFamily: FONT.plusJakartaMedium,
     },
-    inputFocused: {
-        borderColor: 'transparent',
-        borderWidth: 0,
-    },
-    inputUnfocused: {
-        borderColor: 'transparent',
-    },
 });
