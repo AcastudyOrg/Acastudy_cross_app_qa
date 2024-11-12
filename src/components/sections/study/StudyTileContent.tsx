@@ -1,35 +1,34 @@
 import React from "react";
-import { View, Image, TouchableOpacity, Text, Pressable } from "react-native";
+import { View, Image, Text, Pressable, TouchableOpacity } from "react-native";
 import CustomIcon from "../../common/CustomIcon";
 import { StudyFeedEntry } from "../../../types/User/Feed";
 import { studyFeedStyles } from "../../../styles/componentsStyle/sectionsStyle/study/studyFeedStyle";
+import { useNavigation } from "@react-navigation/native";
+import { NAV_SCREEN_NAME } from "../../../constants/strings";
 
 interface StudyTileContentProps {
 	entry: StudyFeedEntry;
-	onTutorPress: () => void;
 }
 
 export const StudyTileContent: React.FC<StudyTileContentProps> = ({
-	entry,
-	onTutorPress
+	entry
 }) => {
+	const navigation = useNavigation<any>();
 	return (
 		<View style={studyFeedStyles.contentContainer}>
 			<View style={studyFeedStyles.headerRow}>
-				<Pressable onPress={onTutorPress}>
+				<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.TutorProfileScreen, { imageUrl: entry.tutorAvatar })}>
 					<Image source={entry.tutorAvatar} style={studyFeedStyles.avatarImage} />
-				</Pressable>
-				
+				</TouchableOpacity>
+
 				<View>
 					<Text style={studyFeedStyles.titleText} numberOfLines={1}> {entry.title} </Text>
-					<Pressable onPress={onTutorPress}>
-						<Text style={studyFeedStyles.tutorName} numberOfLines={1}>{entry.tutorName} </Text>
-					</Pressable>
+					<Text style={studyFeedStyles.tutorName} numberOfLines={1}>{entry.tutorName} </Text>
 					<Text style={studyFeedStyles.dateText}> {entry.date}    |    RSVP: {entry.rsvpCount} </Text>
 				</View>
 			</View>
-			<Pressable onPress={() => { }}>
-				<CustomIcon set="Entypo" name="dots-three-vertical" />
+			<Pressable style={studyFeedStyles.menuIconContainer} onPress={() => console.log("menu clicked.")}>
+				<CustomIcon set="Entypo" name="dots-three-vertical" size={14} />
 			</Pressable>
 		</View>
 	);

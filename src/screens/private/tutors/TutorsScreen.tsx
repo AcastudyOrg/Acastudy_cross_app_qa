@@ -21,10 +21,10 @@ const TutorsScreen = () => {
                 <Text style={topicsHeaderStyles.topicsHeaderText}>{STRING.filterBy}</Text>
                 <View style={topicsHeaderStyles.topicsHeaderRow}>
                     <View style={topicsHeaderStyles.dropDownContainer}>
-                        <DropDownComponent data={filterLevelOfStudy} placeholder="Level of study" value={levelOfStudy} onChangeText={setLevelOfStudy} />
+                        <DropDownComponent data={filterLevelOfStudy} placeholder="Level of study" value={levelOfStudy} onChange={setLevelOfStudy} />
                     </View>
                     <View style={topicsHeaderStyles.dropDownContainer}>
-                        <DropDownComponent data={filterTutorData} placeholder="Tutor" value={tutor} onChangeText={setTutor} />
+                        <DropDownComponent data={filterTutorData} placeholder="Tutor" value={tutor} onChange={setTutor} />
                     </View>
                     <View style={topicsHeaderStyles.clearFilterButton}>
                         <GradientButtonComponent text="Clear Filter" onPress={() => console.log("Clear clicked..")} />

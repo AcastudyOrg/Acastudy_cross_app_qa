@@ -15,7 +15,6 @@ import StudentSubjectOfInterest from "../../components/sections/userProfile/Stud
 import { LoginMockUser } from "../../../mockData/LoginUser";
 
 const StudentProfileScreen = () => {
-
   const [modalVisible, setModalVisible] = useState(false);
 
   const controlModal = () => {
@@ -23,11 +22,11 @@ const StudentProfileScreen = () => {
   };
 
   return (
-    <PrivateScreenLayout showTopBar={false}>
+    <PrivateScreenLayout showTopBar={false} mobileShowAppLogo={false}>
       <View style={profileScreenStyles.homeMainContainer}>
         <TopProfileComponent />
         <PersonalInformationComponent />
-        <StudentSubjectOfInterest subjects={LoginMockUser.subjects} />
+        <StudentSubjectOfInterest subjects={LoginMockUser.subjects ?? []} />
 
         <View style={profileScreenStyles.titleTextItemContainer}>
           <Text style={profileScreenStyles.titleTextItem}>
@@ -45,6 +44,7 @@ const StudentProfileScreen = () => {
             )).slice(0, 4)}
           </ScrollView>
         </View>
+
         <View style={profileScreenStyles.titleTextItemContainer}>
           <Text style={profileScreenStyles.titleTextItem}>
             {STRING.reviewPastMeetingTitle}
