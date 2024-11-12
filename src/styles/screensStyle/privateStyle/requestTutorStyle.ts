@@ -32,4 +32,8 @@ export const requestTutorStyles = StyleSheet.create({
 		marginBottom: 4,
 		color: COLORS.white,
 	},
+	availabilityCalendar: {
+		justifyContent: isPlatformIOSorAndroid() ? 'center' : 'flex-start',
+		width: isPlatformIOSorAndroid() ? '100%' : 'auto',
+	},
 });

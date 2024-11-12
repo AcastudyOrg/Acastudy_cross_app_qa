@@ -29,23 +29,9 @@ const RequestTutorDateTimeComponent = () => {
             }]}>
             <View style={requestTutorStyles.input}>
                 <Text style={requestTutorStyles.availabilityLabel}>{STRING.selectDate}</Text>
-                <View>
-                    <CustomCalendar selectedDates={tutorData.bookedDays} />
+                <View style={requestTutorStyles.availabilityCalendar}>
+                    <CustomCalendar selectedDates={tutorData.bookedDays} isClickable={true} />
                 </View>
-            </View>
-            <View style={[requestTutorStyles.setTimeDropDownContainer, {
-                paddingRight: notDesktop ? 20 : 0,
-                marginBottom: notDesktop ? 50 : 0,
-                top: notDesktop ? 0 : 20,
-                right: notDesktop ? 0 : 20,
-            }]}>
-                <DropDownComponent
-                    data={timeDropdownData}
-                    label={STRING.time}
-                    placeholder={STRING.time}
-                    value={time}
-                    onChange={setTime}
-                />
             </View>
         </View>
     );
