@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native';
 import { SIZE, COLORS, FONT } from '../../../constants';
-import { isPlatformIOSorAndroid } from '../../../../utils/config';
 
 export const tutorProfileStyles = StyleSheet.create({
     tutorProfileContainer: {
@@ -16,7 +15,4 @@ export const tutorProfileStyles = StyleSheet.create({
         color: COLORS.white,
         bottom: 20,
     },
-    availabilityCalendar: {
-        width: isPlatformIOSorAndroid() ? "100%": "auto"
-    }
 })
