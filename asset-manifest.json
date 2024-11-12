@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/Acastudy_cross_app/static/js/main.504fc7e5.js",
-    "static/js/108.c1426ebe.js": "/Acastudy_cross_app/static/js/108.c1426ebe.js",
+    "main.js": "/Acastudy_cross_app/static/js/main.95d385a9.js",
+    "static/js/681.46297e81.js": "/Acastudy_cross_app/static/js/681.46297e81.js",
     "static/media/user.svg": "/Acastudy_cross_app/static/media/user.11396190c299a31e4c2e.svg",
     "static/media/user2.svg": "/Acastudy_cross_app/static/media/user2.82c9bfe564cde24d3e5d.svg",
     "static/media/onboard.jpg": "/Acastudy_cross_app/static/media/onboard.57362dfee567ad2c591b.jpg",
@@ -23,6 +23,10 @@
     "static/media/logo_white_no_bg.png": "/Acastudy_cross_app/static/media/logo_white_no_bg.8633ca19a05f1feb7901.png",
     "static/media/success.png": "/Acastudy_cross_app/static/media/success.7fe60d51292a1102c3a9.png",
     "static/media/FontAwesome5_Brands.ttf": "/Acastudy_cross_app/static/media/FontAwesome5_Brands.9e138496e8f1719c6ebf.ttf",
+    "static/media/study_14.png": "/Acastudy_cross_app/static/media/study_14.1062a3129ec9bc5b5a8b.png",
+    "static/media/study_10.png": "/Acastudy_cross_app/static/media/study_10.f9abefc9c2bc98a52ee3.png",
+    "static/media/study_12.png": "/Acastudy_cross_app/static/media/study_12.07bba1fb64eb323a87ce.png",
+    "static/media/study_18.png": "/Acastudy_cross_app/static/media/study_18.89e4ecc35038a6af17fd.png",
     "static/media/PlusJakartaSans_200ExtraLight_Italic.ttf": "/Acastudy_cross_app/static/media/PlusJakartaSans_200ExtraLight_Italic.0da6b1562bebbe62ad51.ttf",
     "static/media/PlusJakartaSans_300Light_Italic.ttf": "/Acastudy_cross_app/static/media/PlusJakartaSans_300Light_Italic.d67dd50e511bc479a266.ttf",
     "static/media/PlusJakartaSans_500Medium_Italic.ttf": "/Acastudy_cross_app/static/media/PlusJakartaSans_500Medium_Italic.be9dbf300a371f9e3307.ttf",
@@ -30,6 +34,7 @@
     "static/media/PlusJakartaSans_400Regular_Italic.ttf": "/Acastudy_cross_app/static/media/PlusJakartaSans_400Regular_Italic.ca24a231e455bd764416.ttf",
     "static/media/PlusJakartaSans_800ExtraBold_Italic.ttf": "/Acastudy_cross_app/static/media/PlusJakartaSans_800ExtraBold_Italic.4a42028554d07748e1dc.ttf",
     "static/media/PlusJakartaSans_700Bold_Italic.ttf": "/Acastudy_cross_app/static/media/PlusJakartaSans_700Bold_Italic.9409b981b47e00d813d9.ttf",
+    "static/media/study_15.png": "/Acastudy_cross_app/static/media/study_15.84cd06e86aa56c4aa2b0.png",
     "static/media/PlusJakartaSans_300Light.ttf": "/Acastudy_cross_app/static/media/PlusJakartaSans_300Light.0b090a7f3053d7ff5a98.ttf",
     "static/media/PlusJakartaSans_200ExtraLight.ttf": "/Acastudy_cross_app/static/media/PlusJakartaSans_200ExtraLight.72426407360132dd4cf4.ttf",
     "static/media/PlusJakartaSans_400Regular.ttf": "/Acastudy_cross_app/static/media/PlusJakartaSans_400Regular.e959ca27c856c771bc26.ttf",
@@ -37,15 +42,27 @@
     "static/media/PlusJakartaSans_600SemiBold.ttf": "/Acastudy_cross_app/static/media/PlusJakartaSans_600SemiBold.adad8543ff9863da9569.ttf",
     "static/media/PlusJakartaSans_800ExtraBold.ttf": "/Acastudy_cross_app/static/media/PlusJakartaSans_800ExtraBold.5a0637ca31265773a597.ttf",
     "static/media/PlusJakartaSans_700Bold.ttf": "/Acastudy_cross_app/static/media/PlusJakartaSans_700Bold.fea436026c7ab9d46e14.ttf",
+    "static/media/study_7.png": "/Acastudy_cross_app/static/media/study_7.7e55979cf75e5252356d.png",
+    "static/media/study_16.png": "/Acastudy_cross_app/static/media/study_16.145cfbaa8de7d824c81d.png",
+    "static/media/study_2.png": "/Acastudy_cross_app/static/media/study_2.d86611026ef45969fb26.png",
+    "static/media/study_17.png": "/Acastudy_cross_app/static/media/study_17.a128245eaeb1ded9d361.png",
+    "static/media/study_3.png": "/Acastudy_cross_app/static/media/study_3.4386e247635b1c6ff3b3.png",
+    "static/media/study_6.png": "/Acastudy_cross_app/static/media/study_6.28ef358be729a36b3b6c.png",
     "static/media/AntDesign.ttf": "/Acastudy_cross_app/static/media/AntDesign.163adab9dbd7cb1ed12a.ttf",
+    "static/media/study_5.png": "/Acastudy_cross_app/static/media/study_5.793a528f9925ac5079a8.png",
+    "static/media/study_4.png": "/Acastudy_cross_app/static/media/study_4.e9fd5304eba946f7f2a5.png",
     "static/media/Entypo.ttf": "/Acastudy_cross_app/static/media/Entypo.fc6169344c041cffcdae.ttf",
+    "static/media/study_1.png": "/Acastudy_cross_app/static/media/study_1.635834bba3534ca731ed.png",
     "static/media/error.png": "/Acastudy_cross_app/static/media/error.3500251728cc02f6bd9d.png",
+    "static/media/study_11.png": "/Acastudy_cross_app/static/media/study_11.56ee7df9bb1671b64590.png",
+    "static/media/study_8.png": "/Acastudy_cross_app/static/media/study_8.7b2a4777e26735b0d74d.png",
     "static/media/Feather.ttf": "/Acastudy_cross_app/static/media/Feather.0f5d9cede2e831f3fc80.ttf",
-    "static/media/SimpleLineIcons.ttf": "/Acastudy_cross_app/static/media/SimpleLineIcons.3ec13a24af3fdda11107.ttf",
     "static/media/Octicons.ttf": "/Acastudy_cross_app/static/media/Octicons.6b742a230954dc640ba2.ttf",
     "static/media/userPlaceholder.png": "/Acastudy_cross_app/static/media/userPlaceholder.a37ce062d049c120cc4a.png",
+    "static/media/study_9.png": "/Acastudy_cross_app/static/media/study_9.d0218b3a2cb91f4766a7.png",
     "static/media/sentEmail.png": "/Acastudy_cross_app/static/media/sentEmail.cfbd30cfa769b2d76e05.png",
     "static/media/forgotPassword.png": "/Acastudy_cross_app/static/media/forgotPassword.95c3042ad2b67af7b379.png",
+    "static/media/study_13.png": "/Acastudy_cross_app/static/media/study_13.29b284d4446e27a75403.png",
     "static/media/FontAwesome5_Regular.ttf": "/Acastudy_cross_app/static/media/FontAwesome5_Regular.1017bce89c72f95bcf8e.ttf",
     "favicon.ico": "/Acastudy_cross_app/favicon.ico",
     "static/media/EvilIcons.ttf": "/Acastudy_cross_app/static/media/EvilIcons.699664b33ac2837d5bee.ttf",
@@ -56,11 +73,11 @@
     "favicon-16.png": "/Acastudy_cross_app/favicon-16.png",
     "manifest.json": "/Acastudy_cross_app/manifest.json",
     "serve.json": "/Acastudy_cross_app/serve.json",
-    "main.504fc7e5.js.map": "/Acastudy_cross_app/static/js/main.504fc7e5.js.map",
-    "108.c1426ebe.js.map": "/Acastudy_cross_app/static/js/108.c1426ebe.js.map"
+    "main.95d385a9.js.map": "/Acastudy_cross_app/static/js/main.95d385a9.js.map",
+    "681.46297e81.js.map": "/Acastudy_cross_app/static/js/681.46297e81.js.map"
   },
   "entrypoints": [
-    "static/js/108.c1426ebe.js",
-    "static/js/main.504fc7e5.js"
+    "static/js/681.46297e81.js",
+    "static/js/main.95d385a9.js"
   ]
 }
