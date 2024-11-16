@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { View, Text, Image, Pressable } from "react-native";
-
 import { profileScreenStyles } from "../../../styles/screensStyle/privateStyle/profileScreenStyle";
 import useScreenWidth from "../../../hooks/useScreenWidth";
 import { homeTileScreenWidth } from "../../../../utils/config";
-import MeetingPopUpModel from "../../common/MeetingPopupModel/MeetingPopUpModel";
 
 type UpcomingSessionProps = {
   item: {
@@ -16,45 +14,30 @@ type UpcomingSessionProps = {
     category: string;
     description: string;
   };
-  controlModal: () => void;
-  modalVisible: boolean;
+  onPress: () => void;
 };
 
-const UpcomingSessionComponent = ({ item, controlModal, modalVisible }: UpcomingSessionProps) => {
+const UpcomingSessionComponent: React.FC<UpcomingSessionProps> = ({ item, onPress }) => {
   const screenWidth = useScreenWidth();
   const containerWidth = homeTileScreenWidth(screenWidth);
 
+  const imageStyle = {
+    width: containerWidth,
+    height: containerWidth * 0.55,
+  };
+
+  const textContainerStyle = {
+    width: containerWidth,
+  };
+
   return (
-    <Pressable
-      onPress={() => controlModal()}
-      style={profileScreenStyles.upcomingItemContentContainer}
-    >
-      <MeetingPopUpModel visible={modalVisible} controlModal={controlModal} item={item} />
-      <Image
-        source={{ uri: item.thumbnail }}
-        style={[
-          profileScreenStyles.upcomingImageItem,
-          {
-            width: containerWidth * 1,
-            height: containerWidth * 0.55,
-          },
-        ]}
-      />
+    <Pressable onPress={onPress} style={profileScreenStyles.upcomingItemContentContainer}>
+      <Image source={{ uri: item.thumbnail }} style={[profileScreenStyles.upcomingImageItem, imageStyle]} />
       <View style={profileScreenStyles.upcomingTitleContainer}>
-        <Text
-          numberOfLines={2}
-          style={[
-            profileScreenStyles.upcomingTitleItem,
-            {
-              width: containerWidth * 1,
-            },
-          ]}
-        >
+        <Text numberOfLines={2} style={[profileScreenStyles.upcomingTitleItem, textContainerStyle]}>
           {item.title}
         </Text>
-        <Text numberOfLines={3} style={[profileScreenStyles.upcomingInfoItem, {
-          width: containerWidth * 1,
-        },]}>
+        <Text numberOfLines={3} style={[profileScreenStyles.upcomingInfoItem, textContainerStyle]}>
           {item.description}
         </Text>
       </View>

@@ -14,50 +14,85 @@ import PersonalInformationComponent from "../../components/sections/userProfile/
 import StudentSubjectOfInterest from "../../components/sections/userProfile/StudentSubjectOfInteret";
 import { LoginMockUser } from "../../../mockData/LoginUser";
 import { isPlatformIOSorAndroid } from "../../../utils/config";
+import MeetingPopUpModel from "../../components/common/MeetingPopupModel/MeetingPopUpModel";
 
+
+interface UpcomingEvent {
+
+	id: number;
+	thumbnail: string;
+	title: string;
+	tutor: string;
+	datetime: string;
+	category: string;
+	description: string;
+
+}
 const StudentProfileScreen = () => {
+	const [modalVisible, setModalVisible] = useState(false);
+	const [selectedItem, setSelectedItem] = useState<UpcomingEvent | null>(null);
 
-  const [modalVisible, setModalVisible] = useState(false);
+	const controlModal = () => {
+		setModalVisible(!modalVisible);
+		if (modalVisible) {
+			setSelectedItem(null);
+		}
+	};
 
-  const controlModal = () => {
-    setModalVisible(!modalVisible);
-  };
+	const handleSessionPress = (item: UpcomingEvent) => {
+		setSelectedItem(item);
+		setModalVisible(true);
+	};
 
-  return (
-    <PrivateScreenLayout showTopBar={false} mobileShowAppLogo={false}>
-      <View style={profileScreenStyles.homeMainContainer}>
-        <TopProfileComponent />
-        <PersonalInformationComponent />
-        <StudentSubjectOfInterest subjects={LoginMockUser.subjects ?? [] } />
+	return (
+		<PrivateScreenLayout showTopBar={false} mobileShowAppLogo={false}>
+			<View style={profileScreenStyles.homeMainContainer}>
+				<TopProfileComponent />
+				<PersonalInformationComponent />
+				<StudentSubjectOfInterest subjects={LoginMockUser.subjects ?? []} />
 
-        <View style={profileScreenStyles.titleTextItemContainer}>
-          <Text style={profileScreenStyles.titleTextItem}>
-            {STRING.upcomingScreenTitle}
-          </Text>
-          <ScrollView
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            style={profileScreenStyles.upcomingItemContainer}
-          >
-            {upcomingEventsData.map((item) => (
-              <View key={item.id}>
-                <UpcomingSessionComponent item={item} controlModal={controlModal} modalVisible={modalVisible} />
-              </View>
-            ))}
-          </ScrollView>
-        </View>
-        {/* Don't show on the student profile (Reason: UI not user friendly) */}
-        {!isPlatformIOSorAndroid() &&
-          <View style={profileScreenStyles.titleTextItemContainer}>
-            <Text style={profileScreenStyles.titleTextItem}>
-              {STRING.reviewPastMeetingTitle}
-            </Text>
-            <ReviewPastMeetingsComponent data={profileHistoryTableData.tableData} />
-          </View>
-        }
-      </View>
-    </PrivateScreenLayout>
-  );
+				<View style={profileScreenStyles.titleTextItemContainer}>
+					<Text style={profileScreenStyles.titleTextItem}>
+						{STRING.upcomingScreenTitle}
+					</Text>
+					<ScrollView
+						horizontal
+						showsHorizontalScrollIndicator={false}
+						style={profileScreenStyles.upcomingItemContainer}
+					>
+						{upcomingEventsData.map((item) => (
+							<View key={item.id}>
+								<UpcomingSessionComponent
+									item={item}
+									onPress={() => handleSessionPress(item)}
+								/>
+							</View>
+						))}
+					</ScrollView>
+				</View>
+
+				{/* Conditionally show the "Review Past Meetings" section */}
+				{!isPlatformIOSorAndroid() && (
+					<View style={profileScreenStyles.titleTextItemContainer}>
+						<Text style={profileScreenStyles.titleTextItem}>
+							{STRING.reviewPastMeetingTitle}
+						</Text>
+						<ReviewPastMeetingsComponent
+							data={profileHistoryTableData.tableData}
+						/>
+					</View>
+				)}
+			</View>
+
+			{selectedItem && (
+				<MeetingPopUpModel
+					visible={modalVisible}
+					controlModal={controlModal}
+					item={selectedItem}
+				/>
+			)}
+		</PrivateScreenLayout>
+	);
 };
 
 export default StudentProfileScreen;

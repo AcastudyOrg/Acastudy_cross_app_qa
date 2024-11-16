@@ -1,17 +1,17 @@
 import { StyleSheet, Platform } from "react-native";
-import { COLORS } from "../../../../constants";
+import { COLORS, SIZE } from "../../../../constants";
 
 export const meetingPopupModelStyles = StyleSheet.create({
     container: {
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: Platform.OS === 'web' ? 'rgba(0, 0, 0, 0.1)' : 'rgba(0, 0, 0, 0.5)',
+      backgroundColor: COLORS.transparent50percent,
     },
     modalContainer: {
       width: '90%',
       maxWidth: 380,
-      backgroundColor: '#1A1E36',
+      backgroundColor: COLORS.darkBlue,
       borderRadius: 12,
       overflow: 'hidden',
       elevation: 5,
@@ -26,7 +26,7 @@ export const meetingPopupModelStyles = StyleSheet.create({
       top: 8,
       padding: 8,
       zIndex: 1,
-      backgroundColor: 'rgba(51, 65, 85, 0.4)',
+      backgroundColor: COLORS.lightGrayOpacity,
       borderRadius: 20,
     },
     header: {
@@ -39,8 +39,8 @@ export const meetingPopupModelStyles = StyleSheet.create({
       width: 64,
       height: 64,
       borderRadius: 32,
-      borderWidth: 2,
-      borderColor: '#a855f7',
+      borderWidth: 1,
+      borderColor:  COLORS.purple,
     },
     headerInfo: {
       flex: 1,
@@ -53,14 +53,14 @@ export const meetingPopupModelStyles = StyleSheet.create({
     },
     title: {
       fontSize: 14,
-      color: '#94a3b8',
+      color: COLORS.grayWhiteText,
     },
     datetime: {
       fontSize: 12,
-      color: '#64748b',
+      color: COLORS.grayWhiteText40persent,
     },
     categoryBadge: {
-      backgroundColor: 'rgba(51, 65, 85, 0.4)',
+      backgroundColor: COLORS.lightGrayOpacity,
       paddingHorizontal: 8,
       paddingVertical: 4,
       borderRadius: 12,
@@ -68,7 +68,7 @@ export const meetingPopupModelStyles = StyleSheet.create({
       marginTop: 4,
     },
     categoryText: {
-      fontSize: 12,
+      fontSize: SIZE.sm,
       color: COLORS.white,
     },
     body: {
@@ -80,13 +80,13 @@ export const meetingPopupModelStyles = StyleSheet.create({
       gap: 12,
     },
     sectionTitle: {
-      fontSize: 14,
+      fontSize: SIZE.m,
       fontWeight: '500',
-      color: '#94a3b8',
+      color: COLORS.grayWhiteText,
     },
     summaryText: {
-      fontSize: 14,
-      color: '#cbd5e1',
+      fontSize: SIZE.m,
+      color: COLORS.white,
       lineHeight: 20,
     },
     rsvpButtons: {
@@ -99,30 +99,30 @@ export const meetingPopupModelStyles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
       gap: 8,
-      backgroundColor: '#334155',
+      backgroundColor: COLORS.lightGrayOpacity,
       padding: 12,
       borderRadius: 8,
     },
     acceptedButton: {
-      backgroundColor: '#16a34a',
+      backgroundColor: COLORS.green,
     },
     declinedButton: {
-      backgroundColor: '#dc2626',
+      backgroundColor: COLORS.red,
     },
     buttonText: {
       color: COLORS.white,
-      fontSize: 14,
+      fontSize: SIZE.m,
       fontWeight: '500',
     },
     rsvpStatus: {
       textAlign: 'center',
-      fontSize: 14,
+      fontSize:  SIZE.m,
     },
     acceptedText: {
-      color: '#4ade80',
+      color:  COLORS.green,
     },
     declinedText: {
-      color: '#f87171',
+      color:  COLORS.red,
     },
     joinButton: {
       width: '100%',

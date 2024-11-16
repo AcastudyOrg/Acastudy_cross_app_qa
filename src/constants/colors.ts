@@ -28,12 +28,15 @@ const purple = "#65318F";
 const hotPink = "#ff88d2";
 const orange = "#FD7E14";
 const transparent = "transparent";
+const transparent50percent = "rgba(0, 0, 0, 0.5)";
 const transparentWhite = "#aaa";
 const tableHeader = "#858AA4";
 const appearTransparentWhite = "#484a5d";
 const appearDirtyWhite = '#9CA3AF'
 const studentProfileTableHeader = "#858AA4";
-const imageBackgroundGray = "#23274A"
+const imageBackgroundGray = "#23274A";
+const grayWhiteText = "#94a3b8";
+const grayWhiteText40persent = "#64748b";
 
 const colors = {
   white,
@@ -68,10 +71,13 @@ const colors = {
   appearDirtyWhite,
   orange,
   transparent,
+  transparent50percent,
   transparentWhite,
   tableHeader,
   studentProfileTableHeader,
   imageBackgroundGray,
+  grayWhiteText,
+  grayWhiteText40persent,
 };
 
 export default colors;
