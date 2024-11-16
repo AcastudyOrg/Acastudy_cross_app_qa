@@ -12,6 +12,7 @@ const textGray = "#9CABBA";
 const darkGrayOpacity = "rgba(255, 255, 255, 0.2)";
 const lightGrayOpacity = "rgba(175, 175, 175, 0.1)";
 const midGrayOpacity = "rgba(175, 175, 175, 0.2)";
+const fullRed = "#f00";
 const red = "#DC3545";
 const green = "#28A745";
 const lightGreen = "#00DD00";
@@ -53,6 +54,7 @@ const colors = {
   darkGrayOpacity,
   lightGrayOpacity,
   midGrayOpacity,
+  fullRed,
   red,
   green,
   lightGreen,

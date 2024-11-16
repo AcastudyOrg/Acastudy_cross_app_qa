@@ -1,26 +1,26 @@
-import { Platform, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { COLORS, FONT, SIZE } from '../../../../constants';
 
 export const customTextInputStyles = StyleSheet.create({
     container: {
-        paddingHorizontal: "3%"
+        marginHorizontal: 35,
     },
     label: {
         fontSize: SIZE.m,
         color: COLORS.white,
+        fontFamily: FONT.plusJakartaRegular,
         paddingBottom: 5,
-        fontFamily: FONT.plusJakartaRegular
     },
     input: {
         flex: 1,
         padding: 10,
-        color: COLORS.white,
-        fontFamily: FONT.plusJakartaRegular,
         minHeight: 150,
         borderRadius: 8,
-        borderColor: COLORS.transparent,
         borderWidth: 0,
+        color: COLORS.white,
         textAlignVertical: 'top',
+        fontFamily: FONT.plusJakartaRegular,
+        borderColor: COLORS.transparent,
         backgroundColor: COLORS.white10Percent,
     }
 });

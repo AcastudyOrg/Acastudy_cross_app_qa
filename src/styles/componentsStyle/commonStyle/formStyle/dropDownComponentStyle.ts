@@ -46,4 +46,14 @@ export const dropDownComponentStyles = StyleSheet.create({
     iconStyle: {
         tintColor: COLORS.white
     },
+    searchInput: {
+        color: 'white',
+        margin: 10,
+        minHeight: 40,
+        borderRadius: 5,
+        paddingLeft: 10,
+        fontSize: SIZE.sm,
+        fontFamily: FONT.plusJakartaMedium,
+        backgroundColor: "rgba(255,255,255,.1)",
+    },
 });
