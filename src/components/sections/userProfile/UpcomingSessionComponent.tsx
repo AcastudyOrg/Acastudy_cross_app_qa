@@ -4,7 +4,7 @@ import { View, Text, Image, Pressable } from "react-native";
 import { profileScreenStyles } from "../../../styles/screensStyle/privateStyle/profileScreenStyle";
 import useScreenWidth from "../../../hooks/useScreenWidth";
 import { homeTileScreenWidth } from "../../../../utils/config";
-import MeetingPopUp from "../../common/JoinMeetingPopUp";
+import MeetingPopUpModel from "../../common/MeetingPopupModel/MeetingPopUpModel";
 
 type UpcomingSessionProps = {
   item: {
@@ -29,7 +29,7 @@ const UpcomingSessionComponent = ({ item, controlModal, modalVisible }: Upcoming
       onPress={() => controlModal()}
       style={profileScreenStyles.upcomingItemContentContainer}
     >
-      <MeetingPopUp visible={modalVisible} controlModal={controlModal} item={item} />
+      <MeetingPopUpModel visible={modalVisible} controlModal={controlModal} item={item} />
       <Image
         source={{ uri: item.thumbnail }}
         style={[
