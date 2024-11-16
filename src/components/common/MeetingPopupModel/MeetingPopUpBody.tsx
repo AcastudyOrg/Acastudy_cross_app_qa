@@ -1,11 +1,9 @@
 import React from 'react';
-import { View, Text, Image, Pressable } from 'react-native';
-
+import { View, Text, Pressable } from 'react-native';
 import { meetingPopupModelStyles } from '../../../styles/componentsStyle/commonStyle/meetingPopupModelStyles/meetingPopupStyles';
 import GradientButtonComponent from '../Form/GradientButtonComponent';
 import CustomIcon from '../CustomIcon';
 import { COLORS } from '../../../constants';
-
 
 interface MeetingPopUpBodyProp {
     item: {
@@ -47,7 +45,7 @@ const MeetingPopUpBody: React.FC< MeetingPopUpBodyProp> = ({ item, rsvpStatus, s
               style={[meetingPopupModelStyles.rsvpButton, rsvpStatus === 'declined' && meetingPopupModelStyles.declinedButton]}
               onPress={() => setRsvpStatus('declined')}
             >
-              <CustomIcon set="Ionicons" name="remove" size={16} color={COLORS.white} />
+              <CustomIcon set="Ionicons" name="close" size={16} color={COLORS.white} />
               <Text style={meetingPopupModelStyles.buttonText}>Decline</Text>
             </Pressable>
           </View>
