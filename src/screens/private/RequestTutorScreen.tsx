@@ -11,6 +11,7 @@ import { isNotDesktop } from '../../../utils/config';
 import useScreenWidth from '../../hooks/useScreenWidth';
 import CustomCalendar from '../../components/common/CustomCalendar';
 import { tutorData } from '../../../mockData/TutorData';
+import TutorRequestForm from '../../components/common/TutorRequestForm/TutorRequestForm';
 
 const RequestTutorScreen = () => {
 	const [description, setDescription] = useState("");
@@ -18,8 +19,8 @@ const RequestTutorScreen = () => {
 	const notDesktop = isNotDesktop(screenWidth);
 	return (
 		<PrivateScreenLayout showBackButton={true} showSearchBar={false}>
-			<View style={[requestTutorStyles.container, { marginBottom: notDesktop ? "20%" : 20 }]}>
-				<RequestTutorRowSection />
+			<View >
+				{/* <RequestTutorRowSection />
 				<View style={requestTutorStyles.textAreaContainer}>
 					<CustomTextAreaInput
 						label={STRING.description}
@@ -36,7 +37,8 @@ const RequestTutorScreen = () => {
             	</View>
 				<View style={requestTutorStyles.requestTutorButton}>
 					<GradientButtonComponent text={STRING.requestTutor} onPress={() => console.log("Pressed")} />
-				</View>
+				</View> */}
+				<TutorRequestForm />
 			</View>
 		</PrivateScreenLayout>
 	);
