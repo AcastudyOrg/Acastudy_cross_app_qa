@@ -6,48 +6,81 @@ import { TimeSelector } from './TimeSelector';
 import * as DocumentPicker from 'expo-document-picker';
 import { Tutor } from '../../../types';
 import { colors, typography, spacing } from '../../../styles/componentsStyle/commonStyle/requestATutorStyle/theme';
+import { COLORS, SIZE } from '../../../constants';
+import GradientButtonComponent from '../Form/GradientButtonComponent';
+import { STRING } from '../../../constants/strings';
+import fontFamily from '../../../constants/fontFamily';
+import CustomTextAreaInput from '../Form/CustomTextAreaInput';
 
 interface FormData {
-  studyLevel: string;
-  course: string;
-  description: string;
-  uploadedFile: DocumentPicker.DocumentPickerResult | null;
-}
+    studyLevel: string;
+    course: string;
+    book: string;
+    tutor: string;
+    chapter: string;
+    preferredDate: string;
+    preferredTime: string;
+    description: string;
+    uploadedFile: DocumentPicker.DocumentPickerResult | null;
+  }
 
 const TutorRequestForm = () => {
-    
-  const [formData, setFormData] = useState<FormData>({
-    studyLevel: '',
-    course: '',
-    description: '',
-    uploadedFile: null,
-  });
 
-  const [selectedTutor, setSelectedTutor] = useState<Tutor | null>(null);
+    const options = {
+        studyLevels: ['Undergraduate', 'Postgraduate', 'PhD'],
+        courses: ['Mathematics', 'Physics', 'Chemistry'],
+        books: ['Calculus I', 'Physics Fundamentals'],
+        tutors: ['John Doe', 'Jane Smith', 'Alan Turing'],
+        chapters: ['Chapter 1', 'Chapter 2', 'Chapter 3'],
+      };
+    
+      const tutors: Tutor[] = [
+        { id: '1', name: 'John Doe', availability: { dates: ['2024-11-20', '2024-11-21', '2024-11-22', '2024-11-23'], timeSlots: { '2024-11-20': ['10:00', '14:00'], '2024-11-21': ['10:00', '14:00'], '2024-11-23': ['10:00', '10:00', '10:00', '14:00', '10:00'], '2024-11-24': ['10:00', '14:00'] } } },
+        { id: '2', name: 'Jane Smith', availability: { dates: ['2024-11-21'], timeSlots: { '2024-11-21': ['12:00', '15:00'] } } },
+      ];
+
+      
+      const [formData, setFormData] = useState<FormData>({
+        studyLevel: '',
+        course: '',
+        book: '',
+        tutor: '',
+        chapter: '',
+        preferredDate: '',
+        preferredTime: '',
+        description: '',
+        uploadedFile: null,
+      });
+    
   const [selectedDate, setSelectedDate] = useState<string>('');
   const [selectedTime, setSelectedTime] = useState<string>('');
   const [errors, setErrors] = useState<{ [key in keyof FormData | 'selectedDate' | 'selectedTime']?: string }>({});
 
-  const tutors: Tutor[] = [
-    { id: '1', name: 'John Doe', availability: { dates: ['2024-11-20'], timeSlots: { '2024-11-20': ['10:00', '14:00'] } } },
-    { id: '2', name: 'Jane Smith', availability: { dates: ['2024-11-21'], timeSlots: { '2024-11-21': ['12:00', '15:00'] } } },
-  ];
-
   const handleInputChange = (field: keyof FormData, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
-    if (errors[field]) setErrors((prev) => ({ ...prev, [field]: '' }));
-  };
-
-  const handleTutorSelect = (tutorName: string) => {
-    const tutor = tutors.find((t) => t.name === tutorName) || null;
-    setSelectedTutor(tutor); 
+    setFormData((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
+    if (errors[field]) {
+      setErrors((prev) => ({
+        ...prev,
+        [field]: '',
+      }));
+    }
   };
 
   const handleFileUpload = async () => {
     try {
-      const result = await DocumentPicker.getDocumentAsync({ type: '*/*' });
-      if (result.output?.length === 0) {
-        setFormData((prev) => ({ ...prev, uploadedFile: result }));
+      const result = await DocumentPicker.getDocumentAsync({
+        type: '*/*',
+        copyToCacheDirectory: true,
+      });
+
+      if (result.output?.length !== 0) {
+        setFormData((prev) => ({
+          ...prev,
+          uploadedFile: result,
+        }));
       }
     } catch (error) {
       console.error('File upload failed:', error);
@@ -55,12 +88,20 @@ const TutorRequestForm = () => {
   };
 
   const validateForm = () => {
-    const newErrors: { [key in keyof FormData | 'selectedDate' | 'selectedTime']?: string } = {};
+    const newErrors: { [key in keyof FormData]?: string } = {};
+    const requiredFields: (keyof FormData)[] = [
+      'studyLevel',
+      'course',
+      'preferredDate',
+      'preferredTime',
+      'description',
+    ];
 
-    if (!formData.studyLevel) newErrors.studyLevel = 'This field is required';
-    if (!formData.course) newErrors.course = 'This field is required';
-    if (!selectedDate) newErrors.selectedDate = 'Please select a date';
-    if (!selectedTime) newErrors.selectedTime = 'Please select a time';
+    requiredFields.forEach((field) => {
+      if (!formData[field]) {
+        newErrors[field] = 'This field is required';
+      }
+    });
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -68,46 +109,64 @@ const TutorRequestForm = () => {
 
   const handleSubmit = () => {
     if (validateForm()) {
-      console.log('Form submitted:', { ...formData, selectedDate, selectedTime, selectedTutor });
+      console.log('Form submitted:', { ...formData, selectedDate, selectedTime });
     }
   };
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.title}>Request a Tutor</Text>
+      <Text style={styles.subtitle}>
+        Complete all required fields (*) to find your perfect tutor match
+      </Text>
 
       <GenericDropdown
-        label="Study Level *"
+        label="Study Level"
         placeholder="Select study level"
-        options={['Undergraduate', 'Postgraduate', 'PhD']}
+        options={options.studyLevels}
         value={formData.studyLevel}
         onSelect={(value) => handleInputChange('studyLevel', value)}
         required
         error={errors.studyLevel}
       />
 
-      <GenericDropdown
-        label="Course *"
+    <GenericDropdown
+        label="Course"
         placeholder="Select course"
-        options={['Mathematics', 'Physics']}
+        options={options.courses}
         value={formData.course}
         onSelect={(value) => handleInputChange('course', value)}
         required
         error={errors.course}
       />
 
+    <GenericDropdown
+        label="Chapter"
+        placeholder="Select chapter"
+        options={options.chapters}
+        value={formData.chapter}
+        onSelect={(value) => handleInputChange('chapter', value)}
+      />
+
+    <GenericDropdown
+        label="Book"
+        placeholder="Select book"
+        options={options.books}
+        value={formData.book}
+        onSelect={(value) => handleInputChange('book', value)}
+      />
+
       <GenericDropdown
         label="Preferred Tutor"
         placeholder="Select tutor"
-        options={tutors.map((t) => t.name)}
-        value={selectedTutor?.name || ''}
-        onSelect={handleTutorSelect}
+        options={options.tutors}
+        value={formData.tutor}
+        onSelect={(value) => handleInputChange('tutor', value)}
       />
 
       <CustomCalendar
         selectedDate={selectedDate}
         onDateSelect={(date) => setSelectedDate(date)}
-        selectedTutor={selectedTutor || undefined}
+        selectedTutor={tutors[0] || undefined}
         minDate={new Date().toISOString().split('T')[0]}
       />
       {errors.selectedDate && <Text style={styles.errorText}>{errors.selectedDate}</Text>}
@@ -116,73 +175,70 @@ const TutorRequestForm = () => {
         selectedDate={selectedDate}
         selectedTime={selectedTime}
         onTimeSelect={(time) => setSelectedTime(time)}
-        selectedTutor={selectedTutor || undefined}
+        selectedTutor={tutors[0] || undefined}
       />
       {errors.selectedTime && <Text style={styles.errorText}>{errors.selectedTime}</Text>}
 
-      {/* <TextInput
-        style={[styles.textArea, errors.description && styles.errorInput]}
-        placeholder="Description"
-        value={formData.description}
-        onChangeText={(value) => handleInputChange('description', value)}
-        multiline
-      /> */}
+        <CustomTextAreaInput
+            label={STRING.description}
+            placeholder={STRING.descriptionHendler}
+            value={formData.description}
+            onChange={(value) => handleInputChange('description', value)}
+        />
 
       <TouchableOpacity style={styles.fileUpload} onPress={handleFileUpload}>
         <Text style={styles.fileUploadText}>
-          {formData.uploadedFile ? `Uploaded: ${formData.uploadedFile.output?.length}` : 'Upload a file (optional)'}
+          {formData.uploadedFile ? `Uploaded: ${formData.uploadedFile.output?.item(0)?.name}` : 'Upload a file (optional)'}
         </Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
-        <Text style={styles.submitButtonText}>Submit</Text>
-      </TouchableOpacity>
+      <View style={styles.submitButton}>
+		<GradientButtonComponent text={STRING.requestTutor} onPress={() => handleSubmit()} />
+	</View>
     </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    padding: spacing.md,
-    backgroundColor: colors.background,
+    backgroundColor: COLORS.transparent,
   },
-  title: {
-    ...typography.label,
+  subtitle: {
+    fontSize: SIZE.xl,
     textAlign: 'center',
-    marginBottom: spacing.md,
+    paddingVertical: 16,
+    color: COLORS.white,
+    fontFamily: fontFamily.plusJakartaExtraBold,
+    marginTop: 10,
   },
   textArea: {
     height: 100,
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: COLORS.transparent,
     borderRadius: 8,
-    padding: spacing.md,
-    marginBottom: spacing.md,
+    padding: 16,
+    marginBottom: 16,
   },
   fileUpload: {
-    padding: spacing.md,
-    backgroundColor: colors.surface,
+    padding: 16,
+    backgroundColor: COLORS.white10Percent,
     borderRadius: 8,
     alignItems: 'center',
-    marginBottom: spacing.md,
+    marginVertical: 16,
   },
   fileUploadText: {
-    color: colors.textSecondary,
+    color: COLORS.white10Percent,
   },
   submitButton: {
-    backgroundColor: colors.primary,
-    padding: spacing.md,
+    backgroundColor: COLORS.transparent,
+    padding: 16,
     borderRadius: 8,
     alignItems: 'center',
-  },
-  submitButtonText: {
-    color: colors.text,
-    fontWeight: '600',
   },
   errorText: {
     color: 'red',
     fontSize: 12,
-    marginBottom: spacing.sm,
+    marginBottom: 8,
   },
   errorInput: {
     borderColor: 'red',
