@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView, TextInput } from 'react-native';
 import GenericDropdown from './GenericDropdown';
-import { CustomCalendar } from './CustomCalendar';
+import { AvailablilityCalender } from './CustomCalendar';
 import { TimeSelector } from './TimeSelector';
 import * as DocumentPicker from 'expo-document-picker';
 import { Tutor } from '../../../types';
-import { colors, typography, spacing } from '../../../styles/componentsStyle/commonStyle/requestATutorStyle/theme';
 import { COLORS, SIZE } from '../../../constants';
 import GradientButtonComponent from '../Form/GradientButtonComponent';
 import { STRING } from '../../../constants/strings';
 import fontFamily from '../../../constants/fontFamily';
 import CustomTextAreaInput from '../Form/CustomTextAreaInput';
+import { isPlatformIOSorAndroid } from '../../../../utils/config';
 
 interface FormData {
     studyLevel: string;
@@ -163,7 +163,7 @@ const TutorRequestForm = () => {
         onSelect={(value) => handleInputChange('tutor', value)}
       />
 
-      <CustomCalendar
+      <AvailablilityCalender
         selectedDate={selectedDate}
         onDateSelect={(date) => setSelectedDate(date)}
         selectedTutor={tutors[0] || undefined}
@@ -202,6 +202,7 @@ const TutorRequestForm = () => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: COLORS.transparent,
+    marginHorizontal: isPlatformIOSorAndroid() ? 15 : 30
   },
   subtitle: {
     fontSize: SIZE.xl,

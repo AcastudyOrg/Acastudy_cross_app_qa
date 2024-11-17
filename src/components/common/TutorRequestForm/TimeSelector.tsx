@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import { Tutor } from '../../../types';
-import { colors, spacing, typography } from '../../../styles/componentsStyle/commonStyle/requestATutorStyle/theme';
+import { COLORS } from '../../../constants';
 
 
 interface TimeSelectorProps {
@@ -71,40 +71,43 @@ export const TimeSelector: React.FC<TimeSelectorProps> = ({
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: spacing.md,
+    marginVertical: 16,
   },
   title: {
-    ...typography.label,
-    color: colors.text,
-    marginBottom: spacing.sm,
+    fontSize: 14,
+    fontWeight: '500',
+    color: COLORS.white,
+    marginBottom: 8,
   },
   timeContainer: {
-    paddingVertical: spacing.sm,
+    paddingVertical: 8,
   },
   timeSlot: {
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-    backgroundColor: colors.surface,
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    backgroundColor: COLORS.lightGrayOpacity,
     borderRadius: 8,
-    marginRight: spacing.sm,
+    marginRight: 8,
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: COLORS.white,
   },
   selectedTimeSlot: {
-    backgroundColor: colors.primary,
-    borderColor: colors.primary,
+    backgroundColor: COLORS.purple,
+    borderColor: COLORS.purple,
   },
   timeText: {
-    ...typography.body,
-    color: colors.text,
+    fontSize: 16,
+    fontWeight: '400',
+    color: COLORS.white,
   },
   selectedTimeText: {
-    color: colors.text,
+    color: COLORS.white,
     fontWeight: '600',
   },
   noTimesText: {
-    ...typography.body,
-    color: colors.textSecondary,
+    fontSize: 16,
+    fontWeight: '400',
+    color: COLORS.darkGrayOpacity,
     fontStyle: 'italic',
   },
 });

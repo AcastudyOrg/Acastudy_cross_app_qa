@@ -1,12 +1,12 @@
 import React from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
 import { Calendar, DateData } from 'react-native-calendars';
-
 import { Tutor } from '../../../types';
 import { colors } from '../../../styles/componentsStyle/commonStyle/requestATutorStyle/theme';
+import { COLORS } from '../../../constants';
 
 
-interface CustomCalendarProps {
+interface AvailablilityCalenderProps {
   selectedDate?: string;
   onDateSelect: (date: string) => void;
   selectedTutor?: Tutor;
@@ -14,7 +14,7 @@ interface CustomCalendarProps {
   maxDate?: string;
 }
 
-export const CustomCalendar: React.FC<CustomCalendarProps> = ({
+export const AvailablilityCalender: React.FC<AvailablilityCalenderProps> = ({
   selectedDate,
   onDateSelect,
   selectedTutor,
@@ -48,7 +48,7 @@ export const CustomCalendar: React.FC<CustomCalendarProps> = ({
     ...getDisabledDates(),
     [selectedDate || '']: {
       selected: true,
-      selectedColor: colors.primary,
+      selectedColor: COLORS.purple,
     },
   };
 
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     ...Platform.select({
       ios: {
-        shadowColor: '#000',
+        shadowColor: COLORS.black,
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
