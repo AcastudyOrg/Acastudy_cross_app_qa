@@ -1,16 +1,9 @@
 import React, { useState } from 'react';
-import { View, Text} from 'react-native';
+import { View} from 'react-native';
 
-import CustomTextAreaInput from '../../components/common/Form/CustomTextAreaInput';
-import GradientButtonComponent from '../../components/common/Form/GradientButtonComponent';
 import PrivateScreenLayout from '../../components/layout/PrivateScreenLayout';
-import { requestTutorStyles } from '../../styles/screensStyle/privateStyle/requestTutorStyle';
-import RequestTutorRowSection from './RequestTutorRowSection';
-import { STRING } from '../../constants/strings';
 import { isNotDesktop } from '../../../utils/config';
 import useScreenWidth from '../../hooks/useScreenWidth';
-import CustomCalendar from '../../components/common/CustomCalendar';
-import { tutorData } from '../../../mockData/TutorData';
 import TutorRequestForm from '../../components/common/TutorRequestForm/TutorRequestForm';
 
 const RequestTutorScreen = () => {

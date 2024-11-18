@@ -1,14 +1,15 @@
 import React from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
 import { Calendar, DateData } from 'react-native-calendars';
-import { Tutor } from '../../../types';
-import { COLORS } from '../../../constants';
-import fontFamily from '../../../constants/fontFamily';
+import { COLORS } from '../../constants';
+import fontFamily from '../../constants/fontFamily';
+import { TutorData } from '../../types/User/Tutor';
+import { availablilityCalenderStyles } from '../../styles/componentsStyle/commonStyle/availabilityCalenderStyles';
 
 interface AvailablilityCalenderProps {
   selectedDate?: string;
   onDateSelect: (date: string) => void;
-  selectedTutor?: Tutor;
+  selectedTutor?: TutorData["bookedOutDates"];
   minDate?: string;
   maxDate?: string;
 }
@@ -25,7 +26,7 @@ export const AvailablilityCalender: React.FC<AvailablilityCalenderProps> = ({
     const todayDate = new Date().toISOString().split('T')[0];
 
     if (selectedTutor) {
-      const bookedOutDates = selectedTutor.bookedOutDates.dates;
+      const bookedOutDates = selectedTutor.dates;
 
       bookedOutDates.forEach((date: string) => {
         markedDates[date] = {
@@ -67,7 +68,7 @@ export const AvailablilityCalender: React.FC<AvailablilityCalenderProps> = ({
   };
 
   return (
-    <View style={styles.container}>
+    <View style={availablilityCalenderStyles.container}>
       <Calendar
         current={selectedDate}
         minDate={minDate || new Date().toISOString().split('T')[0]}
@@ -94,21 +95,3 @@ export const AvailablilityCalender: React.FC<AvailablilityCalenderProps> = ({
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    borderRadius: 10,
-    overflow: 'hidden',
-    ...Platform.select({
-      ios: {
-        shadowColor: COLORS.black,
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-      },
-      android: {
-        elevation: 5,
-      },
-    }),
-  },
-});

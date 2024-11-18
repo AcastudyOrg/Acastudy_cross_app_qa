@@ -1,14 +1,14 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, ScrollView } from 'react-native';
-import { Tutor } from '../../../types';
-import { COLORS } from '../../../constants';
+import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { TutorData } from '../../../types/User/Tutor';
+import { timeSelectStyles } from '../../../styles/componentsStyle/commonStyle/RequestTutorStyles/timeSelectorStyles';
 
 
 interface TimeSelectorProps {
   selectedDate: string;
   selectedTime: string;
   onTimeSelect: (time: string) => void;
-  selectedTutor?: Tutor;
+  selectedTutor?: TutorData["bookedOutDates"];
 }
 
 export const TimeSelector: React.FC<TimeSelectorProps> = ({
@@ -26,7 +26,7 @@ export const TimeSelector: React.FC<TimeSelectorProps> = ({
           return fullDaySlots;
         }
       
-        const bookedOutSlots = selectedTutor.bookedOutDates?.bookedOutDatesTimeSlots[selectedDate] || [];
+        const bookedOutSlots = selectedTutor.bookedOutDatesTimeSlots[selectedDate] || [];
         return fullDaySlots.filter(slot => !bookedOutSlots.includes(slot));
       };      
 
@@ -41,26 +41,26 @@ export const TimeSelector: React.FC<TimeSelectorProps> = ({
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Available Time Slots</Text>
+    <View style={timeSelectStyles.container}>
+      <Text style={timeSelectStyles.title}>Available Time Slots</Text>
       <ScrollView 
         horizontal 
         showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.timeContainer}
+        contentContainerStyle={timeSelectStyles.timeContainer}
       >
         {timeSlots.map((time) => (
           <TouchableOpacity
             key={time}
             style={[
-              styles.timeSlot,
-              selectedTime === time && styles.selectedTimeSlot,
+              timeSelectStyles.timeSlot,
+              selectedTime === time && timeSelectStyles.selectedTimeSlot,
             ]}
             onPress={() => onTimeSelect(time)}
           >
             <Text
               style={[
-                styles.timeText,
-                selectedTime === time && styles.selectedTimeText,
+                timeSelectStyles.timeText,
+                selectedTime === time && timeSelectStyles.selectedTimeText,
               ]}
             >
               {formatTime(time)}
@@ -68,7 +68,7 @@ export const TimeSelector: React.FC<TimeSelectorProps> = ({
           </TouchableOpacity>
         ))}
         {timeSlots.length === 0 && (
-          <Text style={styles.noTimesText}>
+          <Text style={timeSelectStyles.noTimesText}>
             No available time slots for selected date
           </Text>
         )}
@@ -76,46 +76,3 @@ export const TimeSelector: React.FC<TimeSelectorProps> = ({
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    marginVertical: 16,
-  },
-  title: {
-    fontSize: 14,
-    fontWeight: '500',
-    color: COLORS.white,
-    marginBottom: 8,
-  },
-  timeContainer: {
-    paddingVertical: 8,
-  },
-  timeSlot: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    backgroundColor: COLORS.lightGrayOpacity,
-    borderRadius: 8,
-    marginRight: 8,
-    borderWidth: 1,
-    borderColor: COLORS.white,
-  },
-  selectedTimeSlot: {
-    backgroundColor: COLORS.purple,
-    borderColor: COLORS.purple,
-  },
-  timeText: {
-    fontSize: 16,
-    fontWeight: '400',
-    color: COLORS.white,
-  },
-  selectedTimeText: {
-    color: COLORS.white,
-    fontWeight: '600',
-  },
-  noTimesText: {
-    fontSize: 16,
-    fontWeight: '400',
-    color: COLORS.darkGrayOpacity,
-    fontStyle: 'italic',
-  },
-});

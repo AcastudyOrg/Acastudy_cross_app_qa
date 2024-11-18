@@ -3,8 +3,6 @@ import { View, Text } from 'react-native';
 
 import { topicsHeaderStyles } from '../../../styles/componentsStyle/sectionsStyle/subjectsStyle/topicsHeaderStyle';
 import { DropDownComponent } from '../../common/Form/DropDownComponent';
-import filterLevelOfStudy from '../../../../assets/data/subjects/filterLeveOfStudy.json';
-import filterTutorData from '../../../../assets/data/subjects/filterTutorData.json';
 import GradientButtonComponent from '../../common/Form/GradientButtonComponent';
 import { STRING } from '../../../constants/strings';
 

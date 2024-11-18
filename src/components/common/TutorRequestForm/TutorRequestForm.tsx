@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView, TextInput } from 'react-native';
-import { AvailablilityCalender } from './CustomCalendar';
+import { AvailablilityCalender } from '../AvailablilityCalender';
 import { TimeSelector } from './TimeSelector';
 import * as DocumentPicker from 'expo-document-picker';
-import { Tutor } from '../../../types';
 import { COLORS, SIZE } from '../../../constants';
 import GradientButtonComponent from '../Form/GradientButtonComponent';
 import { STRING } from '../../../constants/strings';
@@ -12,49 +11,48 @@ import CustomTextAreaInput from '../Form/CustomTextAreaInput';
 import { isPlatformIOSorAndroid } from '../../../../utils/config';
 import { DropDownComponent } from '../Form/DropDownComponent';
 import CustomIcon from '../CustomIcon';
+import { tutorData } from '../../../../mockData/TutorData';
+import { requuestTutorstyles } from '../../../styles/componentsStyle/commonStyle/RequestTutorStyles/requestTutorStyles';
 
 interface FormData {
-    studyLevel: string;
-    course: string;
-    book: string;
-    tutor: string;
-    chapter: string;
-    preferredDate: string;
-    preferredTime: string;
-    description: string;
-    uploadedFile: DocumentPicker.DocumentPickerResult | null;
-  }
+  studyLevel: string;
+  course: string;
+  book: string;
+  tutor: string;
+  chapter: string;
+  preferredDate: string;
+  preferredTime: string;
+  description: string;
+  uploadedFile: DocumentPicker.DocumentPickerResult | null;
+}
 
 const TutorRequestForm = () => {
 
-    const options = {
-        studyLevels: ['Undergraduate', 'Postgraduate', 'PhD'],
-        courses: ['Mathematics', 'Physics', 'Chemistry'],
-        books: ['Calculus I', 'Physics Fundamentals'],
-        tutors: ['John Doe', 'Jane Smith', 'Alan Turing'],
-        chapters: ['Chapter 1', 'Chapter 2', 'Chapter 3'],
-      };
-    
-      const tutors: Tutor[] = [
-        { id: '1', name: 'John Doe', bookedOutDates: { dates: ['2024-11-20', '2024-11-21', '2024-11-22', '2024-11-23'], bookedOutDatesTimeSlots: { '2024-11-20': ['10:00', '14:00'], '2024-11-21': ['10:00', '14:00'], '2024-11-23': ['10:00', '10:00', '10:00', '14:00', '10:00'], '2024-11-24': ['10:00', '14:00'] } } },
-      ];
+  const options = {
+    studyLevels: ['Undergraduate', 'Postgraduate', 'PhD'],
+    courses: ['Mathematics', 'Physics', 'Chemistry'],
+    books: ['Calculus I', 'Physics Fundamentals'],
+    tutors: ['John Doe', 'Jane Smith', 'Alan Turing'],
+    chapters: ['Chapter 1', 'Chapter 2', 'Chapter 3'],
+  };
 
-      
-      const [formData, setFormData] = useState<FormData>({
-        studyLevel: '',
-        course: '',
-        book: '',
-        tutor: '',
-        chapter: '',
-        preferredDate: '',
-        preferredTime: '',
-        description: '',
-        uploadedFile: null,
-      });
-    
+
+
+  const [formData, setFormData] = useState<FormData>({
+    studyLevel: '',
+    course: '',
+    book: '',
+    tutor: '',
+    chapter: '',
+    preferredDate: '',
+    preferredTime: '',
+    description: '',
+    uploadedFile: null,
+  });
+
   const [selectedDate, setSelectedDate] = useState<string>('');
   const [selectedTime, setSelectedTime] = useState<string>('');
-  const [errors, setErrors] = useState<{ [key in keyof FormData | 'selectedDate' | 'selectedTime' ]?: string }>({});
+  const [errors, setErrors] = useState<{ [key in keyof FormData | 'selectedDate' | 'selectedTime']?: string }>({});
 
   const handleInputChange = (field: keyof FormData, value: string) => {
     setFormData((prev) => ({
@@ -114,23 +112,23 @@ const TutorRequestForm = () => {
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.subtitle}>
+    <ScrollView contentContainerStyle={requuestTutorstyles.container}>
+      <Text style={requuestTutorstyles.subtitle}>
         Complete all required fields (*) to find your perfect tutor match
       </Text>
 
 
-      <DropDownComponent 
+      <DropDownComponent
         label='Study Level'
         placeholder="Select study level"
         data={options.studyLevels}
-        value={formData.studyLevel} 
-        onChange={(value) => handleInputChange('studyLevel', value) }
+        value={formData.studyLevel}
+        onChange={(value) => handleInputChange('studyLevel', value)}
         required
         error={errors.studyLevel}
       />
 
-      <DropDownComponent 
+      <DropDownComponent
         label="Course"
         placeholder="Select course"
         data={options.courses}
@@ -142,7 +140,7 @@ const TutorRequestForm = () => {
       />
 
 
-      <DropDownComponent 
+      <DropDownComponent
         label="Chapter"
         placeholder="Select chapter"
         data={options.chapters}
@@ -152,7 +150,7 @@ const TutorRequestForm = () => {
       />
 
 
-      <DropDownComponent 
+      <DropDownComponent
         label="Book"
         placeholder="Select book"
         data={options.books}
@@ -161,7 +159,7 @@ const TutorRequestForm = () => {
         allowCustomValue
       />
 
-      <DropDownComponent 
+      <DropDownComponent
         label="Preferred Tutor"
         placeholder="Select tutor"
         data={options.tutors}
@@ -172,94 +170,38 @@ const TutorRequestForm = () => {
       <AvailablilityCalender
         selectedDate={selectedDate}
         onDateSelect={(date) => setSelectedDate(date)}
-        selectedTutor={tutors[0] || undefined} // pass in the tutor you have selected
+        selectedTutor={tutorData.bookedOutDates || undefined} // pass in the tutor you have selected
         minDate={new Date().toISOString().split('T')[0]}
       />
-      {errors.selectedDate && <Text style={styles.errorText}>{errors.selectedDate}</Text>}
+      {errors.selectedDate && <Text style={requuestTutorstyles.errorText}>{errors.selectedDate}</Text>}
 
       <TimeSelector
         selectedDate={selectedDate}
         selectedTime={selectedTime}
         onTimeSelect={(time) => setSelectedTime(time)}
-        selectedTutor={tutors[0] || undefined} // pass in the tutor you have selected
+        selectedTutor={tutorData.bookedOutDates || undefined} // pass in the tutor you have selected
       />
-      {errors.selectedTime && <Text style={styles.errorText}>{errors.selectedTime}</Text>}
+      {errors.selectedTime && <Text style={requuestTutorstyles.errorText}>{errors.selectedTime}</Text>}
 
-        <CustomTextAreaInput
-            label={STRING.description}
-            placeholder={STRING.descriptionHendler}
-            value={formData.description}
-            onChange={(value) => handleInputChange('description', value)}
-            required
-        />
-        {errors.description && <Text style={styles.errorText}>{errors.description}</Text>}
+      <CustomTextAreaInput
+        label={STRING.description}
+        placeholder={STRING.descriptionHendler}
+        value={formData.description}
+        onChange={(value) => handleInputChange('description', value)}
+        required
+      />
+      {errors.description && <Text style={requuestTutorstyles.errorText}>{errors.description}</Text>}
 
-      <TouchableOpacity style={styles.fileUpload} onPress={handleFileUpload}>
-        <CustomIcon set={'MaterialIcons'} name={'upload-file'} size={24} color={COLORS.grayWhiteText}/>
-        <Text style={styles.fileUploadText}>
+      <TouchableOpacity style={requuestTutorstyles.fileUpload} onPress={handleFileUpload}>
+        <CustomIcon set={'MaterialIcons'} name={'upload-file'} size={24} color={COLORS.grayWhiteText} />
+        <Text style={requuestTutorstyles.fileUploadText}>
           {formData.uploadedFile ? `Uploaded: ${formData.uploadedFile.output?.item(0)?.name}` : 'Upload a file (optional)'}
         </Text>
       </TouchableOpacity>
 
-      <View style={styles.submitButton}>
-		<GradientButtonComponent text={STRING.requestTutor} onPress={() => handleSubmit()} />
-	</View>
+      <GradientButtonComponent text={STRING.requestTutor} onPress={() => handleSubmit()} />
     </ScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: COLORS.transparent,
-    marginHorizontal: isPlatformIOSorAndroid() ? 15 : 30
-  },
-  subtitle: {
-    fontSize: SIZE.xl,
-    textAlign: 'center',
-    paddingVertical: 16,
-    color: COLORS.white,
-    fontFamily: fontFamily.plusJakartaMedium,
-    marginTop: 10,
-  },
-  textArea: {
-    height: 100,
-    borderWidth: 1,
-    borderColor: COLORS.transparent,
-    borderRadius: 8,
-    padding: 16,
-    marginBottom: 16,
-  },
-  fileUpload: {
-    height: 80,
-    padding: 16,
-    backgroundColor: COLORS.white10Percent,
-    borderRadius: 8,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginVertical: 16,
-    borderWidth: 2,
-    borderColor: COLORS.grayWhiteText,
-    borderStyle: 'dashed',
-  },
-  fileUploadText: {
-    color: COLORS.grayWhiteText,
-    textAlign: 'center',
-  },
-  
-  submitButton: {
-    backgroundColor: COLORS.transparent,
-    padding: 16,
-    borderRadius: 8,
-    alignItems: 'center',
-  },
-  errorText: {
-    color: 'red',
-    fontSize: 12,
-    marginBottom: 8,
-  },
-  errorInput: {
-    borderColor: 'red',
-  },
-});
 
 export default TutorRequestForm;

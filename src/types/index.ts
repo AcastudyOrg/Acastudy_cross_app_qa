@@ -100,14 +100,3 @@ export interface QueryResponse {
   message: string;
   success: boolean;
 }
-
-export interface Tutor {
-  id: string;
-  name: string;
-  bookedOutDates: {
-    dates: string[]; // ISO date strings of available dates
-    bookedOutDatesTimeSlots: {
-      [date: string]: string[]; // key is ISO date, value is array of available times
-    };
-  };
-}
