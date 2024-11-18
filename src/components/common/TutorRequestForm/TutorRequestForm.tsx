@@ -11,6 +11,7 @@ import fontFamily from '../../../constants/fontFamily';
 import CustomTextAreaInput from '../Form/CustomTextAreaInput';
 import { isPlatformIOSorAndroid } from '../../../../utils/config';
 import { DropDownComponent } from '../Form/DropDownComponent';
+import CustomIcon from '../CustomIcon';
 
 interface FormData {
     studyLevel: string;
@@ -35,8 +36,7 @@ const TutorRequestForm = () => {
       };
     
       const tutors: Tutor[] = [
-        { id: '1', name: 'John Doe', availability: { dates: ['2024-11-20', '2024-11-21', '2024-11-22', '2024-11-23'], timeSlots: { '2024-11-20': ['10:00', '14:00'], '2024-11-21': ['10:00', '14:00'], '2024-11-23': ['10:00', '10:00', '10:00', '14:00', '10:00'], '2024-11-24': ['10:00', '14:00'] } } },
-        { id: '2', name: 'Jane Smith', availability: { dates: ['2024-11-21'], timeSlots: { '2024-11-21': ['12:00', '15:00'] } } },
+        { id: '1', name: 'John Doe', bookedOutDates: { dates: ['2024-11-20', '2024-11-21', '2024-11-22', '2024-11-23'], bookedOutDatesTimeSlots: { '2024-11-20': ['10:00', '14:00'], '2024-11-21': ['10:00', '14:00'], '2024-11-23': ['10:00', '10:00', '10:00', '14:00', '10:00'], '2024-11-24': ['10:00', '14:00'] } } },
       ];
 
       
@@ -54,7 +54,7 @@ const TutorRequestForm = () => {
     
   const [selectedDate, setSelectedDate] = useState<string>('');
   const [selectedTime, setSelectedTime] = useState<string>('');
-  const [errors, setErrors] = useState<{ [key in keyof FormData | 'selectedDate' | 'selectedTime']?: string }>({});
+  const [errors, setErrors] = useState<{ [key in keyof FormData | 'selectedDate' | 'selectedTime' ]?: string }>({});
 
   const handleInputChange = (field: keyof FormData, value: string) => {
     setFormData((prev) => ({
@@ -167,13 +167,12 @@ const TutorRequestForm = () => {
         data={options.tutors}
         value={formData.tutor}
         onChange={(value) => handleInputChange('tutor', value)}
-        allowCustomValue
       />
 
       <AvailablilityCalender
         selectedDate={selectedDate}
         onDateSelect={(date) => setSelectedDate(date)}
-        selectedTutor={tutors[0] || undefined}
+        selectedTutor={tutors[0] || undefined} // pass in the tutor you have selected
         minDate={new Date().toISOString().split('T')[0]}
       />
       {errors.selectedDate && <Text style={styles.errorText}>{errors.selectedDate}</Text>}
@@ -182,7 +181,7 @@ const TutorRequestForm = () => {
         selectedDate={selectedDate}
         selectedTime={selectedTime}
         onTimeSelect={(time) => setSelectedTime(time)}
-        selectedTutor={tutors[0] || undefined}
+        selectedTutor={tutors[0] || undefined} // pass in the tutor you have selected
       />
       {errors.selectedTime && <Text style={styles.errorText}>{errors.selectedTime}</Text>}
 
@@ -191,9 +190,12 @@ const TutorRequestForm = () => {
             placeholder={STRING.descriptionHendler}
             value={formData.description}
             onChange={(value) => handleInputChange('description', value)}
+            required
         />
+        {errors.description && <Text style={styles.errorText}>{errors.description}</Text>}
 
       <TouchableOpacity style={styles.fileUpload} onPress={handleFileUpload}>
+        <CustomIcon set={'MaterialIcons'} name={'upload-file'} size={24} color={COLORS.grayWhiteText}/>
         <Text style={styles.fileUploadText}>
           {formData.uploadedFile ? `Uploaded: ${formData.uploadedFile.output?.item(0)?.name}` : 'Upload a file (optional)'}
         </Text>
@@ -216,7 +218,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     paddingVertical: 16,
     color: COLORS.white,
-    fontFamily: fontFamily.plusJakartaExtraBold,
+    fontFamily: fontFamily.plusJakartaMedium,
     marginTop: 10,
   },
   textArea: {
@@ -228,15 +230,22 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   fileUpload: {
+    height: 80,
     padding: 16,
     backgroundColor: COLORS.white10Percent,
     borderRadius: 8,
     alignItems: 'center',
+    justifyContent: 'center',
     marginVertical: 16,
+    borderWidth: 2,
+    borderColor: COLORS.grayWhiteText,
+    borderStyle: 'dashed',
   },
   fileUploadText: {
-    color: COLORS.white10Percent,
+    color: COLORS.grayWhiteText,
+    textAlign: 'center',
   },
+  
   submitButton: {
     backgroundColor: COLORS.transparent,
     padding: 16,

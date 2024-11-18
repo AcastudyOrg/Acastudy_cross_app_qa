@@ -17,10 +17,18 @@ export const TimeSelector: React.FC<TimeSelectorProps> = ({
   onTimeSelect,
   selectedTutor,
 }) => {
-  const getAvailableTimeSlots = () => {
-    if (!selectedTutor || !selectedDate) return [];
-    return selectedTutor.availability.timeSlots[selectedDate] || [];
-  };
+    const getAvailableTimeSlots = () => {
+        const fullDaySlots = Array.from({ length: 24 }, (_, i) => 
+          `${i.toString().padStart(2, '0')}:00`
+        );
+      
+        if (!selectedTutor || !selectedDate) {
+          return fullDaySlots;
+        }
+      
+        const bookedOutSlots = selectedTutor.bookedOutDates?.bookedOutDatesTimeSlots[selectedDate] || [];
+        return fullDaySlots.filter(slot => !bookedOutSlots.includes(slot));
+      };      
 
   const timeSlots = getAvailableTimeSlots();
 

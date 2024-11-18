@@ -104,9 +104,9 @@ export interface QueryResponse {
 export interface Tutor {
   id: string;
   name: string;
-  availability: {
+  bookedOutDates: {
     dates: string[]; // ISO date strings of available dates
-    timeSlots: {
+    bookedOutDatesTimeSlots: {
       [date: string]: string[]; // key is ISO date, value is array of available times
     };
   };

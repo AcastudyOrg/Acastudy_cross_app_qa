@@ -2,9 +2,8 @@ import React from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
 import { Calendar, DateData } from 'react-native-calendars';
 import { Tutor } from '../../../types';
-import { colors } from '../../../styles/componentsStyle/commonStyle/requestATutorStyle/theme';
 import { COLORS } from '../../../constants';
-
+import fontFamily from '../../../constants/fontFamily';
 
 interface AvailablilityCalenderProps {
   selectedDate?: string;
@@ -21,35 +20,50 @@ export const AvailablilityCalender: React.FC<AvailablilityCalenderProps> = ({
   minDate,
   maxDate,
 }) => {
-  const getDisabledDates = () => {
-    if (!selectedTutor) return {};
+  const getMarkedDates = () => {
+    const markedDates: { [date: string]: any } = {};
+    const todayDate = new Date().toISOString().split('T')[0];
 
-    const disabledDates: { [date: string]: any } = {};
-    const today = new Date();
-    const maxDateObj = maxDate ? new Date(maxDate) : new Date(today.setMonth(today.getMonth() + 3));
+    if (selectedTutor) {
+      const bookedOutDates = selectedTutor.bookedOutDates.dates;
 
-    let currentDate = new Date(minDate || today);
-
-    while (currentDate <= maxDateObj) {
-      const dateString = currentDate.toISOString().split('T')[0];
-      if (!selectedTutor.availability.dates.includes(dateString)) {
-        disabledDates[dateString] = {
+      bookedOutDates.forEach((date: string) => {
+        markedDates[date] = {
           disabled: true,
           disableTouchEvent: true,
+          customStyles: {
+            container: {
+              backgroundColor: COLORS.darkGrayOpacity,
+            },
+            text: {
+              color: COLORS.white50Percent,
+            },
+          },
         };
-      }
-      currentDate.setDate(currentDate.getDate() + 1);
+      });
     }
 
-    return disabledDates;
-  };
+    // Mark the selected date
+    if (selectedDate) {
+      markedDates[selectedDate] = {
+        selected: true,
+        selectedColor: COLORS.purple,
+        textColor: COLORS.white,
+      };
+    }
 
-  const markedDates = {
-    ...getDisabledDates(),
-    [selectedDate || '']: {
-      selected: true,
-      selectedColor: COLORS.purple,
-    },
+    markedDates[todayDate] = {
+      customStyles: {
+        container: {
+          backgroundColor: COLORS.green,
+        },
+        text: {
+          color: COLORS.white,
+        },
+      },
+    };
+
+    return markedDates;
   };
 
   return (
@@ -59,21 +73,19 @@ export const AvailablilityCalender: React.FC<AvailablilityCalenderProps> = ({
         minDate={minDate || new Date().toISOString().split('T')[0]}
         maxDate={maxDate}
         onDayPress={(day: DateData) => onDateSelect(day.dateString)}
-        markedDates={markedDates}
+        markedDates={getMarkedDates()}
         theme={{
-          backgroundColor: colors.background,
-          calendarBackground: colors.surface,
-          textSectionTitleColor: colors.textSecondary,
-          selectedDayBackgroundColor: colors.primary,
-          selectedDayTextColor: colors.text,
-          todayTextColor: colors.primary,
-          dayTextColor: colors.text,
-          textDisabledColor: colors.disabled,
-          dotColor: colors.primary,
-          monthTextColor: colors.text,
-          textDayFontFamily: 'System',
-          textMonthFontFamily: 'System',
-          textDayHeaderFontFamily: 'System',
+          calendarBackground: COLORS.white10Percent,
+          textSectionTitleColor: COLORS.white,
+          selectedDayBackgroundColor: COLORS.green,
+          selectedDayTextColor: COLORS.white,
+          todayTextColor: COLORS.green,
+          dayTextColor: COLORS.white,
+          textDisabledColor: COLORS.darkGrayOpacity,
+          dotColor: COLORS.purple,
+          monthTextColor: COLORS.white,
+          textMonthFontFamily: fontFamily.plusJakartaExtraBold,
+          textDayHeaderFontFamily: fontFamily.plusJakartaExtraBold,
           textDayFontSize: 16,
           textMonthFontSize: 18,
           textDayHeaderFontSize: 14,

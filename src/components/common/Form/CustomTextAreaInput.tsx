@@ -8,12 +8,13 @@ interface CustomTextInputProps {
   value: string;
   label?: string;
   onChange: (text: string) => void;
+  required?: boolean;
 }
 
-const CustomTextAreaInput: React.FC<CustomTextInputProps> = ({ placeholder, value, onChange, label }) => {
+const CustomTextAreaInput: React.FC<CustomTextInputProps> = ({ placeholder, value, onChange, label, required=false }) => {
   return (
     <View style={customTextInputStyles.container}>
-      {label && <Text style={customTextInputStyles.label}>{label}</Text>}
+      {label && <Text style={customTextInputStyles.label}>{label} {required && ' *'}</Text>}
       <View>
         <TextInput
           value={value}
