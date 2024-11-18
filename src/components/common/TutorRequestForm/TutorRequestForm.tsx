@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView, TextInput } from 'react-native';
-import GenericDropdown from './GenericDropdown';
 import { AvailablilityCalender } from './CustomCalendar';
 import { TimeSelector } from './TimeSelector';
 import * as DocumentPicker from 'expo-document-picker';
@@ -11,6 +10,7 @@ import { STRING } from '../../../constants/strings';
 import fontFamily from '../../../constants/fontFamily';
 import CustomTextAreaInput from '../Form/CustomTextAreaInput';
 import { isPlatformIOSorAndroid } from '../../../../utils/config';
+import { DropDownComponent } from '../Form/DropDownComponent';
 
 interface FormData {
     studyLevel: string;
@@ -119,48 +119,55 @@ const TutorRequestForm = () => {
         Complete all required fields (*) to find your perfect tutor match
       </Text>
 
-      <GenericDropdown
-        label="Study Level"
+
+      <DropDownComponent 
+        label='Study Level'
         placeholder="Select study level"
-        options={options.studyLevels}
-        value={formData.studyLevel}
-        onSelect={(value) => handleInputChange('studyLevel', value)}
+        data={options.studyLevels}
+        value={formData.studyLevel} 
+        onChange={(value) => handleInputChange('studyLevel', value) }
         required
         error={errors.studyLevel}
       />
 
-    <GenericDropdown
+      <DropDownComponent 
         label="Course"
         placeholder="Select course"
-        options={options.courses}
+        data={options.courses}
         value={formData.course}
-        onSelect={(value) => handleInputChange('course', value)}
+        onChange={(value) => handleInputChange('course', value)}
         required
         error={errors.course}
+        allowCustomValue
       />
 
-    <GenericDropdown
+
+      <DropDownComponent 
         label="Chapter"
         placeholder="Select chapter"
-        options={options.chapters}
+        data={options.chapters}
         value={formData.chapter}
-        onSelect={(value) => handleInputChange('chapter', value)}
+        onChange={(value) => handleInputChange('chapter', value)}
+        allowCustomValue
       />
 
-    <GenericDropdown
+
+      <DropDownComponent 
         label="Book"
         placeholder="Select book"
-        options={options.books}
+        data={options.books}
         value={formData.book}
-        onSelect={(value) => handleInputChange('book', value)}
+        onChange={(value) => handleInputChange('book', value)}
+        allowCustomValue
       />
 
-      <GenericDropdown
+      <DropDownComponent 
         label="Preferred Tutor"
         placeholder="Select tutor"
-        options={options.tutors}
+        data={options.tutors}
         value={formData.tutor}
-        onSelect={(value) => handleInputChange('tutor', value)}
+        onChange={(value) => handleInputChange('tutor', value)}
+        allowCustomValue
       />
 
       <AvailablilityCalender

@@ -3,8 +3,7 @@ import { COLORS, FONT, SIZE } from '../../../../constants';
 
 export const dropDownComponentStyles = StyleSheet.create({
     container: {
-        width: '100%',
-        margin: 10
+        marginVertical: 10
     },
     label: {
         fontSize: SIZE.m,
@@ -55,5 +54,10 @@ export const dropDownComponentStyles = StyleSheet.create({
         fontSize: SIZE.sm,
         fontFamily: FONT.plusJakartaMedium,
         backgroundColor: "rgba(255,255,255,.1)",
+    },
+    errorText: {
+        marginTop: 4,
+        fontSize: 12,
+        color: 'red',
     },
 });
