@@ -1,5 +1,5 @@
 import React from 'react';
-import { Platform, StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import { Calendar, DateData } from 'react-native-calendars';
 import { COLORS } from '../../constants';
 import fontFamily from '../../constants/fontFamily';
