@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 
 import PrivateScreenLayout from '../../components/layout/PrivateScreenLayout';
 import { isNotDesktop } from '../../../utils/config';
@@ -18,9 +18,9 @@ const RequestTutorScreen = () => {
 			title={STRING.requestTutor}
 			showSearchBar={false}
 		>
-			<View >
+			<ScrollView showsHorizontalScrollIndicator={false}>
 				<TutorRequestForm />
-			</View>
+			</ScrollView>
 		</PrivateScreenLayout>
 	);
 };
