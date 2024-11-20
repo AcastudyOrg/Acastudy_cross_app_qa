@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import { TutorData } from '../../../types/User/Tutor';
 import { timeSelectStyles } from '../../../styles/componentsStyle/commonStyle/RequestTutorStyles/timeSelectorStyles';
+import { STRING } from '../../../constants/strings';
 
 
 interface TimeSelectorProps {
@@ -68,9 +69,7 @@ export const TimeSelector: React.FC<TimeSelectorProps> = ({
           </TouchableOpacity>
         ))}
         {timeSlots.length === 0 && (
-          <Text style={timeSelectStyles.noTimesText}>
-            No available time slots for selected date
-          </Text>
+          <Text style={timeSelectStyles.noTimesText}>{STRING.noAvailableTimeSlots}</Text>
         )}
       </ScrollView>
     </View>
