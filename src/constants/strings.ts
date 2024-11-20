@@ -84,6 +84,7 @@ export const STRING = {
   description: "Description",
   descriptionHendler: "Describe that of which you are requesting a tutor for",
   noAvailableTimeSlots: "No available time slots for selected date",
+  requiredFieldHeader: "Complete all required fields (✷) to find your perfect tutor match"
 
 };
 

@@ -6,7 +6,8 @@ import fontFamily from "../../../../constants/fontFamily";
 export const requuestTutorstyles = StyleSheet.create({
     container: {
       backgroundColor: COLORS.transparent,
-      marginHorizontal: isPlatformIOSorAndroid() ? 15 : 30
+      marginHorizontal: isPlatformIOSorAndroid() ? 15 : 30,
+      marginVertical: isPlatformIOSorAndroid() ? 2: 5,
     },
     subtitle: {
       fontSize: SIZE.xl,
@@ -48,5 +49,9 @@ export const requuestTutorstyles = StyleSheet.create({
     errorInput: {
       borderColor: 'red',
     },
+    submitButton: {
+      paddingTop: 10,
+      marginBottom:30,
+    }
   });
   
