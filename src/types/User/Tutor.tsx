@@ -17,7 +17,12 @@ export interface TutorData {
       category: string;
     } []
     reviewCounts: Record<string, number>;
-    bookedDays: string[];
+    bookedOutDates: {
+      dates: string[]; // ISO date strings of available dates
+      bookedOutDatesTimeSlots: {
+        [date: string]: string[]; // key is ISO date, value is array of available times
+      };
+    };
   }
 
   export interface Experience {
