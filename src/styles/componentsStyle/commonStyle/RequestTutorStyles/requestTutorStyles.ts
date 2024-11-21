@@ -13,7 +13,7 @@ export const requuestTutorstyles = StyleSheet.create({
       fontSize: SIZE.xl,
       textAlign: 'center',
       paddingVertical: 16,
-      color: COLORS.white,
+      color: COLORS.textGray,
       fontFamily: fontFamily.plusJakartaMedium,
       marginTop: 10,
     },
