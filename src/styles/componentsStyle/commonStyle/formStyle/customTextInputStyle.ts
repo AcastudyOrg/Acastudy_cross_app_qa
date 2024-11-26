@@ -3,13 +3,13 @@ import { COLORS, FONT, SIZE } from '../../../../constants';
 
 export const customTextInputStyles = StyleSheet.create({
     container: {
-        marginHorizontal: 35,
+        marginHorizontal: 0,
     },
     label: {
         fontSize: SIZE.m,
         color: COLORS.white,
         fontFamily: FONT.plusJakartaRegular,
-        paddingBottom: 5,
+        paddingBottom: 15,
     },
     input: {
         flex: 1,

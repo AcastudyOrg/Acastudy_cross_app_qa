@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
-import { Text, TextInput, View } from 'react-native';
+import { Text, TextInput, View, TextInputKeyPressEventData, NativeSyntheticEvent } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
 import { dropDownComponentStyles } from '../../../styles/componentsStyle/commonStyle/formStyle/dropDownComponentStyle';
 import { COLORS } from '../../../constants';
 
 type DropdownProps = {
-    value: any;
+    value: string;
     label?: string;
     placeholder: string;
-    data: any;
+    data: string[]; // Accepts a list of strings
     disabled?: boolean;
-    onChange: (value: any) => any;
-}
+    onChange: (value: string) => void;
+    allowCustomValue?: boolean;
+    required?: boolean;
+    error?: string;
+};
 
 export const DropDownComponent: React.FC<DropdownProps> = ({
     value = "",
@@ -19,26 +22,57 @@ export const DropDownComponent: React.FC<DropdownProps> = ({
     placeholder,
     onChange,
     data,
-    disabled
+    disabled,
+    allowCustomValue = false,
+    required = false,
+    error = "",
 }) => {
+    // Transform string data into dropdown-compatible format
+    const [dropdownData, setDropdownData] = useState(
+        data.map((item) => ({ label: item, value: item }))
+    );
     const [searchQuery, setSearchQuery] = useState('');
-    const [filteredData, setFilteredData] = useState(data);
+    const [filteredData, setFilteredData] = useState(dropdownData);
 
     const handleSearch = (value: string) => {
         setSearchQuery(value);
-        const filtered = data.filter((item: { label: string }) =>
+        const filtered = dropdownData.filter((item) =>
             item.label.toLowerCase().includes(value.toLowerCase())
         );
         setFilteredData(filtered);
     };
 
+    const handleKeyPress = (event: NativeSyntheticEvent<TextInputKeyPressEventData>) => {
+        if (event.nativeEvent.key === 'Enter' && allowCustomValue && searchQuery.trim()) {
+            const newOption = { label: searchQuery, value: searchQuery };
+
+            // Add new option at the top of the list
+            const updatedData = [newOption, ...dropdownData];
+            setDropdownData(updatedData);
+            setFilteredData(updatedData);
+
+            // Trigger onChange with the new value
+            onChange(newOption.value);
+
+            // Reset search query
+            setSearchQuery('');
+        }
+    };
+
     return (
         <View style={dropDownComponentStyles.container}>
-            {label && <Text style={dropDownComponentStyles.label}>{label}</Text>}
+            {label && (
+                <Text style={dropDownComponentStyles.label}>
+                    {label} {required && '*'}
+                </Text>
+            )}
             <View style={dropDownComponentStyles.inputContainer}>
                 <Dropdown
                     value={value}
-                    onChange={onChange}
+                    onChange={(selectedValue) => {
+                        onChange(selectedValue.value);
+                        setSearchQuery(''); // Clear the search query after selection
+                    }}
                     labelField="label"
                     valueField="value"
                     data={filteredData}
@@ -60,10 +94,12 @@ export const DropDownComponent: React.FC<DropdownProps> = ({
                             placeholderTextColor={COLORS.white50Percent}
                             onChangeText={handleSearch}
                             value={searchQuery}
+                            onKeyPress={handleKeyPress} // Handle key press event
                         />
                     )}
                 />
             </View>
+            {error && <Text style={dropDownComponentStyles.errorText}>{error}</Text>}
         </View>
     );
-}
+};

@@ -44,7 +44,6 @@ const useDeepLinking= () => {
   useEffect(() => {
     const handleDeepLink = (event: any) => {
       const data = Linking.parse(event.url);
-      console.log("deeplink data: ", data);
     };
 
     const subscription = Linking.addEventListener("url", handleDeepLink);
