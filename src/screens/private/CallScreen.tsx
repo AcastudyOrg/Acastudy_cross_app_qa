@@ -1,15 +1,27 @@
 import React from "react";
-import { View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 
-import {ComingSoonComponent, PrivateScreenLayout} from "../../components";
+import { PrivateScreenLayout } from "../../components";
 import { callScreenStyles } from "../../styles/screensStyle/privateStyle/callScreenStyle";
+import { STRING } from "../../constants/strings";
+import CallActionButtons from "../../components/sections/call/CallActionButtons";
 
 const CallScreen = () => {
   return (
-    <PrivateScreenLayout>
-      <View style={callScreenStyles.homeMainContainer}>
-            <ComingSoonComponent/>
-      </View>
+    <PrivateScreenLayout
+      showTitle={true}
+      shouldScroll={false}
+      title={STRING.call}
+      showSearchBar={false}>
+      <ScrollView showsVerticalScrollIndicator={false} style={callScreenStyles.homeMainContainer}>
+        <View style={callScreenStyles.headerContainer}>
+          <Text style={callScreenStyles.headerText}>{STRING.callLandingScreenHeader}</Text>
+        </View>
+
+		<CallActionButtons/>
+
+		
+      </ScrollView>
     </PrivateScreenLayout>
   );
 };

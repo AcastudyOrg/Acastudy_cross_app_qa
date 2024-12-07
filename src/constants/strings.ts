@@ -84,7 +84,15 @@ export const STRING = {
   description: "Description",
   descriptionHendler: "Describe that of which you are requesting a tutor for",
   noAvailableTimeSlots: "No available time slots for selected date",
-  requiredFieldHeader: "Complete all required fields (✷) to find your perfect tutor match"
+  requiredFieldHeader: "Complete all required fields (✷) to find your perfect tutor match",
+
+  callLandingScreenHeader: "Join or create a learning session",
+  scheduleMeeting: "Schedule Meeting",
+  planYourMeeting: "Plan Your Meeting",
+  calendar: "Calendar",
+  viewFullCalendar: "View full calendar",
+  instantMeeting: "Instant Meeting",
+  startNewMeeting: "Start a new meeting",
 
 };
 
