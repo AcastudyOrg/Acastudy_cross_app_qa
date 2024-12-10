@@ -9,16 +9,16 @@ import { IMAGES } from "../../constants";
 import MeetingCard from "../../components/sections/call/MeetingCard";
 
 const CallScreen = () => {
-	const mockMeeting = [
-		{
-		  title: 'Monthly office group meeting',
-		  time: '15:00 - 16:00',
-		  attendees: [
-			IMAGES.janeImg, IMAGES.janeImg, IMAGES.janeImg,
-		  ],
-		},
-		// Add more meeting data as needed
-	  ];
+  const mockMeeting = [
+    {
+      title: 'Monthly office group meeting',
+      time: '15:00 - 16:00',
+      attendees: [
+        IMAGES.janeImg, IMAGES.janeImg, IMAGES.janeImg,
+      ],
+    },
+    // Add more meeting data as needed
+  ];
   return (
     <PrivateScreenLayout
       showTitle={true}
@@ -30,11 +30,10 @@ const CallScreen = () => {
           <Text style={callScreenStyles.headerText}>{STRING.callLandingScreenHeader}</Text>
         </View>
 
-		<CallActionButtons/>
+        <CallActionButtons />
 
-		<MeetingCard meeting={mockMeeting[0]}/>
-
-		
+        {/* Todo: add the missing components */}
+        <MeetingCard meeting={mockMeeting[0]} />
       </ScrollView>
     </PrivateScreenLayout>
   );
