@@ -10,6 +10,9 @@ export const detailsFormComponentStyles = StyleSheet.create({
         justifyContent: "space-between",
     },
     detailsInputContainer: {
+        width: "100%",
+    },
+    inputContainer: {
         width: "48%",
     },
     detailsDivider: {

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import * as Linking from 'expo-linking';
 
 const useDeepLinking= () => {
-  const prefix = Linking.createURL("http://localhost:8081/");
+  const prefix = Linking.createURL("/");
   const linking = {
     prefixes: [prefix, "acastudy_ts_app"],
     config: {
@@ -34,6 +34,9 @@ const useDeepLinking= () => {
         TutorProfileScreen: {
           path: "web/tutor-profile",
         },
+        RequestTutorScreen: {
+          path: "web/request-tutor"
+        }
       },
     },
   };
@@ -41,7 +44,6 @@ const useDeepLinking= () => {
   useEffect(() => {
     const handleDeepLink = (event: any) => {
       const data = Linking.parse(event.url);
-      console.log("deeplink data: ", data);
     };
 
     const subscription = Linking.addEventListener("url", handleDeepLink);

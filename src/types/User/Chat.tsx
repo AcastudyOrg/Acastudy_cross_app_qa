@@ -6,9 +6,3 @@ export type Chat = {
     user: User; // person chatting to
     messages: Message[]; // messages between current user and abave user
 }
-
-export type chatData = {
-    id: string;
-    user: User;
-    messages: Message[];
-}

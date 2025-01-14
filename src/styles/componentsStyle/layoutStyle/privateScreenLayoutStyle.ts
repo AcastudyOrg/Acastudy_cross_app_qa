@@ -53,4 +53,36 @@ export const privateScreenLayoutStyles = StyleSheet.create({
     fontFamily: FONT.plusJakartaBold,
     fontSize: SIZE.xxl,
   },
+  requestButtonMobileStyle:{
+    backgroundColor: COLORS.white,
+    padding: 10,
+    borderRadius: 50,
+
+    position: 'relative',
+    bottom: 125,
+    left: 50,
+
+    shadowColor: COLORS.white,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: .5,
+    shadowRadius: 8,
+    elevation: 2,
+},
+
+floatingRequestButton: {
+  position: "absolute",
+  bottom: 70,
+  right: 20,
+  width: 50,
+  height: 50,
+  backgroundColor: COLORS.white,
+  borderRadius: 25,
+  alignItems: "center",
+  justifyContent: "center",
+  shadowColor: COLORS.white,
+  shadowOffset: { width: 0, height: 2 },
+  shadowOpacity: 0.5,
+  shadowRadius: 3,
+  elevation: 5,
+},
 });

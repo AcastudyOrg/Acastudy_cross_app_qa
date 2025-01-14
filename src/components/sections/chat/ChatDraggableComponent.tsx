@@ -45,7 +45,7 @@ const ChatDraggableComponent = () => {
         </PanGestureHandler>
 
         <View style={chatDraggableComponentStyles.rightSection}>
-          <ChatMessageSection chatData={activeChat} />
+          <ChatMessageSection chat={activeChat} />
         </View>
       </View>
     </View>

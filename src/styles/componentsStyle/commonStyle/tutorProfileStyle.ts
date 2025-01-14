@@ -15,8 +15,4 @@ export const tutorProfileStyles = StyleSheet.create({
         color: COLORS.white,
         bottom: 20,
     },
-    availabilityCalendar: {
-        justifyContent: 'flex-start',
-        alignItems: 'flex-start',
-    }
 })

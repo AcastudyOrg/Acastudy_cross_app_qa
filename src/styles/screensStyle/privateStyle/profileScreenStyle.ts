@@ -6,7 +6,7 @@ export const profileScreenStyles = StyleSheet.create({
     flex: 1,
     paddingTop: 50,
     paddingBottom: 100,
-    paddingHorizontal: 30,
+    marginHorizontal: 30,
     gap: 30,
   },
 
@@ -47,12 +47,12 @@ export const profileScreenStyles = StyleSheet.create({
     fontFamily: FONT.plusJakartaRegular,
   },
   topProfileButtonContainer: {
-    width: 150,
     alignItems: "flex-end",
     justifyContent: "flex-end",
   },
 
   titleTextItemContainer: {
+    width: "100%",
     flexDirection: "column",
   },
   titleTextItem: {
@@ -93,7 +93,6 @@ export const profileScreenStyles = StyleSheet.create({
     borderWidth: .5,
     borderColor: COLORS.darkGrayOpacity,
     overflow: "hidden",
-    width: "100%",
   },
   tableHeader: {
     flexDirection: "row",
@@ -136,5 +135,20 @@ export const profileScreenStyles = StyleSheet.create({
     fontSize: SIZE.m,
     fontFamily: FONT.plusJakartaExtraLight,
     textAlign: "left",
+  },
+  floatingButton: {
+    position: "absolute",
+    top: 0,
+    right: 0,
+    width: 50,
+    height: 50,
+    backgroundColor: COLORS.purple,
+    borderRadius: 30,
+    alignItems: "center",
+    justifyContent: "center",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
+    elevation: 5,
   },
 });

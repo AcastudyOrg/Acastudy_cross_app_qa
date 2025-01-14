@@ -1,17 +1,18 @@
-import PrivateScreenLayout from "../../components/layout/PrivateScreenLayout";
-import TutorHeader from "../../components/sections/tutorProfile/TutorHeader";
-import { tutorData } from "../../../mockData/TutorData";
+
 import React from "react";
+import { Text, View } from "react-native";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+
 import TutorBio from "../../components/sections/tutorProfile/TutorBio";
 import TutoSubjectOfInterest from "../../components/sections/tutorProfile/TutorSubjectOfInterest";
 import TutorExperience from "../../components/sections/tutorProfile/TutorsExperience";
 import EventsSection from "../../components/sections/home/EventsSection";
 import TutorReviews from "../../components/sections/tutorProfile/TutorReview";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import CustomCalendar from "../../components/common/CustomCalendar";
-import { Text, View } from "react-native";
+import PrivateScreenLayout from "../../components/layout/PrivateScreenLayout";
+import TutorHeader from "../../components/sections/tutorProfile/TutorHeader";
+import { tutorData } from "../../../mockData/TutorData";
 import { tutorProfileStyles } from "../../styles/componentsStyle/commonStyle/tutorProfileStyle";
-import StudentSubjectOfInterest from "../../components/sections/userProfile/StudentSubjectOfInteret";
+import { AvailablilityCalender } from "../../components/common/AvailablilityCalender";
 
 type propType = NativeStackScreenProps<any>;
 
@@ -33,8 +34,13 @@ const TutorProfileScreen: React.FC<propType> = ({ route }) => {
 
                 <View style={tutorProfileStyles.availabilitySection}>
                     <Text style={tutorProfileStyles.availability}>Availability</Text>
-                    <View style={tutorProfileStyles.availabilityCalendar}>
-                        <CustomCalendar selectedDates={tutorData.bookedDays} />
+                    <View>
+                    <AvailablilityCalender
+                        onDateSelect={() => {}}
+                        selectedTutor={tutorData.bookedOutDates || undefined} // pass in the tutor you have selected
+                        minDate={new Date().toISOString().split('T')[0]}
+      />
+                        {/* <CustomCalendar isClickable={true} selectedDates={tutorData.bookedDays} /> */}
                     </View>
                 </View>
             </View>

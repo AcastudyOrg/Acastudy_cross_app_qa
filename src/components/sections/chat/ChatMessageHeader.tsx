@@ -26,7 +26,6 @@ const ChatMessageHeader: React.FC<MessageHeaderProps> = ({ user }) => {
                         <Text style={chatMessageHeaderStyles.offlineText}>{"Offline"}</Text>
                     </View>}
                 </View>
-
             </View>
         </View>
     );
