@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
+import { useMutation, gql } from "@apollo/client";
 
 import TopBarComponent from "../../components/common/TopBar/TopBarComponent";
 import { User } from "../../types/User/Student";
@@ -11,7 +12,24 @@ import { authScreenStyle } from "../../styles/screensStyle/publicStyle/authScree
 import { useNavigation } from "@react-navigation/native";
 import { NAV_SCREEN_NAME, STRING } from "../../constants/strings";
 
-// Note the code does not handle error messages
+const LOGIN = gql`
+mutation Login($email: String!, $password: String!) { 
+    login(
+        loginUserInput: { 
+            email: $email,
+            password: $password
+        }
+    )
+}
+`;
+
+const context = {
+	fetchOptions: {
+		mode: 'no-cors',
+	},
+};
+
+
 const SignInScreen = () => {
 	const navigation = useNavigation<any>()
 	const [email, setEmail] = useState("");
@@ -22,9 +40,17 @@ const SignInScreen = () => {
 		surname: "",
 		profilePictureUrl: 0
 	};
-	
-	const handleSubmit = () => {
-		navigation.navigate(NAV_SCREEN_NAME.HomeScreen)
+
+	const [login, { loading, error }] = useMutation(LOGIN, { context });
+
+	const handleSubmit = async () => {
+		try {
+			const data = await login({ variables: { email, password } });
+			console.log("Login data: ", data);
+			// navigation.navigate(NAV_SCREEN_NAME.HomeScreen);
+		} catch (error) {
+			console.error("Login error:", error);
+		}
 	};
 
 	return (
@@ -44,18 +70,18 @@ const SignInScreen = () => {
 						<CustomDivider />
 					</View>
 
-					<TouchableOpacity style={authScreenStyle.forgotPassword} onPress={() => { navigation.navigate(NAV_SCREEN_NAME.ForgotPasswordScreen) }}> 
+					<TouchableOpacity style={authScreenStyle.forgotPassword} onPress={() => { navigation.navigate(NAV_SCREEN_NAME.ForgotPasswordScreen) }}>
 						<Text style={authScreenStyle.clickerbleText}>{STRING.forgotPassword}</Text>
 					</TouchableOpacity>
 
 					<AuthTextField label={"Email Address"} value={email} onChangeText={setEmail} />
 					<AuthTextField label={"Password"} value={password} onChangeText={setPassword} isPassword={true} />
-					
+
 					<GradientButtonComponent text="CONTINUE" onPress={handleSubmit} />
 
 					<View style={authScreenStyle.alternative} >
 						<Text>No account? </Text>
-						<TouchableOpacity onPress={() => { navigation.navigate(NAV_SCREEN_NAME.SignUpScreen) }}> 
+						<TouchableOpacity onPress={() => { navigation.navigate(NAV_SCREEN_NAME.SignUpScreen) }}>
 							<Text style={authScreenStyle.clickerbleText}>Create account.</Text>
 						</TouchableOpacity>
 					</View>
