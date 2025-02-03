@@ -33,17 +33,6 @@ const OnboardingTopImageComponent = () => {
           {STRING.bannerSubContent}
         </Text>
       </View>
-
-      <View style={[onboardingScreenStyles.searchContainer, { width: withConditionalSize }]}>
-        <View style={onboardingScreenStyles.searchTextContainer}>
-          <SearchInputComponent value={search} placeholder={STRING.bannerSearchPlaceholder} onChangeText={setSearch} />
-        </View>
-
-        <View style={onboardingScreenStyles.searchButtonContainer}>
-          <GradientButtonComponent text="Search" onPress={() => { console.log("search pressed") }}
-          />
-        </View>
-      </View>
     </ImageBackground>
   );
 };
