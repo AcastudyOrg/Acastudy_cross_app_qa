@@ -11,9 +11,10 @@ type subjectsSectionProps = {
     thumbnail: string;
     title: string;
   }[];
+  showViewMore?: boolean;
 };
 
-const SubjectsSection: React.FC<subjectsSectionProps> = ({ subjectData }) => {
+const SubjectsSection: React.FC<subjectsSectionProps> = ({ subjectData, showViewMore = true }) => {
 
   const navigation = useNavigation<any>();
 
@@ -25,7 +26,7 @@ const SubjectsSection: React.FC<subjectsSectionProps> = ({ subjectData }) => {
     <View style={subjectsSectionStyles.subjectMainContainer}>
       <View style={subjectsSectionStyles.subjectTextContainer}>
         <Text style={subjectsSectionStyles.subjectTitleText}>{STRING.subjectTitle}</Text>
-        <Text onPress={handleViewMore} style={subjectsSectionStyles.subjectActionText}>{STRING.viewMore}</Text>
+        { showViewMore && <Text onPress={handleViewMore} style={subjectsSectionStyles.subjectActionText}>{STRING.viewMore}</Text> }
       </View>
 
       <ScrollView
