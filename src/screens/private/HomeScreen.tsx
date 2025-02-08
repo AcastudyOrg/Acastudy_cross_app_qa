@@ -7,13 +7,14 @@ import { PrivateScreenLayout } from "../../components";
 import EventsSection from "../../components/sections/home/EventsSection";
 import SubjectsSection from "../../components/sections/home/SubjectsSection";
 import TutorSection from "../../components/sections/home/TutorSection";
+import featureFlagConfig from "../../../utils/featureFlagConfig";
 
 
 const HomeScreen = () => {
   return (
     <PrivateScreenLayout>
       <EventsSection upcomingEventsData={upcomingEventsData} />
-      <SubjectsSection subjectData={subjectData} />
+      { featureFlagConfig.STUDY && <SubjectsSection subjectData={subjectData} /> }
       <TutorSection tutorData={tutorData} />
     </PrivateScreenLayout>
   );
