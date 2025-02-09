@@ -9,12 +9,15 @@ interface CustomTextInputProps {
   label?: string;
   onChange: (text: string) => void;
   required?: boolean;
+  backgroundColor?: string;
+  borderColor?: string;
+  labelColor?: string;
 }
 
-const CustomTextAreaInput: React.FC<CustomTextInputProps> = ({ placeholder, value, onChange, label, required=false }) => {
+const CustomTextAreaInput: React.FC<CustomTextInputProps> = ({ placeholder, value, onChange, label, required=false, backgroundColor=COLORS.white10Percent, borderColor=COLORS.white, labelColor=COLORS.white}) => {
   return (
     <View style={customTextInputStyles.container}>
-      {label && <Text style={customTextInputStyles.label}>{label} {required && ' *'}</Text>}
+      {label && <Text style={[customTextInputStyles.label, {color: labelColor}]}>{label} {required && ' *'}</Text>}
       <View>
         <TextInput
           value={value}
@@ -22,7 +25,7 @@ const CustomTextAreaInput: React.FC<CustomTextInputProps> = ({ placeholder, valu
           placeholder={placeholder}
           placeholderTextColor={COLORS.darkGrayOpacity}
           multiline={true}
-          style={customTextInputStyles.input}
+          style={[customTextInputStyles.input, { backgroundColor: backgroundColor, borderColor: borderColor }]}
         />
       </View>
     </View>

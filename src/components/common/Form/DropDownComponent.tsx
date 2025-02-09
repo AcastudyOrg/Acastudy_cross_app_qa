@@ -7,25 +7,31 @@ import { COLORS } from '../../../constants';
 type DropdownProps = {
     value: string;
     label?: string;
-    placeholder: string;
+    placeholder?: string;
     data: string[]; // Accepts a list of strings
     disabled?: boolean;
     onChange: (value: string) => void;
     allowCustomValue?: boolean;
     required?: boolean;
     error?: string;
+    backgroundColor?: string;
+    borderColor?: string;
+    labelColor?: string;
 };
 
 export const DropDownComponent: React.FC<DropdownProps> = ({
     value = "",
     label,
-    placeholder,
+    placeholder = "",
     onChange,
     data,
     disabled,
     allowCustomValue = false,
     required = false,
     error = "",
+    backgroundColor = COLORS.editTextBackgroundColor,
+    borderColor = COLORS.transparent,
+    labelColor = COLORS.white,
 }) => {
     // Transform string data into dropdown-compatible format
     const [dropdownData, setDropdownData] = useState(
@@ -62,7 +68,7 @@ export const DropDownComponent: React.FC<DropdownProps> = ({
     return (
         <View style={dropDownComponentStyles.container}>
             {label && (
-                <Text style={dropDownComponentStyles.label}>
+                <Text style={[dropDownComponentStyles.label, { color: labelColor }]}>
                     {label} {required && '*'}
                 </Text>
             )}
@@ -79,10 +85,10 @@ export const DropDownComponent: React.FC<DropdownProps> = ({
                     maxHeight={300}
                     disable={disabled}
                     placeholder={placeholder}
-                    style={dropDownComponentStyles.input}
+                    style={[dropDownComponentStyles.input, { backgroundColor: backgroundColor, borderColor: borderColor}]}
                     containerStyle={dropDownComponentStyles.itemContainer}
                     itemTextStyle={dropDownComponentStyles.itemText}
-                    selectedTextStyle={dropDownComponentStyles.selectedText}
+                    selectedTextStyle={[dropDownComponentStyles.selectedText, { color: labelColor }]}
                     placeholderStyle={dropDownComponentStyles.placeholderText}
                     iconStyle={dropDownComponentStyles.iconStyle}
                     search={true}

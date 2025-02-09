@@ -24,6 +24,7 @@ import TutorsScreen from "./private/tutors/TutorsScreen";
 import TutorProfileScreen from "./private/TutorProfileScreen";
 import SubjectScreen from "./private/subjects/SubjectsScreen";
 import RequestTutorScreen from "./private/RequestTutorScreen";
+import QuestioneirScreen from "./public/QuestioneirScreen";
 
 export {
   OnboardingScreen,
@@ -33,6 +34,7 @@ export {
   SignUpScreen,
   PasswordScreen,
   VerifyEmailScreen,
+  QuestioneirScreen,
   ForgotPasswordScreen,
   WelcomeScreen,
   ChatScreen,
