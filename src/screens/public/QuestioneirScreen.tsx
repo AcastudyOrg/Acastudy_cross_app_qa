@@ -16,6 +16,7 @@ import { handleInputChange, validateForm } from "../../../utils/requestTutorForm
 
 import { FormData } from "../../../utils/requestTutorFormHelper";
 import { COLORS } from "../../constants";
+import { isPlatformIOSorAndroid } from "../../../utils/config";
 
 const QuestioneirScreen: React.FC = () => {
 
@@ -57,8 +58,8 @@ const QuestioneirScreen: React.FC = () => {
         <ScrollView style={authScreenStyle.signInContentContainer}>
             <TopBarComponent showAppName={true} renderRightSection={true} showSearchBar={false} isLSignedIn={false} showBecomeATutorOnly={true} />
 
-            <View style={authScreenStyle.content}>
-                <View style={authScreenStyle.container}>
+            <View style={[authScreenStyle.content]}>
+                <View style={[authScreenStyle.container, {width: isPlatformIOSorAndroid() ? '100%': '50%'}]}>
                     <Text style={authScreenStyle.title}>{STRING.questinnierTitle}</Text>
                     <Text style={authScreenStyle.subtitle}>{STRING.questinnierSubtitle}</Text>
                     {name}
