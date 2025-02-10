@@ -4,7 +4,9 @@ const client = new ApolloClient({
     uri: 'http://localhost:8080/graphql',
     cache: new InMemoryCache(),
     headers: {
-        Authorization: `Bearer eetyjkl54dbvcvnmjyg`,
+        'Accept': '*/*',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
     },
 });
 

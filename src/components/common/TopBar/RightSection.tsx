@@ -45,7 +45,7 @@ const SignedInContent: React.FC<SignedInContentProps> = ({ screenWidth, user, na
 
 				<Text style={rightSectionStyles.linkText}>|</Text>
 
-				<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.HomeScreen)}>
+				<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.SignInScreen)}>
 					<Text style={rightSectionStyles.linkText}> {STRING.logout} </Text>
 				</TouchableOpacity>
 			</View>

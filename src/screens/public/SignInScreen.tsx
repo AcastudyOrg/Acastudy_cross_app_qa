@@ -23,13 +23,6 @@ mutation Login($email: String!, $password: String!) {
 }
 `;
 
-const context = {
-	fetchOptions: {
-		mode: 'no-cors',
-	},
-};
-
-
 const SignInScreen = () => {
 	const navigation = useNavigation<any>()
 	const [email, setEmail] = useState("");
@@ -41,13 +34,14 @@ const SignInScreen = () => {
 		profilePictureUrl: 0
 	};
 
-	const [login, { loading, error }] = useMutation(LOGIN, { context });
+	const [login, { loading, error }] = useMutation(LOGIN);
 
 	const handleSubmit = async () => {
 		try {
-			const data = await login({ variables: { email, password } });
-			console.log("Login data: ", data);
-			// navigation.navigate(NAV_SCREEN_NAME.HomeScreen);
+			const res = await login({ variables: { email, password } });
+			console.log("Login data: ", res);
+			if (res.data.login)
+				navigation.navigate(NAV_SCREEN_NAME.HomeScreen);
 		} catch (error) {
 			console.error("Login error:", error);
 		}
