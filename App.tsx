@@ -3,6 +3,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
+import { ApolloProvider } from '@apollo/client';
+import client from "./src/graphql/apolloClient";
 
 import { COLORS } from "./src/constants";
 import useFonts from "./src/hooks/useFonts";
@@ -40,12 +42,14 @@ export default function App() {
   return (
     <View style={styles.mainAppContainer}>
       <StatusBar style="light" />
-      <NavigationContainer
-        linking={linking}
-        fallback={<LoadingComponent />}
-      >
-        <AppMainNavigation />
-      </NavigationContainer>
+      <ApolloProvider client={client}>
+        <NavigationContainer
+          linking={linking}
+          fallback={<LoadingComponent />}
+        >
+          <AppMainNavigation />
+        </NavigationContainer>
+      </ApolloProvider>
     </View>
   );
 }
