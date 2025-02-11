@@ -17,7 +17,7 @@ export const authTextFieldtyles = StyleSheet.create({
     borderWidth: 1,
     borderColor: COLORS.gray60,
     borderRadius: 8,
-    backgroundColor: COLORS.white,
+    backgroundColor: COLORS.transparent,
     width: '100%',
   },
   input: {

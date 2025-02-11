@@ -24,7 +24,7 @@ const VerifyEmailScreen = () => {
 
   const handleOnSubmit = () => {
     console.log(code.join(''));
-    navigation.navigate(NAV_SCREEN_NAME.HomeScreen)
+    navigation.navigate(NAV_SCREEN_NAME.QuestioneirScreen)
   };
 
   const user: User = {

@@ -3,7 +3,8 @@ import { COLORS, FONT, SIZE } from '../../../../constants';
 
 export const dropDownComponentStyles = StyleSheet.create({
     container: {
-        marginVertical: 10
+        marginVertical: 10,
+        width: '100%'
     },
     label: {
         fontSize: SIZE.m,
@@ -15,11 +16,12 @@ export const dropDownComponentStyles = StyleSheet.create({
         height: 43,
     },
     input: {
+        borderWidth: 1,
+        borderColor: COLORS.gray60,
         flex: 1,
         height: 43,
         borderRadius: 5,
         paddingHorizontal: 10,
-        backgroundColor: "rgba(255,255,255,.1)",
     },
     itemContainer: {
         top: 5,
