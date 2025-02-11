@@ -83,6 +83,7 @@ export const STRING = {
   time: "Select Time",
   description: "Description",
   descriptionHendler: "Describe that of which you are requesting a tutor for",
+  learningObjectivePlaceHolder: "What are your learning objectives?",
   noAvailableTimeSlots: "No available time slots for selected date",
   requiredFieldHeader: "Complete all required fields (✷) to find your perfect tutor match",
 
@@ -93,6 +94,10 @@ export const STRING = {
   viewFullCalendar: "View full calendar",
   instantMeeting: "Instant Meeting",
   startNewMeeting: "Start a new meeting",
+
+  questinnierTitle: "Let us know you more!",
+  questinnierSubtitle: "Please fill in the following details to help us better understand your learning objectives and preferences.",
+
 
 };
 
@@ -110,6 +115,7 @@ export const NAV_SCREEN_NAME = {
   ForgotPasswordScreen: "ForgotPasswordScreen",
   OnboardingScreen: "OnboardingScreen",
   VerifyEmailScreen: "VerifyEmailScreen",
+  QuestioneirScreen: "QuestioneirScreen",
 
   SubjectTopicsScreen: "SubjectTopicsScreen",
   TutorScreen: "TutorScreen",

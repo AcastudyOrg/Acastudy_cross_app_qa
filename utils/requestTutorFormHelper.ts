@@ -1,16 +1,19 @@
 import * as DocumentPicker from 'expo-document-picker';
 
 export interface FormData {
-    studyLevel: string;
-    course: string;
-    book: string;
-    tutor: string;
-    chapter: string;
-    topics: string;
-    preferredDate: string;
-    preferredTime: string;
-    description: string;
-    uploadedFile: DocumentPicker.DocumentPickerResult | null;
+    studyLevel?: string;
+    course?: string;
+    book?: string;
+    tutor?: string;
+    chapter?: string;
+    topics?: string;
+    preferredDate?: string;
+    preferredTime?: string;
+    description?: string;
+    uploadedFile?: DocumentPicker.DocumentPickerResult | null;
+    province?: string;
+    ageGroup?: string;
+    gender?: string;
 }
 
 export const handleFileUpload = async (
@@ -46,6 +49,9 @@ export const validateForm = (
         'preferredDate',
         'preferredTime',
         'description',
+        'province',
+        'ageGroup',
+        'gender',
     ];
 
     requiredFields.forEach((field) => {

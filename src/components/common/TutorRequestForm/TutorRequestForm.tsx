@@ -13,20 +13,7 @@ import CustomIcon from '../CustomIcon';
 import { tutorData } from '../../../../mockData/TutorData';
 import { requuestTutorstyles } from '../../../styles/componentsStyle/commonStyle/RequestTutorStyles/requestTutorStyles';
 import useScreenWidth from '../../../hooks/useScreenWidth';
-import { handleFileUpload, handleInputChange, validateForm } from '../../../../utils/requestTutorFormHelper';
-
-interface FormData {
-	studyLevel: string;
-	course: string;
-	book: string;
-	tutor: string;
-	chapter: string;
-	topics: string
-	preferredDate: string;
-	preferredTime: string;
-	description: string;
-	uploadedFile: DocumentPicker.DocumentPickerResult | null;
-}
+import { handleFileUpload, handleInputChange, validateForm, FormData } from '../../../../utils/requestTutorFormHelper';
 
 const TutorRequestForm = () => {
 
@@ -74,25 +61,25 @@ const TutorRequestForm = () => {
 			<View style={{ flexDirection: notDesktop ? 'column' : 'row', justifyContent: notDesktop ? 'center' : 'space-between', }}>
 
 				<View style={{ width: notDesktop ? "100%" : "50%", paddingEnd: 10 }}>
-					<DropDownComponent label='Study Level' placeholder="Select study level" data={options.studyLevels} value={formData.studyLevel} onChange={(value) => handleInputChange('studyLevel', value, setFormData, errors, setErrors)} required error={errors.studyLevel} />
-					<DropDownComponent label="Course" placeholder="Select course" data={options.courses} value={formData.course} onChange={(value) => handleInputChange('course', value, setFormData, errors, setErrors)} required error={errors.course} allowCustomValue />
-					<DropDownComponent label="Chapter" placeholder="Select chapter" data={options.chapters} value={formData.chapter} onChange={(value) => handleInputChange('chapter', value, setFormData, errors, setErrors)} allowCustomValue />
+					<DropDownComponent label='Study Level' placeholder="Select study level" data={options.studyLevels} value={formData.studyLevel || ''} onChange={(value) => handleInputChange('studyLevel', value, setFormData, errors, setErrors)} required error={errors.studyLevel} />
+					<DropDownComponent label="Course" placeholder="Select course" data={options.courses} value={formData.course || ''} onChange={(value) => handleInputChange('course', value, setFormData, errors, setErrors)} required error={errors.course} allowCustomValue />
+					<DropDownComponent label="Chapter" placeholder="Select chapter" data={options.chapters} value={formData.chapter || ''} onChange={(value) => handleInputChange('chapter', value, setFormData, errors, setErrors)} allowCustomValue />
 				</View>
 
 				<View style={{ width: notDesktop ? "100%" : "50%", paddingStart: 10 }}>
-					<DropDownComponent label="Topic" placeholder="Enter a topic" data={options.topics} value={formData.topics} onChange={(value) => handleInputChange('topics', value, setFormData, errors, setErrors)} required allowCustomValue />
-					<DropDownComponent label="Book" placeholder="Select book" data={options.books} value={formData.book} onChange={(value) => handleInputChange('book', value, setFormData, errors, setErrors)} allowCustomValue />
-					<DropDownComponent label="Preferred Tutor" placeholder="Select tutor" data={options.tutors} value={formData.tutor} onChange={(value) => handleInputChange('tutor', value, setFormData, errors, setErrors)} />
+					<DropDownComponent label="Topic" placeholder="Enter a topic" data={options.topics} value={formData.topics || ''} onChange={(value) => handleInputChange('topics', value, setFormData, errors, setErrors)} required allowCustomValue />
+					<DropDownComponent label="Book" placeholder="Select book" data={options.books} value={formData.book || ''} onChange={(value) => handleInputChange('book', value, setFormData, errors, setErrors)} allowCustomValue />
+					<DropDownComponent label="Preferred Tutor" placeholder="Select tutor" data={options.tutors} value={formData.tutor || ''} onChange={(value) => handleInputChange('tutor', value, setFormData, errors, setErrors)} />
 				</View>
 			</View>
 
-			<CustomTextAreaInput label={STRING.description} placeholder={STRING.descriptionHendler} value={formData.description} onChange={(value) => handleInputChange('description', value, setFormData, errors, setErrors)} required />
+			<CustomTextAreaInput label={STRING.description} placeholder={STRING.descriptionHendler} value={formData.description || ''} onChange={(value) => handleInputChange('description', value, setFormData, errors, setErrors)} required />
 			{errors.description && <Text style={requuestTutorstyles.errorText}>{errors.description}</Text>}
 
 			<TouchableOpacity style={requuestTutorstyles.fileUpload} onPress={() => handleFileUpload(setFormData, formData)}>
 				<CustomIcon set={'MaterialIcons'} name={'upload-file'} size={24} color={COLORS.grayWhiteText} />
 				<Text style={requuestTutorstyles.fileUploadText}>
-					{formData.uploadedFile ? `Uploaded: ${formData.uploadedFile.output?.item(0)?.name}` : 'Upload a file (optional)'}
+					{formData.uploadedFile ? `Uploaded: ${formData.uploadedFile.output?.item(0)?.name || ''}` : 'Upload a file (optional)'}
 				</Text>
 			</TouchableOpacity>
 
