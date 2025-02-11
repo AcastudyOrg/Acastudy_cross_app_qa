@@ -5,13 +5,14 @@ import { COLORS } from "../../../constants";
 import CustomIcon from "../../common/CustomIcon";
 import { STRING } from "../../../constants/strings";
 import { callActionButtonsStyles } from "../../../styles/componentsStyle/sectionsStyle/call/callActionButtonsStyles";
+import featureFlagConfig from "../../../../utils/featureFlagConfig";
 
 
 const CallActionButtons = () => {
     return (
         <View style={callActionButtonsStyles.actionButtonsContainer}>
 
-            <Pressable style={callActionButtonsStyles.actionButtonContent}>
+            { featureFlagConfig.SCHEDULE_A_MEETING && <Pressable style={callActionButtonsStyles.actionButtonContent}>
                 <LinearGradient colors={[COLORS.darkPurple, COLORS.purple, COLORS.darkPurple]} style={callActionButtonsStyles.actionButton}>
                     <CustomIcon set={"FontAwesome"} name={"video-camera"} size={isPlatformIOSorAndroid() ? 25 : 50} />
                 </LinearGradient>
@@ -19,7 +20,7 @@ const CallActionButtons = () => {
                     <Text style={callActionButtonsStyles.actionMainText}>{STRING.scheduleMeeting}</Text>
                     <Text style={callActionButtonsStyles.actionSubText}>{STRING.planYourMeeting}</Text>
                 </View>
-            </Pressable>
+            </Pressable> }
 
             <Pressable style={callActionButtonsStyles.actionButtonContent}>
                 <LinearGradient colors={[COLORS.darkPurple, COLORS.purple, COLORS.darkPurple]} style={callActionButtonsStyles.actionButton}>
@@ -31,7 +32,7 @@ const CallActionButtons = () => {
                 </View>
             </Pressable>
 
-            <Pressable style={callActionButtonsStyles.actionButtonContent}>
+            { featureFlagConfig.INSTANT_MEETING && <Pressable style={callActionButtonsStyles.actionButtonContent}>
                 <LinearGradient colors={[COLORS.darkPurple, COLORS.purple, COLORS.darkPurple]} style={callActionButtonsStyles.actionButton}>
                     <CustomIcon set={"MaterialIcons"} name={"video-call"} size={isPlatformIOSorAndroid() ? 25 : 50} />
                 </LinearGradient>
@@ -39,7 +40,7 @@ const CallActionButtons = () => {
                     <Text style={callActionButtonsStyles.actionMainText}>{STRING.instantMeeting}</Text>
                     <Text style={callActionButtonsStyles.actionSubText}>{STRING.startNewMeeting}</Text>
                 </View>
-            </Pressable>
+            </Pressable>}
 
         </View>
     );

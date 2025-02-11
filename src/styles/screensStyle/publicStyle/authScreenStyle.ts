@@ -11,6 +11,7 @@ export const authScreenStyle = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 20,
+    
   },
   container: {
     backgroundColor: '#fff',

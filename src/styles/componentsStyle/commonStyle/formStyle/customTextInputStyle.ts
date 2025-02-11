@@ -4,6 +4,7 @@ import { COLORS, FONT, SIZE } from '../../../../constants';
 export const customTextInputStyles = StyleSheet.create({
     container: {
         marginHorizontal: 0,
+        width: '100%'
     },
     label: {
         fontSize: SIZE.m,
