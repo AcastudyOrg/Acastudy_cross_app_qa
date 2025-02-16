@@ -65,6 +65,7 @@ export interface HomeDataProps {
 //form props
 export interface ButtonProps {
   text: string;
+  loading?: boolean;
   onPress: () => void;
   icon?: string | JSX.Element;
   majorColor?: string;
