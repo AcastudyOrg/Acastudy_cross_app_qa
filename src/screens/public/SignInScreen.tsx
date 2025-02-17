@@ -1,32 +1,24 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
-import { useMutation, gql } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 
-import TopBarComponent from "../../components/common/TopBar/TopBarComponent";
-import { User } from "../../types/User/Student";
-import CustomDivider from "../../components/common/Form/CustomDivider";
-import GradientButtonComponent from "../../components/common/Form/GradientButtonComponent";
-import AuthTextField from "../../components/common/Form/AuthTextField";
-import GoogleButton from "../../components/common/GoogleButton";
-import { authScreenStyle } from "../../styles/screensStyle/publicStyle/authScreenStyle";
+import TopBarComponent from "@/components/common/TopBar/TopBarComponent";
+import { User } from "@/types/User/Student";
+import CustomDivider from "@/components/common/Form/CustomDivider";
+import GradientButtonComponent from "@/components/common/Form/GradientButtonComponent";
+import AuthTextField from "@/components/common/Form/AuthTextField";
+import GoogleButton from "@/components/common/GoogleButton";
+import { authScreenStyle } from "@/styles/screensStyle/publicStyle/authScreenStyle";
 import { useNavigation } from "@react-navigation/native";
-import { NAV_SCREEN_NAME, STRING } from "../../constants/strings";
-
-const LOGIN = gql`
-mutation Login($email: String!, $password: String!) { 
-    login(
-        loginUserInput: { 
-            email: $email,
-            password: $password
-        }
-    )
-}
-`;
+import { NAV_SCREEN_NAME, STRING } from "@/constants/strings";
+import { loginMutation } from "@/graphql/api/auth";
 
 const SignInScreen = () => {
 	const navigation = useNavigation<any>()
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+
+	const [login, { loading }] = useMutation(loginMutation);
 
 	const user: User = {
 		name: "",
@@ -34,17 +26,13 @@ const SignInScreen = () => {
 		profilePictureUrl: 0
 	};
 
-	const [login, { loading, error }] = useMutation(LOGIN);
 
 	const handleSubmit = async () => {
-		try {
-			const res = await login({ variables: { email, password } });
-			console.log("Login data: ", res);
-			if (res.data.login)
-				navigation.navigate(NAV_SCREEN_NAME.HomeScreen);
-		} catch (error) {
-			console.error("Login error:", error);
-		}
+		await login({ variables: { email, password } }).then((res) => {
+			if (res.data.login) navigation.navigate(NAV_SCREEN_NAME.HomeScreen);
+		}).catch((err) => {
+			console.error("Login error: ", err);
+		});
 	};
 
 	return (
@@ -71,7 +59,7 @@ const SignInScreen = () => {
 					<AuthTextField label={"Email Address"} value={email} onChangeText={setEmail} />
 					<AuthTextField label={"Password"} value={password} onChangeText={setPassword} isPassword={true} />
 
-					<GradientButtonComponent text="CONTINUE" onPress={handleSubmit} />
+					<GradientButtonComponent text="CONTINUE" loading={loading} onPress={handleSubmit} />
 
 					<View style={authScreenStyle.alternative} >
 						<Text>No account? </Text>

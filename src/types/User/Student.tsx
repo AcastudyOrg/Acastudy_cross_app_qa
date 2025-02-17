@@ -7,4 +7,11 @@ export type User = {
     profilePictureUrl: ImageSourcePropType;
     subjects?: string[];
     onlineStatus?: boolean; 
+
+    firstName?: String,
+    lastName?: String,
+    email?: String,
+    phoneNumber?: String,
+    password?: String,
+    role?: 'STUDENT' | 'TUTOR',
 };
