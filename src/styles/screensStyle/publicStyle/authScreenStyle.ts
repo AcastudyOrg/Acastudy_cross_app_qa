@@ -72,5 +72,9 @@ export const authScreenStyle = StyleSheet.create({
     justifyContent: 'space-between',
     marginVertical: 5,
     width: '100%'
-  }
+  },
+  errorText: {
+    color: COLORS.red,
+    marginTop: 5,
+  },
 });

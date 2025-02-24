@@ -32,7 +32,7 @@ const SignUpScreen = () => {
       setError("Invalid Email, Please enter a valid email address.")
       return;
     }
-    navigation.navigate(NAV_SCREEN_NAME.PasswordScreen)
+    navigation.navigate(NAV_SCREEN_NAME.VerifyEmailScreen, { email })
   };
 
   return (
