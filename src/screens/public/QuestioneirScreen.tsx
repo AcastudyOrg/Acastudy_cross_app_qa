@@ -16,7 +16,6 @@ import { handleInputChange, validateForm } from "../../../utils/requestTutorForm
 
 import { FormData } from "../../../utils/requestTutorFormHelper";
 import { COLORS } from "../../constants";
-import { isPlatformIOSorAndroid } from "../../../utils/config";
 
 const QuestioneirScreen: React.FC = () => {
 
@@ -24,19 +23,14 @@ const QuestioneirScreen: React.FC = () => {
 
     const options = {
         studyLevels: ['Pre School', 'Primary', 'Secondary', 'Undergraduate', 'Honours', 'Masters', 'PhD'],
-        ageGroup: ['6 - 12', '13 - 18', '19 - 25', '26 - 35', '36 - 45', '46 - 55', '56 - 65', '66 - Upper'],
-        provinces: ['Gauteng', 'Western Cape', 'Eastern Cape', 'KwaZulu-Natal', 'Free State', 'Mpumalanga', 'Limpopo', 'North West', 'Northern Cape'],
+        ageGroup: ['Under - 12', '13 - 18', '19 - 25', '26 - 35', '36 - 45', '46 - 55', '56 - 65', '66 - Upper'],
         gender: ['Female', 'Male', 'Other']
     };
 
     // set values from fields
     const [name, setName] = useState<string>("");
     const [surname, setSurname] = useState<string>("");
-    const [suburb, setSuburb] = useState<string>("")
-    const [city, setCity] = useState<string>("")
     const [formData, setFormData] = useState<FormData>({
-        studyLevel: '',
-        province: '',
         ageGroup: '',
         gender: '',
     });
@@ -44,34 +38,56 @@ const QuestioneirScreen: React.FC = () => {
 
     // set errors from field if any
     const [errors, setErrors] = useState<{ [key in keyof FormData]?: string }>({});
+    const [errorName, setErrorName] = useState<string>("");
+    const [errorSurname, setErrorSurname] = useState<string>("");
 
-    const handleSubmit = () => {
-        // Todo(Tekstaq): handle onSubmit here
-        if (validateForm(formData, setErrors)) {
-            console.log('Form submitted:', { ...formData, name, surname, suburb, city });
+    const handleOnNext = () => {
+        setErrorName("");
+        setErrorSurname("");
+        setErrors({});
+
+        if (!name) {
+            setErrorName("This field is required");
         }
-        // navigation.navigate(NAV_SCREEN_NAME.VerifyEmailScreen)
+        if (!surname) {
+            setErrorSurname("This field is required");
+        }
+
+        if (validateForm(formData, setErrors)) {
+            console.log('Form submitted:', { ...formData, name, surname});
+        }
+
+        //TODO(Tekstaq) pass parameters
+        navigation.navigate(
+            NAV_SCREEN_NAME.QuestioneirScreenTwo, 
+            {
+                name: name, 
+                surname: surname, 
+                ageGroup: formData.ageGroup,
+                gender: formData.gender
+            }
+        )
     };
 
 
     return (
-        <ScrollView style={authScreenStyle.signInContentContainer}>
+        <View style={authScreenStyle.signInContentContainer}>
             <TopBarComponent showAppName={true} renderRightSection={true} showSearchBar={false} isLSignedIn={false} showBecomeATutorOnly={true} />
 
-            <View style={[authScreenStyle.content]}>
-                <View style={[authScreenStyle.container, {width: isPlatformIOSorAndroid() ? '100%': '50%'}]}>
+            <View style={authScreenStyle.content}>
+                <View style={authScreenStyle.container}>
                     <Text style={authScreenStyle.title}>{STRING.questinnierTitle}</Text>
                     <Text style={authScreenStyle.subtitle}>{STRING.questinnierSubtitle}</Text>
-                    {name}
-                    <AuthTextField label={"Name"} value={name} onChangeText={setName} />
-                    <AuthTextField label={"Surname"} value={surname} onChangeText={setSurname} />
+                    
+                    <AuthTextField label={"Name *"} value={name} onChangeText={setName} error={errorName} />
+                    <AuthTextField label={"Surname *"} value={surname} onChangeText={setSurname} error={errorSurname}/>
                     <DropDownComponent
                         label='Gender'
                         data={options.gender}
                         value={formData.gender || ''}
                         onChange={(value) => handleInputChange('gender', value, setFormData, errors, setErrors)} // handle this with correct value
                         required
-                        error={errors.studyLevel}
+                        error={errors.gender}
                         backgroundColor={COLORS.transparent}
                         labelColor={COLORS.black30}
                         borderColor={COLORS.gray60}
@@ -87,38 +103,11 @@ const QuestioneirScreen: React.FC = () => {
                         borderColor={COLORS.gray60}
                     />
 
-                    <DropDownComponent
-                        label='Level of study'
-                        data={options.studyLevels}
-                        value={formData.studyLevel || ''}
-                        onChange={(value) => handleInputChange('studyLevel', value, setFormData, errors, setErrors)} // handle this with correct value
-                        required
-                        error={errors.studyLevel}
-                        backgroundColor={COLORS.transparent}
-                        labelColor={COLORS.black30}
-                        borderColor={COLORS.gray60}
-                    />
-
-                    <AuthTextField label={"Suburb"} value={suburb} onChangeText={setSuburb} />
-                    <AuthTextField label={"City"} value={city} onChangeText={setCity} />
-
-                    <DropDownComponent
-                        label='Province'
-                        data={options.studyLevels}
-                        value={formData.province || ''}
-                        onChange={(value) => handleInputChange('province', value, setFormData, errors, setErrors)} // handle this with correct value
-                        required
-                        error={errors.province}
-                        backgroundColor={COLORS.transparent}
-                        labelColor={COLORS.black30}
-                        borderColor={COLORS.gray60}
-                    />
-
-                    <GradientButtonComponent text="CONTINUE" onPress={handleSubmit} />
+                    <GradientButtonComponent text="NEXT" onPress={handleOnNext} />
 
                 </View>
             </View>
-        </ScrollView>
+        </View>
     );
 };
 

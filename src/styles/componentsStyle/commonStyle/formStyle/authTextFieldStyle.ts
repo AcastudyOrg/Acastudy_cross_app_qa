@@ -33,6 +33,7 @@ export const authTextFieldtyles = StyleSheet.create({
   },
   errorText: {
     color: COLORS.red,
-    marginTop: 5,
+    marginTop: 4,
+    fontSize: 12,
   },
 });
