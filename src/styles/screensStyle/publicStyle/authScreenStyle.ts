@@ -76,5 +76,7 @@ export const authScreenStyle = StyleSheet.create({
   errorText: {
     color: COLORS.red,
     marginTop: 5,
+    fontSize: 12,
+    marginBottom: 5,
   },
 });
