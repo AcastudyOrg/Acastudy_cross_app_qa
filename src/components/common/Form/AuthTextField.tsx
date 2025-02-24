@@ -11,9 +11,10 @@ interface Props {
   onChangeText: (text: string) => void;
   isPassword?: boolean;
   placeholder?: string;
+  error?: string;
 }
 
-const AuthTextField: React.FC<Props> = ({ label, value, onChangeText, isPassword = false, placeholder="" }) => {
+const AuthTextField: React.FC<Props> = ({ label, value, onChangeText, isPassword = false, placeholder="", error = ""}) => {
   const [isSecure, setIsSecure] = useState(isPassword);
 
   const toggleSecureEntry = () => {
@@ -39,6 +40,7 @@ const AuthTextField: React.FC<Props> = ({ label, value, onChangeText, isPassword
           </TouchableOpacity>
         )}
       </View>
+      {error ? <Text style={authTextFieldtyles.errorText}>{error}</Text> : null}
     </View>
   );
 };
