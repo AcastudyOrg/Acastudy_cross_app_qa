@@ -14,11 +14,7 @@ import { authScreenStyle } from "../../styles/screensStyle/publicStyle/authScree
 import AuthTextField from "../../components/common/Form/AuthTextField";
 import { User } from "../../types/User/Student";
 import { NAV_SCREEN_NAME } from "../../constants/strings";
-
-type PasswordScreenNavigationProp = NativeStackNavigationProp<
-	RootStackParamList,
-	"WelcomeScreen"
->;
+import { getPasswordRules, validatePassword } from "utils/login";
 
 const PasswordScreen = () => {
 	const title: string = "Create password";
@@ -32,22 +28,27 @@ const PasswordScreen = () => {
 
 	const navigation = useNavigation<any>();
 
-	const route = useRoute<PasswordScreenRouteProp>();
-
 	const [password, setPassword] = useState<string>("");
 	const [confirmPassword, setConfirmPassword] = useState<string>("");
 	const [passwordError, setPasswordError] = useState<string>("")
+	const [passwordNotMatchingError, setPasswordNotMatching] = useState<string>("")
 
 	const handleSubmit = () => {
-		// Todo(Tekstaq): handle onSubmit here
-		console.log("Creds: " + password)
-		if (password.trim().length < 7) {
-			setPasswordError("The password must me 8 character or longer")
-		} else if (password.trim() !== confirmPassword.trim()) {
-			setPasswordError("Passwords do not match")
+		setPasswordError("")
+		setPasswordNotMatching("")
+		if (!validatePassword(password.trim())) {
+			setPasswordError(getPasswordRules())
+			return;
+		}
+		if (password.trim() !== confirmPassword.trim()) {
+			setPasswordNotMatching("Passwords do not match")
+			return;
 		}
 
-		navigation.navigate(NAV_SCREEN_NAME.VerifyEmailScreen)
+		// Todo(Tekstaq): a user passes this stage they are now registered
+		// Register the user here
+
+		navigation.navigate(NAV_SCREEN_NAME.QuestioneirScreen);
 
 	};
 
@@ -60,8 +61,12 @@ const PasswordScreen = () => {
 					<Text style={authScreenStyle.title}>{title}</Text>
 					<Text style={authScreenStyle.subtitle}>{subtitle}</Text>
 
-					<AuthTextField label={"Password"} value={password} onChangeText={setPassword} isPassword={true} />
+					<AuthTextField label={"Password"} value={password} onChangeText={setPassword} isPassword={true} error={passwordError} />
 					<AuthTextField label={"Confirm Password"} value={confirmPassword} onChangeText={setConfirmPassword} isPassword={true} />
+
+					<View style={[authScreenStyle.alternative, { paddingTop: 0, paddingBottom: 10 }]}>
+						{passwordNotMatchingError ? <Text style={authScreenStyle.errorText}>{passwordNotMatchingError}</Text> : null}
+					</View>
 
 					<GradientButtonComponent text="CONTINUE" onPress={handleSubmit} />
 

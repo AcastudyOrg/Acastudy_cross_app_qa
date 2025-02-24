@@ -33,12 +33,13 @@ const VerifyEmailScreen = () => {
   };
 
   const handleOnSubmit = () => {
+    setError("");
     console.log(code.join(''));
     if (code.join('').length !== 5) { // TODO(Tekstaq): check if code is valid
       setError("Please enter a valid code or resend code.");
       return;
     }
-    navigation.navigate(NAV_SCREEN_NAME.QuestioneirScreen)
+    navigation.navigate(NAV_SCREEN_NAME.PasswordScreen, { email });
   };
 
   const user: User = {

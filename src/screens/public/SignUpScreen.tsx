@@ -28,6 +28,7 @@ const SignUpScreen = () => {
     subjects: []
   };
   const handleSubmit = () => {
+    setError("");
     if (!validateEmail(email)) {
       setError("Invalid Email, Please enter a valid email address.")
       return;
