@@ -31,7 +31,8 @@ const SignInScreen = () => {
 	const handleSubmit = async () => {
 		setError("");
 		await login({ variables: { email, password } }).then((res) => {
-			if (res.data.login) navigation.navigate(NAV_SCREEN_NAME.HomeScreen);
+			if (res.data.login.status===200) navigation.navigate(NAV_SCREEN_NAME.HomeScreen);
+			else throw res.data.login;
 		}).catch((err) => {
 			console.error("Login error: ", err);
 			setError("Invalid email or password");

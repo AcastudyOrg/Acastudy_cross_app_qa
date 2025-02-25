@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { Text, View, TextInput, TouchableOpacity } from "react-native";
-
-import { GradientButtonComponent } from "../../components/";
-import { authScreenStyle } from "../../styles/screensStyle/publicStyle/authScreenStyle";
-import TopBarComponent from "../../components/common/TopBar/TopBarComponent";
-import { User } from "../../types/User/Student";
 import { useNavigation, useRoute, RouteProp } from "@react-navigation/native";
-import { NAV_SCREEN_NAME } from "../../constants/strings";
+import { useMutation } from "@apollo/client";
+
+import { User } from "@/types/User/Student";
+import { NAV_SCREEN_NAME } from "@/constants/strings";
+import { GradientButtonComponent } from "@/components/";
+import { authScreenStyle } from "@/styles/screensStyle/publicStyle/authScreenStyle";
+import TopBarComponent from "@/components/common/TopBar/TopBarComponent";
+import { verifyOTPCodeMutation } from "@/graphql/api/auth";
 
 type VerifyEmailParams = {
   VerifyEmail: {
@@ -15,7 +17,6 @@ type VerifyEmailParams = {
 };
 
 const VerifyEmailScreen = () => {
-
   const route = useRoute<RouteProp<VerifyEmailParams, 'VerifyEmail'>>();
   const { email } = route.params;
 
@@ -26,6 +27,8 @@ const VerifyEmailScreen = () => {
   const [code, setCode] = useState(['', '', '', '', '']);
   const [error, setError] = useState("");
   const inputRefs = React.useRef<(TextInput | null)[]>([]);
+
+  const [verifyOTPCode, { loading }] = useMutation(verifyOTPCodeMutation);
 
   const handleInputChange = (value: string, index: number) => {
     const newCode = [...code];
@@ -38,19 +41,32 @@ const VerifyEmailScreen = () => {
     }
   };
 
-  const handleOnSubmit = () => {
+  const handleOnSubmit = async () => {
     setError("");
-    console.log(code.join(''));
-    if (code.join('').length !== 5) { // TODO(Tekstaq): check if code is valid
+    const verificationCode = code.join('')
+    if (verificationCode.length !== 5) {
       setError("Please enter a valid code or resend code.");
       return;
     }
-    navigation.navigate(NAV_SCREEN_NAME.PasswordScreen, { email });
+
+    await verifyOTPCode({ variables: { email, verificationCode } }).then((res) => {
+      if (res.data.verifyOTPCode.status === 200)
+        navigation.navigate(NAV_SCREEN_NAME.PasswordScreen, { email });
+      else throw res.data.verifyOTPCode;
+    }).catch((err) => {
+      console.log("err: ", err.message)
+      setError(err.message);
+    });
   };
 
   const handleKeyPress = (e: any, index: number) => {
-    if (e.nativeEvent.key === "Backspace" && index !== 0) {
-      inputRefs.current[index - 1]?.focus();
+    if (e.nativeEvent.key === "Backspace") {
+      const newCode = [...code];
+      newCode[index] = '';
+      setCode(newCode);
+      if (index !== 0) {
+        inputRefs.current[index - 1]?.focus();
+      }
     }
   };
 
@@ -72,26 +88,24 @@ const VerifyEmailScreen = () => {
           <View style={authScreenStyle.codeInputRepper}>
             {[...Array(5)].map((_, index) => (
               <TextInput
-              key={index}
-              ref={(ref) => inputRefs.current[index] = ref}
-              style={authScreenStyle.codeInput}
-              maxLength={1}
-              keyboardType="number-pad"
-              onChangeText={(value) => handleInputChange(value, index)}
-              onKeyPress={(e) => handleKeyPress(e, index)}
-              value={code[index]} />
+                key={index}
+                ref={(ref) => inputRefs.current[index] = ref}
+                style={authScreenStyle.codeInput}
+                maxLength={1}
+                keyboardType="number-pad"
+                onChangeText={(value) => handleInputChange(value, index)}
+                onKeyPress={(e) => handleKeyPress(e, index)}
+                value={code[index]} />
             ))}
           </View>
           <View style={[authScreenStyle.alternative, { paddingTop: 0 }]}>
             {error ? <Text style={authScreenStyle.errorText}>{error}</Text> : null}
           </View>
-          <TouchableOpacity style={[authScreenStyle.alternative, { paddingBottom: 20 }]} onPress={() => { }}> 
+          <TouchableOpacity style={[authScreenStyle.alternative, { paddingBottom: 20 }]} onPress={() => { }}>
             <Text style={authScreenStyle.clickerbleText}>Resend code.</Text>
           </TouchableOpacity>
 
-          <GradientButtonComponent text="SignIn" onPress={handleOnSubmit} />
-        
-
+          <GradientButtonComponent text="Verify" loading={loading} onPress={handleOnSubmit} />
         </View>
       </View>
     </View>
