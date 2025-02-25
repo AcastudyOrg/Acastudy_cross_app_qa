@@ -114,7 +114,7 @@ const VerifyEmailScreen = () => {
             <Text style={authScreenStyle.clickerbleText}>Resend code.</Text>
           </TouchableOpacity>
 
-          <GradientButtonComponent text="Verify" loading={loading} onPress={handleOnSubmit} />
+          <GradientButtonComponent text="Verify" loading={loading || resendingOtp} onPress={handleOnSubmit} />
         </View>
       </View>
     </View>
