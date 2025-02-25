@@ -1,11 +1,5 @@
 import { gql } from "@apollo/client";
 
-type Address = {
-    suburb: String,
-    city: String,
-    province: String
-}
-
 const loginMutation = gql`
 mutation Login($email: String!, $password: String!) { 
     login(loginUserInput: { email: $email, password: $password })
