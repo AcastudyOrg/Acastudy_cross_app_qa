@@ -8,7 +8,7 @@ import { NAV_SCREEN_NAME } from "@/constants/strings";
 import { GradientButtonComponent } from "@/components/";
 import { authScreenStyle } from "@/styles/screensStyle/publicStyle/authScreenStyle";
 import TopBarComponent from "@/components/common/TopBar/TopBarComponent";
-import { verifyOTPCodeMutation } from "@/graphql/api/auth";
+import { verifyOTPCodeMutation, sendVerificationCodeMutation } from "@/graphql/api/auth";
 
 type VerifyEmailParams = {
   VerifyEmail: {
@@ -29,6 +29,7 @@ const VerifyEmailScreen = () => {
   const inputRefs = React.useRef<(TextInput | null)[]>([]);
 
   const [verifyOTPCode, { loading }] = useMutation(verifyOTPCodeMutation);
+  const [sendVerificationCode, { loading: resendingOtp }] = useMutation(sendVerificationCodeMutation);
 
   const handleInputChange = (value: string, index: number) => {
     const newCode = [...code];
@@ -54,7 +55,15 @@ const VerifyEmailScreen = () => {
         navigation.navigate(NAV_SCREEN_NAME.PasswordScreen, { email });
       else throw res.data.verifyOTPCode;
     }).catch((err) => {
-      console.log("err: ", err.message)
+      setError(err.message);
+    });
+  };
+
+  const handleResendCode = async () => {
+    await sendVerificationCode({ variables: { email } }).then((res) => {
+      if (res.data.sendVerificationCode.status == 200) console.log("Successful.")
+      else throw res.data.sendVerificationCode;
+    }).catch((err) => {
       setError(err.message);
     });
   };
@@ -101,7 +110,7 @@ const VerifyEmailScreen = () => {
           <View style={[authScreenStyle.alternative, { paddingTop: 0 }]}>
             {error ? <Text style={authScreenStyle.errorText}>{error}</Text> : null}
           </View>
-          <TouchableOpacity style={[authScreenStyle.alternative, { paddingBottom: 20 }]} onPress={() => { }}>
+          <TouchableOpacity style={[authScreenStyle.alternative, { paddingBottom: 20 }]} onPress={handleResendCode}>
             <Text style={authScreenStyle.clickerbleText}>Resend code.</Text>
           </TouchableOpacity>
 

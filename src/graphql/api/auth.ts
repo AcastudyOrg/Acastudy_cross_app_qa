@@ -1,5 +1,11 @@
 import { gql } from "@apollo/client";
 
+type Address = {
+    suburb: String,
+    city: String,
+    province: String
+}
+
 const loginMutation = gql`
 mutation Login($email: String!, $password: String!) { 
     login(loginUserInput: { email: $email, password: $password })
@@ -13,25 +19,23 @@ mutation Login($email: String!, $password: String!) {
 
 const registerMutation = gql`
 mutation Register(
-    $email: String!, $firstName: String!, $lastName: String!, 
-    $phoneNumber: String!, $password: String!, $role: String!
+    $email: String!, $firstName: String!, $lastName: String!, $gender: String!,
+    $ageGroup: String!, $suburb: String!, $city: String!, $province: String!, $password: String!
 ) { 
     registerUser(
         registerUserInput: { 
             email: $email,
             firstName: $firstName,
             lastName: $lastName,
-            phoneNumber: $phoneNumber,
+            gender: $gender,
+            ageGroup: $ageGroup,
+            address: { suburb: $suburb, city: $city, province: $province },
             password: $password,
-            role: $role,
         }
     )
     {
-        email,
-        firstName,
-        lastName,
-        phoneNumber,
-        role
+        message,
+        status
     }
 }`;
 
@@ -53,7 +57,7 @@ mutation verifyOTPCode($email: String!, $verificationCode: String!) {
     }
 }`;
 
-export { 
+export {
     loginMutation, sendVerificationCodeMutation, verifyOTPCodeMutation,
-    registerMutation 
+    registerMutation
 };

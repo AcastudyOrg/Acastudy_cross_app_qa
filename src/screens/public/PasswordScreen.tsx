@@ -1,22 +1,28 @@
 import React, { useState } from "react";
 import {
 	Text,
-	TouchableOpacity,
 	View,
 } from "react-native";
-import { useNavigation, useRoute } from "@react-navigation/native";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { useNavigation, useRoute, RouteProp } from "@react-navigation/native";
 
-import { RootStackParamList, PasswordScreenRouteProp } from "../../types/router/navigation";
-import { GradientButtonComponent } from "../../components/";
-import TopBarComponent from "../../components/common/TopBar/TopBarComponent";
-import { authScreenStyle } from "../../styles/screensStyle/publicStyle/authScreenStyle";
-import AuthTextField from "../../components/common/Form/AuthTextField";
-import { User } from "../../types/User/Student";
-import { NAV_SCREEN_NAME } from "../../constants/strings";
+import { User } from "@/types/User/Student";
+import { GradientButtonComponent } from "@/components/";
 import { getPasswordRules, validatePassword } from "utils/login";
+import TopBarComponent from "@/components/common/TopBar/TopBarComponent";
+import { authScreenStyle } from "@/styles/screensStyle/publicStyle/authScreenStyle";
+import AuthTextField from "@/components/common/Form/AuthTextField";
+import { NAV_SCREEN_NAME } from "@/constants/strings";
+
+type PasswordParams = {
+	data: {
+		email: string;
+	};
+};
 
 const PasswordScreen = () => {
+	const route = useRoute<RouteProp<PasswordParams, 'data'>>();
+	const { email } = route.params;
+
 	const title: string = "Create password";
 	const subtitle: string = "Your password should be at least 8 characters long!";
 
@@ -44,12 +50,7 @@ const PasswordScreen = () => {
 			setPasswordNotMatching("Passwords do not match")
 			return;
 		}
-
-		// Todo(Tekstaq): a user passes this stage they are now registered
-		// Register the user here
-
-		navigation.navigate(NAV_SCREEN_NAME.QuestioneirScreen);
-
+		navigation.navigate(NAV_SCREEN_NAME.QuestioneirScreen, { email, password });
 	};
 
 	return (
@@ -69,7 +70,6 @@ const PasswordScreen = () => {
 					</View>
 
 					<GradientButtonComponent text="CONTINUE" onPress={handleSubmit} />
-
 				</View>
 			</View>
 		</View>

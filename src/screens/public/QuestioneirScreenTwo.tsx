@@ -1,69 +1,74 @@
 import React, { useState } from "react";
 import { Text, View } from "react-native";
 import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
+import { useMutation } from "@apollo/client";
 
-import { GradientButtonComponent } from "../../components";
-import TopBarComponent from "../../components/common/TopBar/TopBarComponent";
-import { authScreenStyle } from "../../styles/screensStyle/publicStyle/authScreenStyle";
-import AuthTextField from "../../components/common/Form/AuthTextField";
-import { NAV_SCREEN_NAME, STRING } from "../../constants/strings";
-import { DropDownComponent } from "../../components/common/Form/DropDownComponent";
-import { handleInputChange, validateForm } from "../../../utils/requestTutorFormHelper";
-
-import { FormData } from "../../../utils/requestTutorFormHelper";
-import { COLORS } from "../../constants";
+import { COLORS } from "@/constants";
+import { GradientButtonComponent } from "@/components";
+import TopBarComponent from "@/components/common/TopBar/TopBarComponent";
+import { authScreenStyle } from "@/styles/screensStyle/publicStyle/authScreenStyle";
+import AuthTextField from "@/components/common/Form/AuthTextField";
+import { NAV_SCREEN_NAME, STRING } from "@/constants/strings";
+import { DropDownComponent } from "@/components/common/Form/DropDownComponent";
+import { handleInputChange, validateForm } from "@/../utils/requestTutorFormHelper";
+import { FormData } from "@/../utils/requestTutorFormHelper";
+import { registerMutation } from "@/graphql/api/auth";
 
 type QuestioneirScreenTwoParams = {
     QuestioneirScreenTwo: {
-        name: string;
-        surname: string;
+        email: string;
+        firstName: string;
+        lastName: string;
         ageGroup: string;
         gender: string;
+        password: string;
     };
 };
 
 const QuestioneirScreenTwo: React.FC = () => {
-
     const navigation = useNavigation<any>();
     const route = useRoute<RouteProp<QuestioneirScreenTwoParams, 'QuestioneirScreenTwo'>>();
-    const { name, surname, ageGroup, gender } = route.params;
-
+    const { email, firstName, lastName, ageGroup, gender, password } = route.params;
 
     const options = {
         provinces: ['Gauteng', 'Western Cape', 'Eastern Cape', 'KwaZulu-Natal', 'Free State', 'Mpumalanga', 'Limpopo', 'North West', 'Northern Cape'],
     };
 
-    // set values from fields
     const [suburb, setSuburb] = useState<string>("")
     const [city, setCity] = useState<string>("")
     const [formData, setFormData] = useState<FormData>({
         province: '',
     });
 
-
-    // set errors from field if any
+    const [error, setError] = useState("");
     const [errors, setErrors] = useState<{ [key in keyof FormData]?: string }>({});
     const [errorSuburb, setErrorSuburb] = useState<string>("");
     const [errorCity, setErrorCity] = useState<string>("");
 
-    const handleSubmit = () => {
+    const [registerUser, { loading }] = useMutation(registerMutation);
+
+    const handleSubmit = async () => {
         setErrorSuburb("");
         setErrorCity("");
         setErrors({});
+        setError("");
 
-        if (!suburb) {
-            setErrorSuburb("This field is required");
-        }
-        if (!city) {
-            setErrorCity("This field is required");
-        }
+        if (!suburb) setErrorSuburb("This field is required");
+        if (!city) setErrorCity("This field is required");
 
         if (!validateForm(formData, setErrors)) {
-            // Todo(Tekstaq): submit the form here
-            console.log('Form submitted:', { suburb, city, province: formData.province, name, surname, gender, ageGroup });
+            await registerUser({
+                variables: {
+                    email, firstName, lastName, gender, ageGroup,
+                    suburb, city, province: formData.province, password
+                }
+            }).then((res) => {
+                if (res.data.registerUser.status === 200) navigation.navigate(NAV_SCREEN_NAME.StudentProfileScreen);
+                else throw res.data.registerUser;
+            }).catch((err) => {
+                setError(err.message);
+            });
         }
-
-        navigation.navigate(NAV_SCREEN_NAME.StudentProfileScreen)
     };
 
 
@@ -90,9 +95,8 @@ const QuestioneirScreenTwo: React.FC = () => {
                         labelColor={COLORS.black30}
                         borderColor={COLORS.gray60}
                     />
-
-                    <GradientButtonComponent text="DONE" onPress={handleSubmit} />
-
+                    {error ? <Text style={authScreenStyle.errorText}>{error}</Text> : null}
+                    <GradientButtonComponent text="Register" loading={loading} onPress={handleSubmit} />
                 </View>
             </View>
         </View>
