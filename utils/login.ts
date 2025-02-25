@@ -7,8 +7,21 @@ export const validateEmail = (email: string) => {
 
 
 export const validatePassword = (password: string) => {
-    const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    return re.test(password);
+    const minLength = 8;
+    const hasUppercase = /[A-Z]/.test(password);
+    const hasLowercase = /[a-z]/.test(password);
+    const hasNumber = /\d/.test(password);
+    const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+    const hasNoSpaces = !/\s/.test(password);
+
+    return (
+        password.length >= minLength &&
+        hasUppercase &&
+        hasLowercase &&
+        hasNumber &&
+        hasSpecialChar &&
+        hasNoSpaces
+    );
 };
 
 export const getPasswordRules = () => {
@@ -19,5 +32,6 @@ export const getPasswordRules = () => {
     - At least one lowercase letter
     - At least one digit
     - At least one special character (@$!%*?&)
+    - No spaces
     `;
 };
