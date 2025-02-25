@@ -31,4 +31,9 @@ export const authTextFieldtyles = StyleSheet.create({
   iconContainer: {
     padding: 4,
   },
+  errorText: {
+    color: COLORS.red,
+    marginTop: 4,
+    fontSize: 12,
+  },
 });

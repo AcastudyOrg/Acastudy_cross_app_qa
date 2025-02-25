@@ -96,7 +96,10 @@ export const STRING = {
   startNewMeeting: "Start a new meeting",
 
   questinnierTitle: "Let us know you more!",
-  questinnierSubtitle: "Please fill in the following details to help us better understand your learning objectives and preferences.",
+  questinnierSubtitle: "Please fill in the following details to help us know you better.",
+
+  questinnierTwoTitle: "Almost there!",
+  questinnierTwoSubtitle: "One last step and we are ready to go.",
 
 
 };
@@ -116,6 +119,7 @@ export const NAV_SCREEN_NAME = {
   OnboardingScreen: "OnboardingScreen",
   VerifyEmailScreen: "VerifyEmailScreen",
   QuestioneirScreen: "QuestioneirScreen",
+  QuestioneirScreenTwo: "QuestioneirScreenTwo",
 
   SubjectTopicsScreen: "SubjectTopicsScreen",
   TutorScreen: "TutorScreen",

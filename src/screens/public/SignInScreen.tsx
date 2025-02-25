@@ -17,6 +17,7 @@ const SignInScreen = () => {
 	const navigation = useNavigation<any>()
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const [error, setError] = useState("");
 
 	const [login, { loading }] = useMutation(loginMutation);
 
@@ -28,10 +29,13 @@ const SignInScreen = () => {
 
 
 	const handleSubmit = async () => {
+		setError("");
 		await login({ variables: { email, password } }).then((res) => {
-			if (res.data.login) navigation.navigate(NAV_SCREEN_NAME.HomeScreen);
+			if (res.data.login.status===200) navigation.navigate(NAV_SCREEN_NAME.HomeScreen);
+			else throw res.data.login;
 		}).catch((err) => {
 			console.error("Login error: ", err);
+			setError("Invalid email or password");
 		});
 	};
 
@@ -59,6 +63,8 @@ const SignInScreen = () => {
 					<AuthTextField label={"Email Address"} value={email} onChangeText={setEmail} />
 					<AuthTextField label={"Password"} value={password} onChangeText={setPassword} isPassword={true} />
 
+					{error ? <Text style={authScreenStyle.errorText}>{error}</Text> : null}
+					
 					<GradientButtonComponent text="CONTINUE" loading={loading} onPress={handleSubmit} />
 
 					<View style={authScreenStyle.alternative} >
