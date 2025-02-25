@@ -25,11 +25,17 @@ const VerifyEmailScreen = () => {
   const navigation = useNavigation<any>();
   const [code, setCode] = useState(['', '', '', '', '']);
   const [error, setError] = useState("");
+  const inputRefs = React.useRef<(TextInput | null)[]>([]);
 
   const handleInputChange = (value: string, index: number) => {
     const newCode = [...code];
     newCode[index] = value;
     setCode(newCode);
+
+    // Move to next input if value is entered and not last input
+    if (value !== '' && index < 4) {
+      inputRefs.current[index + 1]?.focus();
+    }
   };
 
   const handleOnSubmit = () => {
@@ -40,6 +46,12 @@ const VerifyEmailScreen = () => {
       return;
     }
     navigation.navigate(NAV_SCREEN_NAME.PasswordScreen, { email });
+  };
+
+  const handleKeyPress = (e: any, index: number) => {
+    if (e.nativeEvent.key === "Backspace" && index !== 0) {
+      inputRefs.current[index - 1]?.focus();
+    }
   };
 
   const user: User = {
@@ -60,12 +72,14 @@ const VerifyEmailScreen = () => {
           <View style={authScreenStyle.codeInputRepper}>
             {[...Array(5)].map((_, index) => (
               <TextInput
-                key={index}
-                style={authScreenStyle.codeInput}
-                maxLength={1}
-                keyboardType="number-pad"
-                onChangeText={(value) => handleInputChange(value, index)}
-                value={code[index]} />
+              key={index}
+              ref={(ref) => inputRefs.current[index] = ref}
+              style={authScreenStyle.codeInput}
+              maxLength={1}
+              keyboardType="number-pad"
+              onChangeText={(value) => handleInputChange(value, index)}
+              onKeyPress={(e) => handleKeyPress(e, index)}
+              value={code[index]} />
             ))}
           </View>
           <View style={[authScreenStyle.alternative, { paddingTop: 0 }]}>
