@@ -1,25 +1,31 @@
 import React, { useState } from "react";
 import {
     Text,
-    ScrollView,
     View,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
 
-import { GradientButtonComponent } from "../../components/";
-import TopBarComponent from "../../components/common/TopBar/TopBarComponent";
-import { authScreenStyle } from "../../styles/screensStyle/publicStyle/authScreenStyle";
-import AuthTextField from "../../components/common/Form/AuthTextField";
-import { NAV_SCREEN_NAME, STRING } from "../../constants/strings";
-import { DropDownComponent } from "../../components/common/Form/DropDownComponent";
-import { handleInputChange, validateForm } from "../../../utils/requestTutorFormHelper";
+import { GradientButtonComponent } from "@/components/";
+import TopBarComponent from "@/components/common/TopBar/TopBarComponent";
+import { authScreenStyle } from "@/styles/screensStyle/publicStyle/authScreenStyle";
+import AuthTextField from "@/components/common/Form/AuthTextField";
+import { NAV_SCREEN_NAME, STRING } from "@/constants/strings";
+import { DropDownComponent } from "@/components/common/Form/DropDownComponent";
+import { handleInputChange, validateForm } from "@/../utils/requestTutorFormHelper";
+import { FormData } from "@/../utils/requestTutorFormHelper";
+import { COLORS } from "@/constants";
 
-import { FormData } from "../../../utils/requestTutorFormHelper";
-import { COLORS } from "../../constants";
+type QuestioneirParams = {
+    data: {
+        email: string;
+        password: string;
+    };
+};
 
 const QuestioneirScreen: React.FC = () => {
-
     const navigation = useNavigation<any>();
+    const route = useRoute<RouteProp<QuestioneirParams, 'data'>>();
+    const { email, password } = route.params;
 
     const options = {
         studyLevels: ['Pre School', 'Primary', 'Secondary', 'Undergraduate', 'Honours', 'Masters', 'PhD'],
@@ -28,8 +34,8 @@ const QuestioneirScreen: React.FC = () => {
     };
 
     // set values from fields
-    const [name, setName] = useState<string>("");
-    const [surname, setSurname] = useState<string>("");
+    const [firstName, setName] = useState<string>("");
+    const [lastName, setSurname] = useState<string>("");
     const [formData, setFormData] = useState<FormData>({
         ageGroup: '',
         gender: '',
@@ -46,25 +52,27 @@ const QuestioneirScreen: React.FC = () => {
         setErrorSurname("");
         setErrors({});
 
-        if (!name) {
+        if (!firstName) {
             setErrorName("This field is required");
         }
-        if (!surname) {
+        if (!lastName) {
             setErrorSurname("This field is required");
         }
 
         if (validateForm(formData, setErrors)) {
-            console.log('Form submitted:', { ...formData, name, surname});
+            console.log('Form submitted:', { ...formData, firstName, lastName });
         }
 
         //TODO(Tekstaq) pass parameters
         navigation.navigate(
-            NAV_SCREEN_NAME.QuestioneirScreenTwo, 
+            NAV_SCREEN_NAME.QuestioneirScreenTwo,
             {
-                name: name, 
-                surname: surname, 
+                email,
+                firstName: firstName,
+                lastName: lastName,
                 ageGroup: formData.ageGroup,
-                gender: formData.gender
+                gender: formData.gender,
+                password,
             }
         )
     };
@@ -78,9 +86,9 @@ const QuestioneirScreen: React.FC = () => {
                 <View style={authScreenStyle.container}>
                     <Text style={authScreenStyle.title}>{STRING.questinnierTitle}</Text>
                     <Text style={authScreenStyle.subtitle}>{STRING.questinnierSubtitle}</Text>
-                    
-                    <AuthTextField label={"Name *"} value={name} onChangeText={setName} error={errorName} />
-                    <AuthTextField label={"Surname *"} value={surname} onChangeText={setSurname} error={errorSurname}/>
+
+                    <AuthTextField label={"Firstname *"} value={firstName} onChangeText={setName} error={errorName} />
+                    <AuthTextField label={"Lastname *"} value={lastName} onChangeText={setSurname} error={errorSurname} />
                     <DropDownComponent
                         label='Gender'
                         data={options.gender}
@@ -102,9 +110,7 @@ const QuestioneirScreen: React.FC = () => {
                         labelColor={COLORS.black30}
                         borderColor={COLORS.gray60}
                     />
-
                     <GradientButtonComponent text="NEXT" onPress={handleOnNext} />
-
                 </View>
             </View>
         </View>
