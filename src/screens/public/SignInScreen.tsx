@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { useMutation } from "@apollo/client";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import TopBarComponent from "@/components/common/TopBar/TopBarComponent";
 import { User } from "@/types/User/Student";
@@ -30,8 +31,12 @@ const SignInScreen = () => {
 
 	const handleSubmit = async () => {
 		setError("");
-		await login({ variables: { email, password } }).then((res) => {
-			if (res.data.login.status===200) navigation.navigate(NAV_SCREEN_NAME.HomeScreen);
+		await login({ variables: { email, password } }).then(async (res) => {
+			if (res.data.login.status === 200) {
+				await AsyncStorage.setItem('token', res.data.login.token);
+				await AsyncStorage.setItem('refreshToken', res.data.login.refreshToken);
+				navigation.navigate(NAV_SCREEN_NAME.HomeScreen);
+			}
 			else throw res.data.login;
 		}).catch((err) => {
 			console.error("Login error: ", err);
@@ -64,7 +69,7 @@ const SignInScreen = () => {
 					<AuthTextField label={"Password"} value={password} onChangeText={setPassword} isPassword={true} />
 
 					{error ? <Text style={authScreenStyle.errorText}>{error}</Text> : null}
-					
+
 					<GradientButtonComponent text="CONTINUE" loading={loading} onPress={handleSubmit} />
 
 					<View style={authScreenStyle.alternative} >
