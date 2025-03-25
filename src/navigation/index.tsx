@@ -10,6 +10,7 @@ import {
   SignUpScreen,
   VerifyEmailScreen,
   QuestioneirScreen,
+  QuestioneirScreenTwo,
   ForgotPasswordScreen,
   WelcomeScreen,
   CallScreen,
@@ -44,7 +45,7 @@ const AppMainNavigation = () => {
       <Stack.Screen name={NAV_SCREEN_NAME.PasswordScreen} component={PasswordScreen} />
       <Stack.Screen name={NAV_SCREEN_NAME.VerifyEmailScreen} component={VerifyEmailScreen} />
       <Stack.Screen name={NAV_SCREEN_NAME.QuestioneirScreen} component={QuestioneirScreen} />
-
+      <Stack.Screen name={NAV_SCREEN_NAME.QuestioneirScreenTwo} component={QuestioneirScreenTwo} />
       {/* Private Route Screens */}
       <Stack.Screen name={NAV_SCREEN_NAME.WelcomeScreen} component={WelcomeScreen} />
       <Stack.Screen name={NAV_SCREEN_NAME.CallScreen} component={CallScreen} />

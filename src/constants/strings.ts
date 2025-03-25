@@ -53,7 +53,7 @@ export const STRING = {
     "Sign up now as a tutor on Acastudy and empower students with your expertise!",
   OnbordingBecomeATutorButtonText: "Sign up as a Tutor",
   studentBio:
-    "A student bio is a short introduction about yourself that is commonly used in academic settings. It is a way for students to showcase their achievements, goals, and personal qualities. Writing an effective student bio can be a daunting task, but with the right approach, you can create a compelling bio that will leave a lasting impression. In this article, we will discuss why a student bio is important, what to include in a student bio, provide some student bio examples, and share tips for writing an effective student bio.",
+    "A student bio is a short introduction about yourself that is commonly used in academic settings. It is a way for you to showcase your achievements, goals, and personal qualities. Writing an effective student bio can be a daunting task, but with the right approach, you can create a compelling bio that will leave a lasting impression.",
 
   username: "Tokyo Maeliner",
   userAddress: "San Francisco, CA",
@@ -96,7 +96,10 @@ export const STRING = {
   startNewMeeting: "Start a new meeting",
 
   questinnierTitle: "Let us know you more!",
-  questinnierSubtitle: "Please fill in the following details to help us better understand your learning objectives and preferences.",
+  questinnierSubtitle: "Please fill in the following details to help us know you better.",
+
+  questinnierTwoTitle: "Almost there!",
+  questinnierTwoSubtitle: "One last step and we are ready to go.",
 
 
 };
@@ -116,6 +119,7 @@ export const NAV_SCREEN_NAME = {
   OnboardingScreen: "OnboardingScreen",
   VerifyEmailScreen: "VerifyEmailScreen",
   QuestioneirScreen: "QuestioneirScreen",
+  QuestioneirScreenTwo: "QuestioneirScreenTwo",
 
   SubjectTopicsScreen: "SubjectTopicsScreen",
   TutorScreen: "TutorScreen",

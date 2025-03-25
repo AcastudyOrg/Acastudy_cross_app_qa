@@ -1,30 +1,83 @@
 import React, { useState } from "react";
 import { Text, View, TextInput, TouchableOpacity } from "react-native";
+import { useNavigation, useRoute, RouteProp } from "@react-navigation/native";
+import { useMutation } from "@apollo/client";
 
-import { GradientButtonComponent } from "../../components/";
-import { authScreenStyle } from "../../styles/screensStyle/publicStyle/authScreenStyle";
-import TopBarComponent from "../../components/common/TopBar/TopBarComponent";
-import { User } from "../../types/User/Student";
-import { useNavigation } from "@react-navigation/native";
-import { NAV_SCREEN_NAME } from "../../constants/strings";
+import { User } from "@/types/User/Student";
+import { NAV_SCREEN_NAME } from "@/constants/strings";
+import { GradientButtonComponent } from "@/components/";
+import { authScreenStyle } from "@/styles/screensStyle/publicStyle/authScreenStyle";
+import TopBarComponent from "@/components/common/TopBar/TopBarComponent";
+import { verifyOTPCodeMutation, sendVerificationCodeMutation } from "@/graphql/api/auth";
+
+type VerifyEmailParams = {
+  VerifyEmail: {
+    email: string;
+    forgotPassword?: boolean;
+  }
+};
 
 const VerifyEmailScreen = () => {
+  const route = useRoute<RouteProp<VerifyEmailParams, 'VerifyEmail'>>();
+  const { email, forgotPassword = false } = route.params;
 
   const title: string = "Confirm email address";
-  const subtitle: string = "Please enter the verification code sent to `{}` to complete your signup process.";
+  const subtitle: string = `Please enter the verification code sent to ${email} to complete your signup process.`;
 
   const navigation = useNavigation<any>();
   const [code, setCode] = useState(['', '', '', '', '']);
+  const [error, setError] = useState("");
+  const inputRefs = React.useRef<(TextInput | null)[]>([]);
+
+  const [verifyOTPCode, { loading }] = useMutation(verifyOTPCodeMutation);
+  const [sendVerificationCode, { loading: resendingOtp }] = useMutation(sendVerificationCodeMutation);
 
   const handleInputChange = (value: string, index: number) => {
     const newCode = [...code];
     newCode[index] = value;
     setCode(newCode);
+
+    // Move to next input if value is entered and not last input
+    if (value !== '' && index < 4) {
+      inputRefs.current[index + 1]?.focus();
+    }
   };
 
-  const handleOnSubmit = () => {
-    console.log(code.join(''));
-    navigation.navigate(NAV_SCREEN_NAME.QuestioneirScreen)
+  const handleOnSubmit = async () => {
+    setError("");
+    const verificationCode = code.join('')
+    if (verificationCode.length !== 5) {
+      setError("Please enter a valid code or resend code.");
+      return;
+    }
+
+    await verifyOTPCode({ variables: { email, verificationCode } }).then((res) => {
+      if (res.data.verifyOTPCode.status === 200)
+        navigation.navigate(NAV_SCREEN_NAME.PasswordScreen, { email, forgotPassword });
+      else throw res.data.verifyOTPCode;
+    }).catch((err) => {
+      setError(err.message);
+    });
+  };
+
+  const handleResendCode = async () => {
+    await sendVerificationCode({ variables: { email } }).then((res) => {
+      if (res.data.sendVerificationCode.status == 200) console.log("Successful.")
+      else throw res.data.sendVerificationCode;
+    }).catch((err) => {
+      setError(err.message);
+    });
+  };
+
+  const handleKeyPress = (e: any, index: number) => {
+    if (e.nativeEvent.key === "Backspace") {
+      const newCode = [...code];
+      newCode[index] = '';
+      setCode(newCode);
+      if (index !== 0) {
+        inputRefs.current[index - 1]?.focus();
+      }
+    }
   };
 
   const user: User = {
@@ -46,20 +99,23 @@ const VerifyEmailScreen = () => {
             {[...Array(5)].map((_, index) => (
               <TextInput
                 key={index}
+                ref={(ref) => inputRefs.current[index] = ref}
                 style={authScreenStyle.codeInput}
                 maxLength={1}
                 keyboardType="number-pad"
                 onChangeText={(value) => handleInputChange(value, index)}
+                onKeyPress={(e) => handleKeyPress(e, index)}
                 value={code[index]} />
             ))}
           </View>
-
-          <TouchableOpacity style={[authScreenStyle.alternative, { paddingBottom: 20 }]} onPress={() => { }}> 
+          <View style={[authScreenStyle.alternative, { paddingTop: 0 }]}>
+            {error ? <Text style={authScreenStyle.errorText}>{error}</Text> : null}
+          </View>
+          <TouchableOpacity style={[authScreenStyle.alternative, { paddingBottom: 20 }]} onPress={handleResendCode}>
             <Text style={authScreenStyle.clickerbleText}>Resend code.</Text>
           </TouchableOpacity>
 
-          <GradientButtonComponent text="SignIn" onPress={handleOnSubmit} />
-
+          <GradientButtonComponent text="Verify" loading={loading || resendingOtp} onPress={handleOnSubmit} />
         </View>
       </View>
     </View>
