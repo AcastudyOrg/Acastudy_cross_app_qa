@@ -8,6 +8,7 @@ mutation Login($email: String!, $password: String!) {
         status,
         message,
         token,
+        refreshToken
     }
 }`;
 
@@ -51,7 +52,19 @@ mutation verifyOTPCode($email: String!, $verificationCode: String!) {
     }
 }`;
 
+const changePasswordMutation = gql`
+mutation changePassword($email: String!, $password: String!) { 
+    changePassword(passwordInput: { email: $email, password: $password })
+    {
+        status,
+        message
+    }
+}`;
+
 export {
-    loginMutation, sendVerificationCodeMutation, verifyOTPCodeMutation,
-    registerMutation
+    registerMutation,
+    loginMutation, 
+    sendVerificationCodeMutation, 
+    verifyOTPCodeMutation,
+    changePasswordMutation
 };

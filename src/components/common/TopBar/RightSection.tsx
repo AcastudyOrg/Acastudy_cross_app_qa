@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { User } from '../../../types/User/Student';
 import { NAV_SCREEN_NAME, STRING } from '../../../constants/strings';
@@ -35,6 +36,17 @@ type SignedInContentProps = {
 	navigation: any;
 };
 
+const handleLogout = async (navigation: any) => {
+	try {
+		await AsyncStorage.removeItem('token');
+		await AsyncStorage.removeItem('refreshToken');
+		navigation.navigate(NAV_SCREEN_NAME.OnboardingScreen);
+	} catch (error) {
+		console.error('Logout Error:', error);
+	}
+};
+
+
 const SignedInContent: React.FC<SignedInContentProps> = ({ screenWidth, user, navigation }) => (
 	<View style={rightSectionStyles.rightSection}>
 		{screenWidth >= 1086 && (
@@ -45,7 +57,7 @@ const SignedInContent: React.FC<SignedInContentProps> = ({ screenWidth, user, na
 
 				<Text style={rightSectionStyles.linkText}>|</Text>
 
-				<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.OnboardingScreen)}>
+				<TouchableOpacity onPress={() => handleLogout(navigation)}>
 					<Text style={rightSectionStyles.linkText}> {STRING.logout} </Text>
 				</TouchableOpacity>
 			</View>
