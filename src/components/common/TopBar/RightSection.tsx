@@ -2,9 +2,9 @@ import React from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import { User } from '../../../types/User/Student';
-import { NAV_SCREEN_NAME, STRING } from '../../../constants/strings';
-import { rightSectionStyles } from '../../../styles/componentsStyle/commonStyle/topBarStyle/rightSectionStyle';
+import { User } from '@/types/User/Student';
+import { NAV_SCREEN_NAME, STRING } from '@/constants/strings';
+import { rightSectionStyles } from '@/styles/componentsStyle/commonStyle/topBarStyle/rightSectionStyle';
 
 
 type RightSectionProps = {
@@ -37,13 +37,9 @@ type SignedInContentProps = {
 };
 
 const handleLogout = async (navigation: any) => {
-	try {
-		await AsyncStorage.removeItem('token');
-		await AsyncStorage.removeItem('refreshToken');
-		navigation.navigate(NAV_SCREEN_NAME.OnboardingScreen);
-	} catch (error) {
-		console.error('Logout Error:', error);
-	}
+	await AsyncStorage.removeItem('token');
+	await AsyncStorage.removeItem('refreshToken');
+	navigation.navigate(NAV_SCREEN_NAME.OnboardingScreen);
 };
 
 
