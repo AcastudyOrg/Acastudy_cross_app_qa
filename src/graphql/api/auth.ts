@@ -4,11 +4,15 @@ const loginMutation = gql`
 mutation Login($email: String!, $password: String!) { 
     login(loginUserInput: { email: $email, password: $password })
     {
-        id,
-        status,
+        data {
+            id,
+            status,
+            message,
+            token,
+            refreshToken
+        },
         message,
-        token,
-        refreshToken
+        status
     }
 }`;
 
@@ -61,10 +65,95 @@ mutation changePassword($email: String!, $password: String!) {
     }
 }`;
 
+const updateUserMutation = gql`
+mutation updateUser($id: ID!, $updateUserInput: UpdateUserInput!) {
+    updateUser(id: $id, updateUserInput: $updateUserInput) {
+        data {
+            id,
+            email,
+            firstName,
+            lastName,
+            gender,
+            ageGroup,
+            role,
+            biography,
+            levelOfStudy,
+            school,
+            curriculum,
+            interests,
+            address {
+                suburb,
+                city,
+                province
+            }
+        }
+        message,
+        status
+    }
+}`;
+
+//_____________________Query______________________
+const getAllUsersQuery = gql`
+query getAllUsers {
+    getAllUsers {
+        data {
+            id,
+            email,
+            firstName,
+            lastName,
+            gender,
+            ageGroup,
+            role,
+            biography,
+            levelOfStudy,
+            school,
+            curriculum,
+            interests,
+            address {
+                suburb,
+                city,
+                province
+            }
+        }
+        message,
+        status
+    }
+}`;
+
+const getUserQuery = gql`
+query getUser($id: ID!) {
+    getUser(id: $id) {
+        data {
+            id,
+            email,
+            firstName,
+            lastName,
+            gender,
+            ageGroup,
+            role,
+            biography,
+            levelOfStudy,
+            school,
+            curriculum,
+            interests,
+            address {
+                suburb,
+                city,
+                province
+            }
+        }
+        message,
+        status
+    }
+}`;
+
 export {
     registerMutation,
     loginMutation, 
     sendVerificationCodeMutation, 
     verifyOTPCodeMutation,
-    changePasswordMutation
+    changePasswordMutation,
+    updateUserMutation,
+    getAllUsersQuery,
+    getUserQuery,
 };

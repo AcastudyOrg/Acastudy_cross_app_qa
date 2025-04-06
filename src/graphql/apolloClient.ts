@@ -52,14 +52,14 @@ const handleTokenRefresh = (
                 variables: { refreshToken },
             });
 
-            if (!data.refreshToken.token || !data.refreshToken.refreshToken) {
+            if (!data.refreshToken.data) {
                 observer.error(new Error('Invalid refresh token response. Logging out.'));
                 handleLogout();
                 return;
             }
 
-            const newToken = data.refreshToken.token;
-            const newRefreshToken = data.refreshToken.refreshToken;
+            const newToken = data.refreshToken.data.token;
+            const newRefreshToken = data.refreshToken.data.refreshToken;
             await AsyncStorage.setItem('token', newToken);
             await AsyncStorage.setItem('refreshToken', newRefreshToken);
 
@@ -114,17 +114,21 @@ const client = new ApolloClient({
 const refreshTokenMutation = gql`
 mutation RefreshToken($refreshToken: String!) {
     refreshToken(refreshToken: $refreshToken) {
-        status,
+        data {
+            status,
+            message,
+            token,
+            refreshToken
+        },
         message,
-        token,
-        refreshToken
+        status
     }
 }`;
 
 const handleLogout = async () => {
-    const navigation = useNavigation<any>();
     await AsyncStorage.removeItem('token');
     await AsyncStorage.removeItem('refreshToken');
+    const navigation = useNavigation<any>();
     navigation.navigate(NAV_SCREEN_NAME.SignInScreen);
 };
 

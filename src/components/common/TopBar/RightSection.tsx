@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { User } from '@/types/User/Student';
 import { NAV_SCREEN_NAME, STRING } from '@/constants/strings';
 import { rightSectionStyles } from '@/styles/componentsStyle/commonStyle/topBarStyle/rightSectionStyle';
+import { updateAuthStorage } from "@/navigation";
 
 
 type RightSectionProps = {
@@ -37,8 +37,8 @@ type SignedInContentProps = {
 };
 
 const handleLogout = async (navigation: any) => {
-	await AsyncStorage.removeItem('token');
-	await AsyncStorage.removeItem('refreshToken');
+	await updateAuthStorage('token')
+	await updateAuthStorage('refreshToken')
 	navigation.navigate(NAV_SCREEN_NAME.OnboardingScreen);
 };
 
