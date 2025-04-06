@@ -37,8 +37,8 @@ type SignedInContentProps = {
 };
 
 const handleLogout = async (navigation: any) => {
-	await updateAuthStorage('token')
-	await updateAuthStorage('refreshToken')
+	await updateAuthStorage('token');
+	await updateAuthStorage('refreshToken');
 	navigation.navigate(NAV_SCREEN_NAME.OnboardingScreen);
 };
 

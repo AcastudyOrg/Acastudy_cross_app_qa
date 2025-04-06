@@ -13,6 +13,7 @@ import {
 } from '@apollo/client';
 import { NAV_SCREEN_NAME } from '@/constants/strings';
 import { useNavigation } from '@react-navigation/native';
+import { updateAuthStorage } from '@/navigation';
 
 const httpLink = createHttpLink({
     uri: 'http://localhost:8080/graphql',
@@ -126,8 +127,8 @@ mutation RefreshToken($refreshToken: String!) {
 }`;
 
 const handleLogout = async () => {
-    await AsyncStorage.removeItem('token');
-    await AsyncStorage.removeItem('refreshToken');
+    await updateAuthStorage('token');
+    await updateAuthStorage('refreshToken');
     const navigation = useNavigation<any>();
     navigation.navigate(NAV_SCREEN_NAME.SignInScreen);
 };
