@@ -63,7 +63,7 @@ const QuestioneirScreenTwo: React.FC = () => {
                     suburb, city, province: formData.province, password
                 }
             }).then((res) => {
-                if (res.data.registerUser.status === 200) navigation.navigate(NAV_SCREEN_NAME.StudentProfileScreen);
+                if (res.data.registerUser.status === 200) navigation.navigate(NAV_SCREEN_NAME.SignInScreen);
                 else throw res.data.registerUser;
             }).catch((err) => {
                 setError(err.message);

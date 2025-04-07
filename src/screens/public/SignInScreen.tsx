@@ -35,7 +35,6 @@ const SignInScreen = () => {
 			if (res.data.login.status === 200) {
 				await updateAuthStorage('token', res.data.login.data.token)
 				await updateAuthStorage('refreshToken', res.data.login.data.refreshToken)
-				navigation.navigate(NAV_SCREEN_NAME.HomeScreen);
 			}
 			else throw res.data.login;
 		}).catch((err) => {

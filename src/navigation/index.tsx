@@ -26,7 +26,7 @@ import {
   TutorProfileScreen,
   SubjectScreen,
   RequestTutorScreen,
-} from "../screens";
+} from "@/screens";
 import { NAV_SCREEN_NAME } from "../constants/strings";
 
 const PublicNavigation = () => {
