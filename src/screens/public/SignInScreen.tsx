@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { useMutation } from "@apollo/client";
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import TopBarComponent from "@/components/common/TopBar/TopBarComponent";
 import { User } from "@/types/User/Student";
@@ -13,6 +12,7 @@ import { authScreenStyle } from "@/styles/screensStyle/publicStyle/authScreenSty
 import { useNavigation } from "@react-navigation/native";
 import { NAV_SCREEN_NAME, STRING } from "@/constants/strings";
 import { loginMutation } from "@/graphql/api/auth";
+import { updateAuthStorage } from "@/navigation";
 
 const SignInScreen = () => {
 	const navigation = useNavigation<any>()
@@ -33,9 +33,8 @@ const SignInScreen = () => {
 		setError("");
 		await login({ variables: { email, password } }).then(async (res) => {
 			if (res.data.login.status === 200) {
-				await AsyncStorage.setItem('token', res.data.login.token);
-				await AsyncStorage.setItem('refreshToken', res.data.login.refreshToken);
-				navigation.navigate(NAV_SCREEN_NAME.HomeScreen);
+				await updateAuthStorage('token', res.data.login.data.token)
+				await updateAuthStorage('refreshToken', res.data.login.data.refreshToken)
 			}
 			else throw res.data.login;
 		}).catch((err) => {
