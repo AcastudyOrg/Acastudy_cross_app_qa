@@ -18,6 +18,7 @@ type TopBarProps = {
 	showBecomeATutorOnly?: boolean;
 	showBackButton?: boolean;
 	user?: User;
+	viewMode?: string;
 };
 /*
 TopBarComponent
@@ -37,6 +38,7 @@ const TopBarComponent: React.FC<TopBarProps> = ({
 	showBecomeATutorOnly = true,
 	showBackButton = false,
 	user = null,
+	viewMode,
 }) => {
 	const navigation = useNavigation<any>();
 	const screenWidth = useScreenWidth();
@@ -58,6 +60,7 @@ const TopBarComponent: React.FC<TopBarProps> = ({
 						navigation={navigation}
 						isLSignedIn={isLSignedIn}
 						showBecomeATutorOnly={showBecomeATutorOnly}
+						viewMode={viewMode}
 					/>
 				)}
 			</View>
