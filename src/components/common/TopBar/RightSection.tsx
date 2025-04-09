@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 
 import { User } from '@/types/User/Student';
-import { NAV_SCREEN_NAME, STRING } from '@/constants/strings';
+import { NAV_SCREEN_NAME, STRING, VIEW_MODE } from '@/constants/strings';
 import { rightSectionStyles } from '@/styles/componentsStyle/commonStyle/topBarStyle/rightSectionStyle';
 import { updateAuthStorage } from "@/navigation";
 
@@ -12,6 +12,7 @@ type RightSectionProps = {
 	user?: User;
 	navigation: any;
 	isLSignedIn?: boolean;
+	viewMode?: string;
 	showBecomeATutorOnly?: boolean;
 };
 
@@ -20,10 +21,11 @@ const RightSection: React.FC<RightSectionProps> = ({
 	user,
 	navigation,
 	isLSignedIn,
+	viewMode,
 	showBecomeATutorOnly }) => (
 	<>
 		{isLSignedIn ? (
-			<SignedInContent screenWidth={screenWidth} navigation={navigation} user={user} />
+			<SignedInContent screenWidth={screenWidth} navigation={navigation} user={user} viewMode={viewMode}/>
 		) : (
 			<SignedOutContent screenWidth={screenWidth} navigation={navigation} showBecomeATutorOnly={showBecomeATutorOnly} />
 		)}
@@ -34,6 +36,7 @@ type SignedInContentProps = {
 	screenWidth: number;
 	user?: User;
 	navigation: any;
+	viewMode?: string;
 };
 
 const handleLogout = async (navigation: any) => {
@@ -42,15 +45,21 @@ const handleLogout = async (navigation: any) => {
 };
 
 
-const SignedInContent: React.FC<SignedInContentProps> = ({ screenWidth, user, navigation }) => (
+
+const SignedInContent: React.FC<SignedInContentProps> = ({ screenWidth, user, navigation, viewMode }) => (
 	<View style={rightSectionStyles.rightSection}>
 		{screenWidth >= 1086 && (
 			<View style={rightSectionStyles.rightSectionbuttons}>
-				<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.HomeScreen)}>
-					<Text style={rightSectionStyles.linkText}> {STRING.becomeATutor} </Text>
-				</TouchableOpacity>
+				{viewMode === VIEW_MODE.studentView && (
+					
+					<>
+						<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.OnboardingScreen)}>
+							<Text style={rightSectionStyles.linkText}> {STRING.becomeATutor} </Text>
+						</TouchableOpacity>
 
-				<Text style={rightSectionStyles.linkText}>|</Text>
+						<Text style={rightSectionStyles.linkText}>|</Text>
+					</>
+				) }
 
 				<TouchableOpacity onPress={() => handleLogout(navigation)}>
 					<Text style={rightSectionStyles.linkText}> {STRING.logout} </Text>
