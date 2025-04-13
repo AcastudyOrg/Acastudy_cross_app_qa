@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { COLORS } from "../../../../constants";
+import { COLORS, FONT, SIZE } from "../../../../constants";
 
 export const detailsFormComponentStyles = StyleSheet.create({
     detailsFormRow: {
@@ -19,5 +19,17 @@ export const detailsFormComponentStyles = StyleSheet.create({
         width: "100%",
         height: .5,
         backgroundColor: COLORS.white,
+    },
+    personalInfoTitleContainer: {
+        paddingBottom: 15,
+    },
+    personalInfoTitle: {
+        color: COLORS.white,
+        fontSize: SIZE.xl,
+        fontFamily: FONT.plusJakartaMedium,
+    },
+    objectivesContainer: {
+        width: "100%",
+        top: 10,
     },
 });

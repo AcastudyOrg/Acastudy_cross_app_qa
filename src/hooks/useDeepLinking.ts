@@ -36,6 +36,18 @@ const useDeepLinking= () => {
         },
         RequestTutorScreen: {
           path: "web/request-tutor"
+        },
+        SubjectTopicsScreen: {
+          path: "web/subject-topics"
+        },
+        TutorScreen: {
+          path: "web/tutors"
+        },
+        SubjectScreen: {
+          path: "web/subjects"
+        },
+        TutorHomeScreen: {
+          path: "web/home-tutor"
         }
       },
     },
