@@ -66,7 +66,7 @@ mutation changePassword($email: String!, $password: String!) {
 }`;
 
 const updateUserMutation = gql`
-mutation updateUser($id: ID!, $updateUserInput: UpdateUserInput!) {
+mutation updateUser($id: ID!, $updateUserInput: UpdateUserDto!) {
     updateUser(id: $id, updateUserInput: $updateUserInput) {
         data {
             id,

@@ -21,15 +21,23 @@ export const detailsFormComponentStyles = StyleSheet.create({
         backgroundColor: COLORS.white,
     },
     personalInfoTitleContainer: {
-        paddingBottom: 15,
+        width: "100%",
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
     },
     personalInfoTitle: {
         color: COLORS.white,
         fontSize: SIZE.xl,
         fontFamily: FONT.plusJakartaMedium,
+        paddingBottom: 10,
     },
     objectivesContainer: {
         width: "100%",
         top: 10,
+    },
+    personalInfoSaveButton: {
+        right: 0,
+        bottom: 5,
     },
 });
