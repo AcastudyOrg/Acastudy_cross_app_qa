@@ -4,13 +4,14 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { detailsFormComponentStyles } from "@/styles/componentsStyle/sectionsStyle/userProfile/detailsFormComponentStyle";
 import DetailsInputContainerComponent from "./DetailsInputContainerComponent";
 import CustomNoStrokeTextInput from "@/components/common/Form/CustomNoStrokeTextInput";
-import { updateUserMutation } from "@/graphql/api/auth";
-import { useMutation } from '@apollo/client';
+import { updateUserMutation, getUserQuery } from "@/graphql/api/auth";
+import { useMutation, useQuery } from '@apollo/client';
 import { STRING } from "@/constants/strings";
 import CustomIcon from "@/components/common/CustomIcon";
 import { COLORS } from "@/constants";
 
 const DeatilsFormComponent = () => {
+    const [user, setUser] = React.useState<any>(null);
     const [levelOfStudy, setEducation] = React.useState<string>("");
     const [school, setSchool] = React.useState<string>("");
     const [gender, setGender] = React.useState<string>("");
@@ -19,8 +20,54 @@ const DeatilsFormComponent = () => {
     const [isEdited, setIsEdited] = React.useState<boolean>(false);
     const [iconColor, setIconColor] = React.useState<string>(COLORS.grayWhiteText40persent);
 
-    const [updateUser, { loading }] = useMutation(updateUserMutation);
+    const userId = "67be4da84c0d37709fe1ce43";
+    const { data, loading: loadingUser, refetch } = useQuery(getUserQuery, {
+        variables: { id: userId }
+    });
 
+    const [updateUser, { loading }] = useMutation(updateUserMutation, {
+        update(cache, { data }) {
+            const updatedUser = data?.updateUser?.data;
+            if (!updatedUser) return;
+            cache.writeQuery({
+                query: getUserQuery,
+                variables: { id: updatedUser.id },
+                data: {
+                    getUser: {
+                        data: {
+                            ...updatedUser
+                        },
+                        message: "Cache success",
+                        status: data.updateUser.status
+                    }
+                }
+            });
+        }
+    });
+
+    const isEditedField = (textfield: string): Boolean => textfield.length > 0;
+
+    const onPersonalInfoSave = async () => {
+        const formFields = { levelOfStudy, school, gender, curriculum, biography }
+        const updatedFields = Object.fromEntries(Object.entries(formFields).filter(([_, value]) => value.length > 0));
+        const payload = {
+            id: user?.id,
+            updateUserInput: updatedFields
+        }
+
+        await updateUser({ variables: payload }).then((res) => {
+            if (res.data.updateUser.status === 200) {
+                setIconColor(COLORS.grayWhiteText40persent);
+                setIsEdited(false);
+                refetch();
+            }
+            else throw res.data.updateUser;
+        }).catch((err) => {
+            console.log(err.message);
+        })
+    }
+
+    React.useEffect(() => { setUser(data?.getUser?.data) }, [data]);
     React.useEffect(() => {
         if (isEditedField(levelOfStudy) || isEditedField(school) || isEditedField(gender) || isEditedField(curriculum) || isEditedField(biography)) {
             setIconColor(COLORS.purple);
@@ -30,28 +77,6 @@ const DeatilsFormComponent = () => {
             setIsEdited(false);
         }
     }, [levelOfStudy, school, gender, curriculum, biography]);
-
-    const isEditedField = (textfield: string): Boolean => textfield.length > 0;
-
-    const onPersonalInfoSave = async () => {
-        const formFields = { levelOfStudy, school, gender, curriculum, biography }
-        const updatedFields = Object.fromEntries(Object.entries(formFields).filter(([_, value]) => value.length > 0));
-        const payload = {
-            id: "67be4da84c0d37709fe1ce43",
-            updateUserInput: updatedFields
-        }
-        
-        await updateUser({ variables: payload }).then((res) => {
-            if (res.data.updateUser.status === 200) {
-                setIconColor(COLORS.grayWhiteText40persent);
-                setIsEdited(false);
-            }
-            else throw res.data.updateUser;
-        }).catch((err) => {
-            console.log(err.message);
-        })
-    }
-
     return (
         <View>
             <View style={detailsFormComponentStyles.personalInfoTitleContainer}>
@@ -65,19 +90,19 @@ const DeatilsFormComponent = () => {
                 <View style={detailsFormComponentStyles.detailsDivider} />
                 <View style={detailsFormComponentStyles.detailsFormRow}>
                     <View style={detailsFormComponentStyles.inputContainer}>
-                        <DetailsInputContainerComponent value={levelOfStudy} label="Education level" placeholder="Education level" onChange={setEducation} />
+                        <DetailsInputContainerComponent value={levelOfStudy} label="Education level" placeholder={user?.levelOfStudy} onChange={setEducation} />
                     </View>
                     <View style={detailsFormComponentStyles.inputContainer}>
-                        <DetailsInputContainerComponent value={school} label="School" placeholder="School" onChange={setSchool} />
+                        <DetailsInputContainerComponent value={school} label="School" placeholder={user?.school} onChange={setSchool} />
                     </View>
                 </View>
                 <View style={detailsFormComponentStyles.detailsDivider} />
                 <View style={detailsFormComponentStyles.detailsFormRow}>
                     <View style={detailsFormComponentStyles.inputContainer}>
-                        <DetailsInputContainerComponent value={gender} label="Gender" placeholder="Gender" onChange={setGender} />
+                        <DetailsInputContainerComponent value={gender} label="Gender" placeholder={user?.gender} onChange={setGender} />
                     </View>
                     <View style={detailsFormComponentStyles.inputContainer}>
-                        <DetailsInputContainerComponent value={curriculum} label="Curriculum" placeholder="Curriculum" onChange={setCurriculum} />
+                        <DetailsInputContainerComponent value={curriculum} label="Curriculum" placeholder={user?.curriculum} onChange={setCurriculum} />
                     </View>
                 </View>
                 <View style={detailsFormComponentStyles.detailsDivider} />
@@ -87,7 +112,7 @@ const DeatilsFormComponent = () => {
                 <CustomNoStrokeTextInput
                     value={biography}
                     label={"Learning objectives"}
-                    placeholder={STRING.studentBio}
+                    placeholder={user?.biography}//{STRING.studentBio}
                     multiline={true}
                     onChange={setObjective} />
             </View>
