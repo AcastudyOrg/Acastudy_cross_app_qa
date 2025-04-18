@@ -1,24 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TextInput, Keyboard, TouchableOpacity } from 'react-native';
-import { STRING } from '@/constants/strings';
-import { COLORS } from '@/constants';
-import CustomIcon from '@/components/common/CustomIcon';
+import { View, Text, TextInput, Keyboard, TouchableOpacity, ActivityIndicator } from 'react-native';
+
 import { studentSubjectOfInterestStyles } from '@/styles/componentsStyle/sectionsStyle/userProfile/studentSubjectOfInterestStyles';
 import { detailsFormComponentStyles } from '@/styles/componentsStyle/sectionsStyle/userProfile/detailsFormComponentStyle';
-import { updateUserMutation } from "@/graphql/api/auth";
-import { useMutation } from '@apollo/client';
+import { getUserId, useUpdateUser } from '@/graphql/hooks/user';
+import CustomIcon from '@/components/common/CustomIcon';
+import { STRING } from '@/constants/strings';
+import { COLORS } from '@/constants';
 
-interface StudentSubjectOfInterestProps {
+interface SubjectOfInterestProps {
+    refetch: () => void;
     subjects: string[];
 }
 
-const StudentSubjectOfInterest: React.FC<StudentSubjectOfInterestProps> = ({ subjects }) => {
+const StudentSubjectOfInterest: React.FC<SubjectOfInterestProps> = ({ subjects, refetch }) => {
+    const { updateUser, updating } = useUpdateUser();
+
     const [interests, setSubjectList] = useState(subjects);
     const [newSubject, setNewSubject] = useState('');
     const [isEdited, setIsEdited] = useState(false);
     const [iconColor, setIconColor] = useState<string>(COLORS.grayWhiteText40persent);
-
-    const [updateUser, { loading }] = useMutation(updateUserMutation);
 
     useEffect(() => {
         const subjectListStr = JSON.stringify(interests);
@@ -35,9 +36,7 @@ const StudentSubjectOfInterest: React.FC<StudentSubjectOfInterestProps> = ({ sub
     const handleAddSubject = () => {
         const trimmedSubject = newSubject.trim();
         if (trimmedSubject !== '') {
-            const isDuplicate = interests.some(
-                subject => subject.toLowerCase() === trimmedSubject.toLowerCase()
-            );
+            const isDuplicate = interests.some((subject: String) => subject.toLowerCase() === trimmedSubject.toLowerCase());
 
             if (!isDuplicate) {
                 setSubjectList([...interests, trimmedSubject]);
@@ -55,16 +54,17 @@ const StudentSubjectOfInterest: React.FC<StudentSubjectOfInterestProps> = ({ sub
     };
 
     const onSubjectOfInterestSave = async () => {
+        const userId = await getUserId();
         const payload = {
-            id: "67be4da84c0d37709fe1ce43",
+            id: userId,
             updateUserInput: { interests }
         }
-
 
         await updateUser({ variables: payload }).then((res) => {
             if (res.data.updateUser.status === 200) {
                 setIconColor(COLORS.grayWhiteText40persent);
                 setIsEdited(false);
+                refetch();
             }
             else throw res.data.updateUser;
         }).catch((err) => {
@@ -77,7 +77,8 @@ const StudentSubjectOfInterest: React.FC<StudentSubjectOfInterestProps> = ({ sub
             <View style={detailsFormComponentStyles.personalInfoTitleContainer}>
                 <Text style={studentSubjectOfInterestStyles.sectionTitle}>{STRING.subjectOfInterest}</Text>
                 <TouchableOpacity disabled={!isEdited} style={detailsFormComponentStyles.personalInfoSaveButton} onPress={onSubjectOfInterestSave} >
-                    <CustomIcon set={"Feather"} name={"save"} size={25} color={iconColor} />
+                    {updating ? <ActivityIndicator color={COLORS.white} size={"small"} /> :
+                        <CustomIcon set={"Feather"} name={"save"} size={25} color={iconColor} />}
                 </TouchableOpacity>
             </View>
 

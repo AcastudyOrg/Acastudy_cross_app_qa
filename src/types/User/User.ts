@@ -11,7 +11,7 @@ export type UserType = {
     levelOfStudy?: string;
     school?: string;
     curriculum?: string;
-    interests?: string;
+    interests?: string[];
     password?: String,
     role?: 'STUDENT' | 'TUTOR';
     address?: {

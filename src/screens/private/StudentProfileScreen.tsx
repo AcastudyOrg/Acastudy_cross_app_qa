@@ -1,24 +1,23 @@
 import React, { useState } from "react";
 import { ScrollView, Text, View } from "react-native";
 
-import { STRING } from "../../constants/strings";
-import upcomingEventsData from '../../../assets/data/home/upcomingEventsData.json'
-import profileHistoryTableData from "../../../assets/data/profile/profileHistoryTableData.json";
-import { profileScreenStyles } from "../../styles/screensStyle/privateStyle/profileScreenStyle";
+import { STRING } from "@/constants/strings";
+import { useGetUser } from "@/graphql/hooks/user";
+import { LoadingComponent, PrivateScreenLayout } from "@/components";
+import upcomingEventsData from 'assets/data/home/upcomingEventsData.json'
+import profileHistoryTableData from "assets/data/profile/profileHistoryTableData.json";
+import { profileScreenStyles } from "@/styles/screensStyle/privateStyle/profileScreenStyle";
 
-import { PrivateScreenLayout } from "../../components";
-import UpcomingSessionComponent from "../../components/sections/userProfile/UpcomingSessionComponent";
-import ReviewPastMeetingsComponent from "../../components/sections/userProfile/ReviewPastMeetingsComponent";
-import TopProfileComponent from "../../components/sections/userProfile/TopProfileComponent";
-import PersonalInformationComponent from "../../components/sections/userProfile/PersonalInformationComponent";
-import StudentSubjectOfInterest from "../../components/sections/userProfile/StudentSubjectOfInteret";
-import { LoginMockUser } from "../../../mockData/LoginUser";
-import { isPlatformIOSorAndroid } from "../../../utils/config";
-import MeetingPopUpModel from "../../components/common/MeetingPopupModel/MeetingPopUpModel";
-
+import { LoginMockUser } from "mockData/LoginUser";
+import { isPlatformIOSorAndroid } from "utils/config";
+import UpcomingSessionComponent from "@/components/sections/userProfile/UpcomingSessionComponent";
+import ReviewPastMeetingsComponent from "@/components/sections/userProfile/ReviewPastMeetingsComponent";
+import TopProfileComponent from "@/components/sections/userProfile/TopProfileComponent";
+import StudentSubjectOfInterest from "@/components/sections/userProfile/StudentSubjectOfInterest";
+import MeetingPopUpModel from "@/components/common/MeetingPopupModel/MeetingPopUpModel";
+import DeatilsFormComponent from "@/components/sections/userProfile/DetailsFormComponent";
 
 interface UpcomingEvent {
-
 	id: number;
 	thumbnail: string;
 	title: string;
@@ -26,9 +25,10 @@ interface UpcomingEvent {
 	datetime: string;
 	category: string;
 	description: string;
-
 }
+
 const StudentProfileScreen = () => {
+	const { user, loadingUser, refetch } = useGetUser();
 	const [modalVisible, setModalVisible] = useState(false);
 	const [selectedItem, setSelectedItem] = useState<UpcomingEvent | null>(null);
 
@@ -46,10 +46,10 @@ const StudentProfileScreen = () => {
 
 	return (
 		<PrivateScreenLayout showTopBar={false} mobileShowAppLogo={false}>
-			<View style={profileScreenStyles.homeMainContainer}>
-				<TopProfileComponent />
-				<PersonalInformationComponent />
-				<StudentSubjectOfInterest subjects={LoginMockUser.subjects ?? []} />
+			{user && <View style={profileScreenStyles.homeMainContainer}>
+				<TopProfileComponent user={user} />
+				<DeatilsFormComponent user={user} refetch={refetch} />
+				<StudentSubjectOfInterest refetch={refetch} subjects={user.interests ?? []} />
 
 				<View style={profileScreenStyles.titleTextItemContainer}>
 					<Text style={profileScreenStyles.titleTextItem}>
@@ -82,7 +82,7 @@ const StudentProfileScreen = () => {
 						/>
 					</View>
 				)}
-			</View>
+			</View>}
 
 			{selectedItem && (
 				<MeetingPopUpModel
