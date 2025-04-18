@@ -36,7 +36,7 @@ const StudentSubjectOfInterest: React.FC<SubjectOfInterestProps> = ({ subjects, 
     const handleAddSubject = () => {
         const trimmedSubject = newSubject.trim();
         if (trimmedSubject !== '') {
-            const isDuplicate = interests.some((subject: String) => subject.toLowerCase() === trimmedSubject.toLowerCase());
+            const isDuplicate = interests.some((subject: string) => subject.toLowerCase() === trimmedSubject.toLowerCase());
 
             if (!isDuplicate) {
                 setSubjectList([...interests, trimmedSubject]);

@@ -1,5 +1,3 @@
-import { ImageSourcePropType } from 'react-native';
-
 export type UserType = {
     id?: string;
     firstName?: string;
@@ -12,7 +10,7 @@ export type UserType = {
     school?: string;
     curriculum?: string;
     interests?: string[];
-    password?: String,
+    password?: string,
     role?: 'STUDENT' | 'TUTOR';
     address?: {
         suburb?: string;
@@ -31,7 +29,7 @@ export type UserType = {
         };
     };
     onlineStatus?: boolean;
-    imageUrl?: ImageSourcePropType;
+    imageUrl?: string | undefined;
 };
 
 export interface Experience {

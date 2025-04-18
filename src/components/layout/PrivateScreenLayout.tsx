@@ -2,9 +2,7 @@ import * as React from "react";
 import { View, SafeAreaView, Image, ScrollView, TouchableOpacity } from "react-native";
 
 import TopBarComponent from "../common/TopBar/TopBarComponent";
-import { User } from "../../types/User/Student";
 import { COLORS, IMAGES } from "../../constants";
-import { LoginMockUser } from "../../../mockData/LoginUser";
 import SidebarNavComponent from "../common/SideBar/SidebarNavComponent";
 import BottomBarComponent from "../common/BottomBar/BottomBarComponent";
 import { isMobile, isNotMobile } from "../../../utils/config";
@@ -13,10 +11,12 @@ import useScreenWidth from "../../hooks/useScreenWidth";
 import CustomIcon from "../common/CustomIcon";
 import { NAV_SCREEN_NAME, VIEW_MODE } from "../../constants/strings";
 import { useNavigation } from "@react-navigation/native";
+import { useGetUser } from "@/graphql/hooks/user";
+import { UserType } from "@/types/User/User";
 
 
 interface MobileTopNavProps {
-  user: User;
+  user: UserType;
   showTopBar: boolean;
   viewMode?: string;
 }
@@ -98,7 +98,7 @@ const PrivateScreenLayout: React.FC<PrivatePropType> = ({
   const screenWidth = useScreenWidth();
   const isNotMobileWidth = isNotMobile(screenWidth);
   const isMobileWidth = isMobile(screenWidth);
-  const user: User = LoginMockUser;
+    const { user } = useGetUser();
 
   return (
     <SafeAreaView style={[ privateScreenLayoutStyles.layoutContainer,{ flexDirection: isMobileWidth ? "column" : "row" }]}>

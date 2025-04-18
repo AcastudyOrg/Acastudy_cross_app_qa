@@ -3,12 +3,11 @@ import { ScrollView, Text, View } from "react-native";
 
 import { STRING } from "@/constants/strings";
 import { useGetUser } from "@/graphql/hooks/user";
-import { LoadingComponent, PrivateScreenLayout } from "@/components";
+import { PrivateScreenLayout } from "@/components";
 import upcomingEventsData from 'assets/data/home/upcomingEventsData.json'
 import profileHistoryTableData from "assets/data/profile/profileHistoryTableData.json";
 import { profileScreenStyles } from "@/styles/screensStyle/privateStyle/profileScreenStyle";
 
-import { LoginMockUser } from "mockData/LoginUser";
 import { isPlatformIOSorAndroid } from "utils/config";
 import UpcomingSessionComponent from "@/components/sections/userProfile/UpcomingSessionComponent";
 import ReviewPastMeetingsComponent from "@/components/sections/userProfile/ReviewPastMeetingsComponent";

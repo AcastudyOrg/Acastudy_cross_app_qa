@@ -85,7 +85,8 @@ mutation updateUser($id: ID!, $updateUserInput: UpdateUserDto!) {
                 suburb,
                 city,
                 province
-            }
+            },
+            imageUrl
         }
         message,
         status
@@ -113,7 +114,8 @@ query getAllUsers {
                 suburb,
                 city,
                 province
-            }
+            },
+            imageUrl
         }
         message,
         status
@@ -140,7 +142,8 @@ query getUser($id: ID!) {
                 suburb,
                 city,
                 province
-            }
+            },
+            imageUrl
         }
         message,
         status

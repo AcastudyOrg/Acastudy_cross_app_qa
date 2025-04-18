@@ -80,19 +80,19 @@ const DeatilsFormComponent: React.FC<DeatilsFormProps> = ({ user, refetch }) => 
                 <View style={detailsFormComponentStyles.detailsDivider} />
                 <View style={detailsFormComponentStyles.detailsFormRow}>
                     <View style={detailsFormComponentStyles.inputContainer}>
-                        <DetailsInputContainerComponent value={levelOfStudy} label="Education level" placeholder={user?.levelOfStudy || ""} onChange={setEducation} />
+                        <DetailsInputContainerComponent value={levelOfStudy} label="Education level" placeholder={user?.levelOfStudy || "Education level"} onChange={setEducation} />
                     </View>
                     <View style={detailsFormComponentStyles.inputContainer}>
-                        <DetailsInputContainerComponent value={school} label="School" placeholder={user?.school || ""} onChange={setSchool} />
+                        <DetailsInputContainerComponent value={school} label="Institution" placeholder={user?.school || "Institution"} onChange={setSchool} />
                     </View>
                 </View>
                 <View style={detailsFormComponentStyles.detailsDivider} />
                 <View style={detailsFormComponentStyles.detailsFormRow}>
                     <View style={detailsFormComponentStyles.inputContainer}>
-                        <DetailsInputContainerComponent value={gender} label="Gender" placeholder={user?.gender || ""} onChange={setGender} />
+                        <DetailsInputContainerComponent value={gender} label="Gender" placeholder={user?.gender || "Gender"} onChange={setGender} />
                     </View>
                     <View style={detailsFormComponentStyles.inputContainer}>
-                        <DetailsInputContainerComponent value={curriculum} label="Curriculum" placeholder={user?.curriculum || ""} onChange={setCurriculum} />
+                        <DetailsInputContainerComponent value={curriculum} label="Curriculum" placeholder={user?.curriculum || "Curriculum"} onChange={setCurriculum} />
                     </View>
                 </View>
                 <View style={detailsFormComponentStyles.detailsDivider} />
@@ -102,7 +102,7 @@ const DeatilsFormComponent: React.FC<DeatilsFormProps> = ({ user, refetch }) => 
                 <CustomNoStrokeTextInput
                     value={biography}
                     label={"Learning objectives"}
-                    placeholder={user?.biography || ""}//{STRING.studentBio}
+                    placeholder={user?.biography || STRING.studentBio}
                     multiline={true}
                     onChange={setBiography} />
             </View>

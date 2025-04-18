@@ -14,7 +14,7 @@ const TopProfileComponent: React.FC<TopProfileProps> = ({ user }) => {
     <View style={profileScreenStyles.topProfileContainer}>
       <View style={profileScreenStyles.topProfileImageContainer}>
         <Image
-          source={{ uri: IMAGES.studentPicture }}
+          source={user?.imageUrl ? { uri: user?.imageUrl } : IMAGES.userPlaceholder}
           style={profileScreenStyles.topProfileImage}
         />
         <View style={profileScreenStyles.topProfileTextNameContainer}>
