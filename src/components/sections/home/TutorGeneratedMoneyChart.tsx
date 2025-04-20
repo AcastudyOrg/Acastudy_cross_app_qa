@@ -16,7 +16,7 @@ const TutorGeneratedMoneyChart: React.FC<TutorGeneratedMoneyChartProps> = ({ tot
     const barData = totalAmount.map((value, index) => ({
         value,
         svg: {
-            fill: COLORS.green,
+            fill: COLORS.orange,
             rx: 10,
             onPress: () => { }, // what happens when you press the bar?
         },
