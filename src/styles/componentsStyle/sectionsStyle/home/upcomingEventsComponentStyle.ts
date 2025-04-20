@@ -7,7 +7,7 @@ export const upcomingEventsComponentStyles = StyleSheet.create({
         marginRight: 15,
     },
     upcomingEventsContentContainer: {
-        flexDirection: 'row',
+        flexDirection: 'column',
         paddingVertical: 8,
         paddingRight: 8,
         paddingLeft: 14,
