@@ -33,7 +33,7 @@ const CustomNoStrokeTextInput: React.FC<CustomNoStrokeTextInputProps> = ({
         onChangeText={onChange}
         placeholder={placeholder}
         multiline={multiline}
-        placeholderTextColor={COLORS.darkGrayOpacity}
+        placeholderTextColor={COLORS.lightGray}
         style={[
           customNoStrokeTextInputStyles.input,
           { minHeight: multiline ? 100 : 40 },

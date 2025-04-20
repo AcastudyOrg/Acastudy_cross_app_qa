@@ -1,15 +1,16 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 
-import { User } from '@/types/User/Student';
 import { NAV_SCREEN_NAME, STRING, VIEW_MODE } from '@/constants/strings';
 import { rightSectionStyles } from '@/styles/componentsStyle/commonStyle/topBarStyle/rightSectionStyle';
 import { updateAuthStorage } from "@/navigation";
+import { UserType } from '@/types/User/User';
+import { IMAGES } from '@/constants';
 
 
 type RightSectionProps = {
 	screenWidth: number;
-	user?: User;
+	user?: UserType;
 	navigation: any;
 	isLSignedIn?: boolean;
 	viewMode?: string;
@@ -25,7 +26,7 @@ const RightSection: React.FC<RightSectionProps> = ({
 	showBecomeATutorOnly }) => (
 	<>
 		{isLSignedIn ? (
-			<SignedInContent screenWidth={screenWidth} navigation={navigation} user={user} viewMode={viewMode}/>
+			<SignedInContent screenWidth={screenWidth} navigation={navigation} user={user} viewMode={viewMode} />
 		) : (
 			<SignedOutContent screenWidth={screenWidth} navigation={navigation} showBecomeATutorOnly={showBecomeATutorOnly} />
 		)}
@@ -34,7 +35,7 @@ const RightSection: React.FC<RightSectionProps> = ({
 
 type SignedInContentProps = {
 	screenWidth: number;
-	user?: User;
+	user?: UserType;
 	navigation: any;
 	viewMode?: string;
 };
@@ -51,7 +52,7 @@ const SignedInContent: React.FC<SignedInContentProps> = ({ screenWidth, user, na
 		{screenWidth >= 1086 && (
 			<View style={rightSectionStyles.rightSectionbuttons}>
 				{viewMode === VIEW_MODE.studentView && (
-					
+
 					<>
 						<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.OnboardingScreen)}>
 							<Text style={rightSectionStyles.linkText}> {STRING.becomeATutor} </Text>
@@ -59,7 +60,7 @@ const SignedInContent: React.FC<SignedInContentProps> = ({ screenWidth, user, na
 
 						<Text style={rightSectionStyles.linkText}>|</Text>
 					</>
-				) }
+				)}
 
 				<TouchableOpacity onPress={() => handleLogout(navigation)}>
 					<Text style={rightSectionStyles.linkText}> {STRING.logout} </Text>
@@ -68,10 +69,10 @@ const SignedInContent: React.FC<SignedInContentProps> = ({ screenWidth, user, na
 		)}
 		{user && (
 			<View style={rightSectionStyles.profile}>
-				<Text style={rightSectionStyles.profileName}>{user.name} {user.surname}</Text>
+				<Text style={rightSectionStyles.profileName}>{user.firstName} {user.lastName}</Text>
 				<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.StudentProfileScreen)}>
 					<Image
-						source={user.profilePictureUrl}
+						source={user?.imageUrl ? { uri: user?.imageUrl } : IMAGES.userPlaceholder}
 						style={rightSectionStyles.profilePicture}
 					/>
 				</TouchableOpacity>
