@@ -5,8 +5,8 @@ import { useNavigation } from '@react-navigation/native';
 import useScreenWidth from '../../../hooks/useScreenWidth';
 import LeftSection from './LeftSection';
 import RightSection from './RightSection';
-import { User } from '../../../types/User/Student';
 import { topBarComponentStyles } from '../../../styles/componentsStyle/commonStyle/topBarStyle/topBarComponentStyle';
+import { UserType } from '@/types/User/User';
 
 type TopBarProps = {
 	title?: string;
@@ -17,7 +17,7 @@ type TopBarProps = {
 	isLSignedIn?: boolean;
 	showBecomeATutorOnly?: boolean;
 	showBackButton?: boolean;
-	user?: User;
+	user?: UserType;
 	viewMode?: string;
 };
 /*

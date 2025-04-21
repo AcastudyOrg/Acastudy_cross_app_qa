@@ -33,8 +33,9 @@ const SignInScreen = () => {
 		setError("");
 		await login({ variables: { email, password } }).then(async (res) => {
 			if (res.data.login.status === 200) {
-				await updateAuthStorage('token', res.data.login.data.token)
-				await updateAuthStorage('refreshToken', res.data.login.data.refreshToken)
+				await updateAuthStorage('token', res.data.login.data.token);
+				await updateAuthStorage('refreshToken', res.data.login.data.refreshToken);
+				await updateAuthStorage('userId', res.data.login.data.id);
 			}
 			else throw res.data.login;
 		}).catch((err) => {
