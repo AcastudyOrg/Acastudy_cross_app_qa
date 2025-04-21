@@ -13,26 +13,45 @@ import { COLORS } from "@/constants";
 import { ReviewIcons } from "@/components/common/ReviewIcons";
 import FeedbackSection from "@/components/sections/home/FeedbackSection";
 
+export interface Feedback {
+	image: string;
+	title: string;
+	username: string;
+	message: string;
+	rating: number;
+}
 
 const TutorHomeScreen = () => {
-
-	// mock data for the chart
 	const amount = [500, 750, 1000, 1650, 750, 1800, 3000];
 	const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 	const totalHours = 21;
 	const pendingRequests = 13;
 	const acummulatedMoney = 2050;
 	const overallRating = 3.6
-	const feedbacks = [
+	const feedbacks: Feedback[] = [
 		{
-			image: "https://example.com/image1.jpg",
+			image: "https://images.unsplash.com/photo-1624395213043-fa2e123b2656?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 			title: "Amazing Tutor",
 			username: "John Doe",
-			message: "Great tutor! Helped me a lot with my studies.",
+			message: "Great tutor! Helped me a lot with my studies. I was studiing for my finals and he was very helpful with mathematics in my grade 12 year.",
 			rating: 3.6,
 		},
 		{
-			image: "https://example.com/image1.jpg",
+			image: "https://images.unsplash.com/photo-1579038773867-044c48829161?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+			title: "Not sertified",
+			username: "Jane Smith",
+			message: "The tutor seemed to be clue less as I am.",
+			rating: 4,
+		},
+		{
+			image: "https://images.unsplash.com/photo-1624395213043-fa2e123b2656?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+			title: "Amazing Tutor",
+			username: "John Doe",
+			message: "Great tutor! Helped me a lot with my studies. I was studiing for my finals and he was very helpful with mathematics in my grade 12 year.",
+			rating: 3.6,
+		},
+		{
+			image: "https://images.unsplash.com/photo-1579038773867-044c48829161?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 			title: "Not sertified",
 			username: "Jane Smith",
 			message: "The tutor seemed to be clue less as I am.",
