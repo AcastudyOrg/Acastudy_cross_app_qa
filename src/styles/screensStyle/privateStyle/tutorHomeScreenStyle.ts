@@ -6,7 +6,7 @@ export const tutorHomeScreenStyle = StyleSheet.create({
       flex: 1,
       flexDirection: 'row',
       backgroundColor: COLORS.transparent,
-      padding: 20,
+      paddingVertical: 20,
       gap: 20,
       marginHorizontal: 10,
     },

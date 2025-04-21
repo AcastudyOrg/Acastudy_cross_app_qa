@@ -39,6 +39,7 @@ const studentProfileTableHeader = "#858AA4";
 const imageBackgroundGray = "#23274A";
 const grayWhiteText = "#94a3b8";
 const grayWhiteText40persent = "#64748b";
+const gold = "#d4af37"
 
 const colors = {
   white,
@@ -82,6 +83,7 @@ const colors = {
   imageBackgroundGray,
   grayWhiteText,
   grayWhiteText40persent,
+  gold,
 };
 
 export default colors;
