@@ -34,9 +34,13 @@ const PublicNavigation = () => {
   const PublicStack = createNativeStackNavigator();
   return (
     <PublicStack.Navigator
-      initialRouteName={NAV_SCREEN_NAME.OnboardingScreen}
+      initialRouteName={NAV_SCREEN_NAME.TutorHomeScreen}
       screenOptions={{ headerShown: false }}
     >
+      {/* Todo: is to be removed */}
+      <PublicStack.Screen name={NAV_SCREEN_NAME.TutorHomeScreen} component={TutorHomeScreen} />
+      <PublicStack.Screen name={NAV_SCREEN_NAME.HomeScreen} component={HomeScreen} />
+
       <PublicStack.Screen name={NAV_SCREEN_NAME.ForgotPasswordScreen} component={ForgotPasswordScreen} />
       <PublicStack.Screen name={NAV_SCREEN_NAME.OnboardingScreen} component={OnboardingScreen} />
       <PublicStack.Screen name={NAV_SCREEN_NAME.PrivacyPolicyScreen} component={PrivacyPolicyScreen} />

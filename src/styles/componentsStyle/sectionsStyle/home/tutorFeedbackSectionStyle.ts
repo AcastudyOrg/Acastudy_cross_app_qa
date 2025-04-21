@@ -8,7 +8,7 @@ export const feedbackSectionStyles = StyleSheet.create({
     backgroundColor: COLORS.white10Percent,
     borderRadius: 10,
     padding: 10,
-    height: 320,
+    height: 300,
   },
   header: {
     flexDirection: "row",
