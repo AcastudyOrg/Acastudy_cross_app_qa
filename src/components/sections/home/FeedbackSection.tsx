@@ -2,8 +2,7 @@ import React from "react";
 import { View, Text, ScrollView, Image } from "react-native";
 import { ReviewIcons } from "@/components/common/ReviewIcons";
 import { feedbackSectionStyles } from "@/styles/componentsStyle/sectionsStyle/home/tutorFeedbackSectionStyle";
-import { COLORS } from "@/constants";
-import fontFamily from "@/constants/fontFamily";
+import { COLORS, FONT } from "@/constants";
 import useScreenWidth from "@/hooks/useScreenWidth";
 import { homeTileScreenWidth } from "utils/config";
 import { Feedback } from "@/screens/private/Tutor/TutorHomeScreen";
@@ -27,7 +26,7 @@ const FeedbackSection: React.FC<FeedbackSectionProps> = ({ overallRating, feedba
 			</View>
 			{feedbacks.length === 0 ? (
 				<View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-					<Text style={{ color: COLORS.lightGray, fontFamily: fontFamily.plusJakartaBold }}>
+					<Text style={{ color: COLORS.lightGray, fontFamily: FONT.plusJakartaBold }}>
 						No unseen feedbacks yet!
 					</Text>
 				</View>

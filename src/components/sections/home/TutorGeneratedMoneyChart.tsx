@@ -3,8 +3,7 @@ import { View, Text } from 'react-native';
 import { BarChart, Grid, XAxis } from 'react-native-svg-charts';
 import { G, Text as SVGText } from 'react-native-svg';
 import * as scale from 'd3-scale';
-import { COLORS } from '@/constants';
-import fontFamily from '@/constants/fontFamily';
+import { COLORS, FONT } from '@/constants';
 import { tutorGeneratedMoneyChartStyles } from '@/styles/componentsStyle/sectionsStyle/home/tutorGeneratedMoneyChart';
 
 
@@ -47,7 +46,7 @@ const TutorGeneratedMoneyChart: React.FC<TutorGeneratedMoneyChartProps> = ({ tot
                         svg={{
                             fill: 'white',
                             fontSize: 16,
-                            fontFamily: fontFamily.plusJakartaBold,
+                            fontFamily: FONT.plusJakartaBold,
                             fontWeight: 'bold',
                         }}
                     />
@@ -71,7 +70,7 @@ const Labels = ({ x, y, bandwidth, data }: any) => (
                     fill="white"
                     alignmentBaseline="middle"
                     textAnchor="middle"
-                    fontFamily={fontFamily.plusJakartaBold}
+                    fontFamily={FONT.plusJakartaBold}
                 >
                     R {value}
                 </SVGText>

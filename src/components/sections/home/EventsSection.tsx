@@ -16,9 +16,10 @@ type eventsSectionProps = {
     }[];
     showViewMoreButton?: boolean;
     showButton?: boolean;
+    viewMode?: string;
 };
 
-const EventsSection: React.FC<eventsSectionProps> = ({ upcomingEventsData, showViewMoreButton = true, showButton = false}) => {
+const EventsSection: React.FC<eventsSectionProps> = ({ upcomingEventsData, showViewMoreButton = true, showButton = false, viewMode }) => {
     const handleViewMore = () => {
         console.log('view more events')
     }
@@ -39,7 +40,7 @@ const EventsSection: React.FC<eventsSectionProps> = ({ upcomingEventsData, showV
             >
                 {upcomingEventsData.map((item, i) => (
                     <View key={i} style={eventsSectionStyles.eventsContainer}>
-                        <UpcomingEventsComponent showButton={showButton} item={item} />
+                        <UpcomingEventsComponent showButton={showButton} item={item} viewMode/>
                     </View>
                 ))}
             </ScrollView>

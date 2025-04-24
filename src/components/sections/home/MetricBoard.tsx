@@ -2,8 +2,7 @@ import React, { ReactNode } from "react";
 import { View, Text, Pressable } from "react-native";
 import { tutorHomeScreenStyle } from "@/styles/screensStyle/privateStyle/tutorHomeScreenStyle";
 import CustomIcon from "@/components/common/CustomIcon";
-import { COLORS } from "@/constants";
-import fontFamily from "@/constants/fontFamily";
+import { COLORS, FONT } from "@/constants";
 
 interface MetricBoardProps {
     totalHours: number;
@@ -23,14 +22,14 @@ export const MetricBoard: React.FC<MetricBoardProps> = ({ totalHours = 0, pendin
                 <MetricCard
                     label="Panding Requests"
                     value={pendingRequests}
-                    icon={<CustomIcon set="MaterialIcons" name="live-help" size={50} color={COLORS.fullRed} />}
+                    icon={<CustomIcon set="MaterialIcons" name="live-help" size={50} color={COLORS.red50Percent} />}
                 />
             </View>
             <View style={{ paddingHorizontal: 10 }}>
                 <MetricCard
                     label="Acummulated Money"
                     value={`R ${acummulatedMoney}`}
-                    icon={<CustomIcon set="FontAwesome6" name="money-bill-trend-up" size={50} color={COLORS.lightGreen} />}
+                    icon={<CustomIcon set="FontAwesome6" name="money-bill-trend-up" size={50} color={COLORS.green50Percent} />}
                 />
             </View>
         </View>
@@ -53,10 +52,10 @@ const MetricCard: React.FC<MetricCardProps> = ({
 }) => {
     return (
         <Pressable onPress={onPress} style={{ flex: 1, backgroundColor: COLORS.white10Percent, borderRadius: 10, padding: 10, width: '100%' }}>
-            <Text style={{ color: COLORS.gray60, fontSize: 18, fontFamily: fontFamily.plusJakartaBold }}>{label}</Text>
+            <Text style={{ color: COLORS.gray60, fontSize: 18, fontFamily: FONT.plusJakartaBold }}>{label}</Text>
             <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
                 {icon}
-                <Text style={{ color: COLORS.lightGray, fontSize: 64, fontFamily: fontFamily.plusJakartaBold, marginStart: "10%" }}>{value}</Text>
+                <Text style={{ color: COLORS.lightGray, fontSize: 64, fontFamily: FONT.plusJakartaBold, marginStart: "10%" }}>{value}</Text>
             </View>
         </Pressable>
 

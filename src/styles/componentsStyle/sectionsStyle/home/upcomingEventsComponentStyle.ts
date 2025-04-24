@@ -18,13 +18,14 @@ export const upcomingEventsComponentStyles = StyleSheet.create({
         flexDirection: 'column',
     },
     upcomingImageItem: {
-        height: 55,
+        height: 56,
         borderRadius: 5
     },
     upcomingTextCardContainer: {
         flexDirection: 'column',
         flex: 1,
         gap: 2,
+        paddingStart: 5,
     },
     upcomingTextCardTitle: {
         color: COLORS.white,
@@ -43,4 +44,19 @@ export const upcomingEventsComponentStyles = StyleSheet.create({
         fontFamily: FONT.plusJakartaExtraLight,
         opacity: 0.5
     },
+    upcomingButtonContainer: {
+        color: COLORS.white10Percent,
+        borderRadius: 20,
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+        backgroundColor: COLORS.white10Percent,
+    },
+    upcomingButtonText: {
+        textAlign: 'center',
+        paddingVertical: 5,
+        paddingHorizontal: 10,
+        fontSize: SIZE.m,  
+        fontFamily: FONT.plusJakartaBold,
+        color: COLORS.white,
+    }
 });

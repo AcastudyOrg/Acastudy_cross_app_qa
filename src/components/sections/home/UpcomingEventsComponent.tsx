@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Pressable, Text, Touchable, View } from 'react-native';
+import { Image, Text, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 import { COLORS } from '../../../constants';
@@ -7,7 +7,7 @@ import { formatDateTime, homeTileScreenWidth } from '../../../../utils/config';
 import { upcomingEventsComponentStyles } from '../../../styles/componentsStyle/sectionsStyle/home/upcomingEventsComponentStyle';
 import useScreenWidth from '../../../hooks/useScreenWidth';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import GradientButtonComponent from '@/components/common/Form/GradientButtonComponent';
+import { VIEW_MODE } from '@/constants/strings';
 
 type EventsProps = {
     item: {
@@ -19,9 +19,10 @@ type EventsProps = {
         category: string;
     }
     showButton?: boolean;
+    viewMode?: string;
 };
 
-const UpcomingEventsComponent: React.FC<EventsProps> = ({ item, showButton }) => {
+const UpcomingEventsComponent: React.FC<EventsProps> = ({ item, showButton, viewMode}) => {
     const screenWidth = useScreenWidth();
     const containerWidth = homeTileScreenWidth(screenWidth);
     return (
@@ -68,10 +69,14 @@ const UpcomingEventsComponent: React.FC<EventsProps> = ({ item, showButton }) =>
                         </Text>
                     </View>
                 </View>
-                
+
                 { showButton && (
-                    <GradientButtonComponent text={'Begin'} onPress={()=>{}} />
-                )}
+                            <TouchableOpacity style={upcomingEventsComponentStyles.upcomingButtonContainer}>
+                                <Text style={upcomingEventsComponentStyles.upcomingButtonText}>
+                                    {viewMode === VIEW_MODE.studentView ? 'Join' : 'Start'}
+                                </Text>
+                            </TouchableOpacity>
+                        )}
             </LinearGradient>
         </View>
     )

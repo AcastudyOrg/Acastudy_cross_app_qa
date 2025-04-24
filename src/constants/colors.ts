@@ -15,9 +15,11 @@ const lightGrayOpacity = "rgba(175, 175, 175, 0.1)";
 const midGrayOpacity = "rgba(175, 175, 175, 0.2)";
 const fullRed = "#f00";
 const red = "#DC3545";
+const red50Percent = "rgba(220, 53, 70, 1)";
 const green = "#28A745";
 const lightGreen = "#00DD00";
 const green19Percent = "rgba(50, 205, 50, .19)";
+const green50Percent = "rgba(0, 255, 0, 0.5)";
 const blue = "#4361ee";
 const darkBlue = "#1A1E36";
 const skyBlue = "#2A3051";
@@ -59,8 +61,10 @@ const colors = {
   midGrayOpacity,
   fullRed,
   red,
+  red50Percent,
   green,
   lightGreen,
+  green50Percent,
   green19Percent,
   blue,
   darkBlue,

@@ -1,6 +1,5 @@
 import { StyleSheet } from "react-native";
-import { COLORS } from "@/constants";
-import fontFamily from "@/constants/fontFamily";
+import { COLORS, FONT } from "@/constants";
 
 export const feedbackSectionStyles = StyleSheet.create({
   container: {
@@ -22,7 +21,7 @@ export const feedbackSectionStyles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: "bold",
-    fontFamily: fontFamily.plusJakartaBold,
+    fontFamily: FONT.plusJakartaBold,
     color: COLORS.lightGray,
   },
   ratingContainer: {
@@ -32,7 +31,7 @@ export const feedbackSectionStyles = StyleSheet.create({
   ratingText: {
     fontSize: 18,
     fontWeight: "bold",
-    fontFamily: fontFamily.plusJakartaBold,
+    fontFamily: FONT.plusJakartaBold,
     color: COLORS.lightGray,
     margin: 10,
   },
@@ -47,7 +46,7 @@ export const feedbackSectionStyles = StyleSheet.create({
   },
   username: {
     fontSize: 16,
-    fontFamily: fontFamily.plusJakartaBold,
+    fontFamily: FONT.plusJakartaBold,
     paddingTop: 5,
     color: COLORS.white50Percent,
   },
