@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import {
     Ionicons, FontAwesome, Feather, Octicons, Fontisto,
-    MaterialIcons, AntDesign, Entypo, EvilIcons, MaterialCommunityIcons, FontAwesome5
+    MaterialIcons, AntDesign, Entypo, EvilIcons, MaterialCommunityIcons, FontAwesome5, FontAwesome6
 } from "@expo/vector-icons";
 
 import { customIconStyle } from '../../styles/componentsStyle/commonStyle/customIconStyle';
@@ -29,6 +29,7 @@ const iconMap = {
     EvilIcons,
     MaterialCommunityIcons,
     FontAwesome5, 
+    FontAwesome6,
 };
 
 /* For the documentation of the icons look at https://icons.expo.fyi/Index 😎

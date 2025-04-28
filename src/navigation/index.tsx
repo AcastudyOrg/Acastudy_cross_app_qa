@@ -37,6 +37,7 @@ const PublicNavigation = () => {
       initialRouteName={NAV_SCREEN_NAME.OnboardingScreen}
       screenOptions={{ headerShown: false }}
     >
+
       <PublicStack.Screen name={NAV_SCREEN_NAME.ForgotPasswordScreen} component={ForgotPasswordScreen} />
       <PublicStack.Screen name={NAV_SCREEN_NAME.OnboardingScreen} component={OnboardingScreen} />
       <PublicStack.Screen name={NAV_SCREEN_NAME.PrivacyPolicyScreen} component={PrivacyPolicyScreen} />

@@ -6,6 +6,8 @@ import { COLORS } from '../../../constants';
 import { formatDateTime, homeTileScreenWidth } from '../../../../utils/config';
 import { upcomingEventsComponentStyles } from '../../../styles/componentsStyle/sectionsStyle/home/upcomingEventsComponentStyle';
 import useScreenWidth from '../../../hooks/useScreenWidth';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { VIEW_MODE } from '@/constants/strings';
 
 type EventsProps = {
     item: {
@@ -16,9 +18,11 @@ type EventsProps = {
         datetime: string;
         category: string;
     }
+    showButton?: boolean;
+    viewMode?: string;
 };
 
-const UpcomingEventsComponent: React.FC<EventsProps> = ({ item }) => {
+const UpcomingEventsComponent: React.FC<EventsProps> = ({ item, showButton, viewMode}) => {
     const screenWidth = useScreenWidth();
     const containerWidth = homeTileScreenWidth(screenWidth);
     return (
@@ -28,41 +32,51 @@ const UpcomingEventsComponent: React.FC<EventsProps> = ({ item }) => {
                 end={{ x: 0, y: 1 }}
                 colors={[COLORS.darkGrayOpacity, COLORS.transparent, COLORS.lightGrayOpacity]}
                 style={upcomingEventsComponentStyles.upcomingEventsContentContainer}>
-                <View style={upcomingEventsComponentStyles.upcomingImageContainer}>
-                    <Image
-                        source={{ uri: item.thumbnail }}
-                        style={[upcomingEventsComponentStyles.upcomingImageItem, { width: containerWidth * .22 }]}
-                        resizeMode="cover"
-                    />
+                <View style={{flexDirection: 'row'}}>
+                    <View style={upcomingEventsComponentStyles.upcomingImageContainer}>
+                        <Image
+                            source={{ uri: item.thumbnail }}
+                            style={[upcomingEventsComponentStyles.upcomingImageItem, { width: containerWidth * .22 }]}
+                            resizeMode="cover"
+                        />
+                    </View>
+
+                    <View style={upcomingEventsComponentStyles.upcomingTextCardContainer}>
+                        <Text
+                            style={upcomingEventsComponentStyles.upcomingTextCardTitle}
+                            numberOfLines={1}
+                            ellipsizeMode="tail"
+                        >
+                            {item.title + " " + "lets see"}
+                        </Text>
+                        <Text style={upcomingEventsComponentStyles.upcomingTextCardNormal}
+                            numberOfLines={1}
+                            ellipsizeMode="tail"
+                        >
+                            {item.tutor}
+                        </Text>
+                        <Text style={upcomingEventsComponentStyles.upcomingTextCard}
+                            numberOfLines={1}
+                            ellipsizeMode="tail"
+                        >
+                            {formatDateTime(item.datetime)}
+                        </Text>
+                        <Text style={upcomingEventsComponentStyles.upcomingTextCard}
+                            numberOfLines={1}
+                            ellipsizeMode="tail"
+                        >
+                            Category: {item.category}
+                        </Text>
+                    </View>
                 </View>
 
-                <View style={upcomingEventsComponentStyles.upcomingTextCardContainer}>
-                    <Text
-                        style={upcomingEventsComponentStyles.upcomingTextCardTitle}
-                        numberOfLines={1}
-                        ellipsizeMode="tail"
-                    >
-                        {item.title + " " + "lets see"}
-                    </Text>
-                    <Text style={upcomingEventsComponentStyles.upcomingTextCardNormal}
-                        numberOfLines={1}
-                        ellipsizeMode="tail"
-                    >
-                        {item.tutor}
-                    </Text>
-                    <Text style={upcomingEventsComponentStyles.upcomingTextCard}
-                        numberOfLines={1}
-                        ellipsizeMode="tail"
-                    >
-                        {formatDateTime(item.datetime)}
-                    </Text>
-                    <Text style={upcomingEventsComponentStyles.upcomingTextCard}
-                        numberOfLines={1}
-                        ellipsizeMode="tail"
-                    >
-                        Category: {item.category}
-                    </Text>
-                </View>
+                { showButton && (
+                            <TouchableOpacity style={upcomingEventsComponentStyles.upcomingButtonContainer}>
+                                <Text style={upcomingEventsComponentStyles.upcomingButtonText}>
+                                    {viewMode === VIEW_MODE.studentView ? 'Join' : 'Start'}
+                                </Text>
+                            </TouchableOpacity>
+                        )}
             </LinearGradient>
         </View>
     )
