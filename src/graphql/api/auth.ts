@@ -18,7 +18,7 @@ mutation Login($email: String!, $password: String!) {
 
 const registerMutation = gql`
 mutation Register(
-    $email: String!, $firstName: String!, $lastName: String!, $gender: String!,
+    $email: String!, $firstName: String!, $lastName: String!, $gender: String!, $role: String="STUDENT",
     $ageGroup: String!, $suburb: String!, $city: String!, $province: String!, $password: String!
 ) { 
     registerUser(
@@ -29,6 +29,7 @@ mutation Register(
             gender: $gender,
             ageGroup: $ageGroup,
             address: { suburb: $suburb, city: $city, province: $province },
+            role: $role,
             password: $password,
         }
     )
@@ -122,6 +123,35 @@ query getAllUsers {
     }
 }`;
 
+//_____________________Query______________________
+const getAllTutorsQuery = gql`
+query getAllTutors {
+    getAllTutors {
+        data {
+            id,
+            email,
+            firstName,
+            lastName,
+            gender,
+            ageGroup,
+            role,
+            biography,
+            levelOfStudy,
+            school,
+            curriculum,
+            interests,
+            address {
+                suburb,
+                city,
+                province
+            },
+            imageUrl
+        }
+        message,
+        status
+    }
+}`;
+
 const getUserQuery = gql`
 query getUser($id: ID!) {
     getUser(id: $id) {
@@ -158,5 +188,6 @@ export {
     changePasswordMutation,
     updateUserMutation,
     getAllUsersQuery,
+    getAllTutorsQuery,
     getUserQuery,
 };

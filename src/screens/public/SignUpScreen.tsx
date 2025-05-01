@@ -4,7 +4,6 @@ import { useNavigation } from "@react-navigation/native";
 import { useMutation } from "@apollo/client";
 
 import { validateEmail } from "utils/login";
-import { User } from "@/types/User/Student";
 import { NAV_SCREEN_NAME } from "@/constants/strings";
 import { GradientButtonComponent } from "@/components/";
 import { authScreenStyle } from "@/styles/screensStyle/publicStyle/authScreenStyle";
@@ -25,13 +24,6 @@ const SignUpScreen = () => {
 
   const [sendVerificationCode, { loading }] = useMutation(sendVerificationCodeMutation);
 
-  const user: User = {
-    name: "",
-    surname: "",
-    profilePictureUrl: 0,
-    subjects: []
-  };
-
   const handleSubmit = async () => {
     setError("");
     if (!validateEmail(email)) {
@@ -50,7 +42,7 @@ const SignUpScreen = () => {
 
   return (
     <View style={authScreenStyle.signInContentContainer}>
-      <TopBarComponent showAppName={true} renderRightSection={true} showSearchBar={false} isLSignedIn={false} user={user} showBecomeATutorOnly={true} />
+      <TopBarComponent showAppName={true} renderRightSection={true} showSearchBar={false} isLSignedIn={false} showBecomeATutorOnly={true} />
 
       <View style={authScreenStyle.content}>
         <View style={authScreenStyle.container}>
