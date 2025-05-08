@@ -13,6 +13,7 @@ import { tutorData } from "../../../../mockData/TutorData";
 import { tutorProfileStyles } from "../../../styles/componentsStyle/commonStyle/tutorProfileStyle";
 import { AvailablilityCalender } from "../../../components/common/AvailablilityCalender";
 import CustomNoStrokeTextInput from "@/components/common/Form/CustomNoStrokeTextInput";
+import SubjectOfInterest from "@/components/sections/userProfile/SubjectOfInterest";
 
 interface TutorProfileScreenProps {
 
@@ -37,8 +38,9 @@ const TutorProfileEditebleScreen: React.FC<TutorProfileScreenProps> = ({ }) => {
                     placeholder={tutorData?.bio}
                     multiline={true}
                     onChange={setBiography} />
-
+                <SubjectOfInterest  refetch={() => {}} subjects={tutorData.subjects ?? []} />
                 <TutoSubjectOfInterest subjects={tutorData.subjects} />
+                
                 <TutorExperience experiences={tutorData.experiences} />
                 <EventsSection upcomingEventsData={tutorData.upcomingEvents} showViewMoreButton={tutorData.upcomingEvents.length > 4} />
                 <TutorReviews rating={tutorData.rating} reviewCounts={tutorData.reviewCounts} />

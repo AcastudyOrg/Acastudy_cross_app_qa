@@ -12,7 +12,7 @@ import { isPlatformIOSorAndroid } from "utils/config";
 import UpcomingSessionComponent from "@/components/sections/userProfile/UpcomingSessionComponent";
 import ReviewPastMeetingsComponent from "@/components/sections/userProfile/ReviewPastMeetingsComponent";
 import TopProfileComponent from "@/components/sections/userProfile/TopProfileComponent";
-import StudentSubjectOfInterest from "@/components/sections/userProfile/StudentSubjectOfInterest";
+import SubjectOfInterest from "@/components/sections/userProfile/SubjectOfInterest";
 import MeetingPopUpModel from "@/components/common/MeetingPopupModel/MeetingPopUpModel";
 import DeatilsFormComponent from "@/components/sections/userProfile/DetailsFormComponent";
 
@@ -48,7 +48,7 @@ const StudentProfileScreen = () => {
 			{user && <View style={profileScreenStyles.homeMainContainer}>
 				<TopProfileComponent user={user} />
 				<DeatilsFormComponent user={user} refetch={refetch} />
-				<StudentSubjectOfInterest refetch={refetch} subjects={user.interests ?? []} />
+				<SubjectOfInterest  refetch={refetch} subjects={user.interests ?? []} />
 
 				<View style={profileScreenStyles.titleTextItemContainer}>
 					<Text style={profileScreenStyles.titleTextItem}>

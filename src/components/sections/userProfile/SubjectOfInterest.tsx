@@ -13,7 +13,7 @@ interface SubjectOfInterestProps {
     subjects: string[];
 }
 
-const StudentSubjectOfInterest: React.FC<SubjectOfInterestProps> = ({ subjects, refetch }) => {
+const SubjectOfInterest: React.FC<SubjectOfInterestProps> = ({ subjects, refetch }) => {
     const { updateUser, updating } = useUpdateUser();
 
     const [interests, setSubjectList] = useState(subjects);
@@ -109,4 +109,4 @@ const StudentSubjectOfInterest: React.FC<SubjectOfInterestProps> = ({ subjects, 
     );
 };
 
-export default StudentSubjectOfInterest;
+export default SubjectOfInterest;
