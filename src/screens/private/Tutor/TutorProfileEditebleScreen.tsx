@@ -31,17 +31,16 @@ const TutorProfileEditebleScreen: React.FC<TutorProfileScreenProps> = ({ }) => {
                     reviews={tutorData.reviews}
                     imageUrl={tutorData.imageUrl}
                 />
-                <TutorBio text={tutorData.bio} />
                 <CustomNoStrokeTextInput
                     value={biography}
                     label={"Bio"}
                     placeholder={tutorData?.bio}
                     multiline={true}
-                    onChange={setBiography} />
-                <SubjectOfInterest  refetch={() => {}} subjects={tutorData.subjects ?? []} />
-                <TutoSubjectOfInterest subjects={tutorData.subjects} />
-                
-                <TutorExperience experiences={tutorData.experiences} />
+                    onChange={setBiography}
+                />
+                <SubjectOfInterest refetch={() => { }} subjects={tutorData.subjects} showSubjectOfInterestPlaceholder={true}/>
+
+                <TutorExperience experiences={tutorData.experiences} showExperiencePlaceholder/>
                 <EventsSection upcomingEventsData={tutorData.upcomingEvents} showViewMoreButton={tutorData.upcomingEvents.length > 4} />
                 <TutorReviews rating={tutorData.rating} reviewCounts={tutorData.reviewCounts} />
 
@@ -50,7 +49,7 @@ const TutorProfileEditebleScreen: React.FC<TutorProfileScreenProps> = ({ }) => {
                     <View>
                         <AvailablilityCalender
                             onDateSelect={() => { }}
-                            selectedTutor={tutorData.bookedOutDates || undefined} // pass in the tutor you have selected
+                            selectedTutor={tutorData.bookedOutDates || undefined}
                             minDate={new Date().toISOString().split('T')[0]}
                         />
                     </View>

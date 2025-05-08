@@ -11,9 +11,10 @@ import { COLORS } from '@/constants';
 interface SubjectOfInterestProps {
     refetch: () => void;
     subjects: string[];
+    showSubjectOfInterestPlaceholder?: boolean;
 }
 
-const SubjectOfInterest: React.FC<SubjectOfInterestProps> = ({ subjects, refetch }) => {
+const SubjectOfInterest: React.FC<SubjectOfInterestProps> = ({ subjects, refetch, showSubjectOfInterestPlaceholder=false }) => {
     const { updateUser, updating } = useUpdateUser();
 
     const [interests, setSubjectList] = useState(subjects);
@@ -94,6 +95,11 @@ const SubjectOfInterest: React.FC<SubjectOfInterestProps> = ({ subjects, refetch
                         </TouchableOpacity>
                     </View>
                 ))}
+                {showSubjectOfInterestPlaceholder && subjects.length === 0 && (
+                    <View style={{ padding: 10 }}>
+                        <Text style={{ color: COLORS.white50Percent }}>No experience added yet.</Text>
+                    </View>
+                )}
             </View>
 
             <TextInput
