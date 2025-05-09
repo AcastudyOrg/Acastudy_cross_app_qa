@@ -29,6 +29,7 @@ import {
 } from "@/screens";
 import { NAV_SCREEN_NAME } from "../constants/strings";
 import TutorHomeScreen from "@/screens/private/Tutor/TutorHomeScreen";
+import TutorProfileEditebleScreen from "@/screens/private/Tutor/TutorProfileEditebleScreen";
 
 const PublicNavigation = () => {
   const PublicStack = createNativeStackNavigator();

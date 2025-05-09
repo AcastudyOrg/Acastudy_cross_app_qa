@@ -56,7 +56,7 @@ const ExperienceModal: React.FC<Props> = ({
                                 <Text style={{ color: COLORS.white }}>Delete</Text>
                             </Pressable>
                         )}
-                        
+
                     </View>
                     <Pressable style={styles.button} onPress={onClose}>
                         <Text style={{ color: COLORS.white }}>Cancel</Text>
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
         backgroundColor: COLORS.transparent50percent,
 
     },
-    modalContainer: {
+    modalContainer: { 
         padding: 20,
         width: '90%',
         maxWidth: 380,

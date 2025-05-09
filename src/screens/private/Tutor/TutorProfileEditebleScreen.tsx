@@ -2,8 +2,6 @@
 import React from "react";
 import { Text, View } from "react-native";
 
-import TutorBio from "../../../components/sections/tutorProfile/TutorBio";
-import TutoSubjectOfInterest from "../../../components/sections/tutorProfile/TutorSubjectOfInterest";
 import TutorExperience from "../../../components/sections/tutorProfile/TutorsExperience";
 import EventsSection from "../../../components/sections/home/EventsSection";
 import TutorReviews from "../../../components/sections/tutorProfile/TutorReview";
@@ -14,6 +12,7 @@ import { tutorProfileStyles } from "../../../styles/componentsStyle/commonStyle/
 import { AvailablilityCalender } from "../../../components/common/AvailablilityCalender";
 import CustomNoStrokeTextInput from "@/components/common/Form/CustomNoStrokeTextInput";
 import SubjectOfInterest from "@/components/sections/userProfile/SubjectOfInterest";
+import { COLORS } from "@/constants";
 
 interface TutorProfileScreenProps {
 
@@ -30,17 +29,21 @@ const TutorProfileEditebleScreen: React.FC<TutorProfileScreenProps> = ({ }) => {
                     rating={tutorData.rating}
                     reviews={tutorData.reviews}
                     imageUrl={tutorData.imageUrl}
+                    isEditeble={true}
                 />
+
                 <CustomNoStrokeTextInput
                     value={biography}
                     label={"Bio"}
+                    labelStyle={{ fontSize: 18, color: COLORS.white }}
                     placeholder={tutorData?.bio}
                     multiline={true}
                     onChange={setBiography}
                 />
-                <SubjectOfInterest refetch={() => { }} subjects={tutorData.subjects} showSubjectOfInterestPlaceholder={true}/>
-
-                <TutorExperience experiences={tutorData.experiences} showExperiencePlaceholder/>
+                <View style={{ paddingStart: 10 }}>
+                    <SubjectOfInterest refetch={() => { }} subjects={tutorData.subjects} showSubjectOfInterestPlaceholder={true} />
+                    <TutorExperience experiences={tutorData.experiences} showExperiencePlaceholder />
+                </View>
                 <EventsSection upcomingEventsData={tutorData.upcomingEvents} showViewMoreButton={tutorData.upcomingEvents.length > 4} />
                 <TutorReviews rating={tutorData.rating} reviewCounts={tutorData.reviewCounts} />
 
