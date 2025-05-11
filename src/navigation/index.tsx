@@ -63,6 +63,7 @@ const PrivateNavigation = () => {
     >
      
       <PrivateStack.Screen name={NAV_SCREEN_NAME.TutorHomeScreen} component={TutorHomeScreen} />
+      <PrivateStack.Screen name={NAV_SCREEN_NAME.TutorProfileEditebleScreen} component={TutorProfileEditebleScreen} />
 
       <PrivateStack.Screen name={NAV_SCREEN_NAME.WelcomeScreen} component={WelcomeScreen} />
       <PrivateStack.Screen name={NAV_SCREEN_NAME.CallScreen} component={CallScreen} />
