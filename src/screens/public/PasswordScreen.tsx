@@ -6,7 +6,6 @@ import {
 import { useNavigation, useRoute, RouteProp } from "@react-navigation/native";
 import { useMutation } from "@apollo/client";
 
-import { User } from "@/types/User/Student";
 import { GradientButtonComponent } from "@/components/";
 import { getPasswordRules, validatePassword } from "utils/login";
 import TopBarComponent from "@/components/common/TopBar/TopBarComponent";
@@ -31,12 +30,6 @@ const PasswordScreen = () => {
 
 	const title: string = "Create password";
 	const subtitle: string = "Your password should be at least 8 characters long!";
-
-	const user: User = {
-		name: "",
-		surname: "",
-		profilePictureUrl: 0
-	};
 
 	const [password, setPassword] = useState<string>("");
 	const [confirmPassword, setConfirmPassword] = useState<string>("");
@@ -71,7 +64,7 @@ const PasswordScreen = () => {
 
 	return (
 		<View style={authScreenStyle.signInContentContainer}>
-			<TopBarComponent showAppName={true} renderRightSection={true} showSearchBar={false} isLSignedIn={false} user={user} showBecomeATutorOnly={true} />
+			<TopBarComponent showAppName={true} renderRightSection={true} showSearchBar={false} isLSignedIn={false} showBecomeATutorOnly={true} />
 
 			<View style={authScreenStyle.content}>
 				<View style={authScreenStyle.container}>
