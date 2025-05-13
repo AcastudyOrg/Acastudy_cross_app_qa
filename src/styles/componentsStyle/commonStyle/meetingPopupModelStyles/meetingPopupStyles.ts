@@ -89,7 +89,7 @@ export const meetingPopupModelStyles = StyleSheet.create({
       color: COLORS.white,
       lineHeight: 20,
     },
-    rsvpButtons: {
+    rsvpButtons: { 
       flexDirection: 'row',
       gap: 12,
     },

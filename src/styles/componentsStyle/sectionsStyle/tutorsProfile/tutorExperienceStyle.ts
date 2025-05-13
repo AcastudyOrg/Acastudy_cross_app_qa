@@ -3,13 +3,14 @@ import { COLORS, FONT, SIZE } from '../../../../constants';
 
 export const tutorExperienceStyles = StyleSheet.create({
     section: {
-        padding: 20,
+        padding: 10,
     },
     sectionTitle: {
         fontSize: SIZE.l,
         fontFamily: FONT.plusJakartaBold,
         color: COLORS.white,
         marginBottom: 10,
+        paddingTop: 5,
     },
     icon: {
         justifyContent: 'center',
@@ -18,7 +19,7 @@ export const tutorExperienceStyles = StyleSheet.create({
     },
     experienceItem: {
         marginBottom: 10,
-        flexDirection: 'row'
+        flexDirection: 'row',
     },
     companyName: {
         fontSize: SIZE.m,

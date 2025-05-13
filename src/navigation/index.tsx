@@ -29,6 +29,7 @@ import {
 } from "@/screens";
 import { NAV_SCREEN_NAME } from "../constants/strings";
 import TutorHomeScreen from "@/screens/private/Tutor/TutorHomeScreen";
+import TutorProfileEditebleScreen from "@/screens/private/Tutor/TutorProfileEditebleScreen";
 
 const PublicNavigation = () => {
   const PublicStack = createNativeStackNavigator();
@@ -37,6 +38,7 @@ const PublicNavigation = () => {
       initialRouteName={NAV_SCREEN_NAME.OnboardingScreen}
       screenOptions={{ headerShown: false }}
     >
+
       <PublicStack.Screen name={NAV_SCREEN_NAME.ForgotPasswordScreen} component={ForgotPasswordScreen} />
       <PublicStack.Screen name={NAV_SCREEN_NAME.OnboardingScreen} component={OnboardingScreen} />
       <PublicStack.Screen name={NAV_SCREEN_NAME.PrivacyPolicyScreen} component={PrivacyPolicyScreen} />
@@ -61,6 +63,7 @@ const PrivateNavigation = () => {
     >
      
       <PrivateStack.Screen name={NAV_SCREEN_NAME.TutorHomeScreen} component={TutorHomeScreen} />
+      <PrivateStack.Screen name={NAV_SCREEN_NAME.TutorProfileEditebleScreen} component={TutorProfileEditebleScreen} />
 
       <PrivateStack.Screen name={NAV_SCREEN_NAME.WelcomeScreen} component={WelcomeScreen} />
       <PrivateStack.Screen name={NAV_SCREEN_NAME.CallScreen} component={CallScreen} />

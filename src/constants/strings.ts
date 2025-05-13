@@ -114,6 +114,7 @@ export const NAV_SCREEN_NAME = {
   StudyScreen: "StudyScreen",
 
   TutorHomeScreen: "TutorHomeScreen",
+  TutorProfileEditebleScreen: "TutorProfileEditebleScreen",
 
   SignInScreen: "SignInScreen",
   SignUpScreen: "SignUpScreen",

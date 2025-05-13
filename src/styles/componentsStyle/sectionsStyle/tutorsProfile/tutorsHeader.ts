@@ -54,5 +54,15 @@ export const tutorHeaderStyles = StyleSheet.create({
         shadowOpacity: .5,
         shadowRadius: 8,
         elevation: 2,
-    }
+    },
+    editorIcon: {
+        position: 'absolute',
+        bottom: 20,
+        left: 130,
+        backgroundColor: COLORS.purple,
+        borderRadius: 100,
+        height:50,
+        width:50,
+        justifyContent: 'center',
+      }
 });

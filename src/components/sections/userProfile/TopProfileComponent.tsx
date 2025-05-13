@@ -3,21 +3,26 @@ import { profileScreenStyles } from "../../../styles/screensStyle/privateStyle/p
 import { STRING } from "../../../constants/strings";
 import { COLORS, IMAGES } from "../../../constants";
 import CustomIcon from "../../common/CustomIcon";
+import { UserType } from "@/types/User/User";
 
-const TopProfileComponent = () => {
+interface TopProfileProps {
+  user: UserType;
+}
+
+const TopProfileComponent: React.FC<TopProfileProps> = ({ user }) => {
   return (
     <View style={profileScreenStyles.topProfileContainer}>
       <View style={profileScreenStyles.topProfileImageContainer}>
         <Image
-          source={{ uri: IMAGES.studentPicture }}
+          source={user?.imageUrl ? { uri: user?.imageUrl } : IMAGES.userPlaceholder}
           style={profileScreenStyles.topProfileImage}
         />
         <View style={profileScreenStyles.topProfileTextNameContainer}>
           <Text style={profileScreenStyles.topProfileTextNameItem}>
-            {STRING.username}
+            {user?.firstName} {user?.lastName}
           </Text>
           <Text style={profileScreenStyles.topProfileTextNameItems}>
-            {STRING.userAddress}
+            {user?.address?.city}, {user?.address?.province}
           </Text>
           <Text style={profileScreenStyles.topProfileTextNameItems}>
             {STRING.userPostCode}
