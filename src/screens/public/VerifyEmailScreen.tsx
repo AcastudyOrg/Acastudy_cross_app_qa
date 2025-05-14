@@ -3,7 +3,6 @@ import { Text, View, TextInput, TouchableOpacity } from "react-native";
 import { useNavigation, useRoute, RouteProp } from "@react-navigation/native";
 import { useMutation } from "@apollo/client";
 
-import { User } from "@/types/User/Student";
 import { NAV_SCREEN_NAME } from "@/constants/strings";
 import { GradientButtonComponent } from "@/components/";
 import { authScreenStyle } from "@/styles/screensStyle/publicStyle/authScreenStyle";
@@ -80,15 +79,9 @@ const VerifyEmailScreen = () => {
     }
   };
 
-  const user: User = {
-    name: "",
-    surname: "",
-    profilePictureUrl: 0
-  };
-
   return (
     <View style={authScreenStyle.signInContentContainer}>
-      <TopBarComponent showAppName={true} renderRightSection={true} showSearchBar={false} isLSignedIn={false} user={user} showBecomeATutorOnly={true} />
+      <TopBarComponent showAppName={true} renderRightSection={true} showSearchBar={false} isLSignedIn={false} showBecomeATutorOnly={true} />
 
       <View style={authScreenStyle.content}>
         <View style={authScreenStyle.container}>
