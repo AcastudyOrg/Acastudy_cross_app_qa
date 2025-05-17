@@ -13,6 +13,12 @@ import { NAV_SCREEN_NAME, STRING } from "@/constants/strings";
 import { loginMutation } from "@/graphql/api/auth";
 import { updateAuthStorage } from "@/navigation";
 
+type localVariablesType = {
+	id: string;
+	role: string;
+	token: string;
+	refreshToken: string;
+}
 const SignInScreen = () => {
 	const navigation = useNavigation<any>()
 	const [email, setEmail] = useState("");
@@ -25,9 +31,7 @@ const SignInScreen = () => {
 		setError("");
 		await login({ variables: { email, password } }).then(async (res) => {
 			if (res.data.login.status === 200) {
-				await updateAuthStorage('token', res.data.login.data.token);
-				await updateAuthStorage('refreshToken', res.data.login.data.refreshToken);
-				await updateAuthStorage('userId', res.data.login.data.id);
+				setLocalVariables(res.data.login.data);
 			}
 			else throw res.data.login;
 		}).catch((err) => {
@@ -35,6 +39,13 @@ const SignInScreen = () => {
 			setError("Invalid email or password");
 		});
 	};
+
+	const setLocalVariables = async (data: localVariablesType) => {
+		await updateAuthStorage('token', data.token);
+		await updateAuthStorage('refreshToken', data.refreshToken);
+		await updateAuthStorage('userId', data.id);
+		await updateAuthStorage('role', data.role);
+	}
 
 	return (
 		<View style={authScreenStyle.signInContentContainer}>

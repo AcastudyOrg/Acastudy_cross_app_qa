@@ -6,6 +6,7 @@ mutation Login($email: String!, $password: String!) {
     {
         data {
             id,
+            role,
             status,
             message,
             token,

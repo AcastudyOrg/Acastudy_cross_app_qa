@@ -40,11 +40,16 @@ type SignedInContentProps = {
 	viewMode?: string;
 };
 
-const handleLogout = async (navigation: any) => {
-	await updateAuthStorage('token');
-	await updateAuthStorage('refreshToken');
+const handleLogout = async () => {
+	setLocalVariables();
 };
 
+const setLocalVariables = async () => {
+	await updateAuthStorage('token');
+	await updateAuthStorage('refreshToken');
+	await updateAuthStorage('userId');
+	await updateAuthStorage('role');
+}
 
 
 const SignedInContent: React.FC<SignedInContentProps> = ({ screenWidth, user, navigation, viewMode }) => (
@@ -62,7 +67,7 @@ const SignedInContent: React.FC<SignedInContentProps> = ({ screenWidth, user, na
 					</>
 				)}
 
-				<TouchableOpacity onPress={() => handleLogout(navigation)}>
+				<TouchableOpacity onPress={() => handleLogout()}>
 					<Text style={rightSectionStyles.linkText}> {STRING.logout} </Text>
 				</TouchableOpacity>
 			</View>
