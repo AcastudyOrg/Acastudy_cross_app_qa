@@ -63,15 +63,6 @@ const QuestioneirScreen: React.FC = () => {
         if (validateForm(formData, setErrors)) {
             console.log('Form submitted:', { ...formData, firstName, lastName });
         }
-        console.log({
-            email,
-            firstName,
-            lastName,
-            ageGroup: formData.ageGroup,
-            gender: formData.gender,
-            password,
-            role,
-        })
 
         //TODO(Tekstaq) pass parameters
         navigation.navigate(
