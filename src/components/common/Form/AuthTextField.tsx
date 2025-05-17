@@ -40,7 +40,7 @@ const AuthTextField: React.FC<Props> = ({ label, value, onChangeText, isPassword
           </TouchableOpacity>
         )}
       </View>
-      {error ? <Text style={authTextFieldtyles.errorText}>{error}</Text> : null}
+      {error && <Text style={authTextFieldtyles.errorText}>{error}</Text>}
     </View>
   );
 };

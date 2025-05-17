@@ -3,7 +3,6 @@ import { View, Text, TouchableOpacity } from "react-native";
 import { useMutation } from "@apollo/client";
 
 import TopBarComponent from "@/components/common/TopBar/TopBarComponent";
-import { User } from "@/types/User/Student";
 import CustomDivider from "@/components/common/Form/CustomDivider";
 import GradientButtonComponent from "@/components/common/Form/GradientButtonComponent";
 import AuthTextField from "@/components/common/Form/AuthTextField";
@@ -22,13 +21,6 @@ const SignInScreen = () => {
 
 	const [login, { loading }] = useMutation(loginMutation);
 
-	const user: User = {
-		name: "",
-		surname: "",
-		profilePictureUrl: 0
-	};
-
-
 	const handleSubmit = async () => {
 		setError("");
 		await login({ variables: { email, password } }).then(async (res) => {
@@ -46,7 +38,7 @@ const SignInScreen = () => {
 
 	return (
 		<View style={authScreenStyle.signInContentContainer}>
-			<TopBarComponent showAppName={true} renderRightSection={true} showSearchBar={false} isLSignedIn={false} user={user} showBecomeATutorOnly={true} />
+			<TopBarComponent showAppName={true} renderRightSection={true} showSearchBar={false} isLSignedIn={false} showBecomeATutorOnly={true} />
 
 			<View style={authScreenStyle.content}>
 				<View style={authScreenStyle.container}>

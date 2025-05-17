@@ -19,13 +19,14 @@ type QuestioneirParams = {
     data: {
         email: string;
         password: string;
+        role: string;
     };
 };
 
 const QuestioneirScreen: React.FC = () => {
     const navigation = useNavigation<any>();
     const route = useRoute<RouteProp<QuestioneirParams, 'data'>>();
-    const { email, password } = route.params;
+    const { email, password, role } = route.params;
 
     const options = {
         studyLevels: ['Pre School', 'Primary', 'Secondary', 'Undergraduate', 'Honours', 'Masters', 'PhD'],
@@ -62,6 +63,15 @@ const QuestioneirScreen: React.FC = () => {
         if (validateForm(formData, setErrors)) {
             console.log('Form submitted:', { ...formData, firstName, lastName });
         }
+        console.log({
+            email,
+            firstName,
+            lastName,
+            ageGroup: formData.ageGroup,
+            gender: formData.gender,
+            password,
+            role,
+        })
 
         //TODO(Tekstaq) pass parameters
         navigation.navigate(
@@ -73,6 +83,7 @@ const QuestioneirScreen: React.FC = () => {
                 ageGroup: formData.ageGroup,
                 gender: formData.gender,
                 password,
+                role,
             }
         )
     };

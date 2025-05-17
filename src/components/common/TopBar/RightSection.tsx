@@ -90,7 +90,7 @@ type SignedOutContentProps = {
 const SignedOutContent: React.FC<SignedOutContentProps> = ({ screenWidth, navigation, showBecomeATutorOnly = false }) => (
 	<View style={rightSectionStyles.rightSection}>
 		{screenWidth >= 705 && (
-			<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.HomeScreen)}>
+			<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.SignUpScreen, { role: 'TUTOR' })}>
 				<Text style={rightSectionStyles.linkText}>{STRING.becomeATutor}</Text>
 			</TouchableOpacity>
 		)}
