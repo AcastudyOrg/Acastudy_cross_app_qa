@@ -21,8 +21,6 @@ const CustomNoStrokeTextInput: React.FC<CustomNoStrokeTextInputProps> = ({
   onChange,
 }) => {
 
-  const [height, setHeight] = useState(40);
-
   return (
     <View style={customNoStrokeTextInputStyles.inputContainer}>
       <Text
@@ -40,10 +38,10 @@ const CustomNoStrokeTextInput: React.FC<CustomNoStrokeTextInputProps> = ({
         placeholder={placeholder}
         multiline={multiline}
         placeholderTextColor={COLORS.lightGray}
-        style={[customNoStrokeTextInputStyles.input, { height }]}
-        onContentSizeChange={(e) =>
-          setHeight(e.nativeEvent.contentSize.height)
-        }
+                style={[
+          customNoStrokeTextInputStyles.input,
+          { minHeight: multiline ? 100 : 40 },
+        ]}
       />
     </View>
   );
