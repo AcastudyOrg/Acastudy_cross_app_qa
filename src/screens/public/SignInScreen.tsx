@@ -3,7 +3,6 @@ import { View, Text, TouchableOpacity } from "react-native";
 import { useMutation } from "@apollo/client";
 
 import TopBarComponent from "@/components/common/TopBar/TopBarComponent";
-import { User } from "@/types/User/Student";
 import CustomDivider from "@/components/common/Form/CustomDivider";
 import GradientButtonComponent from "@/components/common/Form/GradientButtonComponent";
 import AuthTextField from "@/components/common/Form/AuthTextField";
@@ -14,6 +13,12 @@ import { NAV_SCREEN_NAME, STRING } from "@/constants/strings";
 import { loginMutation } from "@/graphql/api/auth";
 import { updateAuthStorage } from "@/navigation";
 
+type localVariablesType = {
+	id: string;
+	role: string;
+	token: string;
+	refreshToken: string;
+}
 const SignInScreen = () => {
 	const navigation = useNavigation<any>()
 	const [email, setEmail] = useState("");
@@ -22,20 +27,11 @@ const SignInScreen = () => {
 
 	const [login, { loading }] = useMutation(loginMutation);
 
-	const user: User = {
-		name: "",
-		surname: "",
-		profilePictureUrl: 0
-	};
-
-
 	const handleSubmit = async () => {
 		setError("");
 		await login({ variables: { email, password } }).then(async (res) => {
 			if (res.data.login.status === 200) {
-				await updateAuthStorage('token', res.data.login.data.token);
-				await updateAuthStorage('refreshToken', res.data.login.data.refreshToken);
-				await updateAuthStorage('userId', res.data.login.data.id);
+				setLocalVariables(res.data.login.data);
 			}
 			else throw res.data.login;
 		}).catch((err) => {
@@ -44,9 +40,16 @@ const SignInScreen = () => {
 		});
 	};
 
+	const setLocalVariables = async (data: localVariablesType) => {
+		await updateAuthStorage('token', data.token);
+		await updateAuthStorage('refreshToken', data.refreshToken);
+		await updateAuthStorage('userId', data.id);
+		await updateAuthStorage('role', data.role);
+	}
+
 	return (
 		<View style={authScreenStyle.signInContentContainer}>
-			<TopBarComponent showAppName={true} renderRightSection={true} showSearchBar={false} isLSignedIn={false} user={user} showBecomeATutorOnly={true} />
+			<TopBarComponent showAppName={true} renderRightSection={true} showSearchBar={false} isLSignedIn={false} showBecomeATutorOnly={true} />
 
 			<View style={authScreenStyle.content}>
 				<View style={authScreenStyle.container}>

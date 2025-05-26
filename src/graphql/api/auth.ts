@@ -6,6 +6,7 @@ mutation Login($email: String!, $password: String!) {
     {
         data {
             id,
+            role,
             status,
             message,
             token,
@@ -18,7 +19,7 @@ mutation Login($email: String!, $password: String!) {
 
 const registerMutation = gql`
 mutation Register(
-    $email: String!, $firstName: String!, $lastName: String!, $gender: String!, $role: String="STUDENT",
+    $email: String!, $firstName: String!, $lastName: String!, $gender: String!, $role: String!,
     $ageGroup: String!, $suburb: String!, $city: String!, $province: String!, $password: String!
 ) { 
     registerUser(

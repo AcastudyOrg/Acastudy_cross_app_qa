@@ -22,13 +22,14 @@ type QuestioneirScreenTwoParams = {
         ageGroup: string;
         gender: string;
         password: string;
+        role: string;
     };
 };
 
 const QuestioneirScreenTwo: React.FC = () => {
     const navigation = useNavigation<any>();
     const route = useRoute<RouteProp<QuestioneirScreenTwoParams, 'QuestioneirScreenTwo'>>();
-    const { email, firstName, lastName, ageGroup, gender, password } = route.params;
+    const { email, firstName, lastName, ageGroup, gender, password, role } = route.params;
 
     const options = {
         provinces: ['Gauteng', 'Western Cape', 'Eastern Cape', 'KwaZulu-Natal', 'Free State', 'Mpumalanga', 'Limpopo', 'North West', 'Northern Cape'],
@@ -59,7 +60,7 @@ const QuestioneirScreenTwo: React.FC = () => {
         if (!validateForm(formData, setErrors)) {
             await registerUser({
                 variables: {
-                    email, firstName, lastName, gender, ageGroup,
+                    email, firstName, lastName, gender, ageGroup, role,
                     suburb, city, province: formData.province, password
                 }
             }).then((res) => {
@@ -95,7 +96,7 @@ const QuestioneirScreenTwo: React.FC = () => {
                         labelColor={COLORS.black30}
                         borderColor={COLORS.gray60}
                     />
-                    {error ? <Text style={authScreenStyle.errorText}>{error}</Text> : null}
+                    {error && <Text style={authScreenStyle.errorText}>{error}</Text>}
                     <GradientButtonComponent text="Register" loading={loading} onPress={handleSubmit} />
                 </View>
             </View>
