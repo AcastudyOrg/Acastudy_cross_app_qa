@@ -18,13 +18,14 @@ type PasswordParams = {
 	data: {
 		email: string;
 		forgotPassword?: boolean;
+		role?: string;
 	};
 };
 
 const PasswordScreen = () => {
 	const navigation = useNavigation<any>();
 	const route = useRoute<RouteProp<PasswordParams, 'data'>>();
-	const { email, forgotPassword = false } = route.params;
+	const { email, forgotPassword = false, role } = route.params;
 
 	const [changePassword, { loading }] = useMutation(changePasswordMutation);
 
@@ -59,7 +60,7 @@ const PasswordScreen = () => {
 				setError(err.message);
 			});
 		}
-		else navigation.navigate(NAV_SCREEN_NAME.QuestioneirScreen, { email, password });
+		else navigation.navigate(NAV_SCREEN_NAME.QuestioneirScreen, { email, password, role });
 	};
 
 	return (
@@ -75,7 +76,7 @@ const PasswordScreen = () => {
 					<AuthTextField label={"Confirm Password"} value={confirmPassword} onChangeText={setConfirmPassword} isPassword={true} error={error} />
 
 					<View style={[authScreenStyle.alternative, { paddingTop: 0, paddingBottom: 10 }]}>
-						{passwordNotMatchingError ? <Text style={authScreenStyle.errorText}>{passwordNotMatchingError}</Text> : null}
+						{passwordNotMatchingError ? <Text style={authScreenStyle.errorText}>{passwordNotMatchingError}</Text> : <></>}
 					</View>
 
 					<GradientButtonComponent text="CONTINUE" loading={loading} onPress={handleSubmit} />

@@ -25,7 +25,7 @@ import {
   TutorsScreen,
   TutorProfileScreen,
   SubjectScreen,
-  RequestTutorScreen,  
+  RequestTutorScreen,
 } from "@/screens";
 import { NAV_SCREEN_NAME } from "../constants/strings";
 import TutorHomeScreen from "@/screens/private/Tutor/TutorHomeScreen";
@@ -53,15 +53,15 @@ const PublicNavigation = () => {
   );
 }
 
-const PrivateNavigation = () => {
+const PrivateNavigation = ({ role }: { role: string }) => {
   const PrivateStack = createNativeStackNavigator();
   return (
     <PrivateStack.Navigator
-    // TODO initial route is based on which role. if you are a student its home screen, if you are a tutor its tutor home screen
-      initialRouteName={NAV_SCREEN_NAME.HomeScreen}
+      // TODO initial route is based on which role. if you are a student its home screen, if you are a tutor its tutor home screen
+      initialRouteName={role==="TUTOR"? NAV_SCREEN_NAME.TutorHomeScreen : NAV_SCREEN_NAME.HomeScreen}
       screenOptions={{ headerShown: false }}
     >
-     
+
       <PrivateStack.Screen name={NAV_SCREEN_NAME.TutorHomeScreen} component={TutorHomeScreen} />
       <PrivateStack.Screen name={NAV_SCREEN_NAME.TutorProfileEditebleScreen} component={TutorProfileEditebleScreen} />
 
@@ -92,13 +92,16 @@ export const updateAuthStorage = async (key: string, value?: string | null) => {
 
 const authEventEmitter = new EventEmitter();
 const AppMainNavigation = () => {
+  const [role, setRole] = useState<string>("STUDENT");
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
 
   React.useEffect(() => {
     const fetchAuthenticationStatus = async () => {
       const token = await AsyncStorage.getItem('token');
       const refreshToken = await AsyncStorage.getItem('refreshToken');
+      const roleValue = await AsyncStorage.getItem('role');
       setIsAuthenticated(!!token && !!refreshToken);
+      setRole(roleValue || "STUDENT");
     };
     fetchAuthenticationStatus();
 
@@ -108,11 +111,11 @@ const AppMainNavigation = () => {
     };
     authEventEmitter.on("authChange", handleAuthChange);
     return () => {
-      authEventEmitter.off("authChange", handleAuthChange); 
+      authEventEmitter.off("authChange", handleAuthChange);
     };
   }, []);
 
-  if (isAuthenticated) return <PrivateNavigation />;
+  if (isAuthenticated) return <PrivateNavigation role={role} />;
   return <PublicNavigation />;
 };
 

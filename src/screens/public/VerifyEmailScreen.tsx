@@ -13,12 +13,13 @@ type VerifyEmailParams = {
   VerifyEmail: {
     email: string;
     forgotPassword?: boolean;
+    role?: string;
   }
 };
 
 const VerifyEmailScreen = () => {
   const route = useRoute<RouteProp<VerifyEmailParams, 'VerifyEmail'>>();
-  const { email, forgotPassword = false } = route.params;
+  const { email, forgotPassword = false, role = "STUDENT" } = route.params;
 
   const title: string = "Confirm email address";
   const subtitle: string = `Please enter the verification code sent to ${email} to complete your signup process.`;
@@ -52,7 +53,7 @@ const VerifyEmailScreen = () => {
 
     await verifyOTPCode({ variables: { email, verificationCode } }).then((res) => {
       if (res.data.verifyOTPCode.status === 200)
-        navigation.navigate(NAV_SCREEN_NAME.PasswordScreen, { email, forgotPassword });
+        navigation.navigate(NAV_SCREEN_NAME.PasswordScreen, { email, forgotPassword, role });
       else throw res.data.verifyOTPCode;
     }).catch((err) => {
       setError(err.message);

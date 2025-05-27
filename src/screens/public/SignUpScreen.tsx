@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { RouteProp, useNavigation } from "@react-navigation/native";
+import { useRoute } from "@react-navigation/native";
 import { useMutation } from "@apollo/client";
 
 import { validateEmail } from "utils/login";
@@ -13,8 +14,14 @@ import CustomDivider from "@/components/common/Form/CustomDivider";
 import AuthTextField from "@/components/common/Form/AuthTextField";
 import { sendVerificationCodeMutation } from "@/graphql/api/auth";
 
+type SignUpScreenProps = {
+  role: string;
+};
+
 // Note the code does not handle error messages
 const SignUpScreen = () => {
+  const route = useRoute();
+  const { role } = route.params as SignUpScreenProps;
   const title: string = "Create your account";
   const subtitle: string = "To Continue to Acastudy";
 
@@ -33,7 +40,7 @@ const SignUpScreen = () => {
 
     await sendVerificationCode({ variables: { email } }).then((res) => {
       if (res.data.sendVerificationCode.status === 200)
-        navigation.navigate(NAV_SCREEN_NAME.VerifyEmailScreen, { email })
+        navigation.navigate(NAV_SCREEN_NAME.VerifyEmailScreen, { email, role })
       else throw res.data.sendVerificationCode;
     }).catch((err) => {
       setError(err.message);
