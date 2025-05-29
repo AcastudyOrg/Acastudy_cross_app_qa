@@ -1,18 +1,33 @@
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { View, Text, Image, TouchableOpacity, Pressable } from "react-native";
 import { profileScreenStyles } from "../../../styles/screensStyle/privateStyle/profileScreenStyle";
 import { STRING } from "../../../constants/strings";
 import { COLORS, IMAGES } from "../../../constants";
 import CustomIcon from "../../common/CustomIcon";
 import { UserType } from "@/types/User/User";
+import EditProfileModal from "@/components/common/EditTutorProfileModal";
+import React, { useState } from "react";
 
 interface TopProfileProps {
   user: UserType;
 }
 
 const TopProfileComponent: React.FC<TopProfileProps> = ({ user }) => {
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [name, setName] = useState(user?.firstName + " " + user.lastName || "");
+  const [image, setImage] =useState(user?.imageUrl || IMAGES.userPlaceholder);
+
+  const handleSaveProfile = (updatedName: string, updatedImage: string) => {
+		setName(updatedName);
+		setImage(updatedImage);
+	};
+  
+  const handleEditProfile = () => {
+		setShowEditModal(true);
+	};
+
   return (
     <View style={profileScreenStyles.topProfileContainer}>
-      <View style={profileScreenStyles.topProfileImageContainer}>
+      <Pressable onPress={handleEditProfile} style={profileScreenStyles.topProfileImageContainer}>
         <Image
           source={user?.imageUrl ? { uri: user?.imageUrl } : IMAGES.userPlaceholder}
           style={profileScreenStyles.topProfileImage}
@@ -28,10 +43,19 @@ const TopProfileComponent: React.FC<TopProfileProps> = ({ user }) => {
             {STRING.userPostCode}
           </Text>
         </View>
-      </View>
+      </Pressable>
       <TouchableOpacity style={profileScreenStyles.floatingButton} onPress={() => console.log("Settings")} >
         <CustomIcon set={"Feather"} name={"settings"} color={COLORS.white} />
       </TouchableOpacity>
+
+      <EditProfileModal
+				visible={showEditModal}
+				onClose={() => setShowEditModal(false)}
+				name={name}
+				imageUrl={image}
+				onSave={handleSaveProfile}
+			/>
+      
     </View>
   );
 };
