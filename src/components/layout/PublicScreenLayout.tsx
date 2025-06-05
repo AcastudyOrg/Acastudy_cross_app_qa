@@ -4,18 +4,18 @@ import { View, SafeAreaView, ScrollView } from "react-native";
 import { isNotMobile } from "../../../utils/config";
 import { privateScreenLayoutStyles } from "../../styles/componentsStyle/layoutStyle/privateScreenLayoutStyle";
 import TopBarComponent from "../common/TopBar/TopBarComponent";
-import { User } from "../../types/User/Student";
 import useScreenWidth from "../../hooks/useScreenWidth";
+import { UserType } from "@/types/User/User";
 
 const PublicScreenLayout = ({ children }: { children: React.ReactNode }) => {
     const screenWidth = useScreenWidth();
     const isNotMobileWidth = isNotMobile(screenWidth);
 
-    const user: User = {
+    const user: UserType = {
         id: "",
-        name: "",
-        surname: "",
-        profilePictureUrl: 0
+        firstName: "",
+        lastName: "",
+        imageUrl: ""
     };
 
     return (

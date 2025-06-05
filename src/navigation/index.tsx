@@ -27,7 +27,7 @@ import {
   SubjectScreen,
   RequestTutorScreen,
 } from "@/screens";
-import { NAV_SCREEN_NAME } from "../constants/strings";
+import { NAV_SCREEN_NAME, VIEW_MODE } from "../constants/strings";
 import TutorHomeScreen from "@/screens/private/Tutor/TutorHomeScreen";
 import TutorProfileEditebleScreen from "@/screens/private/Tutor/TutorProfileEditebleScreen";
 
@@ -53,18 +53,13 @@ const PublicNavigation = () => {
   );
 }
 
-const PrivateNavigation = ({ role }: { role: string }) => {
+const PrivateStudentNavigation = () => {
   const PrivateStack = createNativeStackNavigator();
   return (
     <PrivateStack.Navigator
-      // TODO initial route is based on which role. if you are a student its home screen, if you are a tutor its tutor home screen
-      initialRouteName={role==="TUTOR"? NAV_SCREEN_NAME.TutorHomeScreen : NAV_SCREEN_NAME.HomeScreen}
+      initialRouteName={NAV_SCREEN_NAME.HomeScreen}
       screenOptions={{ headerShown: false }}
     >
-
-      <PrivateStack.Screen name={NAV_SCREEN_NAME.TutorHomeScreen} component={TutorHomeScreen} />
-      <PrivateStack.Screen name={NAV_SCREEN_NAME.TutorProfileEditebleScreen} component={TutorProfileEditebleScreen} />
-
       <PrivateStack.Screen name={NAV_SCREEN_NAME.WelcomeScreen} component={WelcomeScreen} />
       <PrivateStack.Screen name={NAV_SCREEN_NAME.CallScreen} component={CallScreen} />
       <PrivateStack.Screen name={NAV_SCREEN_NAME.ChatScreen} component={ChatScreen} />
@@ -77,6 +72,22 @@ const PrivateNavigation = ({ role }: { role: string }) => {
       <PrivateStack.Screen name={NAV_SCREEN_NAME.SubjectScreen} component={SubjectScreen} />
       <PrivateStack.Screen name={NAV_SCREEN_NAME.TutorProfileScreen} component={TutorProfileScreen} />
       <PrivateStack.Screen name={NAV_SCREEN_NAME.RequestTutorScreen} component={RequestTutorScreen} />
+    </PrivateStack.Navigator>
+  );
+};
+
+const PrivateTutorNavigation = () => {
+  const PrivateStack = createNativeStackNavigator();
+  return (
+    <PrivateStack.Navigator
+      // TODO initial route is based on which role. if you are a student its home screen, if you are a tutor its tutor home screen
+      initialRouteName={NAV_SCREEN_NAME.HomeScreen}
+      screenOptions={{ headerShown: false }}
+    >
+      <PrivateStack.Screen name={NAV_SCREEN_NAME.HomeScreen} component={TutorHomeScreen} />
+      <PrivateStack.Screen name={NAV_SCREEN_NAME.TutorProfileEditebleScreen} component={TutorProfileEditebleScreen} />
+      <PrivateStack.Screen name={NAV_SCREEN_NAME.CallScreen} component={CallScreen} />
+
     </PrivateStack.Navigator>
   );
 };
@@ -115,7 +126,7 @@ const AppMainNavigation = () => {
     };
   }, []);
 
-  if (isAuthenticated) return <PrivateNavigation role={role} />;
+  if (isAuthenticated) return  role === VIEW_MODE.studentView? <PrivateStudentNavigation /> : <PrivateTutorNavigation/>;
   return <PublicNavigation />;
 };
 

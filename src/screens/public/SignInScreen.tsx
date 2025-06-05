@@ -32,6 +32,7 @@ const SignInScreen = () => {
 		await login({ variables: { email, password } }).then(async (res) => {
 			if (res.data.login.status === 200) {
 				setLocalVariables(res.data.login.data);
+				
 			}
 			else throw res.data.login;
 		}).catch((err) => {

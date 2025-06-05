@@ -1,6 +1,7 @@
 import React from "react";
-import { View } from "react-native";
+import { View, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import  localStorage  from "@react-native-async-storage/async-storage";
 
 import { onboardingScreenStyles } from "../../styles/screensStyle/publicStyle/onboardingScreenStyle";
 import subjectData from "../../../assets/data/home/subjectData.json";
