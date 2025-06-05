@@ -11,10 +11,8 @@ type SidebarHeaderProps = {
 };
 
 const SidebarHeader: React.FC<SidebarHeaderProps> = ({ screenWidth, navigation, viewMode }) => {
-
-	const redirectToHome = VIEW_MODE.studentView === viewMode ? NAV_SCREEN_NAME.HomeScreen : NAV_SCREEN_NAME.TutorHomeScreen;
 	return (
-		<TouchableOpacity onPress={() => navigation.navigate(redirectToHome)} style={sidebarHeaderStyles.sidebarMediaContainer}>
+		<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.HomeScreen)} style={sidebarHeaderStyles.sidebarMediaContainer}>
 			{screenWidth >= 972 && (
 				<Image
 					source={IMAGES.appLogo}

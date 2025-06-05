@@ -8,7 +8,7 @@ export const navStudentTabs = [
 ];
 
 export const navTutorTabs = [
-    { name: STRING.home, link: NAV_SCREEN_NAME.TutorHomeScreen, icon: { set: "MaterialCommunityIcons" as IconSetName, name: 'view-dashboard' } },
-    { name: STRING.study, link: NAV_SCREEN_NAME.StudyScreen, icon: { set: "FontAwesome" as IconSetName, name: 'video-camera' } },
-    { name: STRING.call, link: NAV_SCREEN_NAME.CallScreen, icon: { set: "Ionicons" as IconSetName, name: 'person' } },
+    { name: STRING.home, link: NAV_SCREEN_NAME.HomeScreen, icon: { set: "MaterialCommunityIcons" as IconSetName, name: 'view-dashboard' } },
+    { name: STRING.call, link: NAV_SCREEN_NAME.CallScreen, icon: { set: "Ionicons" as IconSetName, name: 'call' } },
+    { name: STRING.profile, link: NAV_SCREEN_NAME.TutorProfileEditebleScreen, icon: { set: "Ionicons" as IconSetName, name: 'person' } },
 ]

@@ -13,6 +13,7 @@ import { NAV_SCREEN_NAME, VIEW_MODE } from "../../constants/strings";
 import { useNavigation } from "@react-navigation/native";
 import { useGetUser } from "@/graphql/hooks/user";
 import { UserType } from "@/types/User/User";
+import useGetRole from "@/hooks/useGetRole";
 
 
 interface MobileTopNavProps {
@@ -36,7 +37,6 @@ interface PrivatePropType {
   showAppName?: boolean;
   showSearchBar?: boolean;
   mobileShowAppLogo?: boolean;
-  viewMode?: string; 
 }
 
 const MobileTopNav: React.FC<MobileTopNavProps> = ({ user, showTopBar, viewMode }) => {
@@ -93,13 +93,14 @@ const PrivateScreenLayout: React.FC<PrivatePropType> = ({
   showAppName = false,
   showSearchBar = true,
   mobileShowAppLogo = true,
-  viewMode = VIEW_MODE.studentView
 }) => {
   const screenWidth = useScreenWidth();
   const isNotMobileWidth = isNotMobile(screenWidth);
   const isMobileWidth = isMobile(screenWidth);
-    const { user } = useGetUser();
+  const { user } = useGetUser();
+  const viewMode = useGetRole() || ""
 
+  console.log("PrivateScreenLayout user", viewMode);
   return (
     <SafeAreaView style={[ privateScreenLayoutStyles.layoutContainer,{ flexDirection: isMobileWidth ? "column" : "row" }]}>
       {isMobileWidth ? (

@@ -26,7 +26,7 @@ const TutorHomeScreen = () => {
 	const feedbacks: Feedback[] = studentsFeedback
 
 	return (
-		<PrivateScreenLayout viewMode={VIEW_MODE.tutorView}>
+		<PrivateScreenLayout >
 			<EventsSection showButton upcomingEventsData={upcomingEventsData} viewMode={VIEW_MODE.tutorView} />
 			<View style={tutorHomeScreenStyle.horizontalDevider}>
 				<MetricBoard totalHours={matricBoardData.totalHours} pendingRequests={matricBoardData.pendingRequests} acummulatedMoney={matricBoardData.acummulatedMoney} />

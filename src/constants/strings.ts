@@ -1,5 +1,3 @@
-import TutorHomeScreen from "@/screens/private/Tutor/TutorHomeScreen";
-
 export const STRING = {
   searchPlaceholder: "Search...",
   becomeATutor: "Become A Tutor",
@@ -113,7 +111,6 @@ export const NAV_SCREEN_NAME = {
   StudentProfileScreen: "StudentProfileScreen",
   StudyScreen: "StudyScreen",
 
-  TutorHomeScreen: "TutorHomeScreen",
   TutorProfileEditebleScreen: "TutorProfileEditebleScreen",
 
   SignInScreen: "SignInScreen",
@@ -141,6 +138,6 @@ export const DEVICE_TYPE = {
 };
 
 export const VIEW_MODE = {
-  studentView: "student",
-  tutorView: "tutor",
+  studentView: "STUDENT",
+  tutorView: "TUTOR",
 }
