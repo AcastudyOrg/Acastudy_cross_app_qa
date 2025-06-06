@@ -23,6 +23,7 @@ export const STRING = {
   selectDate: "Select Date",
   studyTitle: "What you might like!",
 
+  logoutDescription: "Are you sure you want to sign out?",
   forgotPasswordSubTitle:
     "To reset your password, please provide your email address in the field below.",
 
