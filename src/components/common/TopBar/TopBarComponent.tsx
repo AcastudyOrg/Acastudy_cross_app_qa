@@ -37,7 +37,6 @@ const TopBarComponent: React.FC<TopBarProps> = ({
 	isLSignedIn = true,
 	showBecomeATutorOnly = true,
 	showBackButton = false,
-	user = null,
 	viewMode,
 }) => {
 	const navigation = useNavigation<any>();
@@ -53,10 +52,9 @@ const TopBarComponent: React.FC<TopBarProps> = ({
 					showSearchBar={showSearchBar}
 					showBackButton={showBackButton}
 				/>
-				{renderRightSection && user && (
+				{renderRightSection && (
 					<RightSection
 						screenWidth={screenWidth}
-						user={user}
 						navigation={navigation}
 						isLSignedIn={isLSignedIn}
 						showBecomeATutorOnly={showBecomeATutorOnly}

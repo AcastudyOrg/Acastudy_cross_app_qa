@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 
 import { NAV_SCREEN_NAME, STRING, VIEW_MODE } from '@/constants/strings';
@@ -6,11 +6,12 @@ import { rightSectionStyles } from '@/styles/componentsStyle/commonStyle/topBarS
 import { updateAuthStorage } from "@/navigation";
 import { UserType } from '@/types/User/User';
 import { IMAGES } from '@/constants';
+import WarningModal from '../models/WarningModel';
+import { useGetUser } from '@/graphql/hooks/user';
 
 
 type RightSectionProps = {
 	screenWidth: number;
-	user?: UserType;
 	navigation: any;
 	isLSignedIn?: boolean;
 	viewMode?: string;
@@ -19,19 +20,21 @@ type RightSectionProps = {
 
 const RightSection: React.FC<RightSectionProps> = ({
 	screenWidth,
-	user,
 	navigation,
 	isLSignedIn,
 	viewMode,
-	showBecomeATutorOnly }) => (
-	<>
-		{isLSignedIn ? (
-			<SignedInContent screenWidth={screenWidth} navigation={navigation} user={user} viewMode={viewMode} />
-		) : (
-			<SignedOutContent screenWidth={screenWidth} navigation={navigation} showBecomeATutorOnly={showBecomeATutorOnly} />
-		)}
-	</>
-);
+	showBecomeATutorOnly }) => {
+	const { user } = useGetUser();
+	return (
+		<>
+			{isLSignedIn ? (
+				<SignedInContent screenWidth={screenWidth} navigation={navigation} user={user} viewMode={viewMode} />
+			) : (
+				<SignedOutContent screenWidth={screenWidth} navigation={navigation} showBecomeATutorOnly={showBecomeATutorOnly} />
+			)}
+		</>
+	);
+}
 
 type SignedInContentProps = {
 	screenWidth: number;
@@ -40,51 +43,61 @@ type SignedInContentProps = {
 	viewMode?: string;
 };
 
-const handleLogout = async () => {
-	setLocalVariables();
-};
+const SignedInContent: React.FC<SignedInContentProps> = ({ screenWidth, user, navigation, viewMode }) => {
+	const [modalVisible, setModalVisible] = useState(false);
 
-const setLocalVariables = async () => {
-	await updateAuthStorage('token');
-	await updateAuthStorage('refreshToken');
-	await updateAuthStorage('userId');
-	await updateAuthStorage('role');
+	const handleLogout = async () => {
+		await updateAuthStorage('token');
+		await updateAuthStorage('refreshToken');
+		await updateAuthStorage('userId');
+		await updateAuthStorage('role');
+		setModalVisible(false);
+	};
+
+	return (
+		<View style={rightSectionStyles.rightSection}>
+			{screenWidth >= 1086 && (
+				<View style={rightSectionStyles.rightSectionbuttons}>
+					{viewMode === VIEW_MODE.studentView && (
+
+						<>
+							<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.OnboardingScreen)}>
+								<Text style={rightSectionStyles.linkText}> {STRING.becomeATutor} </Text>
+							</TouchableOpacity>
+
+							<Text style={rightSectionStyles.linkText}>|</Text>
+						</>
+					)}
+
+					<TouchableOpacity onPress={() => setModalVisible(true)}>
+						<Text style={rightSectionStyles.linkText}> {STRING.logout} </Text>
+					</TouchableOpacity>
+				</View>
+			)}
+			{user && (
+				<View style={rightSectionStyles.profile}>
+					<Text style={rightSectionStyles.profileName}>{user.firstName} {user.lastName}</Text>
+					<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.ProfileScreen)}>
+						<Image
+							source={user?.imageUrl ? { uri: user?.imageUrl } : IMAGES.userPlaceholder}
+							style={rightSectionStyles.profilePicture}
+						/>
+					</TouchableOpacity>
+				</View>
+			)}
+
+			<WarningModal
+				heading={STRING.logout}
+				description={STRING.logoutDescription}
+				onPositive={handleLogout}
+				positiveText="Logout"
+				onNegative={() => setModalVisible(false)}
+				negativeText="Cancel"
+				visible={modalVisible}
+			/>
+		</View>
+	);
 }
-
-
-const SignedInContent: React.FC<SignedInContentProps> = ({ screenWidth, user, navigation, viewMode }) => (
-	<View style={rightSectionStyles.rightSection}>
-		{screenWidth >= 1086 && (
-			<View style={rightSectionStyles.rightSectionbuttons}>
-				{viewMode === VIEW_MODE.studentView && (
-
-					<>
-						<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.OnboardingScreen)}>
-							<Text style={rightSectionStyles.linkText}> {STRING.becomeATutor} </Text>
-						</TouchableOpacity>
-
-						<Text style={rightSectionStyles.linkText}>|</Text>
-					</>
-				)}
-
-				<TouchableOpacity onPress={() => handleLogout()}>
-					<Text style={rightSectionStyles.linkText}> {STRING.logout} </Text>
-				</TouchableOpacity>
-			</View>
-		)}
-		{user && (
-			<View style={rightSectionStyles.profile}>
-				<Text style={rightSectionStyles.profileName}>{user.firstName} {user.lastName}</Text>
-				<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.StudentProfileScreen)}>
-					<Image
-						source={user?.imageUrl ? { uri: user?.imageUrl } : IMAGES.userPlaceholder}
-						style={rightSectionStyles.profilePicture}
-					/>
-				</TouchableOpacity>
-			</View>
-		)}
-	</View>
-);
 
 type SignedOutContentProps = {
 	screenWidth: number

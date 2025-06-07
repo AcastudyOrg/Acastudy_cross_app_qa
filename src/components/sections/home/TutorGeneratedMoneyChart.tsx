@@ -17,7 +17,6 @@ const TutorGeneratedMoneyChart: React.FC<TutorGeneratedMoneyChartProps> = ({ tot
         svg: {
             fill: COLORS.orange,
             rx: 10,
-            onPress: () => { }, // what happens when you press the bar?
         },
     }));
 

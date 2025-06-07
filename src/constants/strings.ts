@@ -23,6 +23,7 @@ export const STRING = {
   selectDate: "Select Date",
   studyTitle: "What you might like!",
 
+  logoutDescription: "Are you sure you want to sign out?",
   forgotPasswordSubTitle:
     "To reset your password, please provide your email address in the field below.",
 
@@ -106,12 +107,10 @@ export const STRING = {
 export const NAV_SCREEN_NAME = {
   HomeScreen: "HomeScreen",
   WelcomeScreen: "WelcomeScreen",
-  CallScreen: "CallScreen",
+  CallScreen: "CallScrewen",
   ChatScreen: "ChatScreen",
-  StudentProfileScreen: "StudentProfileScreen",
+  ProfileScreen: "ProfileScreen",
   StudyScreen: "StudyScreen",
-
-  TutorProfileEditebleScreen: "TutorProfileEditebleScreen",
 
   SignInScreen: "SignInScreen",
   SignUpScreen: "SignUpScreen",
@@ -123,7 +122,7 @@ export const NAV_SCREEN_NAME = {
   QuestioneirScreenTwo: "QuestioneirScreenTwo",
 
   SubjectTopicsScreen: "SubjectTopicsScreen",
-  TutorScreen: "TutorScreen",
+  TutorsScreen: "TutorsScreen",
   SubjectScreen: "SubjectScreen",
   TutorProfileScreen: "TutorProfileScreen",
   TermsOfUseScreen: "TermsOfUseScreen",

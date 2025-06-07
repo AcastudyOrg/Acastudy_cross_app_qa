@@ -15,7 +15,6 @@ import {
   QuestioneirScreen,
   QuestioneirScreenTwo,
   ForgotPasswordScreen,
-  WelcomeScreen,
   CallScreen,
   ChatScreen,
   HomeScreen,
@@ -60,15 +59,14 @@ const PrivateStudentNavigation = () => {
       initialRouteName={NAV_SCREEN_NAME.HomeScreen}
       screenOptions={{ headerShown: false }}
     >
-      <PrivateStack.Screen name={NAV_SCREEN_NAME.WelcomeScreen} component={WelcomeScreen} />
-      <PrivateStack.Screen name={NAV_SCREEN_NAME.CallScreen} component={CallScreen} />
-      <PrivateStack.Screen name={NAV_SCREEN_NAME.ChatScreen} component={ChatScreen} />
       <PrivateStack.Screen name={NAV_SCREEN_NAME.HomeScreen} component={HomeScreen} />
-      <PrivateStack.Screen name={NAV_SCREEN_NAME.StudentProfileScreen} component={StudentProfileScreen} />
+      <PrivateStack.Screen name={NAV_SCREEN_NAME.CallScreen} component={CallScreen} />
+      <PrivateStack.Screen name={NAV_SCREEN_NAME.ProfileScreen} component={StudentProfileScreen} />
+      <PrivateStack.Screen name={NAV_SCREEN_NAME.ChatScreen} component={ChatScreen} />
       <PrivateStack.Screen name={NAV_SCREEN_NAME.StudyScreen} component={StudyScreen} />
 
       <PrivateStack.Screen name={NAV_SCREEN_NAME.SubjectTopicsScreen} component={SubjectTopicsScreen} />
-      <PrivateStack.Screen name={NAV_SCREEN_NAME.TutorScreen} component={TutorsScreen} />
+      <PrivateStack.Screen name={NAV_SCREEN_NAME.TutorsScreen} component={TutorsScreen} />
       <PrivateStack.Screen name={NAV_SCREEN_NAME.SubjectScreen} component={SubjectScreen} />
       <PrivateStack.Screen name={NAV_SCREEN_NAME.TutorProfileScreen} component={TutorProfileScreen} />
       <PrivateStack.Screen name={NAV_SCREEN_NAME.RequestTutorScreen} component={RequestTutorScreen} />
@@ -80,13 +78,12 @@ const PrivateTutorNavigation = () => {
   const PrivateStack = createNativeStackNavigator();
   return (
     <PrivateStack.Navigator
-      // TODO initial route is based on which role. if you are a student its home screen, if you are a tutor its tutor home screen
       initialRouteName={NAV_SCREEN_NAME.HomeScreen}
       screenOptions={{ headerShown: false }}
     >
       <PrivateStack.Screen name={NAV_SCREEN_NAME.HomeScreen} component={TutorHomeScreen} />
-      <PrivateStack.Screen name={NAV_SCREEN_NAME.TutorProfileEditebleScreen} component={TutorProfileEditebleScreen} />
       <PrivateStack.Screen name={NAV_SCREEN_NAME.CallScreen} component={CallScreen} />
+      <PrivateStack.Screen name={NAV_SCREEN_NAME.ProfileScreen} component={TutorProfileEditebleScreen} />
 
     </PrivateStack.Navigator>
   );
@@ -126,7 +123,12 @@ const AppMainNavigation = () => {
     };
   }, []);
 
-  if (isAuthenticated) return  role === VIEW_MODE.studentView? <PrivateStudentNavigation /> : <PrivateTutorNavigation/>;
+  if (isAuthenticated && role ===  VIEW_MODE.studentView) {
+    return <PrivateStudentNavigation />;
+  }
+  else if (isAuthenticated && role === VIEW_MODE.tutorView) {
+    return <PrivateTutorNavigation />;
+  }
   return <PublicNavigation />;
 };
 
