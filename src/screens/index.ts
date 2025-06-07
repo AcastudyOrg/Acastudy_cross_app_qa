@@ -9,7 +9,6 @@ import VerifyEmailScreen from "@/screens/public/VerifyEmailScreen";
 import ForgotPasswordScreen from "@/screens/public/ForgotPasswordScreen";
 
 //Private Route Screens 
-import WelcomeScreen from "@/screens/private/WelcomeScreen";
 import ChatScreen from "@/screens/private/ChatScreen";
 import CallScreen from "@/screens/private/CallScreen";
 import HomeScreen from "@/screens/private/HomeScreen";
@@ -34,7 +33,6 @@ export {
   QuestioneirScreen,
   QuestioneirScreenTwo,
   ForgotPasswordScreen,
-  WelcomeScreen,
   ChatScreen,
   CallScreen,
   HomeScreen,

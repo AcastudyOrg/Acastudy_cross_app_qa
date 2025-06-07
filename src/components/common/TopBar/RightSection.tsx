@@ -7,11 +7,11 @@ import { updateAuthStorage } from "@/navigation";
 import { UserType } from '@/types/User/User';
 import { IMAGES } from '@/constants';
 import WarningModal from '../models/WarningModel';
+import { useGetUser } from '@/graphql/hooks/user';
 
 
 type RightSectionProps = {
 	screenWidth: number;
-	user?: UserType;
 	navigation: any;
 	isLSignedIn?: boolean;
 	viewMode?: string;
@@ -20,19 +20,21 @@ type RightSectionProps = {
 
 const RightSection: React.FC<RightSectionProps> = ({
 	screenWidth,
-	user,
 	navigation,
 	isLSignedIn,
 	viewMode,
-	showBecomeATutorOnly }) => (
-	<>
-		{isLSignedIn ? (
-			<SignedInContent screenWidth={screenWidth} navigation={navigation} user={user} viewMode={viewMode} />
-		) : (
-			<SignedOutContent screenWidth={screenWidth} navigation={navigation} showBecomeATutorOnly={showBecomeATutorOnly} />
-		)}
-	</>
-);
+	showBecomeATutorOnly }) => {
+	const { user } = useGetUser();
+	return (
+		<>
+			{isLSignedIn ? (
+				<SignedInContent screenWidth={screenWidth} navigation={navigation} user={user} viewMode={viewMode} />
+			) : (
+				<SignedOutContent screenWidth={screenWidth} navigation={navigation} showBecomeATutorOnly={showBecomeATutorOnly} />
+			)}
+		</>
+	);
+}
 
 type SignedInContentProps = {
 	screenWidth: number;
@@ -75,7 +77,7 @@ const SignedInContent: React.FC<SignedInContentProps> = ({ screenWidth, user, na
 			{user && (
 				<View style={rightSectionStyles.profile}>
 					<Text style={rightSectionStyles.profileName}>{user.firstName} {user.lastName}</Text>
-					<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.StudentProfileScreen)}>
+					<TouchableOpacity onPress={() => navigation.navigate(NAV_SCREEN_NAME.ProfileScreen)}>
 						<Image
 							source={user?.imageUrl ? { uri: user?.imageUrl } : IMAGES.userPlaceholder}
 							style={rightSectionStyles.profilePicture}

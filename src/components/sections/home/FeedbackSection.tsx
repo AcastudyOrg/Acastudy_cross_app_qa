@@ -31,7 +31,7 @@ const FeedbackSection: React.FC<FeedbackSectionProps> = ({ overallRating, feedba
 					</Text>
 				</View>
 			) : (
-				<ScrollView vertical showsVerticalScrollIndicator={false} style={feedbackSectionStyles.scrollView}>
+				<ScrollView showsVerticalScrollIndicator={false} style={feedbackSectionStyles.scrollView}>
 					{feedbacks.map((feedback, index) => (
 						<View key={index} style={feedbackSectionStyles.feedbackCard}>
 							<View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>

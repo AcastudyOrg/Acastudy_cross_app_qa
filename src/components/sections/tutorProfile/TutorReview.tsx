@@ -35,8 +35,8 @@ const TutorReviews: React.FC<ReviewsProps> = ({ rating, reviewCounts }) => {
                     {Object.entries(reviewCounts)
                         .sort(([a], [b]) => Number(b) - Number(a))
                         .map(([stars, count]) => (
-                            <View style={ReviewTutorstyles.makeRow}>
-                                <View key={stars} style={ReviewTutorstyles.reviewBar}>
+                            <View key={stars} style={ReviewTutorstyles.makeRow}>
+                                <View  style={ReviewTutorstyles.reviewBar}>
                                     <Text style={ReviewTutorstyles.starText}>{stars}</Text>
                                     <View style={ReviewTutorstyles.barContainer}>
                                         <View

@@ -5,18 +5,10 @@ import { isNotMobile } from "../../../utils/config";
 import { privateScreenLayoutStyles } from "../../styles/componentsStyle/layoutStyle/privateScreenLayoutStyle";
 import TopBarComponent from "../common/TopBar/TopBarComponent";
 import useScreenWidth from "../../hooks/useScreenWidth";
-import { UserType } from "@/types/User/User";
 
 const PublicScreenLayout = ({ children }: { children: React.ReactNode }) => {
     const screenWidth = useScreenWidth();
     const isNotMobileWidth = isNotMobile(screenWidth);
-
-    const user: UserType = {
-        id: "",
-        firstName: "",
-        lastName: "",
-        imageUrl: ""
-    };
 
     return (
         <SafeAreaView style={privateScreenLayoutStyles.layoutContainer}>
@@ -27,7 +19,6 @@ const PublicScreenLayout = ({ children }: { children: React.ReactNode }) => {
                         showAppName={true}
                         showSearchBar={false}
                         isLSignedIn={false}
-                        user={user}
                         showBecomeATutorOnly={false}
                     />
                     <ScrollView
@@ -47,7 +38,6 @@ const PublicScreenLayout = ({ children }: { children: React.ReactNode }) => {
                             showAppName={true}
                             showSearchBar={false}
                             isLSignedIn={false}
-                            user={user}
                             showBecomeATutorOnly={false}
                         />
                         <View style={privateScreenLayoutStyles.mainContent}>

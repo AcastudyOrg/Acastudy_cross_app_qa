@@ -107,12 +107,10 @@ export const STRING = {
 export const NAV_SCREEN_NAME = {
   HomeScreen: "HomeScreen",
   WelcomeScreen: "WelcomeScreen",
-  CallScreen: "CallScreen",
+  CallScreen: "CallScrewen",
   ChatScreen: "ChatScreen",
-  StudentProfileScreen: "StudentProfileScreen",
+  ProfileScreen: "ProfileScreen",
   StudyScreen: "StudyScreen",
-
-  TutorProfileEditebleScreen: "TutorProfileEditebleScreen",
 
   SignInScreen: "SignInScreen",
   SignUpScreen: "SignUpScreen",
@@ -124,7 +122,7 @@ export const NAV_SCREEN_NAME = {
   QuestioneirScreenTwo: "QuestioneirScreenTwo",
 
   SubjectTopicsScreen: "SubjectTopicsScreen",
-  TutorScreen: "TutorScreen",
+  TutorsScreen: "TutorsScreen",
   SubjectScreen: "SubjectScreen",
   TutorProfileScreen: "TutorProfileScreen",
   TermsOfUseScreen: "TermsOfUseScreen",
