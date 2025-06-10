@@ -57,12 +57,12 @@ export const tutorHeaderStyles = StyleSheet.create({
     },
     editorIcon: {
         position: 'absolute',
-        bottom: 20,
+        bottom: 25,
         left: 130,
         backgroundColor: COLORS.purple,
         borderRadius: 100,
-        height:50,
-        width:50,
+        height:30,
+        width:30,
         justifyContent: 'center',
       }
 });

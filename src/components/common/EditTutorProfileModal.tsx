@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Modal, View, Text, TextInput, Image, Pressable, ImageURISource } from 'react-native';
-import * as ImagePicker from 'expo-image-picker';
+import { Modal, View, Text, TextInput, Image, Pressable, ImageURISource, Alert } from 'react-native';
 import { COLORS } from '../../constants';
 import { editProfileModel } from '@/styles/componentsStyle/commonStyle/editProfileModel';
+import { pickImage } from '@/helpers/helpers';
 
 interface EditProfileModalProps {
     visible: boolean;
@@ -20,24 +20,41 @@ const EditProfileModal: React.FC<EditProfileModalProps> = ({
     onSave,
 }) => {
     const [editedName, setEditedName] = useState(name);
+    const [imageInfo, setImage] = useState<any | null>(null);
     const [editedImage, setEditedImage] = useState<string | number | ImageURISource | ImageURISource[]>(imageUrl);
 
-    const pickImage = async () => {
-        const result = await ImagePicker.launchImageLibraryAsync({
-            mediaTypes: ImagePicker.MediaTypeOptions.Images,
-            allowsEditing: true,
-            aspect: [1, 1],
-            quality: 0.7,
-        });
-
-        if (!result.canceled && result.assets?.[0].uri) {
-            setEditedImage(result.assets[0].uri);
+    const uploadImage = async () => {
+        const image = await pickImage();
+        if (image?.uri) {
+            setEditedImage(image.uri);
+            setImage(image)
+            onSave(editedName, image.uri);
         }
-    };
+        else {
+            Alert.alert("Image Selection", `No image selected or image selection was canceled.`);
+        }
+    }
 
     const handleSave = () => {
-        onSave(editedName, editedImage as string);
-        onClose();
+        if (imageInfo) {
+            const file = {
+                name: "_profile-" + imageInfo?.fileName,
+                uri: imageInfo.uri,
+                type: imageInfo.mimeType,
+            };
+            const formData = new FormData();
+            formData.append("file", file as any);
+            console.log("Form Data: ", file);
+
+            ///Call api to upload the image
+            // Example: const { url } = await uploadProfileImage(formData);
+
+            //Call api to update user profile
+            // payload = { firstName: editedName, lastName: "", imageUrl: url };
+
+            onSave(editedName, imageInfo.uri as string);
+            onClose();
+        }
     };
 
     return (
@@ -46,7 +63,7 @@ const EditProfileModal: React.FC<EditProfileModalProps> = ({
                 <View style={editProfileModel.modelCantainer} >
                     <Text style={editProfileModel.title}>Edit Profile</Text>
 
-                    <Pressable onPress={pickImage} style={editProfileModel.imageTextContainer}>
+                    <Pressable onPress={uploadImage} style={editProfileModel.imageTextContainer}>
                         <Image
                             source={typeof editedImage === 'number' ? editedImage : { uri: editedImage }}
                             style={editProfileModel.imageImage}
@@ -54,7 +71,7 @@ const EditProfileModal: React.FC<EditProfileModalProps> = ({
                         <Text style={editProfileModel.imageText}>Change Image</Text>
                     </Pressable>
 
-                    <TextInput value={editedName} onChangeText={setEditedName} placeholder="Enter name" style={editProfileModel.input}/>
+                    <TextInput value={editedName} onChangeText={setEditedName} placeholder="Enter name" style={editProfileModel.input} />
 
                     <View style={editProfileModel.buttonsContainer}>
                         <Pressable onPress={handleSave} style={editProfileModel.button}>

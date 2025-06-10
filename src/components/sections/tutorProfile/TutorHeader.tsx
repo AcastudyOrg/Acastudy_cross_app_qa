@@ -44,7 +44,7 @@ const TutorHeader: React.FC<TutorHeaderProps> = ({ name, rating, reviews, imageU
 						<CustomIcon
 							set='Entypo'
 							name='edit'
-							size={25}
+							size={16}
 							color={COLORS.white}
 						/>
 					</Pressable>

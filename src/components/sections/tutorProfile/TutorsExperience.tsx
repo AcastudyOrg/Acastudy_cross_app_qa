@@ -51,11 +51,11 @@ const TutorExperience: React.FC<ExperienceProps> = ({ experiences: initialExperi
         <View style={tutorExperienceStyles.section}>
             <View style={{ flex: 1, flexDirection: "row" }}>
                 <Text style={tutorExperienceStyles.sectionTitle}>Experience</Text>
-                <Pressable style={{ marginLeft: 10 }} onPress={handleAdd}>
+                <Pressable style={{ left: 10, alignSelf: "center" }} onPress={handleAdd}>
                     <CustomIcon
                         set='Ionicons'
                         name='add-circle-outline'
-                        size={35}
+                        size={25}
                         color={COLORS.white}
                     />
                 </Pressable>
