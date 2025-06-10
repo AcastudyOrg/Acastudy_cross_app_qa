@@ -8,7 +8,7 @@ interface EditProfileModalProps {
     visible: boolean;
     onClose: () => void;
     name: string;
-    imageUrl: string | number | ImageURISource | ImageURISource[];
+    imageUrl: string;
     onSave: (updatedName: string, updatedImage: string) => void;
 }
 
@@ -21,7 +21,7 @@ const EditProfileModal: React.FC<EditProfileModalProps> = ({
 }) => {
     const [editedName, setEditedName] = useState(name);
     const [imageInfo, setImage] = useState<any | null>(null);
-    const [editedImage, setEditedImage] = useState<string | number | ImageURISource | ImageURISource[]>(imageUrl);
+    const [editedImage, setEditedImage] = useState<string>(imageUrl);
 
     const uploadImage = async () => {
         const image = await pickImage();
@@ -65,7 +65,7 @@ const EditProfileModal: React.FC<EditProfileModalProps> = ({
 
                     <Pressable onPress={uploadImage} style={editProfileModel.imageTextContainer}>
                         <Image
-                            source={typeof editedImage === 'number' ? editedImage : { uri: editedImage }}
+                            source={typeof editedImage === 'number' ? editedImage : { uri: editedImage as string }}
                             style={editProfileModel.imageImage}
                         />
                         <Text style={editProfileModel.imageText}>Change Image</Text>
