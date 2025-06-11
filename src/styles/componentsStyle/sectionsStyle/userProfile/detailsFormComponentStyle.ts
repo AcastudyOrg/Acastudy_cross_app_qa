@@ -21,7 +21,6 @@ export const detailsFormComponentStyles = StyleSheet.create({
         backgroundColor: COLORS.white,
     },
     personalInfoTitleContainer: {
-        top: 15,
         width: "100%",
         flexDirection: "row",
         alignItems: "center",

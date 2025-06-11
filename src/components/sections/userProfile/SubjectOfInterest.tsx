@@ -75,7 +75,7 @@ const SubjectOfInterest: React.FC<SubjectOfInterestProps> = ({ subjects, refetch
 
     return (
         <View style={studentSubjectOfInterestStyles.section}>
-            <View style={detailsFormComponentStyles.personalInfoTitleContainer}>
+            <View style={[detailsFormComponentStyles.personalInfoTitleContainer, { top: 15}]}>
                 <Text style={studentSubjectOfInterestStyles.sectionTitle}>{STRING.subjectOfInterest}</Text>
                 <TouchableOpacity disabled={!isEdited} style={detailsFormComponentStyles.personalInfoSaveButton} onPress={onSubjectOfInterestSave} >
                     {updating ? <ActivityIndicator color={COLORS.white} size={"small"} /> :
