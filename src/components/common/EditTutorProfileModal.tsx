@@ -52,7 +52,7 @@ const EditProfileModal: React.FC<EditProfileModalProps> = ({
             //Call api to update user profile
             // payload = { firstName: editedName, lastName: "", imageUrl: url };
 
-            onSave(editedName, imageInfo.uri as string);
+            onSave(editedName, imageInfo.uri);
             onClose();
         }
     };
@@ -65,7 +65,7 @@ const EditProfileModal: React.FC<EditProfileModalProps> = ({
 
                     <Pressable onPress={uploadImage} style={editProfileModel.imageTextContainer}>
                         <Image
-                            source={typeof editedImage === 'number' ? editedImage : { uri: editedImage as string }}
+                            source={typeof editedImage === 'number' ? editedImage : { uri: editedImage }}
                             style={editProfileModel.imageImage}
                         />
                         <Text style={editProfileModel.imageText}>Change Image</Text>

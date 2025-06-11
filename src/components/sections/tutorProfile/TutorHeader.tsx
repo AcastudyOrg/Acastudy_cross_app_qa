@@ -4,25 +4,26 @@ import { tutorHeaderStyles } from '../../../styles/componentsStyle/sectionsStyle
 import GradientButtonComponent from '../../common/Form/GradientButtonComponent';
 import { NAV_SCREEN_NAME, STRING } from '../../../constants/strings';
 import { useNavigation } from '@react-navigation/native';
-import { COLORS } from '../../../constants';
+import { COLORS, IMAGES } from '../../../constants';
 import CustomIcon from '../../common/CustomIcon';
 import { isPlatformIOSorAndroid } from '../../../../utils/config';
 import EditProfileModal from '@/components/common/EditTutorProfileModal';
+import { UserType } from '@/types/User/User';
 
 interface TutorHeaderProps {
-	name: string;
+	user: UserType
 	rating: number;
 	reviews: number;
-	imageUrl: ImageSourcePropType | string;
 	isEditeble?: boolean;
 }
 
-const TutorHeader: React.FC<TutorHeaderProps> = ({ name, rating, reviews, imageUrl, isEditeble = false }) => {
+const TutorHeader: React.FC<TutorHeaderProps> = ({ user, rating, reviews, isEditeble = false }) => {
 	const navigation = useNavigation<any>();
 	const [showEditModal, setShowEditModal] = useState(false);
-	const [tutorName, setTutorName] = useState(name);
-	const [tutorImage, setTutorImage] = useState(imageUrl);
+	const [tutorName, setTutorName] = useState(user.firstName + " " + user.lastName );
+	const [tutorImage, setTutorImage] = useState(user.imageUrl || IMAGES.userPlaceholder);
 
+	
 	const handleEditProfile = () => {
 		setShowEditModal(true);
 	};
@@ -36,7 +37,7 @@ const TutorHeader: React.FC<TutorHeaderProps> = ({ name, rating, reviews, imageU
 		<View style={tutorHeaderStyles.container}>
 			<View style={tutorHeaderStyles.header}>
 				<Image
-					source={typeof tutorImage === 'number' ? tutorImage : { uri: tutorImage }}
+					source={{uri: tutorImage}}
 					style={tutorHeaderStyles.profileImage}
 				/>
 				{isEditeble &&

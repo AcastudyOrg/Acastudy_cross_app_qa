@@ -13,6 +13,7 @@ import { AvailablilityCalender } from "../../../components/common/AvailablilityC
 import CustomNoStrokeTextInput from "@/components/common/Form/CustomNoStrokeTextInput";
 import SubjectOfInterest from "@/components/sections/userProfile/SubjectOfInterest";
 import { COLORS } from "@/constants";
+import { useGetUser } from "@/graphql/hooks/user";
 
 interface TutorProfileScreenProps {
 
@@ -20,15 +21,15 @@ interface TutorProfileScreenProps {
 const TutorProfileEditebleScreen: React.FC<TutorProfileScreenProps> = ({ }) => {
 
     const [biography, setBiography] = React.useState<string>("");
-
+    const { user } = useGetUser();
+    
     return (
         <PrivateScreenLayout showBackButton={true} showSearchBar={false}>
-            <View style={tutorProfileStyles.tutorProfileContainer}>
+            { user &&<View style={tutorProfileStyles.tutorProfileContainer}>
                 <TutorHeader
-                    name={tutorData.name}
+                    user={user}
                     rating={tutorData.rating}
                     reviews={tutorData.reviews}
-                    imageUrl={tutorData.imageUrl}
                     isEditeble={true}
                 />
 
@@ -57,7 +58,7 @@ const TutorProfileEditebleScreen: React.FC<TutorProfileScreenProps> = ({ }) => {
                         />
                     </View>
                 </View>
-            </View>
+            </View> }
         </PrivateScreenLayout >
     );
 }

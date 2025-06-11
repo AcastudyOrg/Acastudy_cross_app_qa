@@ -13,18 +13,25 @@ import TutorHeader from "../../components/sections/tutorProfile/TutorHeader";
 import { tutorData } from "../../../mockData/TutorData";
 import { tutorProfileStyles } from "../../styles/componentsStyle/commonStyle/tutorProfileStyle";
 import { AvailablilityCalender } from "../../components/common/AvailablilityCalender";
+import { UserType } from "@/types/User/User";
+import { IMAGES } from "@/constants";
 
 type propType = NativeStackScreenProps<any>;
 
 const TutorProfileScreen: React.FC<propType> = ({ route }) => {
+    
+    const user: UserType = {
+        firstName: route.params?.firstName || "John",
+        lastName: route.params?.lastName || "Doe",
+        imageUrl: route.params?.imageUrl || IMAGES.userPlaceholder,
+    }
     return (
         <PrivateScreenLayout showBackButton={true} showSearchBar={false}>
             <View style={tutorProfileStyles.tutorProfileContainer}>
                 <TutorHeader
-                    name={tutorData.name}
+                    user={user}
                     rating={tutorData.rating}
                     reviews={tutorData.reviews}
-                    imageUrl={route?.params?.imageUrl ?? tutorData.imageUrl}
                 />
                 <TutorBio text={tutorData.bio} />
                 <TutoSubjectOfInterest subjects={tutorData.subjects} />
