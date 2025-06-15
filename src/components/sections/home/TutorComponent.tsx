@@ -8,36 +8,29 @@ import { homeTileScreenWidth } from '../../../../utils/config';
 import useScreenWidth from '../../../hooks/useScreenWidth';
 import { NAV_SCREEN_NAME } from '../../../constants/strings';
 import { useNavigation } from '@react-navigation/native';
+import { UserType } from '@/types/User/User';
 
 type TutorProps = {
-    item: {
-        firstName: string;
-        lastName: string;
-        avatar: string;
-        subject: string;
-        sessions: number;
-        rating: number;
-        online: boolean;
-    }
+    user: UserType;
 };
 
-const TutorComponent: React.FC<TutorProps> = ({ item }) => {
+const TutorComponent: React.FC<TutorProps> = ({ user }) => {
     const navigation = useNavigation<any>();
     const screenWidth = useScreenWidth();
     const containerWidth = homeTileScreenWidth(screenWidth);
     return (
-        <Pressable onPress={() => navigation.navigate(NAV_SCREEN_NAME.TutorProfileScreen, { imageUrl: item.avatar })} style={[
+        <Pressable onPress={() => navigation.navigate(NAV_SCREEN_NAME.TutorProfileScreen, { userId: user.id })} style={[
             tutorComponentStyles.tutorContentContainer,
             { width: containerWidth, paddingHorizontal: containerWidth * .1 }]}>
             <View style={tutorComponentStyles.tutorImageContainer}>
                 <Image
-                    source={{ uri: item.avatar }}
+                    source={{ uri: user?.imageUrl }}
                     style={[
                         tutorComponentStyles.tutorImageItem,
                         { width: containerWidth * .3, height: containerWidth * .3 }
                     ]}
                 />
-                {item.online ? (
+                {user?.onlineStatus ? (
                     <Octicons
                         name="dot-fill"
                         size={15}
@@ -58,9 +51,9 @@ const TutorComponent: React.FC<TutorProps> = ({ item }) => {
                 <Text style={tutorComponentStyles.tutorNameItem}
                     numberOfLines={1}
                     ellipsizeMode="tail">
-                    {item.firstName} {item.lastName}
+                    {user?.firstName} {user?.lastName}
                 </Text>
-                <Text style={tutorComponentStyles.tutorSubjectItem}>{item.subject}</Text>
+                <Text style={tutorComponentStyles.tutorSubjectItem}>{user?.interests?.[0] || "Subject"}</Text>
             </View>
 
             <View style={tutorComponentStyles.bottomSection}>

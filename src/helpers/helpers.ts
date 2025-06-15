@@ -1,3 +1,4 @@
+import { IMAGES } from '@/constants';
 import * as ImagePicker from 'expo-image-picker';
 
 export const pickImage = async () => {
@@ -13,3 +14,10 @@ export const pickImage = async () => {
     }
     return null;
 };
+
+export const imageSource = (str?: string) => {
+    if(str?.includes("http") || str?.startsWith("file://") || str?.startsWith("data:image/")) {
+        return { uri: str };
+    }
+    return IMAGES.userPlaceholder;
+}

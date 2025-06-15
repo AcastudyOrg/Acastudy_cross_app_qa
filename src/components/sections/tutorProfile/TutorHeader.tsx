@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
-import { View, Text, Image, ImageSourcePropType, Pressable } from 'react-native';
-import { tutorHeaderStyles } from '../../../styles/componentsStyle/sectionsStyle/tutorsProfile/tutorsHeader';
-import GradientButtonComponent from '../../common/Form/GradientButtonComponent';
-import { NAV_SCREEN_NAME, STRING } from '../../../constants/strings';
+import { View, Text, Image, Pressable } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { COLORS, IMAGES } from '../../../constants';
-import CustomIcon from '../../common/CustomIcon';
-import { isPlatformIOSorAndroid } from '../../../../utils/config';
+import { tutorHeaderStyles } from '@/styles/componentsStyle/sectionsStyle/tutorsProfile/tutorsHeader';
+import GradientButtonComponent from '@/components/common/Form/GradientButtonComponent';
+import { NAV_SCREEN_NAME, STRING } from '@/constants/strings';
+import { COLORS } from '@/constants';
+import CustomIcon from '@/components/common/CustomIcon';
+
+import { isPlatformIOSorAndroid } from '@/../utils/config';
 import EditProfileModal from '@/components/common/EditTutorProfileModal';
 import { UserType } from '@/types/User/User';
+import { imageSource } from '@/helpers/helpers';
 
 interface TutorHeaderProps {
 	user: UserType
@@ -20,24 +22,16 @@ interface TutorHeaderProps {
 const TutorHeader: React.FC<TutorHeaderProps> = ({ user, rating, reviews, isEditeble = false }) => {
 	const navigation = useNavigation<any>();
 	const [showEditModal, setShowEditModal] = useState(false);
-	const [tutorName, setTutorName] = useState(user.firstName + " " + user.lastName );
-	const [tutorImage, setTutorImage] = useState(user.imageUrl || IMAGES.userPlaceholder);
 
-	
 	const handleEditProfile = () => {
 		setShowEditModal(true);
 	};
-
-	const handleSaveProfile = (updatedName: string, updatedImage: string) => {
-		setTutorName(updatedName);
-		setTutorImage(updatedImage);
-	};
-
+	console.log("isPlatformIOSorAndroid:", isPlatformIOSorAndroid())
 	return (
 		<View style={tutorHeaderStyles.container}>
 			<View style={tutorHeaderStyles.header}>
 				<Image
-					source={{uri: tutorImage}}
+					source={imageSource(user?.imageUrl)}
 					style={tutorHeaderStyles.profileImage}
 				/>
 				{isEditeble &&
@@ -51,12 +45,12 @@ const TutorHeader: React.FC<TutorHeaderProps> = ({ user, rating, reviews, isEdit
 					</Pressable>
 				}
 				<View style={tutorHeaderStyles.tutorHeaderInfo}>
-					<Text style={tutorHeaderStyles.name}>{tutorName}</Text>
+					<Text style={tutorHeaderStyles.name}>{user?.firstName +" "+ user?.lastName}</Text>
 					<Text style={tutorHeaderStyles.rating}>{rating} • {reviews} reviews</Text>
 				</View>
 			</View>
 
-			{!isPlatformIOSorAndroid ?
+			{!isPlatformIOSorAndroid() ?
 				<View style={tutorHeaderStyles.requestButton}>
 					<GradientButtonComponent
 						text={STRING.requestTutor}
@@ -72,9 +66,7 @@ const TutorHeader: React.FC<TutorHeaderProps> = ({ user, rating, reviews, isEdit
 			<EditProfileModal
 				visible={showEditModal}
 				onClose={() => setShowEditModal(false)}
-				name={tutorName}
-				imageUrl={tutorImage}
-				onSave={handleSaveProfile}
+				user={user}
 			/>
 		</View>
 	);

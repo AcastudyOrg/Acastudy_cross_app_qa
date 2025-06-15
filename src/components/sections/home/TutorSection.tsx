@@ -5,20 +5,13 @@ import TutorComponent from './TutorComponent';
 import { tutorSectionStyles } from '../../../styles/componentsStyle/sectionsStyle/home/tutorSectionStyle';
 import { NAV_SCREEN_NAME, STRING } from '../../../constants/strings';
 import { useNavigation } from '@react-navigation/native';
+import { UserType } from '@/types/User/User';
 
 type tutorSectionProps = {
-    tutorData: {
-        firstName: string;
-        lastName: string;
-        avatar: string;
-        subject: string;
-        sessions: number;
-        rating: number;
-        online: boolean;
-    }[];
+    tutors?: UserType[];
 };
 
-const TutorSection: React.FC<tutorSectionProps> = ({ tutorData }) => {
+const TutorSection: React.FC<tutorSectionProps> = ({ tutors }) => {
     const navigation = useNavigation<any>();
 
     const handleViewMore = () => {
@@ -37,9 +30,9 @@ const TutorSection: React.FC<tutorSectionProps> = ({ tutorData }) => {
                 showsHorizontalScrollIndicator={false}
                 style={tutorSectionStyles.tutorMainDataContainer}
             >
-                {tutorData.map((item, i) => (
+                {tutors?.map((user, i) => (
                     <View key={i}>
-                        <TutorComponent item={item} />
+                        <TutorComponent user={user} />
                     </View>
                 ))}
             </ScrollView>

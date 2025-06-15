@@ -1,6 +1,6 @@
 import React from "react";
 import { useMutation, useQuery } from "@apollo/client";
-import { updateUserMutation, getUserQuery } from "@/graphql/api/auth";
+import { updateUserMutation, getUserQuery, getAllTutorsQuery } from "@/graphql/api/auth";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const useUpdateUser = () => {
@@ -27,11 +27,11 @@ export const useUpdateUser = () => {
     return { updateUser, updating };
 };
 
-export const useGetUser = () => {
+export const useGetUser = (uid?: string) => {
     const [userId, setUserId] = React.useState<string | null>(null);
     React.useEffect(() => {
         const fetchUserId = async () => {
-            const id = await getUserId();
+            const id = uid || await getUserId();
             setUserId(id);
         };
         fetchUserId();
@@ -43,6 +43,11 @@ export const useGetUser = () => {
     });
 
     return { user: data?.getUser?.data, loadingUser, refetch };
+};
+
+export const useGetTutors = () => {
+    const { data, loading, refetch } = useQuery(getAllTutorsQuery);
+    return { tutors: data?.getAllTutors?.data, loading, refetch };
 };
 
 export const getUserId = async () => {

@@ -13,21 +13,10 @@ interface TopProfileProps {
 
 const TopProfileComponent: React.FC<TopProfileProps> = ({ user }) => {
   const [showEditModal, setShowEditModal] = useState(false);
-  const [name, setName] = useState(user?.firstName + " " + user.lastName || "");
-  const [image, setImage] =useState(user?.imageUrl || IMAGES.userPlaceholder);
-
-  const handleSaveProfile = (updatedName: string, updatedImage: string) => {
-		setName(updatedName);
-		setImage(updatedImage);
-	};
-  
-  const handleEditProfile = () => {
-		setShowEditModal(true);
-	};
 
   return (
     <View style={profileScreenStyles.topProfileContainer}>
-      <Pressable onPress={handleEditProfile} style={profileScreenStyles.topProfileImageContainer}>
+      <Pressable onPress={() => setShowEditModal(true)} style={profileScreenStyles.topProfileImageContainer}>
         <Image
           source={user?.imageUrl ? { uri: user?.imageUrl } : IMAGES.userPlaceholder}
           style={profileScreenStyles.topProfileImage}
@@ -49,13 +38,11 @@ const TopProfileComponent: React.FC<TopProfileProps> = ({ user }) => {
       </TouchableOpacity>
 
       <EditProfileModal
-				visible={showEditModal}
-				onClose={() => setShowEditModal(false)}
-				name={name}
-				imageUrl={image}
-				onSave={handleSaveProfile}
-			/>
-      
+        user={user}
+        visible={showEditModal}
+        onClose={() => setShowEditModal(false)}
+      />
+
     </View>
   );
 };

@@ -1,30 +1,25 @@
 
 import React from "react";
 import { Text, View } from "react-native";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { useRoute } from "@react-navigation/native";
+import { useGetUser } from "@/graphql/hooks/user";
 
-import TutorBio from "../../components/sections/tutorProfile/TutorBio";
-import TutoSubjectOfInterest from "../../components/sections/tutorProfile/TutorSubjectOfInterest";
-import TutorExperience from "../../components/sections/tutorProfile/TutorsExperience";
-import EventsSection from "../../components/sections/home/EventsSection";
-import TutorReviews from "../../components/sections/tutorProfile/TutorReview";
-import PrivateScreenLayout from "../../components/layout/PrivateScreenLayout";
-import TutorHeader from "../../components/sections/tutorProfile/TutorHeader";
-import { tutorData } from "../../../mockData/TutorData";
-import { tutorProfileStyles } from "../../styles/componentsStyle/commonStyle/tutorProfileStyle";
-import { AvailablilityCalender } from "../../components/common/AvailablilityCalender";
-import { UserType } from "@/types/User/User";
-import { IMAGES } from "@/constants";
+import TutorBio from "@/components/sections/tutorProfile/TutorBio";
+import TutoSubjectOfInterest from "@/components/sections/tutorProfile/TutorSubjectOfInterest";
+import TutorExperience from "@/components/sections/tutorProfile/TutorsExperience";
+import EventsSection from "@/components/sections/home/EventsSection";
+import TutorReviews from "@/components/sections/tutorProfile/TutorReview";
+import PrivateScreenLayout from "@/components/layout/PrivateScreenLayout";
+import TutorHeader from "@/components/sections/tutorProfile/TutorHeader";
+import { tutorData } from "@/../mockData/TutorData";
+import { tutorProfileStyles } from "@/styles/componentsStyle/commonStyle/tutorProfileStyle";
+import { AvailablilityCalender } from "@/components/common/AvailablilityCalender";
 
-type propType = NativeStackScreenProps<any>;
 
-const TutorProfileScreen: React.FC<propType> = ({ route }) => {
-    
-    const user: UserType = {
-        firstName: route.params?.firstName || "John",
-        lastName: route.params?.lastName || "Doe",
-        imageUrl: route.params?.imageUrl || IMAGES.userPlaceholder,
-    }
+const TutorProfileScreen = () => {
+    const route = useRoute();
+    const { userId } = route?.params as { userId: string };
+    const { user } = useGetUser(userId);
     return (
         <PrivateScreenLayout showBackButton={true} showSearchBar={false}>
             <View style={tutorProfileStyles.tutorProfileContainer}>
@@ -44,7 +39,7 @@ const TutorProfileScreen: React.FC<propType> = ({ route }) => {
                     <View>
                     <AvailablilityCalender
                         onDateSelect={() => {}}
-                        selectedTutor={tutorData.bookedOutDates || undefined} // pass in the tutor you have selected
+                        selectedTutor={tutorData.bookedOutDates || undefined} // pass in the user you have selected
                         minDate={new Date().toISOString().split('T')[0]}
       />
                         {/* <CustomCalendar isClickable={true} selectedDates={tutorData.bookedDays} /> */}
