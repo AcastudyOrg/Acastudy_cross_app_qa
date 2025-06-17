@@ -111,15 +111,6 @@ const client = new ApolloClient({
             ResponseDataOfUsers: { keyFields: false },
             // Main entity types
             User: { keyFields: ["id"] },
-            // Root query fields
-            Query: {
-                fields: {
-                    getUser: { merge: false },
-                    getAllUsers: { merge: false },
-                    getAllTutors: { merge: false },
-                    // Add other fields as needed
-                },
-            },
         },
     }),
     defaultOptions: {
