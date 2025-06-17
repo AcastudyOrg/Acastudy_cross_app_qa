@@ -27,9 +27,15 @@ interface UpcomingEvent {
 }
 
 const StudentProfileScreen = () => {
-	const { user, loadingUser, refetch } = useGetUser();
+	const { user, refetch } = useGetUser();
+
 	const [modalVisible, setModalVisible] = useState(false);
+	const [interests, setInterests] = React.useState<string[]>([]);
 	const [selectedItem, setSelectedItem] = useState<UpcomingEvent | null>(null);
+
+	React.useEffect(() => {
+		if (user) setInterests(user.interests);
+	}, [user]);
 
 	const controlModal = () => {
 		setModalVisible(!modalVisible);
@@ -47,8 +53,8 @@ const StudentProfileScreen = () => {
 		<PrivateScreenLayout showTopBar={false} mobileShowAppLogo={false}>
 			{user && <View style={profileScreenStyles.homeMainContainer}>
 				<TopProfileComponent user={user} />
-				<DeatilsFormComponent user={user} refetch={refetch} />
-				<SubjectOfInterest  refetch={refetch} subjects={user.interests ?? []} />
+				<DeatilsFormComponent interests={interests} user={user} refetch={refetch} />
+				<SubjectOfInterest subjects={interests} setSubjects={setInterests} />
 
 				<View style={profileScreenStyles.titleTextItemContainer}>
 					<Text style={profileScreenStyles.titleTextItem}>

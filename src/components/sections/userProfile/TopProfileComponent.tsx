@@ -16,11 +16,13 @@ const TopProfileComponent: React.FC<TopProfileProps> = ({ user }) => {
 
   return (
     <View style={profileScreenStyles.topProfileContainer}>
-      <Pressable onPress={() => setShowEditModal(true)} style={profileScreenStyles.topProfileImageContainer}>
-        <Image
-          source={user?.imageUrl ? { uri: user?.imageUrl } : IMAGES.userPlaceholder}
-          style={profileScreenStyles.topProfileImage}
-        />
+      <View style={profileScreenStyles.topProfileImageContainer}>
+        <Pressable onPress={() => setShowEditModal(true)}>
+          <Image
+            source={user?.imageUrl ? { uri: user?.imageUrl } : IMAGES.userPlaceholder}
+            style={profileScreenStyles.topProfileImage}
+          />
+        </Pressable>
         <View style={profileScreenStyles.topProfileTextNameContainer}>
           <Text style={profileScreenStyles.topProfileTextNameItem}>
             {user?.firstName} {user?.lastName}
@@ -32,7 +34,7 @@ const TopProfileComponent: React.FC<TopProfileProps> = ({ user }) => {
             {STRING.userPostCode}
           </Text>
         </View>
-      </Pressable>
+      </View>
       <TouchableOpacity style={profileScreenStyles.floatingButton} onPress={() => console.log("Settings")} >
         <CustomIcon set={"Feather"} name={"settings"} color={COLORS.white} />
       </TouchableOpacity>

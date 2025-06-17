@@ -5,7 +5,7 @@ import { useRoute } from "@react-navigation/native";
 import { useGetUser } from "@/graphql/hooks/user";
 
 import TutorBio from "@/components/sections/tutorProfile/TutorBio";
-import TutoSubjectOfInterest from "@/components/sections/tutorProfile/TutorSubjectOfInterest";
+import TutorSubjectOfInterest from "@/components/sections/tutorProfile/TutorSubjectOfInterest";
 import TutorExperience from "@/components/sections/tutorProfile/TutorsExperience";
 import EventsSection from "@/components/sections/home/EventsSection";
 import TutorReviews from "@/components/sections/tutorProfile/TutorReview";
@@ -29,7 +29,7 @@ const TutorProfileScreen = () => {
                     reviews={tutorData.reviews}
                 />
                 <TutorBio text={tutorData.bio} />
-                <TutoSubjectOfInterest subjects={tutorData.subjects} />
+                <TutorSubjectOfInterest subjects={tutorData.subjects} />
                 <TutorExperience experiences={tutorData.experiences} />
                 <EventsSection upcomingEventsData={tutorData.upcomingEvents} showViewMoreButton={tutorData.upcomingEvents.length > 4} />
                 <TutorReviews rating={tutorData.rating} reviewCounts={tutorData.reviewCounts} />

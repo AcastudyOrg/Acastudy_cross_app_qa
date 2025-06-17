@@ -5,7 +5,7 @@ import { isPlatformIOSorAndroid } from '../../../../../utils/config';
 export const studentSubjectOfInterestStyles = StyleSheet.create({
     section: {
         padding: 1,
-        gap: 10
+        gap: 10,
     },
     sectionTitle: {
         fontSize: SIZE.xl,

@@ -6,7 +6,7 @@ import { COLORS } from "../../../constants";
 interface CustomNoStrokeTextInputProps {
   placeholder: string;
   value: string;
-  label: string;
+  label?: string;
   labelStyle?: StyleProp<TextStyle>;
   multiline?: boolean;
   onChange: (text: string) => void;
@@ -23,7 +23,7 @@ const CustomNoStrokeTextInput: React.FC<CustomNoStrokeTextInputProps> = ({
 
   return (
     <View style={customNoStrokeTextInputStyles.inputContainer}>
-      <Text
+      {label && <Text
         style={[
           customNoStrokeTextInputStyles.inputLabel,
           { paddingVertical: multiline ? 10 : 0 },
@@ -31,14 +31,14 @@ const CustomNoStrokeTextInput: React.FC<CustomNoStrokeTextInputProps> = ({
         ]}
       >
         {label}
-      </Text>
+      </Text>}
       <TextInput
         value={value}
         onChangeText={onChange}
         placeholder={placeholder}
         multiline={multiline}
         placeholderTextColor={COLORS.lightGray}
-                style={[
+        style={[
           customNoStrokeTextInputStyles.input,
           { minHeight: multiline ? 100 : 40 },
         ]}

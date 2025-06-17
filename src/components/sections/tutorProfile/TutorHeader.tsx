@@ -26,7 +26,6 @@ const TutorHeader: React.FC<TutorHeaderProps> = ({ user, rating, reviews, isEdit
 	const handleEditProfile = () => {
 		setShowEditModal(true);
 	};
-	console.log("isPlatformIOSorAndroid:", isPlatformIOSorAndroid())
 	return (
 		<View style={tutorHeaderStyles.container}>
 			<View style={tutorHeaderStyles.header}>

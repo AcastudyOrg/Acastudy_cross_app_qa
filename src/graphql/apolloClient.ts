@@ -104,7 +104,24 @@ const errorLink = onError(({ graphQLErrors, networkError, operation, forward }) 
 
 const client = new ApolloClient({
     link: ApolloLink.from([errorLink, authLink.concat(httpLink)]),
-    cache: new InMemoryCache(),
+    cache: new InMemoryCache({
+        typePolicies: {
+            // Wrapper types
+            ResponseDataOfUser: { keyFields: false },
+            ResponseDataOfUsers: { keyFields: false },
+            // Main entity types
+            User: { keyFields: ["id"] },
+            // Root query fields
+            Query: {
+                fields: {
+                    getUser: { merge: false },
+                    getAllUsers: { merge: false },
+                    getAllTutors: { merge: false },
+                    // Add other fields as needed
+                },
+            },
+        },
+    }),
     defaultOptions: {
         watchQuery: {
             fetchPolicy: 'cache-and-network',

@@ -11,23 +11,43 @@ import CustomIcon from "@/components/common/CustomIcon";
 import { COLORS } from "@/constants";
 import { UserType } from "@/types/User/User";
 interface DeatilsFormProps {
+    interests: string[];
     user: UserType;
     refetch: () => void;
 }
 
-const DeatilsFormComponent: React.FC<DeatilsFormProps> = ({ user, refetch }) => {
+const DeatilsFormComponent: React.FC<DeatilsFormProps> = ({ interests, user, refetch }) => {
     const { updateUser, updating } = useUpdateUser();
 
-    const [levelOfStudy, setEducation] = React.useState<string>("");
-    const [school, setSchool] = React.useState<string>("");
-    const [gender, setGender] = React.useState<string>("");
-    const [curriculum, setCurriculum] = React.useState<string>("");
-    const [biography, setBiography] = React.useState<string>("");
+    const [levelOfStudy, setEducation] = React.useState<string>(user?.levelOfStudy || "");
+    const [school, setSchool] = React.useState<string>(user?.school || "");
+    const [gender, setGender] = React.useState<string>(user?.gender || "");
+    const [curriculum, setCurriculum] = React.useState<string>(user?.curriculum || "");
+    const [biography, setBiography] = React.useState<string>(user?.biography || "");
     const [isEdited, setIsEdited] = React.useState<boolean>(false);
     const [iconColor, setIconColor] = React.useState<string>(COLORS.grayWhiteText40persent);
 
+    React.useEffect(() => {
+        const interestsChanged = JSON.stringify(interests) !== JSON.stringify(user?.interests);
+        const fieldsChanged =
+            isEditedField(levelOfStudy, user?.levelOfStudy) ||
+            isEditedField(school, user?.school) ||
+            isEditedField(gender, user?.gender) ||
+            isEditedField(curriculum, user?.curriculum) ||
+            isEditedField(biography, user?.biography);
+
+        if (interestsChanged || fieldsChanged) {
+            setIconColor(COLORS.purple);
+            setIsEdited(true);
+        } else {
+            setIconColor(COLORS.grayWhiteText40persent);
+            setIsEdited(false);
+        }
+    }, [interests, levelOfStudy, school, gender, curriculum, biography, user]);
+
+
     const onPersonalInfoSave = async () => {
-        const formFields = { levelOfStudy, school, gender, curriculum, biography }
+        const formFields = { levelOfStudy, school, gender, curriculum, biography, interests }
         const updatedFields = Object.fromEntries(Object.entries(formFields).filter(([_, value]) => value.length > 0));
         const payload = {
             id: user?.id,
@@ -39,7 +59,6 @@ const DeatilsFormComponent: React.FC<DeatilsFormProps> = ({ user, refetch }) => 
                 setIconColor(COLORS.grayWhiteText40persent);
                 setIsEdited(false);
                 refetch();
-                clearForm();
             }
             else throw res.data.updateUser;
         }).catch((err) => {
@@ -47,24 +66,7 @@ const DeatilsFormComponent: React.FC<DeatilsFormProps> = ({ user, refetch }) => 
         })
     }
 
-    const clearForm = () => {
-        setSchool("");
-        setEducation("");
-        setGender("");
-        setCurriculum("");
-        setBiography("");
-    }
-
-    React.useEffect(() => {
-        if (isEditedField(levelOfStudy) || isEditedField(school) || isEditedField(gender) || isEditedField(curriculum) || isEditedField(biography)) {
-            setIconColor(COLORS.purple);
-            setIsEdited(true);
-        } else {
-            setIconColor(COLORS.grayWhiteText40persent);
-            setIsEdited(false);
-        }
-    }, [levelOfStudy, school, gender, curriculum, biography]);
-    const isEditedField = (textfield: string): Boolean => textfield.length > 0;
+    const isEditedField = (textfield: string, compare_str?: string): Boolean => textfield !== compare_str;
 
     return (
         <View>

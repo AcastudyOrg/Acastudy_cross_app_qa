@@ -15,4 +15,23 @@ export const tutorProfileStyles = StyleSheet.create({
         color: COLORS.white,
         bottom: 20,
     },
+    personalInfoContainer: {
+        marginHorizontal: 15,
+    },
+    personalInfoTitleContainer: {
+        width: "100%",
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+    },
+    sectionTitle: {
+        fontSize: SIZE.xl,
+        fontFamily: FONT.plusJakartaMedium,
+        color: COLORS.white,
+        marginBottom: 10,
+    },
+    personalInfoSaveButton: {
+        right: 0,
+        bottom: 5,
+    },
 })

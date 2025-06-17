@@ -100,7 +100,6 @@ const PrivateScreenLayout: React.FC<PrivatePropType> = ({
   const { user } = useGetUser();
   const viewMode = useGetRole() || ""
 
-  console.log("PrivateScreenLayout user", viewMode);
   return (
     <SafeAreaView style={[ privateScreenLayoutStyles.layoutContainer,{ flexDirection: isMobileWidth ? "column" : "row" }]}>
       {isMobileWidth ? (

@@ -1,4 +1,5 @@
 export const STRING = {
+  bio: "Bio",
   searchPlaceholder: "Search...",
   becomeATutor: "Become A Tutor",
   logout: "logout",

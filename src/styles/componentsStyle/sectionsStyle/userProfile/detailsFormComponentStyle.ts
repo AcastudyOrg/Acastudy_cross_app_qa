@@ -37,7 +37,7 @@ export const detailsFormComponentStyles = StyleSheet.create({
         top: 10,
     },
     personalInfoSaveButton: {
-        right: 0,
         bottom: 5,
+        cursor: "pointer",
     },
 });
