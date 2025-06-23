@@ -26,6 +26,8 @@ export interface TutorData {
   }
 
   export interface Experience {
+    id: string;
+    userId: string;
     company: string;
     period: string;
     position: string;

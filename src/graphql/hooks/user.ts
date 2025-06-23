@@ -1,6 +1,6 @@
 import React from "react";
 import { useMutation, useQuery } from "@apollo/client";
-import { updateUserMutation, getUserQuery, getAllTutorsQuery } from "@/graphql/api/auth";
+import { updateUserMutation, getUserQuery, getAllTutorsQuery } from "@/graphql/api/user";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const useUpdateUser = () => {

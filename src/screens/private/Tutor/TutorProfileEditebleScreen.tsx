@@ -100,7 +100,7 @@ const TutorProfileEditebleScreen = () => {
                 </View>
                 <View style={{ paddingStart: 10 }}>
                     <SubjectOfInterest subjects={interests} setSubjects={setInterests} showSubjectOfInterestPlaceholder={true} />
-                    <TutorExperience experiences={tutorData.experiences} showExperiencePlaceholder />
+                    <TutorExperience user={user} experiences={tutorData.experiences} showExperiencePlaceholder />
                 </View>
                 <EventsSection upcomingEventsData={tutorData.upcomingEvents} showViewMoreButton={tutorData.upcomingEvents.length > 4} />
                 <TutorReviews rating={tutorData.rating} reviewCounts={tutorData.reviewCounts} />
