@@ -31,6 +31,7 @@ const TutorExperience: React.FC<ExperienceProps> = ({
         closeModal,
         loading_add,
         loading_delete,
+        loading_update,
     } = useTutorExperienceViewModel(user);
 
     return (
@@ -71,6 +72,7 @@ const TutorExperience: React.FC<ExperienceProps> = ({
             <ExperienceModal
                 loading={loading_add}
                 loading_delete={loading_delete}
+                loading_update={loading_update}
                 visible={modalVisible}
                 onClose={closeModal}
                 onSave={handleSave}

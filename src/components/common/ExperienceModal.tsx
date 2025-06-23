@@ -10,10 +10,11 @@ interface ExpInput {
 interface Props {
     loading?: boolean;
     loading_delete?: boolean;
+    loading_update?: boolean;
     visible: boolean;
     onClose: () => void;
     onSave: (exp: ExpInput, index?: number) => void;
-    onUpdate: (exp: ExpInput, index?: number) => void;
+    onUpdate: (exp: ExpInput, expId: string, index?: number) => void;
     onDelete?: (expId: string) => void;
     experience?: Experience;
     index?: number;
@@ -22,6 +23,7 @@ interface Props {
 const ExperienceModal: React.FC<Props> = ({
     loading = false,
     loading_delete = false,
+    loading_update = false,
     visible,
     onClose,
     onSave,
@@ -58,11 +60,11 @@ const ExperienceModal: React.FC<Props> = ({
                     <View style={experienceModelStyles.ctaButtons}>
                         <Pressable
                             style={[experienceModelStyles.button, { backgroundColor: COLORS.purple }]}
-                            onPress={() => experience ? onUpdate({ company, period, position }, index)
+                            onPress={() => experience ? onUpdate({ company, period, position }, experience.id, index)
                                 : onSave({ company, period, position }, index)
                             }
                         >
-                            {loading ?
+                            {loading || loading_update ?
                                 <ActivityIndicator color={COLORS.white} size={"small"} /> :
                                 <Text style={{ color: COLORS.white }}>Save</Text>}
                         </Pressable>

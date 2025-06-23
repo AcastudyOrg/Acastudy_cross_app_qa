@@ -20,9 +20,9 @@ export const useUpdateExperience = () => {
             if (!updateExperience) return;
             cache.writeQuery({
                 query: userExperiencesQuery,
-                variables: { id: updateExperience.userId },
+                variables: { userId: updateExperience.userId },
                 data: {
-                    getExperience: {
+                    getExperiencesByUserId: {
                         data: {
                             ...updateExperience,
                         },

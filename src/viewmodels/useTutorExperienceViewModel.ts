@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useAddExperience, useUserExperiences, useDeleteExperience } from '@/graphql/hooks/experience';
+import { useAddExperience, useUserExperiences, useDeleteExperience, useUpdateExperience } from '@/graphql/hooks/experience';
 import { Experience } from '@/types/User/Tutor';
 import { UserType } from '@/types/User/User';
 
@@ -10,6 +10,7 @@ interface ExpInput {
 export const useTutorExperienceViewModel = (user: UserType) => {
     const { addExperience, loading_add } = useAddExperience();
     const { deleteExperience, loading_delete } = useDeleteExperience();
+    const { updateExperience, loading_update } = useUpdateExperience();
     const { user_experiences } = useUserExperiences();
 
     const [experiences, setExperiences] = useState<Experience[]>([]);
@@ -33,7 +34,7 @@ export const useTutorExperienceViewModel = (user: UserType) => {
         setModalVisible(true);
     };
 
-    const handleSave = async (exp: ExpInput, index?: number) => {
+    const handleSave = async (exp: ExpInput) => {
         try {
             const res = await addExperience({
                 variables: {
@@ -57,13 +58,24 @@ export const useTutorExperienceViewModel = (user: UserType) => {
         setModalVisible(false);
     };
 
-    const handleUpdate = async (exp: ExpInput, index?: number) => {
-        if (index !== undefined) {
-            const updated = [...experiences];
-            updated[index] = { ...updated[index], ...exp };
-            setExperiences(updated);
-        }
-        setModalVisible(false);
+    const handleUpdate = async (exp: ExpInput, expId: string, index?: number) => {
+        await updateExperience({
+            variables: {
+                id: expId, experienceInput: exp
+            }
+        }).then((res) => {
+            if (res.data.updateExperience.status === 200) {
+                if (index !== undefined) {
+                    const updated = [...experiences];
+                    updated[index] = res.data.updateExperience.data;
+                    setExperiences(updated);
+                    setModalVisible(false);
+                }
+            }
+            else throw res.data.updateExperience;
+        }).catch((err) => {
+            console.log(err.message);
+        })
     };
 
     const handleDelete = async (expId: string) => {
@@ -96,5 +108,6 @@ export const useTutorExperienceViewModel = (user: UserType) => {
         closeModal: () => setModalVisible(false),
         loading_add,
         loading_delete,
+        loading_update,
     };
 };

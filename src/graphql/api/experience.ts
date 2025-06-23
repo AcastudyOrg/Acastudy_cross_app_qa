@@ -26,7 +26,7 @@ mutation addExperience(
 }`;
 
 const updateExperienceMutation = gql`
-mutation updateExperience($id: String!, $experienceInput: UpdateExperienceDto!) {
+mutation updateExperience($id: ID!, $experienceInput: ExperienceDto!) {
     updateExperience(id: $id, experienceInput: $experienceInput) {
         data {
             id,
