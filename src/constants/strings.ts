@@ -53,8 +53,10 @@ export const STRING = {
   OnbordingBecomeATutorSecondInfoExtraInfo:
     "Sign up now as a tutor on Acastudy and empower students with your expertise!",
   OnbordingBecomeATutorButtonText: "Sign up as a Tutor",
+  tutorBio:
+    "I’m a patient and enthusiastic tutor committed to helping learners achieve their academic and personal goals. I focus on creating a positive and supportive learning environment where students feel comfortable asking questions and exploring new concepts. My approach is adaptable to different learning styles, and I aim to build both confidence and understanding in every session. I'm here to support your growth, one step at a time!",
   studentBio:
-    "A student bio is a short introduction about yourself that is commonly used in academic settings. It is a way for you to showcase your achievements, goals, and personal qualities. Writing an effective student bio can be a daunting task, but with the right approach, you can create a compelling bio that will leave a lasting impression.",
+    "I’m a motivated and curious student who enjoys learning and taking on new challenges. I’m always looking for opportunities to grow both academically and personally. I value hard work, ask questions when I need help, and strive to stay consistent in everything I do. I’m excited to keep improving and making the most of every learning experience.",
 
   username: "Tokyo Maeliner",
   userAddress: "San Francisco, CA",

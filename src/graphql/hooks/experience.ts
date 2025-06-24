@@ -16,18 +16,21 @@ export const useAddExperience = () => {
 export const useUpdateExperience = () => {
     const [updateExperience, { loading: loading_update }] = useMutation(updateExperienceMutation, {
         update(cache, { data }) {
-            const updateExperience = data?.updateExperience?.data;
-            if (!updateExperience) return;
-            cache.writeQuery({
-                query: userExperiencesQuery,
-                variables: { userId: updateExperience.userId },
-                data: {
-                    getExperiencesByUserId: {
-                        data: {
-                            ...updateExperience,
-                        },
-                        message: "Cache success",
-                        status: data.updateExperience.status,
+            const updated = data?.updateExperience?.data;
+            if (!updated) return;
+            cache.modify({
+                fields: {
+                    getExperiencesByUserId(existing = {}, { readField }) {
+                        if (!existing.data) return existing;
+                        const updatedData = existing.data.map((exp: any) =>
+                            readField("id", exp) === updated.id ? { ...exp, ...updated } : exp
+                        );
+                        return {
+                            ...existing,
+                            data: updatedData,
+                            message: "Cache success",
+                            status: data.updateExperience.status,
+                        };
                     },
                 },
             });
@@ -52,7 +55,7 @@ export const useUserExperiences = (uid?: string) => {
         skip: !userId,
     });
 
-    return { user_experiences: data?.getExperiencesByUserId?.data, loading_get, refetch };
+    return { user_experiences: data?.getExperiencesByUserId?.data || [], loading_get, refetch };
 };
 
 export const useDeleteExperience = () => {

@@ -8,17 +8,15 @@ export const useUpdateUser = () => {
         update(cache, { data }) {
             const updatedUser = data?.updateUser?.data;
             if (!updatedUser) return;
-            cache.writeQuery({
-                query: getUserQuery,
-                variables: { id: updatedUser.id },
-                data: {
-                    getUser: {
-                        data: {
-                            ...updatedUser,
-                        },
-                        message: "Cache success",
-                        status: data.updateUser.status,
-                    },
+            cache.modify({
+                id: cache.identify({ __typename: "User", id: updatedUser.id }),
+                fields: {
+                    ...Object.fromEntries(
+                        Object.entries(updatedUser).map(([key, value]) => [
+                            key,
+                            () => value,
+                        ])
+                    ),
                 },
             });
         },
