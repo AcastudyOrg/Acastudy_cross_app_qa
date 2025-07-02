@@ -4,6 +4,7 @@ import { COLORS } from "../../../constants";
 
 export const availablilityCalenderStyles = StyleSheet.create({
     container: {
+      flex: 1,
       borderRadius: 10,
       overflow: 'hidden',
       ...Platform.select({

@@ -1,29 +1,26 @@
-{
-  /* Public Route Screens */
-}
-import OnboardingScreen from "./public/OnboardingScreen";
-import PrivacyPolicyScreen from "./public/policies/PrivacyPolicyScreen";
-import TermsOfUseScreen from "./public/policies/TermsOfUseScreen";
-import SignInScreen from "./public/SignInScreen";
-import SignUpScreen from "./public/SignUpScreen";
-import PasswordScreen from "./public/PasswordScreen";
-import VerifyEmailScreen from "./public/VerifyEmailScreen";
-import ForgotPasswordScreen from "./public/ForgotPasswordScreen";
+// Public Route Screens
+import OnboardingScreen from "@/screens/public/OnboardingScreen";
+import PrivacyPolicyScreen from "@/screens/public/policies/PrivacyPolicyScreen";
+import TermsOfUseScreen from "@/screens/public/policies/TermsOfUseScreen";
+import SignInScreen from "@/screens/public/SignInScreen";
+import SignUpScreen from "@/screens/public/SignUpScreen";
+import PasswordScreen from "@/screens/public/PasswordScreen";
+import VerifyEmailScreen from "@/screens/public/VerifyEmailScreen";
+import ForgotPasswordScreen from "@/screens/public/ForgotPasswordScreen";
 
-{
-  /* Private Route Screens */
-}
-import WelcomeScreen from "./private/WelcomeScreen";
-import ChatScreen from "./private/ChatScreen";
-import CallScreen from "./private/CallScreen";
-import HomeScreen from "./private/HomeScreen";
-import StudentProfileScreen from "./private/StudentProfileScreen";
-import StudyScreen from "./private/StudyScreen";
-import SubjectTopicsScreen from "./private/subjects/SubjectTopicsScreen";
-import TutorsScreen from "./private/tutors/TutorsScreen";
-import TutorProfileScreen from "./private/TutorProfileScreen";
-import SubjectScreen from "./private/subjects/SubjectsScreen";
-import RequestTutorScreen from "./private/RequestTutorScreen";
+//Private Route Screens 
+import ChatScreen from "@/screens/private/ChatScreen";
+import CallScreen from "@/screens/private/CallScreen";
+import HomeScreen from "@/screens/private/HomeScreen";
+import StudentProfileScreen from "@/screens/private/StudentProfileScreen";
+import StudyScreen from "@/screens/private/StudyScreen";
+import SubjectTopicsScreen from "@/screens/private/subjects/SubjectTopicsScreen";
+import TutorsScreen from "@/screens/private/tutors/TutorsScreen";
+import TutorProfileScreen from "@/screens/private/TutorProfileScreen";
+import SubjectScreen from "@/screens/private/subjects/SubjectsScreen";
+import RequestTutorScreen from "@/screens/private/RequestTutorScreen";
+import QuestioneirScreen from "@/screens/public/QuestioneirScreen";
+import QuestioneirScreenTwo from "@/screens/public/QuestioneirScreenTwo";
 
 export {
   OnboardingScreen,
@@ -33,8 +30,9 @@ export {
   SignUpScreen,
   PasswordScreen,
   VerifyEmailScreen,
+  QuestioneirScreen,
+  QuestioneirScreenTwo,
   ForgotPasswordScreen,
-  WelcomeScreen,
   ChatScreen,
   CallScreen,
   HomeScreen,

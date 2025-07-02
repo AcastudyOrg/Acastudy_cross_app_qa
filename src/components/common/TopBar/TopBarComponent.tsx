@@ -5,8 +5,8 @@ import { useNavigation } from '@react-navigation/native';
 import useScreenWidth from '../../../hooks/useScreenWidth';
 import LeftSection from './LeftSection';
 import RightSection from './RightSection';
-import { User } from '../../../types/User/Student';
 import { topBarComponentStyles } from '../../../styles/componentsStyle/commonStyle/topBarStyle/topBarComponentStyle';
+import { UserType } from '@/types/User/User';
 
 type TopBarProps = {
 	title?: string;
@@ -17,7 +17,8 @@ type TopBarProps = {
 	isLSignedIn?: boolean;
 	showBecomeATutorOnly?: boolean;
 	showBackButton?: boolean;
-	user?: User;
+	user?: UserType;
+	viewMode?: string;
 };
 /*
 TopBarComponent
@@ -36,7 +37,7 @@ const TopBarComponent: React.FC<TopBarProps> = ({
 	isLSignedIn = true,
 	showBecomeATutorOnly = true,
 	showBackButton = false,
-	user = null,
+	viewMode,
 }) => {
 	const navigation = useNavigation<any>();
 	const screenWidth = useScreenWidth();
@@ -51,13 +52,13 @@ const TopBarComponent: React.FC<TopBarProps> = ({
 					showSearchBar={showSearchBar}
 					showBackButton={showBackButton}
 				/>
-				{renderRightSection && user && (
+				{renderRightSection && (
 					<RightSection
 						screenWidth={screenWidth}
-						user={user}
 						navigation={navigation}
 						isLSignedIn={isLSignedIn}
 						showBecomeATutorOnly={showBecomeATutorOnly}
+						viewMode={viewMode}
 					/>
 				)}
 			</View>

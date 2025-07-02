@@ -1,5 +1,5 @@
-
 export const STRING = {
+  bio: "Bio",
   searchPlaceholder: "Search...",
   becomeATutor: "Become A Tutor",
   logout: "logout",
@@ -24,6 +24,7 @@ export const STRING = {
   selectDate: "Select Date",
   studyTitle: "What you might like!",
 
+  logoutDescription: "Are you sure you want to sign out?",
   forgotPasswordSubTitle:
     "To reset your password, please provide your email address in the field below.",
 
@@ -52,8 +53,10 @@ export const STRING = {
   OnbordingBecomeATutorSecondInfoExtraInfo:
     "Sign up now as a tutor on Acastudy and empower students with your expertise!",
   OnbordingBecomeATutorButtonText: "Sign up as a Tutor",
+  tutorBio:
+    "I’m a patient and enthusiastic tutor committed to helping learners achieve their academic and personal goals. I focus on creating a positive and supportive learning environment where students feel comfortable asking questions and exploring new concepts. My approach is adaptable to different learning styles, and I aim to build both confidence and understanding in every session. I'm here to support your growth, one step at a time!",
   studentBio:
-    "A student bio is a short introduction about yourself that is commonly used in academic settings. It is a way for students to showcase their achievements, goals, and personal qualities. Writing an effective student bio can be a daunting task, but with the right approach, you can create a compelling bio that will leave a lasting impression. In this article, we will discuss why a student bio is important, what to include in a student bio, provide some student bio examples, and share tips for writing an effective student bio.",
+    "I’m a motivated and curious student who enjoys learning and taking on new challenges. I’m always looking for opportunities to grow both academically and personally. I value hard work, ask questions when I need help, and strive to stay consistent in everything I do. I’m excited to keep improving and making the most of every learning experience.",
 
   username: "Tokyo Maeliner",
   userAddress: "San Francisco, CA",
@@ -83,6 +86,7 @@ export const STRING = {
   time: "Select Time",
   description: "Description",
   descriptionHendler: "Describe that of which you are requesting a tutor for",
+  learningObjectivePlaceHolder: "What are your learning objectives?",
   noAvailableTimeSlots: "No available time slots for selected date",
   requiredFieldHeader: "Complete all required fields (✷) to find your perfect tutor match",
 
@@ -94,14 +98,21 @@ export const STRING = {
   instantMeeting: "Instant Meeting",
   startNewMeeting: "Start a new meeting",
 
+  questinnierTitle: "Let us know you more!",
+  questinnierSubtitle: "Please fill in the following details to help us know you better.",
+
+  questinnierTwoTitle: "Almost there!",
+  questinnierTwoSubtitle: "One last step and we are ready to go.",
+
+
 };
 
 export const NAV_SCREEN_NAME = {
   HomeScreen: "HomeScreen",
   WelcomeScreen: "WelcomeScreen",
-  CallScreen: "CallScreen",
+  CallScreen: "CallScrewen",
   ChatScreen: "ChatScreen",
-  StudentProfileScreen: "StudentProfileScreen",
+  ProfileScreen: "ProfileScreen",
   StudyScreen: "StudyScreen",
 
   SignInScreen: "SignInScreen",
@@ -110,9 +121,11 @@ export const NAV_SCREEN_NAME = {
   ForgotPasswordScreen: "ForgotPasswordScreen",
   OnboardingScreen: "OnboardingScreen",
   VerifyEmailScreen: "VerifyEmailScreen",
+  QuestioneirScreen: "QuestioneirScreen",
+  QuestioneirScreenTwo: "QuestioneirScreenTwo",
 
   SubjectTopicsScreen: "SubjectTopicsScreen",
-  TutorScreen: "TutorScreen",
+  TutorsScreen: "TutorsScreen",
   SubjectScreen: "SubjectScreen",
   TutorProfileScreen: "TutorProfileScreen",
   TermsOfUseScreen: "TermsOfUseScreen",
@@ -125,3 +138,8 @@ export const DEVICE_TYPE = {
   tablet: "tablet",
   desktop: "desktop",
 };
+
+export const VIEW_MODE = {
+  studentView: "STUDENT",
+  tutorView: "TUTOR",
+}

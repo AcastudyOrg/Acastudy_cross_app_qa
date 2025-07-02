@@ -1,23 +1,34 @@
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { View, Text, Image, TouchableOpacity, Pressable } from "react-native";
 import { profileScreenStyles } from "../../../styles/screensStyle/privateStyle/profileScreenStyle";
 import { STRING } from "../../../constants/strings";
 import { COLORS, IMAGES } from "../../../constants";
 import CustomIcon from "../../common/CustomIcon";
+import { UserType } from "@/types/User/User";
+import EditProfileModal from "@/components/common/EditTutorProfileModal";
+import React, { useState } from "react";
 
-const TopProfileComponent = () => {
+interface TopProfileProps {
+  user: UserType;
+}
+
+const TopProfileComponent: React.FC<TopProfileProps> = ({ user }) => {
+  const [showEditModal, setShowEditModal] = useState(false);
+
   return (
     <View style={profileScreenStyles.topProfileContainer}>
       <View style={profileScreenStyles.topProfileImageContainer}>
-        <Image
-          source={{ uri: IMAGES.studentPicture }}
-          style={profileScreenStyles.topProfileImage}
-        />
+        <Pressable onPress={() => setShowEditModal(true)}>
+          <Image
+            source={user?.imageUrl ? { uri: user?.imageUrl } : IMAGES.userPlaceholder}
+            style={profileScreenStyles.topProfileImage}
+          />
+        </Pressable>
         <View style={profileScreenStyles.topProfileTextNameContainer}>
           <Text style={profileScreenStyles.topProfileTextNameItem}>
-            {STRING.username}
+            {user?.firstName} {user?.lastName}
           </Text>
           <Text style={profileScreenStyles.topProfileTextNameItems}>
-            {STRING.userAddress}
+            {user?.address?.city}, {user?.address?.province}
           </Text>
           <Text style={profileScreenStyles.topProfileTextNameItems}>
             {STRING.userPostCode}
@@ -27,6 +38,13 @@ const TopProfileComponent = () => {
       <TouchableOpacity style={profileScreenStyles.floatingButton} onPress={() => console.log("Settings")} >
         <CustomIcon set={"Feather"} name={"settings"} color={COLORS.white} />
       </TouchableOpacity>
+
+      <EditProfileModal
+        user={user}
+        visible={showEditModal}
+        onClose={() => setShowEditModal(false)}
+      />
+
     </View>
   );
 };

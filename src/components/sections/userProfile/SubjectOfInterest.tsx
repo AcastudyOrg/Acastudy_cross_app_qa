@@ -1,26 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, Keyboard, TouchableOpacity } from 'react-native';
-import { STRING } from '../../../constants/strings';
-import { COLORS } from '../../../constants';
-import { studentSubjectOfInterestStyles } from '../../../styles/componentsStyle/sectionsStyle/userProfile/studentSubjectOfInterestStyles';
 
-interface StudentSubjectOfInterestProps {
+import { studentSubjectOfInterestStyles } from '@/styles/componentsStyle/sectionsStyle/userProfile/studentSubjectOfInterestStyles';
+import { detailsFormComponentStyles } from '@/styles/componentsStyle/sectionsStyle/userProfile/detailsFormComponentStyle';
+import { STRING } from '@/constants/strings';
+import { COLORS } from '@/constants';
+
+interface SubjectOfInterestProps {
     subjects: string[];
+    setSubjects: (subjects: string[]) => void;
+    showSubjectOfInterestPlaceholder?: boolean;
 }
 
-const StudentSubjectOfInterest: React.FC<StudentSubjectOfInterestProps> = ({ subjects }) => {
-    const [subjectList, setSubjectList] = useState(subjects);
+const SubjectOfInterest: React.FC<SubjectOfInterestProps> = ({ subjects, setSubjects, showSubjectOfInterestPlaceholder = false }) => {
     const [newSubject, setNewSubject] = useState('');
 
     const handleAddSubject = () => {
         const trimmedSubject = newSubject.trim();
         if (trimmedSubject !== '') {
-            const isDuplicate = subjectList.some(
-                subject => subject.toLowerCase() === trimmedSubject.toLowerCase()
+            const isDuplicate = subjects.some(
+                (subject: string) => subject.toLowerCase() === trimmedSubject.toLowerCase()
             );
-
             if (!isDuplicate) {
-                setSubjectList([...subjectList, trimmedSubject]);
+                setSubjects([...subjects, trimmedSubject]);
                 setNewSubject('');
                 Keyboard.dismiss();
             } else {
@@ -31,18 +33,20 @@ const StudentSubjectOfInterest: React.FC<StudentSubjectOfInterestProps> = ({ sub
     };
 
     const handleRemoveSubject = (indexToRemove: number) => {
-        setSubjectList(subjectList.filter((_, index) => index !== indexToRemove));
+        setSubjects(subjects.filter((_, index) => index !== indexToRemove));
     };
 
     return (
         <View style={studentSubjectOfInterestStyles.section}>
-            <Text style={studentSubjectOfInterestStyles.sectionTitle}>{STRING.subjectOfInterest}</Text>
+            <View style={[detailsFormComponentStyles.personalInfoTitleContainer, { top: 15 }]}>
+                <Text style={studentSubjectOfInterestStyles.sectionTitle}>{STRING.subjectOfInterest}</Text>
+            </View>
 
             <View style={studentSubjectOfInterestStyles.subjectsContainer}>
-                {subjectList.map((subject, index) => (
+                {subjects?.map((subject, index) => (
                     <View key={index} style={studentSubjectOfInterestStyles.subjectTag}>
                         <Text style={studentSubjectOfInterestStyles.subjectText}>{subject}</Text>
-                        <TouchableOpacity 
+                        <TouchableOpacity
                             onPress={() => handleRemoveSubject(index)}
                             style={studentSubjectOfInterestStyles.removeButton}
                         >
@@ -50,6 +54,11 @@ const StudentSubjectOfInterest: React.FC<StudentSubjectOfInterestProps> = ({ sub
                         </TouchableOpacity>
                     </View>
                 ))}
+                {showSubjectOfInterestPlaceholder && subjects?.length === 0 && (
+                    <View style={{ padding: 10 }}>
+                        <Text style={{ color: COLORS.white50Percent }}>No experience added yet.</Text>
+                    </View>
+                )}
             </View>
 
             <TextInput
@@ -65,4 +74,4 @@ const StudentSubjectOfInterest: React.FC<StudentSubjectOfInterestProps> = ({ sub
     );
 };
 
-export default StudentSubjectOfInterest;
+export default SubjectOfInterest;

@@ -62,7 +62,3 @@ export type WelcomeScreenNavigationProp = NativeStackNavigationProp<
   RootStackParamList,
   "WelcomeScreen"
 >;
-export type WelcomeScreenRouteProp = RouteProp<
-  RootStackParamList,
-  "WelcomeScreen"
->;

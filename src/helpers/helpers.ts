@@ -1,0 +1,23 @@
+import { IMAGES } from '@/constants';
+import * as ImagePicker from 'expo-image-picker';
+
+export const pickImage = async () => {
+    const result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        allowsEditing: true,
+        aspect: [1, 1],
+        quality: 0.7,
+    });
+
+    if (!result.canceled && result.assets?.[0].uri) {
+        return result.assets[0];
+    }
+    return null;
+};
+
+export const imageSource = (str?: string) => {
+    if(str?.includes("http") || str?.startsWith("file://") || str?.startsWith("data:image/")) {
+        return { uri: str };
+    }
+    return IMAGES.userPlaceholder;
+}

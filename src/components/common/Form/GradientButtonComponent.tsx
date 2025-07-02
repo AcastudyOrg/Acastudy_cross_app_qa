@@ -1,13 +1,14 @@
 import React from "react";
-import { Text, TouchableOpacity, View } from "react-native";
-
-import { ButtonProps } from "../../../types";
-import { buttonComponentStyles } from "../../../styles/componentsStyle/commonStyle/formStyle/buttonComponentStyle";
 import { LinearGradient } from "expo-linear-gradient";
-import { COLORS } from "../../../constants";
+import { Text, TouchableOpacity, View, ActivityIndicator } from "react-native";
+
+import { ButtonProps } from "@/types";
+import { buttonComponentStyles } from "@/styles/componentsStyle/commonStyle/formStyle/buttonComponentStyle";
+import { COLORS } from "@/constants";
 
 const GradientButtonComponent = ({
 	text,
+	loading,
 	onPress,
 	majorColor = COLORS.darkPurple,
 	middleColor = COLORS.purple
@@ -19,7 +20,8 @@ const GradientButtonComponent = ({
 				style={buttonComponentStyles.buttonContainer}
 			>
 				<View>
-					<Text style={buttonComponentStyles.buttonTextItem}> {text}</Text>
+					{loading ? <ActivityIndicator color={COLORS.white} size={"small"} /> :
+						<Text style={buttonComponentStyles.buttonTextItem}> {text}</Text>}
 				</View>
 			</LinearGradient>
 		</TouchableOpacity>

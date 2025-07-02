@@ -4,19 +4,11 @@ import { View, SafeAreaView, ScrollView } from "react-native";
 import { isNotMobile } from "../../../utils/config";
 import { privateScreenLayoutStyles } from "../../styles/componentsStyle/layoutStyle/privateScreenLayoutStyle";
 import TopBarComponent from "../common/TopBar/TopBarComponent";
-import { User } from "../../types/User/Student";
 import useScreenWidth from "../../hooks/useScreenWidth";
 
 const PublicScreenLayout = ({ children }: { children: React.ReactNode }) => {
     const screenWidth = useScreenWidth();
     const isNotMobileWidth = isNotMobile(screenWidth);
-
-    const user: User = {
-        id: "",
-        name: "",
-        surname: "",
-        profilePictureUrl: 0
-    };
 
     return (
         <SafeAreaView style={privateScreenLayoutStyles.layoutContainer}>
@@ -27,7 +19,6 @@ const PublicScreenLayout = ({ children }: { children: React.ReactNode }) => {
                         showAppName={true}
                         showSearchBar={false}
                         isLSignedIn={false}
-                        user={user}
                         showBecomeATutorOnly={false}
                     />
                     <ScrollView
@@ -47,7 +38,6 @@ const PublicScreenLayout = ({ children }: { children: React.ReactNode }) => {
                             showAppName={true}
                             showSearchBar={false}
                             isLSignedIn={false}
-                            user={user}
                             showBecomeATutorOnly={false}
                         />
                         <View style={privateScreenLayoutStyles.mainContent}>

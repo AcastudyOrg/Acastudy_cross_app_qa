@@ -11,6 +11,7 @@ export const authScreenStyle = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 20,
+    
   },
   container: {
     backgroundColor: '#fff',
@@ -71,5 +72,11 @@ export const authScreenStyle = StyleSheet.create({
     justifyContent: 'space-between',
     marginVertical: 5,
     width: '100%'
-  }
+  },
+  errorText: {
+    color: COLORS.red,
+    marginTop: 5,
+    fontSize: 12,
+    marginBottom: 5,
+  },
 });

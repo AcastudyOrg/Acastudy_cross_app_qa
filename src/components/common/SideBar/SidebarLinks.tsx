@@ -3,17 +3,23 @@ import { View, Text, TouchableOpacity } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 import CustomIcon from "../CustomIcon";
-import { navTabs } from "../../../navigation/navLinks";
+import { navStudentTabs, navTutorTabs } from "../../../navigation/navLinks";
 import { sidebarLinksStyles } from "../../../styles/componentsStyle/commonStyle/sideBarStyle/sidebarLinksStyle";
 import { COLORS } from "../../../constants";
+import { VIEW_MODE } from "@/constants/strings";
 
 type SidebarLinksProps = {
     screenWidth: number;
+    viewMode?: string;
 };
 
-const SidebarLinks: React.FC<SidebarLinksProps> = ({ screenWidth }) => {
+const SidebarLinks: React.FC<SidebarLinksProps> = ({ screenWidth, viewMode }) => {
     const navigation = useNavigation<any>();
     const route = useRoute();
+    
+    // choose which navigations links to use based on the view mode
+    const isStudent = VIEW_MODE.studentView === viewMode
+    const navTabs = isStudent ? navStudentTabs : navTutorTabs
 
     return (
         <View style={sidebarLinksStyles.sidebarLinksContainer}>
